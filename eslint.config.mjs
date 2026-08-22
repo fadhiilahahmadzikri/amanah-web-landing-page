@@ -30,7 +30,9 @@ export default antfu(
     // Ignored paths
     ignores: [
       '.alchemy/**/*',
+      'figma-*.json',
       'migrations/**/*',
+      'scripts/.figma-cache/**/*',
 
       // explicitly allow .claude
       '!.claude/',

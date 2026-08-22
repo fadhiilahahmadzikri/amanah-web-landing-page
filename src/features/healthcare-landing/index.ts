@@ -1,0 +1,1 @@
+export { AmanahLandingPage } from './AmanahLandingPage';

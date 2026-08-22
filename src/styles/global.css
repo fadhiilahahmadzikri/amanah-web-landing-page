@@ -36,6 +36,18 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-amanah-navy: var(--amanah-navy);
+  --color-amanah-blue: var(--amanah-blue);
+  --color-amanah-sky: var(--amanah-sky);
+  --color-amanah-icon-soft: var(--amanah-icon-soft);
+  --color-amanah-mint: var(--amanah-mint);
+  --color-amanah-muted: var(--amanah-muted);
+  --color-amanah-soft: var(--amanah-soft);
+  --font-sans: var(--font-plus-jakarta-sans), Arial, sans-serif;
+  --font-amanah-script: var(--font-caveat), cursive;
+  --font-amanah-serif: var(--font-lora), Georgia, serif;
+  --shadow-amanah-card: 0 24px 70px rgb(19 25 92 / 0.16);
+  --shadow-amanah-glow: 0 32px 90px rgb(25 42 160 / 0.24);
 }
 
 :root {
@@ -46,23 +58,30 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: #13195c;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --secondary: #ffffff;
+  --secondary-foreground: #13195c;
+  --muted: #f3f4f8;
+  --muted-foreground: #6b7484;
+  --accent: #f4f5fb;
+  --accent-foreground: #13195c;
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: #3171de;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+  --amanah-navy: #13195c;
+  --amanah-blue: #3171de;
+  --amanah-sky: #5e98c2;
+  --amanah-icon-soft: #dfe2f6;
+  --amanah-mint: #34d399;
+  --amanah-muted: #6b7484;
+  --amanah-soft: #f4f5fb;
 }
 
 .dark {
@@ -92,10 +111,13 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply overflow-x-hidden bg-background text-foreground antialiased;
   }
 }

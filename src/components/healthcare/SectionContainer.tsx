@@ -1,0 +1,15 @@
+import type { ReactNode } from 'react';
+import { cn } from '@/utils/Helpers';
+
+type SectionContainerProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+export function SectionContainer({ children, className }: SectionContainerProps) {
+  return (
+    <div className={cn('mx-auto w-full max-w-[1300px] px-5', className)}>
+      {children}
+    </div>
+  );
+}

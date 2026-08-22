@@ -1,10 +1,29 @@
 import type { Metadata, Viewport } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
+import { Caveat, Lora, Plus_Jakarta_Sans } from 'next/font/google';
 import { notFound } from 'next/navigation';
-import { DemoBadge } from '@/components/DemoBadge';
 import { routing } from '@/libs/I18nRouting';
 import '@/styles/global.css';
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  variable: '--font-plus-jakarta-sans',
+});
+
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-caveat',
+});
+
+const lora = Lora({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-lora',
+});
 
 export const metadata: Metadata = {
   icons: [
@@ -54,11 +73,15 @@ export default async function RootLayout(props: {
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body>
+      <body className={`
+        ${plusJakartaSans.variable}
+        ${caveat.variable}
+        ${lora.variable}
+        font-sans
+      `}
+      >
         <NextIntlClientProvider>
           {props.children}
-
-          <DemoBadge />
         </NextIntlClientProvider>
       </body>
     </html>
