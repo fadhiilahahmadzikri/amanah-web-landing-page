@@ -1,6 +1,5 @@
-import { MessageCircleIcon } from 'lucide-react';
 import Image from 'next/image';
-import { Separator } from '@/components/ui/separator';
+import { ViewportLine } from '@/components/healthcare';
 import { contactImage, contactItems } from '../data';
 import { SectionContainer } from './SectionContainer';
 
@@ -8,27 +7,30 @@ export function ContactSection() {
   return (
     <section
       id="kontak"
-      className="
-        bg-background py-16
-        md:py-24
-      "
+      className="bg-background"
     >
-      <SectionContainer>
+      <SectionContainer className="px-0 sm:px-0">
         <div className="
-          grid gap-12
+          relative
+          grid
           lg:grid-cols-[1fr_1.05fr]
         "
         >
-          <div className="flex flex-col gap-8">
+          <div className="
+            flex flex-col gap-8 border-b border-line bg-background px-6 py-12
+            lg:border-r lg:border-b-0
+            md:px-10 md:py-16
+          "
+          >
             <h2 className="
-              text-5xl/tight font-light text-amanah-navy
+              text-5xl/tight font-medium tracking-tight text-foreground
               md:text-7xl
             "
             >
               Mari Terhubung
             </h2>
             <p className="
-              max-w-xl text-lg/relaxed text-amanah-navy
+              max-w-xl text-lg/relaxed text-muted-foreground
               md:text-xl
             "
             >
@@ -36,19 +38,22 @@ export function ContactSection() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-6">
-            {contactItems.map((item, index) => (
+          <div className="
+            flex flex-col justify-center gap-8 bg-background px-6 py-12
+            md:px-10 md:py-16
+          "
+          >
+            {contactItems.map(item => (
               <div key={item.href} className="flex flex-col gap-3">
-                {index > 0 && <Separator />}
-                <p className="text-base font-semibold text-amanah-muted">
+                <p className="text-base font-semibold text-muted-foreground">
                   {item.label}
                 </p>
                 <a
                   href={item.href}
                   className="
-                    text-2xl font-bold wrap-break-word text-amanah-navy
-                    underline-offset-4
-                    hover:underline
+                    w-fit border-b border-line pb-0.5 text-2xl font-bold
+                    wrap-break-word text-foreground transition-colors
+                    hover:border-foreground/50
                     md:text-3xl
                   "
                 >
@@ -57,32 +62,23 @@ export function ContactSection() {
               </div>
             ))}
           </div>
+          <ViewportLine position="bottom" />
         </div>
 
-        <div className="
-          relative mt-20 aspect-1256/580 overflow-hidden rounded-3xl bg-muted
-        "
-        >
-          <Image
-            src={contactImage.src}
-            alt={contactImage.alt}
-            fill
-            sizes="(min-width: 1320px) 1256px, calc(100vw - 40px)"
-            className="object-cover"
-          />
-        </div>
-
-        <a
-          href="https://wa.me/6281392456664"
-          className="
-            mt-10 ml-auto flex size-14 items-center justify-center rounded-full
-            bg-amanah-navy text-background shadow-amanah-card transition-colors
-            hover:bg-primary/90
+        <div className="relative">
+          <div className="
+            relative aspect-1256/580 overflow-hidden bg-muted
           "
-          aria-label="Hubungi Amanah Healthcare via WhatsApp"
-        >
-          <MessageCircleIcon aria-hidden />
-        </a>
+          >
+            <Image
+              src={contactImage.src}
+              alt={contactImage.alt}
+              fill
+              sizes="(min-width: 1320px) 1256px, calc(100vw - 40px)"
+              className="object-cover"
+            />
+          </div>
+        </div>
       </SectionContainer>
     </section>
   );

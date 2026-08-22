@@ -1,4 +1,6 @@
+import type { ReactNode } from 'react';
 import {
+  ArrowUpRightIcon,
   AtSignIcon,
   LinkIcon,
   MapPinIcon,
@@ -7,9 +9,8 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import { AppConfig } from '@/utils/AppConfig';
-import { getI18nPath } from '@/utils/Helpers';
+import { cn, getI18nPath } from '@/utils/Helpers';
 import { AmanahLogo } from './AmanahLogo';
-import { ArrowCtaButton } from './ArrowCtaButton';
 import {
   healthcareContactItems,
   healthcareFooter,
@@ -17,12 +18,50 @@ import {
 } from './data';
 import { getHealthcareHref } from './healthcareNavigation';
 import { SectionContainer } from './SectionContainer';
+import { ViewportLine } from './ViewportLine';
 
 const socialIcons = [Share2Icon, XIcon, LinkIcon, AtSignIcon];
 
 type HealthcareFooterProps = {
   locale?: string;
 };
+
+type FooterPanelProps = {
+  children: ReactNode;
+  className?: string;
+  label: string;
+};
+
+type FooterRowProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+const mobilePanelDividerClassName = 'max-md:border-b max-md:border-line';
+
+function FooterRow({ children, className }: FooterRowProps) {
+  return (
+    <div className={cn('relative grid', className)}>
+      {children}
+      <ViewportLine position="bottom" />
+    </div>
+  );
+}
+
+function FooterPanel({ children, className, label }: FooterPanelProps) {
+  return (
+    <section className={cn('bg-background p-5 md:p-6', className)}>
+      <p className="
+        mb-5 text-xs font-semibold tracking-[0.16em] text-muted-foreground
+        uppercase
+      "
+      >
+        {label}
+      </p>
+      {children}
+    </section>
+  );
+}
 
 export function HealthcareFooter({
   locale = AppConfig.i18n.defaultLocale,
@@ -31,140 +70,166 @@ export function HealthcareFooter({
   const email = healthcareContactItems[0];
 
   return (
-    <footer className="bg-background px-5 pb-5">
-      <SectionContainer className="
-        rounded-3xl bg-amanah-navy px-6 py-16 text-background
-        md:px-24
-      "
-      >
-        <div className="
-          grid gap-12
-          lg:grid-cols-[1.05fr_1fr_1fr_0.85fr]
-        "
-        >
-          <div className="flex flex-col gap-14">
-            <AmanahLogo
-              locale={locale}
-              textClassName="text-background"
-              markClassName="bg-background"
-            />
-            <address className="
-              max-w-xs text-xl/relaxed text-background/90 not-italic
-            "
-            >
-              {healthcareFooter.address}
-            </address>
-            <p className="text-lg/relaxed text-background/65">
-              © 2026,
-              {' '}
-              <a
-                href={getI18nPath('/', locale)}
-                className="underline underline-offset-4"
-              >
-                Klinik Amanah Healthcare.
-              </a>
-              <br />
-              All Rights Reserved.
-            </p>
-          </div>
-
-          <div className="
-            self-start rounded-[1.25rem] bg-background p-9 text-amanah-navy
-          "
+    <footer className="bg-background pb-6">
+      <SectionContainer className="relative border-x border-line px-0 sm:px-0">
+        <FooterRow className="md:grid-cols-4">
+          <FooterPanel
+            label="Klinik"
+            className={cn(
+              mobilePanelDividerClassName,
+              'md:col-span-2 md:border-r',
+            )}
           >
-            <p className="mb-10 text-2xl/relaxed">
+            <div className="flex flex-col gap-8">
+              <AmanahLogo locale={locale} />
+              <address className="
+                max-w-2xl text-base/relaxed text-muted-foreground not-italic
+                md:text-lg/relaxed
+              "
+              >
+                {healthcareFooter.address}
+              </address>
+            </div>
+          </FooterPanel>
+
+          <FooterPanel
+            label="Kontak"
+            className={cn(mobilePanelDividerClassName, 'md:border-r')}
+          >
+            <p className="mb-6 text-xl/relaxed font-medium text-foreground">
               {healthcareFooter.cardText}
             </p>
-            {phone && (
-              <a
-                href={phone.href}
-                className="
-                  block text-lg font-bold underline-offset-4
-                  hover:underline
-                "
-              >
-                {phone.value}
-              </a>
-            )}
-            {email && (
-              <a
-                href={email.href}
-                className="
-                  mt-5 block text-base font-semibold wrap-break-word underline
-                "
-              >
-                {email.value}
-              </a>
-            )}
-          </div>
+            <div className="flex flex-col gap-3 text-sm font-semibold">
+              {phone && (
+                <a
+                  href={phone.href}
+                  className="
+                    w-fit border-b border-line pb-0.5 transition-colors
+                    hover:border-foreground/50
+                  "
+                >
+                  {phone.value}
+                </a>
+              )}
+              {email && (
+                <a
+                  href={email.href}
+                  className="
+                    wrap-break-word w-fit border-b border-line pb-0.5
+                    transition-colors hover:border-foreground/50
+                  "
+                >
+                  {email.value}
+                </a>
+              )}
+            </div>
+          </FooterPanel>
 
-          <div className="flex flex-col gap-9">
-            <h2 className="text-2xl font-semibold text-background/65">
-              Quick Links
-            </h2>
+          <FooterPanel label="Sosial">
+            <div className="flex flex-wrap gap-2">
+              {healthcareFooter.socialLinks.map((label, index) => {
+                const Icon = socialIcons[index] || AtSignIcon;
+
+                return (
+                  <a
+                    key={label}
+                    href={getI18nPath('/', locale)}
+                    className="
+                      inline-flex size-10 items-center justify-center rounded-xl
+                      border border-line text-muted-foreground transition-colors
+                      hover:bg-accent hover:text-foreground
+                    "
+                    aria-label={label}
+                  >
+                    <Icon aria-hidden />
+                  </a>
+                );
+              })}
+            </div>
+          </FooterPanel>
+        </FooterRow>
+
+        <FooterRow className="md:grid-cols-4">
+          <FooterPanel
+            label="Navigasi"
+            className={cn(
+              mobilePanelDividerClassName,
+              'md:col-span-2 md:border-r',
+            )}
+          >
             <nav
               aria-label="Navigasi footer"
-              className="grid grid-cols-2 gap-6 text-xl"
+              className="grid grid-cols-2 gap-x-8 gap-y-4 text-base font-medium"
             >
               {healthcareNavigationItems.map(item => (
                 <a
                   key={`${item.path}${item.hash ?? ''}`}
                   href={getHealthcareHref(item, locale)}
-                  className="hover:underline"
+                  className="
+                    w-fit border-b border-line pb-0.5 text-muted-foreground
+                    transition-colors hover:border-foreground/50
+                    hover:text-foreground
+                  "
                 >
                   {item.label}
                 </a>
               ))}
             </nav>
-          </div>
+          </FooterPanel>
 
-          <div className="flex flex-col gap-6">
-            <h2 className="text-2xl font-semibold text-background/65">
-              Lokasi Kami
-            </h2>
-            <p className="flex items-center gap-2 text-sm text-background/75">
-              <MapPinIcon aria-hidden />
-              {healthcareFooter.location}
-            </p>
-            <div className="overflow-hidden rounded-md bg-background">
-              <Image
-                src={healthcareFooter.map.src}
-                alt={healthcareFooter.map.alt}
-                width={196}
-                height={110}
-                className="h-auto w-full object-cover"
-              />
-            </div>
-            <ArrowCtaButton
-              href="https://maps.google.com/?q=Jl.%20Manggis%20No.6%2C%20Condongcatur"
-              treatment="secondary"
-              className="h-11 px-5 pr-2 text-sm"
+          <FooterPanel label="Lokasi" className="md:col-span-2">
+            <div className="
+              grid gap-5
+              sm:grid-cols-[180px_1fr] sm:items-start
+            "
             >
-              Petunjuk Arah
-            </ArrowCtaButton>
-          </div>
-        </div>
+              <div className="overflow-hidden bg-muted">
+                <Image
+                  src={healthcareFooter.map.src}
+                  alt={healthcareFooter.map.alt}
+                  width={360}
+                  height={202}
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+              <div className="flex flex-col items-start gap-5">
+                <p className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <MapPinIcon aria-hidden className="size-4 shrink-0" />
+                  {healthcareFooter.location}
+                </p>
+                <a
+                  href="https://maps.google.com/?q=Jl.%20Manggis%20No.6%2C%20Condongcatur"
+                  className="
+                    inline-flex h-10 items-center gap-2 rounded-xl border
+                    border-line px-3 text-sm font-semibold transition-colors
+                    hover:bg-accent
+                  "
+                >
+                  Petunjuk Arah
+                  <ArrowUpRightIcon aria-hidden className="size-4" />
+                </a>
+              </div>
+            </div>
+          </FooterPanel>
+        </FooterRow>
 
-        <div className="mt-14 flex justify-end gap-4">
-          {healthcareFooter.socialLinks.map((label, index) => {
-            const Icon = socialIcons[index] || AtSignIcon;
-
-            return (
-              <a
-                key={label}
-                href={getI18nPath('/', locale)}
-                className="
-                  inline-flex size-12 items-center justify-center rounded-full
-                  border border-background/15 text-background/85
-                  transition-colors
-                  hover:bg-background/10
-                "
-                aria-label={label}
-              >
-                <Icon aria-hidden />
-              </a>
-            );
-          })}
+        <div className="
+          relative flex flex-col gap-2 px-5 py-4 text-xs text-muted-foreground
+          sm:flex-row sm:items-center sm:justify-between
+          md:px-6
+        "
+        >
+          <p>© 2026 Klinik Amanah Healthcare. All Rights Reserved.</p>
+          <a
+            href={getI18nPath('/', locale)}
+            className="
+              w-fit border-b border-line pb-0.5 transition-colors
+              hover:border-foreground/50
+            "
+          >
+            amanah.healthcare
+          </a>
+          <ViewportLine position="bottom" />
         </div>
       </SectionContainer>
     </footer>

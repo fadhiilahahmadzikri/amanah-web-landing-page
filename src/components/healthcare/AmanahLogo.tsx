@@ -18,7 +18,7 @@ export function AmanahLogo({
 }: AmanahLogoProps) {
   return (
     <a
-      className={cn('inline-flex items-center gap-3', className)}
+      className={cn('inline-flex items-center gap-2.5', className)}
       href={getI18nPath('/', locale)}
     >
       <Image
@@ -27,14 +27,13 @@ export function AmanahLogo({
         width={48}
         height={48}
         className={cn(`
-          size-10 rounded-full object-contain
-          md:size-11
+          size-8 shrink-0 rounded-none object-contain
         `, markClassName)}
         priority
       />
       <span className={cn(`
-        text-2xl font-medium text-amanah-navy
-        md:text-3xl
+        truncate text-lg font-semibold tracking-tight text-foreground
+        sm:text-xl
       `, textClassName)}
       >
         {healthcareBrand.name}

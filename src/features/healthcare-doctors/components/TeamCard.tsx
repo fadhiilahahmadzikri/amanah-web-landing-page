@@ -1,20 +1,27 @@
 import type { HealthcareTeamMember } from '../types';
 import { XIcon } from 'lucide-react';
 import Image from 'next/image';
+import { cn } from '@/utils/Helpers';
 
 type TeamCardProps = {
+  className?: string;
   member: HealthcareTeamMember;
   priority?: boolean;
 };
 
-export function TeamCard({ member, priority = false }: TeamCardProps) {
+export function TeamCard({
+  className,
+  member,
+  priority = false,
+}: TeamCardProps) {
   const showSocials = member.showSocials ?? true;
 
   return (
-    <article className="
-      flex h-full min-h-[420px] flex-col rounded-3xl border border-border
-      bg-muted p-6 text-amanah-navy
-    "
+    <article
+      className={cn(`
+        flex h-full min-h-[420px] flex-col bg-background p-6 text-foreground
+        md:p-8
+      `, className)}
     >
       <div className="min-h-23">
         <h3 className="
@@ -25,7 +32,7 @@ export function TeamCard({ member, priority = false }: TeamCardProps) {
           {member.name}
         </h3>
         <p className="
-          mt-3 font-amanah-script text-base/[1.1] text-amanah-muted
+          mt-3 font-amanah-script text-base/[1.1] text-muted-foreground
           md:text-lg
         "
         >
@@ -34,7 +41,7 @@ export function TeamCard({ member, priority = false }: TeamCardProps) {
       </div>
 
       <div className="
-        relative mt-auto aspect-square overflow-hidden rounded-2xl bg-background
+        relative mt-auto aspect-square overflow-hidden bg-background
       "
       >
         <Image
@@ -52,8 +59,8 @@ export function TeamCard({ member, priority = false }: TeamCardProps) {
               href="#kontak"
               aria-label={`LinkedIn ${member.name}`}
               className="
-                inline-flex size-8 items-center justify-center rounded-full
-                bg-amanah-navy text-background transition-transform
+                inline-flex size-8 items-center justify-center rounded-lg
+                bg-primary text-primary-foreground transition-transform
                 hover:scale-105
               "
             >
@@ -68,8 +75,8 @@ export function TeamCard({ member, priority = false }: TeamCardProps) {
               href="#kontak"
               aria-label={`X ${member.name}`}
               className="
-                inline-flex size-8 items-center justify-center rounded-full
-                bg-amanah-navy text-background transition-transform
+                inline-flex size-8 items-center justify-center rounded-lg
+                bg-primary text-primary-foreground transition-transform
                 hover:scale-105
               "
             >

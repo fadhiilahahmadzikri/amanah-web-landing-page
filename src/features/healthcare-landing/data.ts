@@ -247,7 +247,7 @@ export const testimonials = {
       },
     },
     {
-      quote: '“Pelayanan di Klinik Amanah sangat ramah dan nyaman. Dokternya menjelaskan dengan baik dan membuat saya merasa tenang selama pemeriksaan.”',
+      quote: 'Konsultasinya jelas, prosesnya nyaman, hasilnya terasa lebih rapi.',
       name: 'Cooper, Kristin',
       role: 'Medical Assistant',
       avatar: {

@@ -3,7 +3,10 @@
 import type { DoctorMarkerTone } from '../types';
 import Image from 'next/image';
 import { useState } from 'react';
-import { SectionContainer } from '@/components/healthcare';
+import {
+  BlueprintMark,
+  SectionContainer,
+} from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 import {
   doctorsHero,
@@ -12,10 +15,7 @@ import {
 } from '../data';
 
 const markerFocusClassNames: Record<DoctorMarkerTone, string> = {
-  blue: 'focus-visible:ring-amanah-blue',
-  cyan: 'focus-visible:ring-amanah-sky',
-  green: 'focus-visible:ring-amanah-mint',
-  lime: 'focus-visible:ring-amanah-mint',
+  neutral: 'focus-visible:ring-ring',
 };
 
 export function DoctorsHeroSection() {
@@ -23,35 +23,38 @@ export function DoctorsHeroSection() {
   const selectedMember = doctorsTeam.find(member => member.id === selectedMemberId);
 
   return (
-    <section className="
-      bg-background pt-16 pb-12
-      md:py-20
-    "
-    >
-      <SectionContainer className="max-w-[1400px]">
+    <section className="bg-background">
+      <SectionContainer className="px-0 sm:px-0">
         <div className="
-          rounded-4xl border border-border bg-background px-5 py-12
-          md:px-12 md:py-14
+          relative overflow-hidden px-4 py-12
+          md:px-10 md:py-16
         "
         >
-          <div className="mx-auto max-w-2xl text-center">
+          <BlueprintMark
+            patternId="amanah-doctors-hero-blueprint"
+            className="absolute inset-x-0 top-0 min-h-[360px] opacity-70"
+            figureLabel="Fig. 2."
+          />
+
+          <div className="relative mx-auto max-w-2xl text-center">
             <p className="
-              text-base font-bold tracking-normal text-amanah-navy uppercase
-              md:text-lg
+              text-xs font-semibold tracking-[0.16em] text-muted-foreground
+              uppercase
             "
             >
               {doctorsHero.eyebrow}
             </p>
             <h1 className="
-              mt-3 text-4xl/[1.08] font-semibold text-amanah-navy
+              mt-3 text-4xl/[1.08] font-medium tracking-tight
+              text-foreground
               md:text-5xl/[1.08]
             "
             >
               {doctorsHero.title}
             </h1>
             <p className="
-              mx-auto mt-4 max-w-lg text-sm/[1.55] font-semibold
-              text-amanah-navy
+              mx-auto mt-4 max-w-lg text-sm/[1.65] font-medium
+              text-muted-foreground
               md:text-base
             "
             >
@@ -60,9 +63,8 @@ export function DoctorsHeroSection() {
           </div>
 
           <div className="
-            relative mx-auto mt-10 aspect-1301/560 min-h-[240px] overflow-hidden
-            rounded-[1.75rem] border border-border bg-background
-            shadow-amanah-card
+            relative mx-auto mt-10 aspect-1301/560 min-h-[240px]
+            overflow-hidden border border-line bg-muted
           "
           >
             <Image
@@ -80,9 +82,12 @@ export function DoctorsHeroSection() {
                 type="button"
                 style={{ left: marker.left, top: marker.top }}
                 className={cn(`
-                  absolute size-10 -translate-1/2 rounded-full opacity-0
-                  transition-opacity outline-none
-                  focus-visible:opacity-100 focus-visible:ring-4
+                  absolute size-5 -translate-1/2 rounded-lg border
+                  border-foreground/30 bg-background/70 opacity-80
+                  shadow-xs backdrop-blur-sm transition-[border-color,opacity]
+                  outline-none
+                  hover:border-foreground hover:opacity-100
+                  focus-visible:opacity-100 focus-visible:ring-2
                   focus-visible:ring-offset-2
                   focus-visible:ring-offset-background
                 `, markerFocusClassNames[marker.tone])}
@@ -92,8 +97,9 @@ export function DoctorsHeroSection() {
             ))}
 
             <div className="
-              absolute bottom-3 left-4 max-w-[330px] rounded-full bg-background
-              px-4 py-2 text-[10px] font-bold text-amanah-navy shadow-sm
+              absolute bottom-3 left-4 max-w-[330px] border border-line
+              bg-background/90 px-4 py-2 text-[10px] font-semibold
+              text-muted-foreground backdrop-blur
               md:bottom-4 md:left-5 md:text-xs
             "
             >
@@ -102,14 +108,14 @@ export function DoctorsHeroSection() {
 
             {selectedMember && (
               <div className="
-                absolute right-4 bottom-16 hidden max-w-xs rounded-2xl
-                bg-background/95 p-4 text-left text-amanah-navy
-                shadow-amanah-card
+                absolute right-4 bottom-16 hidden max-w-xs border border-line
+                bg-background/95 p-4 text-left text-foreground
+                backdrop-blur
                 md:block
               "
               >
-                <p className="text-base font-bold">{selectedMember.name}</p>
-                <p className="mt-1 font-amanah-script text-lg text-amanah-muted">
+                <p className="text-base font-semibold">{selectedMember.name}</p>
+                <p className="mt-1 font-amanah-script text-lg text-muted-foreground">
                   {selectedMember.role}
                 </p>
               </div>

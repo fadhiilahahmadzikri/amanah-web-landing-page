@@ -8,7 +8,7 @@ type SectionContainerProps = {
 
 export function SectionContainer({ children, className }: SectionContainerProps) {
   return (
-    <div className={cn('mx-auto w-full max-w-[1300px] px-5', className)}>
+    <div className={cn('mx-auto w-full max-w-[1300px] px-4 sm:px-5', className)}>
       {children}
     </div>
   );

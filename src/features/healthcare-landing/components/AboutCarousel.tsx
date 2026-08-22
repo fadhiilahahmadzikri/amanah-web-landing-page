@@ -39,7 +39,7 @@ function SideSlide({ slide, position }: SideSlideProps) {
       className={cn(
         `
           pointer-events-none absolute top-9 hidden h-[405px] w-[760px]
-          overflow-hidden rounded-[1.75rem] bg-foreground opacity-40
+          overflow-hidden bg-media-scrim opacity-40
           md:block
           xl:w-[900px]
         `,
@@ -56,15 +56,18 @@ function SideSlide({ slide, position }: SideSlideProps) {
         className="object-cover"
       />
       <div className="
-        absolute inset-0 bg-linear-to-t from-foreground via-foreground/70
-        to-foreground/20
+        absolute inset-0 bg-linear-to-t from-media-scrim
+        via-media-scrim/70 to-media-scrim/20
       "
       />
       <div className="
-        absolute inset-x-0 bottom-0 flex flex-col gap-3 p-10 text-background
+        absolute inset-x-0 bottom-0 flex flex-col gap-3 p-10
+        text-media-foreground
       "
       >
-        <p className="text-sm font-semibold text-amanah-mint">{slide.eyebrow}</p>
+        <p className="text-sm font-semibold text-media-foreground/70">
+          {slide.eyebrow}
+        </p>
         <h3 className="max-w-xl text-3xl/tight font-semibold">{slide.title}</h3>
       </div>
     </article>
@@ -118,7 +121,7 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
 
         <article className="
           relative mx-auto h-[430px] w-full max-w-[1022px] overflow-hidden
-          rounded-[1.75rem] bg-foreground shadow-amanah-card
+          bg-media-scrim ring-1 ring-foreground/10
           sm:h-[470px]
           md:h-[537px]
         "
@@ -132,31 +135,31 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
             className="object-cover"
           />
           <div className="
-            absolute inset-0 bg-linear-to-t from-foreground via-foreground/65
-            to-foreground/10
+            absolute inset-0 bg-linear-to-t from-media-scrim
+            via-media-scrim/65 to-media-scrim/10
           "
           />
 
           <div className="
-            absolute top-5 right-5 rounded-full bg-foreground/45 px-4 py-2
-            text-xs font-semibold text-background backdrop-blur-md
+            absolute top-5 right-5 bg-media-scrim/45 px-4 py-2 text-xs
+            font-semibold text-media-foreground backdrop-blur-md
             md:top-7 md:right-7 md:text-sm
           "
           >
             <span>{activeIndex + 1}</span>
-            <span className="px-2 text-background/60">/</span>
-            <span className="text-background/60">{slides.length}</span>
+            <span className="px-2 text-media-foreground/60">/</span>
+            <span className="text-media-foreground/60">{slides.length}</span>
           </div>
 
           <div className="
             absolute inset-x-0 bottom-20 flex max-w-3xl flex-col gap-3 px-6
-            text-background
+            text-media-foreground
             sm:px-8
             md:bottom-18 md:px-12
           "
           >
             <p className="
-              text-xs font-semibold text-amanah-mint
+              text-xs font-semibold text-media-foreground/70
               md:text-sm
             "
             >
@@ -170,7 +173,7 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
               {activeSlide.title}
             </h3>
             <p className="
-              text-sm/relaxed text-background/80
+              text-sm/relaxed text-media-foreground/80
               md:text-base/relaxed
             "
             >
@@ -188,9 +191,9 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
               size="icon-lg"
               variant="ghost"
               className="
-                size-11 rounded-full border border-background/25
-                bg-foreground/35 text-background backdrop-blur-md
-                hover:bg-foreground/55 hover:text-background
+                size-11 rounded-xl border border-media-foreground/25
+                bg-media-scrim/35 text-media-foreground backdrop-blur-md
+                hover:bg-media-scrim/55 hover:text-media-foreground
                 md:size-12
               "
               aria-label="Tampilkan slide sebelumnya"
@@ -200,7 +203,7 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
             </Button>
 
             <div className="
-              flex items-center gap-1.5 rounded-full bg-foreground/45 px-3 py-2
+              flex items-center gap-1.5 rounded-lg bg-media-scrim/45 px-3 py-2
               backdrop-blur-md
             "
             >
@@ -217,8 +220,8 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
                     className={cn(
                       'block h-1.5 rounded-full transition-all',
                       index === activeIndex
-                        ? 'w-8 bg-background'
-                        : 'size-1.5 bg-background/45',
+                        ? 'w-8 bg-media-foreground'
+                        : 'size-1.5 bg-media-foreground/45',
                     )}
                   />
                 </button>
@@ -230,9 +233,9 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
               size="icon-lg"
               variant="ghost"
               className="
-                size-11 rounded-full border border-background/25
-                bg-foreground/35 text-background backdrop-blur-md
-                hover:bg-foreground/55 hover:text-background
+                size-11 rounded-xl border border-media-foreground/25
+                bg-media-scrim/35 text-media-foreground backdrop-blur-md
+                hover:bg-media-scrim/55 hover:text-media-foreground
                 md:size-12
               "
               aria-label="Tampilkan slide berikutnya"

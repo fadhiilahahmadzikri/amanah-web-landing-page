@@ -1,6 +1,6 @@
 import {
-  HealthcareFooter,
-  HealthcareHeader,
+  HealthcareShell,
+  TechnicalDivider,
 } from '@/components/healthcare';
 import { AboutSection } from './components/AboutSection';
 import { AppointmentSection } from './components/AppointmentSection';
@@ -17,19 +17,21 @@ type AmanahLandingPageProps = {
 
 export function AmanahLandingPage({ locale }: AmanahLandingPageProps) {
   return (
-    <div className="min-h-screen bg-background text-amanah-navy">
-      <HealthcareHeader activePath="/" locale={locale} />
-      <main>
-        <HeroSection />
-        <TrustHighlights />
-        <AboutSection />
-        <FacilitiesSection />
-        <ServicesSection />
-        <AppointmentSection />
-        <TestimonialsSection />
-        <ContactSection />
-      </main>
-      <HealthcareFooter locale={locale} />
-    </div>
+    <HealthcareShell activePath="/" locale={locale}>
+      <HeroSection />
+      <TrustHighlights />
+      <TechnicalDivider />
+      <AboutSection />
+      <TechnicalDivider />
+      <FacilitiesSection />
+      <TechnicalDivider />
+      <ServicesSection />
+      <TechnicalDivider />
+      <AppointmentSection />
+      <TechnicalDivider />
+      <TestimonialsSection />
+      <TechnicalDivider />
+      <ContactSection />
+    </HealthcareShell>
   );
 }

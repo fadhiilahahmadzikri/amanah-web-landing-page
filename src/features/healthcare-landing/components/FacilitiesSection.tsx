@@ -1,78 +1,96 @@
 import { ArrowUpRightIcon, BadgeCheckIcon } from 'lucide-react';
 import Image from 'next/image';
+import { ViewportLine } from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 import { facilities, facilityImage, watermark } from '../data';
 import { PillLabel } from './PillLabel';
 import { SectionContainer } from './SectionContainer';
 
+const facilityBorderClassNames = [
+  'border-b border-line md:border-r xl:border-b-0',
+  'border-b border-line xl:border-r xl:border-b-0',
+  'border-b border-line md:border-r md:border-b-0 xl:border-r',
+];
+
 export function FacilitiesSection() {
   return (
     <section
       id="fasilitas"
-      className="
-        bg-background py-10
-        md:py-16
-      "
+      className="bg-background"
     >
       <SectionContainer className="
-        relative overflow-hidden rounded-3xl bg-amanah-navy px-6 py-16
-        md:p-24
+        relative px-0 sm:px-0
       "
       >
-        <Image
-          src={watermark.src}
-          alt=""
-          width={547}
-          height={547}
-          className="
-            pointer-events-none absolute top-2 -right-18 hidden h-auto w-[617px]
-            max-w-none opacity-[0.06]
-            md:block
-          "
-          aria-hidden
-        />
-
         <div className="
+          relative px-6 py-12
+          md:px-10 md:py-16
+        "
+        >
+          <div
+            aria-hidden
+            className="
+              pointer-events-none absolute inset-0 hidden overflow-hidden
+              md:block
+            "
+          >
+            <Image
+              src={watermark.src}
+              alt=""
+              width={547}
+              height={547}
+              className="
+                absolute top-0 -right-14 h-auto w-[617px] max-w-none
+                opacity-[0.045] brightness-0 dark:opacity-[0.08]
+                dark:brightness-100
+              "
+              aria-hidden
+            />
+          </div>
+
+          <div className="
           relative z-10 grid gap-10
           lg:grid-cols-[1fr_0.9fr] lg:items-center
         "
-        >
-          <div className="flex flex-col items-start gap-8">
-            <PillLabel># Why Choose Us</PillLabel>
-            <h2 className="
-              max-w-2xl text-4xl/tight font-light text-background
-              md:text-6xl
-            "
-            >
-              Fasilitas untuk Kenyamanan Anda
-            </h2>
-          </div>
-
-          <div className="flex items-center gap-5 text-background">
-            <BadgeCheckIcon aria-hidden className="shrink-0" />
-            <div className="flex flex-col gap-2">
-              <p className="text-lg text-background/85 italic">
-                Certified by the American Dental Association
-              </p>
-              <a
-                href="#kontak"
-                className="
-                  inline-flex w-fit items-center gap-2 border-b
-                  border-background/55 pb-1 text-lg font-semibold
-                  hover:border-background
-                "
+          >
+            <div className="flex flex-col items-start gap-8">
+              <PillLabel># Why Choose Us</PillLabel>
+              <h2 className="
+                max-w-2xl text-4xl/tight font-medium tracking-tight
+                text-foreground
+                md:text-6xl
+              "
               >
-                Schedule Your Visit
-                <ArrowUpRightIcon aria-hidden />
-              </a>
+                Fasilitas untuk Kenyamanan Anda
+              </h2>
+            </div>
+
+            <div className="flex items-center gap-5 text-muted-foreground">
+              <BadgeCheckIcon aria-hidden className="shrink-0" />
+              <div className="flex flex-col gap-2">
+                <p className="text-base italic">
+                  Certified by the American Dental Association
+                </p>
+                <a
+                  href="#kontak"
+                  className="
+                    inline-flex w-fit items-center gap-2 border-b
+                    border-line pb-1 text-base font-semibold text-foreground
+                    hover:border-foreground
+                  "
+                >
+                  Schedule Your Visit
+                  <ArrowUpRightIcon aria-hidden />
+                </a>
+              </div>
             </div>
           </div>
+          <ViewportLine position="bottom" />
         </div>
 
         <div className="
-          relative z-10 mt-10 grid overflow-hidden rounded-2xl bg-card
-          shadow-amanah-card
-          md:mt-14 md:grid-cols-2
+          relative z-10 grid
+          md:grid-cols-2
           xl:grid-cols-[1.05fr_1.05fr_1.05fr_1fr]
         "
         >
@@ -81,17 +99,17 @@ export function FacilitiesSection() {
               <article
                 key={facility.title}
                 className={cn(
-                  `
-                    flex min-h-[320px] flex-col items-start bg-card px-8 py-10
-                    md:min-h-[360px]
-                    xl:min-h-[408px] xl:px-10 xl:py-[55px]
+                  `               
+                    flex min-h-[280px] flex-col items-start bg-card px-8 py-9
+                    md:min-h-[320px]
+                    xl:min-h-[344px] xl:px-9 xl:py-10
                   `,
-                  index % 2 === 0 ? 'bg-muted' : 'bg-card',
+                  index % 2 === 0 ? 'bg-background' : 'bg-card',
+                  facilityBorderClassNames[index],
                 )}
               >
                 <span className="
-                  inline-flex size-[65px] shrink-0 items-center justify-center
-                  rounded-full bg-amanah-icon-soft
+                  inline-flex size-12 shrink-0 items-center justify-center
                 "
                 >
                   <Image
@@ -100,18 +118,17 @@ export function FacilitiesSection() {
                     width={24}
                     height={24}
                     aria-hidden="true"
-                    className="size-6 object-contain"
+                    className="size-6 object-contain grayscale"
                   />
                 </span>
                 <div className="
-                  mt-5 flex max-w-[249px] flex-col gap-5
-                  xl:mt-7
+                  mt-6 flex max-w-[249px] flex-col gap-4
                 "
                 >
-                  <h3 className="text-xl/[1.4] font-semibold text-amanah-navy">
+                  <h3 className="text-xl/[1.3] font-semibold text-foreground">
                     {facility.title}
                   </h3>
-                  <p className="text-base/[1.6] text-amanah-navy">
+                  <p className="text-base/[1.65] text-muted-foreground">
                     {facility.description}
                   </p>
                 </div>
@@ -120,9 +137,9 @@ export function FacilitiesSection() {
           })}
 
           <article className="
-            relative min-h-[320px] overflow-hidden bg-card
-            md:min-h-[360px]
-            xl:min-h-[408px]
+            relative min-h-[280px] overflow-hidden bg-card
+            md:min-h-[320px]
+            xl:min-h-[344px]
           "
           >
             <Image
@@ -133,14 +150,13 @@ export function FacilitiesSection() {
               className="object-cover object-center"
             />
             <div className="
-              absolute inset-0 bg-linear-to-t from-card/95 via-card/45
-              to-transparent
+              absolute inset-0 bg-linear-to-t from-card via-card/65
+              to-card/10
             "
             />
             <h3 className="
               absolute inset-x-8 bottom-10 max-w-[209px] text-xl/[1.35]
-              font-semibold text-amanah-navy
-              xl:bottom-[55px] xl:left-[30px]
+              font-semibold text-foreground
             "
             >
               Harga Terjangkau & Transparan

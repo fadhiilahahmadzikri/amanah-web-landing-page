@@ -3,40 +3,98 @@
 import type { ServiceItem } from '../types';
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/utils/Helpers';
 
 type ServicesCarouselProps = {
   services: ServiceItem[];
 };
 
-const CARD_SCROLL_OFFSET = 400;
-
 export function ServicesCarousel({ services }: ServicesCarouselProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const scrollToService = useCallback((index: number) => {
+    if (services.length === 0) {
+      return;
+    }
+
+    const nextIndex = (index + services.length) % services.length;
+    const viewport = viewportRef.current;
+    const targetSlide = viewport?.querySelector<HTMLElement>(
+      `[data-service-index="${nextIndex}"]`,
+    );
+
+    setActiveIndex(nextIndex);
+
+    if (!viewport || !targetSlide) {
+      return;
+    }
+
+    viewport.scrollTo({
+      behavior: 'smooth',
+      left: targetSlide.offsetLeft,
+    });
+  }, [services.length]);
 
   const scrollToPreviousService = () => {
-    viewportRef.current?.scrollBy({
-      left: -CARD_SCROLL_OFFSET,
-      behavior: 'smooth',
-    });
+    scrollToService(activeIndex - 1);
   };
 
   const scrollToNextService = () => {
-    viewportRef.current?.scrollBy({
-      left: CARD_SCROLL_OFFSET,
-      behavior: 'smooth',
-    });
+    scrollToService(activeIndex + 1);
   };
 
+  const syncActiveService = () => {
+    const viewport = viewportRef.current;
+
+    if (!viewport) {
+      return;
+    }
+
+    const slides = Array.from(
+      viewport.querySelectorAll<HTMLElement>('[data-service-index]'),
+    );
+
+    const nearestSlide = slides.reduce<HTMLElement | null>((nearest, slide) => {
+      if (!nearest) {
+        return slide;
+      }
+
+      const currentDistance = Math.abs(slide.offsetLeft - viewport.scrollLeft);
+      const nearestDistance = Math.abs(nearest.offsetLeft - viewport.scrollLeft);
+
+      return currentDistance < nearestDistance ? slide : nearest;
+    }, null);
+
+    const nextIndex = Number(nearestSlide?.dataset.serviceIndex ?? 0);
+    setActiveIndex(currentIndex => (
+      currentIndex === nextIndex ? currentIndex : nextIndex
+    ));
+  };
+
+  if (services.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex justify-end gap-4" aria-label="Navigasi poster layanan">
+    <div className="relative overflow-visible">
+      <div
+        className="
+          pointer-events-none absolute inset-y-0 right-0 left-0 z-20 flex
+          items-center justify-between
+        "
+        aria-label="Navigasi poster layanan"
+      >
         <Button
           type="button"
           size="icon-lg"
           variant="outline"
-          className="rounded-full"
+          className="
+            pointer-events-auto -translate-x-1/2 rounded-xl border-line
+            bg-background/95 shadow-sm backdrop-blur
+          "
           aria-label="Lihat layanan sebelumnya"
           onClick={scrollToPreviousService}
         >
@@ -45,7 +103,12 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
         <Button
           type="button"
           size="icon-lg"
-          className="rounded-full"
+          variant="outline"
+          className="
+            pointer-events-auto translate-x-1/2 rounded-xl border-line
+            bg-background/95 text-foreground shadow-sm backdrop-blur
+            hover:bg-accent
+          "
           aria-label="Lihat layanan berikutnya"
           onClick={scrollToNextService}
         >
@@ -55,18 +118,23 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
 
       <div
         ref={viewportRef}
+        onScroll={syncActiveService}
         className="
-          scrollbar-none overflow-x-auto scroll-smooth rounded-3xl
+          scrollbar-none overflow-x-auto scroll-smooth px-6
+          scroll-px-6
+          md:px-16 md:scroll-px-16
+          lg:px-20 lg:scroll-px-20
           [&::-webkit-scrollbar]:hidden
         "
       >
-        <div className="flex w-max snap-x snap-mandatory gap-6 pb-2">
-          {services.map(service => (
+        <div className="flex w-max snap-x snap-mandatory gap-6">
+          {services.map((service, index) => (
             <article
               key={service.title}
+              data-service-index={index}
               className="
                 relative aspect-376/428 w-[min(78vw,376px)] shrink-0 snap-start
-                overflow-hidden rounded-[1.25rem] bg-muted shadow-md
+                overflow-hidden border-t border-line bg-muted
               "
             >
               <Image
@@ -79,6 +147,33 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
             </article>
           ))}
         </div>
+      </div>
+
+      <div className="
+        absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center
+        gap-1.5 rounded-lg border border-line bg-background/85 px-3 py-2
+        backdrop-blur-md
+      "
+      >
+        {services.map((service, index) => (
+          <button
+            key={service.title}
+            type="button"
+            className="flex h-3 w-8 items-center justify-center"
+            aria-label={`Tampilkan layanan ${index + 1}`}
+            aria-pressed={index === activeIndex}
+            onClick={() => scrollToService(index)}
+          >
+            <span
+              className={cn(
+                'block h-1.5 rounded-full transition-all',
+                index === activeIndex
+                  ? 'w-8 bg-foreground'
+                  : 'size-1.5 bg-foreground/35',
+              )}
+            />
+          </button>
+        ))}
       </div>
     </div>
   );

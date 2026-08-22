@@ -7,32 +7,34 @@ export function TrustHighlights() {
     <section
       aria-label="Ringkasan pelayanan Klinik Amanah"
       className="
-        relative z-10 mt-6 pb-16
-        md:-mt-20 md:pb-24
+        relative z-10 bg-background
       "
     >
       <SectionContainer className="
-        grid max-w-[1340px] gap-5
-        min-[1400px]:grid-cols-[650px_304px_297px] min-[1400px]:gap-[25px]
+        grid max-w-[1300px] px-0 sm:px-0
+        min-[1400px]:grid-cols-[650px_304px_297px]
         lg:grid-cols-[minmax(0,2.14fr)_minmax(0,1fr)_minmax(0,0.98fr)]
       "
       >
         <div className="
-          grid gap-5 rounded-2xl bg-card p-[18px] shadow-amanah-glow
+          grid border-b border-line
           min-[1400px]:grid-cols-[241px_361px]
-          sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] sm:items-center
-          lg:pr-[18px] lg:pl-[30px]
+          sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] sm:items-stretch
+          lg:border-r lg:border-b-0
         "
         >
           <div className="
             flex min-h-[149px] flex-col items-start justify-between gap-10
+            border-b border-line bg-background p-6
+            sm:border-r sm:border-b-0
+            lg:px-[30px] lg:py-[18px]
           "
           >
             <div className="flex flex-col gap-[15px]">
-              <h2 className="text-xl font-medium text-amanah-navy">
+              <h2 className="text-xl font-medium text-foreground">
                 {trustHighlights.service.eyebrow}
               </h2>
-              <p className="max-w-[203px] text-[15px]/[22px] text-amanah-navy">
+              <p className="max-w-[203px] text-[15px]/[22px] text-muted-foreground">
                 {trustHighlights.service.title}
               </p>
             </div>
@@ -41,8 +43,8 @@ export function TrustHighlights() {
               href="#layanan"
               className="
                 inline-flex items-center gap-[10px] text-[15px]/[22px]
-                font-semibold text-amanah-navy underline-offset-4
-                hover:underline
+                border-b border-line pb-0.5 font-semibold text-foreground
+                transition-colors hover:border-foreground/50
               "
             >
               {trustHighlights.service.cta}
@@ -52,19 +54,21 @@ export function TrustHighlights() {
                 width={13}
                 height={13}
                 aria-hidden="true"
+                className="grayscale"
               />
             </a>
           </div>
 
           <div className="
-            grid gap-5
+            grid
             min-[1400px]:grid-cols-[163px_178px]
             sm:grid-cols-2
           "
           >
             <div className="
-              flex min-h-[205px] flex-col justify-center gap-[15px] rounded-2xl
-              bg-background px-6 py-7 shadow-sm
+              flex min-h-[205px] flex-col justify-center gap-[15px]
+              border-b border-line bg-background px-6 py-7
+              sm:border-r sm:border-b-0
             "
             >
               <Image
@@ -73,13 +77,13 @@ export function TrustHighlights() {
                 width={20}
                 height={20}
                 aria-hidden="true"
-                className="size-5 object-contain"
+                className="size-5 object-contain grayscale"
               />
               <div className="flex flex-col gap-[15px] pt-2">
-                <p className="text-[15px]/[22px] text-amanah-navy">
+                <p className="text-[15px]/[22px] text-muted-foreground">
                   {trustHighlights.patientCount.label}
                 </p>
-                <strong className="text-2xl font-bold text-amanah-navy">
+                <strong className="text-2xl font-bold text-foreground">
                   {trustHighlights.patientCount.value}
                 </strong>
               </div>
@@ -87,8 +91,7 @@ export function TrustHighlights() {
 
             <div className="
               flex min-h-[203px] items-center justify-center overflow-hidden
-              rounded-2xl bg-linear-to-r from-amanah-sky from-50% to-background
-              to-50% px-6 py-7
+              bg-background px-6 py-7
             "
             >
               <Image
@@ -96,23 +99,26 @@ export function TrustHighlights() {
                 alt={trustHighlights.patientCount.image.alt}
                 width={178}
                 height={147}
-                className="h-auto w-full max-w-[178px] object-contain"
+                className="
+                  h-auto w-full max-w-[178px] object-contain grayscale
+                "
               />
             </div>
           </div>
         </div>
 
         <div className="
-          flex min-h-[241px] flex-col justify-center gap-8 rounded-2xl bg-card
-          px-8 py-10 shadow-amanah-card
+          flex min-h-[241px] flex-col justify-center gap-8 border-b
+          border-line bg-background px-8 py-10
+          lg:border-r lg:border-b-0
           md:px-[38px] md:py-[45px]
         "
         >
           <div className="flex flex-col gap-3">
-            <h2 className="text-[17px]/[25px] font-medium text-amanah-navy">
+            <h2 className="text-[17px]/[25px] font-medium text-foreground">
               {trustHighlights.community.title}
             </h2>
-            <p className="text-[17px]/[25px] text-amanah-navy">
+            <p className="text-[17px]/[25px] text-muted-foreground">
               {trustHighlights.community.description}
             </p>
           </div>
@@ -125,7 +131,7 @@ export function TrustHighlights() {
                 width={56}
                 height={56}
                 className="
-                  size-14 rounded-full border-4 border-background object-cover
+                  size-14 rounded-full border-2 border-background object-cover
                 "
                 style={{ marginLeft: index === 0 ? 0 : -16 }}
               />
@@ -134,8 +140,7 @@ export function TrustHighlights() {
         </div>
 
         <div className="
-          flex min-h-[241px] flex-col justify-center gap-5 rounded-2xl bg-card
-          p-8 shadow-amanah-card
+          flex min-h-[241px] flex-col justify-center gap-5 bg-background p-8
         "
         >
           <Image
@@ -144,15 +149,15 @@ export function TrustHighlights() {
             width={20}
             height={20}
             aria-hidden="true"
-            className="size-5 object-contain"
+            className="size-5 object-contain grayscale"
           />
           <blockquote className="
-            text-[17px]/[25px] font-medium text-amanah-navy italic
+            text-[17px]/[25px] font-medium text-foreground italic
           "
           >
             {trustHighlights.quote.text}
           </blockquote>
-          <p className="text-[15px]/[23px] text-amanah-muted">
+          <p className="text-[15px]/[23px] text-muted-foreground">
             {trustHighlights.quote.author}
           </p>
         </div>

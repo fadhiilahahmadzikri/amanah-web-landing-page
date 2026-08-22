@@ -25,6 +25,19 @@ const lora = Lora({
   variable: '--font-lora',
 });
 
+const themeInitializer = `
+(() => {
+  try {
+    const storageKey = 'amanah-theme';
+    const savedTheme = localStorage.getItem(storageKey);
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+
+    document.documentElement.classList.toggle('dark', isDark);
+  } catch {}
+})();
+`;
+
 export const metadata: Metadata = {
   icons: [
     {
@@ -73,6 +86,11 @@ export default async function RootLayout(props: {
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: themeInitializer }}
+        />
+      </head>
       <body className={`
         ${plusJakartaSans.variable}
         ${caveat.variable}

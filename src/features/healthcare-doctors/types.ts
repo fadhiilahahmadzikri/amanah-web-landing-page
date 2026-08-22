@@ -1,6 +1,6 @@
 import type { AssetImage } from '@/components/healthcare';
 
-export type DoctorMarkerTone = 'blue' | 'cyan' | 'green' | 'lime';
+export type DoctorMarkerTone = 'neutral';
 
 export type DoctorHeroMarker = {
   id: string;

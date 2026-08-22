@@ -1,6 +1,6 @@
 import {
-  HealthcareFooter,
-  HealthcareHeader,
+  HealthcareShell,
+  TechnicalDivider,
 } from '@/components/healthcare';
 import { DoctorsHeroSection } from './components/DoctorsHeroSection';
 import { TeamSection } from './components/TeamSection';
@@ -12,18 +12,15 @@ type AmanahDoctorsPageProps = {
 
 export function AmanahDoctorsPage({ locale }: AmanahDoctorsPageProps) {
   return (
-    <div className="
-      min-h-screen overflow-x-hidden bg-background text-amanah-navy
-    "
-    >
-      <HealthcareHeader activePath="/dokter" locale={locale} />
-      <main>
-        <DoctorsHeroSection />
-        {doctorSections.map(section => (
-          <TeamSection key={section.id} section={section} />
-        ))}
-      </main>
-      <HealthcareFooter locale={locale} />
-    </div>
+    <HealthcareShell activePath="/dokter" locale={locale}>
+      <DoctorsHeroSection />
+      <TechnicalDivider />
+      {doctorSections.map((section, index) => (
+        <div key={section.id}>
+          <TeamSection section={section} />
+          {index < doctorSections.length - 1 && <TechnicalDivider />}
+        </div>
+      ))}
+    </HealthcareShell>
   );
 }

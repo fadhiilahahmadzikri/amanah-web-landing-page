@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 import { AppConfig } from '@/utils/AppConfig';
 import { cn, getI18nPath } from '@/utils/Helpers';
 import { AmanahLogo } from './AmanahLogo';
-import { ArrowCtaButton } from './ArrowCtaButton';
 import { healthcareNavigationItems } from './data';
 import { getHealthcareHref } from './healthcareNavigation';
 import { SectionContainer } from './SectionContainer';
+import { ThemeToggle } from './ThemeToggle';
+import { ViewportLine } from './ViewportLine';
 
 type HealthcareHeaderProps = {
   activePath?: string;
@@ -39,14 +40,29 @@ export function HealthcareHeader({
   }, [activePath]);
 
   return (
-    <header className="bg-background py-4">
-      <SectionContainer className="flex h-16 items-center justify-between gap-6">
-        <AmanahLogo locale={locale} />
+    <header className="
+      sticky top-0 z-50 max-w-screen overflow-x-clip bg-background
+    "
+    >
+      <SectionContainer className="
+        relative flex h-14 items-center overflow-visible border-x border-line
+        px-0 sm:px-0
+      "
+      >
+        <ViewportLine position="top" />
+        <ViewportLine position="bottom" />
+
+        <div className="flex min-w-0 flex-1 items-center px-3">
+          <AmanahLogo
+            locale={locale}
+            className="min-w-0"
+          />
+        </div>
 
         <nav
           aria-label="Navigasi utama"
           className="
-            hidden items-center gap-2
+            hidden h-full items-center border-l border-line
             lg:flex
           "
         >
@@ -61,10 +77,11 @@ export function HealthcareHeader({
                 aria-current={isActive ? (item.hash ? 'location' : 'page') : undefined}
                 onClick={() => setActiveValue(itemActiveValue)}
                 className={cn(`
-                  rounded-full px-5 py-3 text-base font-semibold
-                  text-amanah-navy transition-colors
-                  hover:bg-accent
-                `, isActive && 'bg-accent')}
+                  inline-flex h-full items-center px-4 text-sm font-medium
+                  text-muted-foreground transition-colors
+                  hover:text-foreground
+                  xl:px-5
+                `, isActive && 'text-foreground')}
               >
                 {item.label}
               </a>
@@ -72,27 +89,34 @@ export function HealthcareHeader({
           })}
         </nav>
 
-        <ArrowCtaButton
-          href={getI18nPath('/sign-in', locale)}
-          className="
-            hidden
-            md:inline-flex
-          "
-        >
-          Masuk
-        </ArrowCtaButton>
+        <div className="flex h-full items-center">
+          <div className="flex h-full items-center border-l border-line px-1.5">
+            <ThemeToggle />
+          </div>
+          <a
+            href={getI18nPath('/sign-in', locale)}
+            className="
+              hidden h-full items-center border-l border-line px-4 text-sm
+              font-medium text-muted-foreground transition-colors
+              hover:text-foreground
+              sm:inline-flex
+            "
+          >
+            Masuk
+          </a>
+        </div>
       </SectionContainer>
 
       <SectionContainer className="
-        pt-3
+        border-x border-b border-line px-2 sm:px-2
         lg:hidden
       "
       >
         <nav
           aria-label="Navigasi utama mobile"
           className="
-            grid grid-cols-3 gap-2 text-center text-sm font-semibold
-            text-amanah-navy
+            flex gap-1 overflow-x-auto py-2 text-sm font-medium
+            [&::-webkit-scrollbar]:hidden
           "
         >
           {healthcareNavigationItems.map((item) => {
@@ -106,9 +130,10 @@ export function HealthcareHeader({
                 aria-current={isActive ? (item.hash ? 'location' : 'page') : undefined}
                 onClick={() => setActiveValue(itemActiveValue)}
                 className={cn(`
-                  rounded-full bg-accent px-3 py-2 transition-colors
-                  hover:bg-muted
-                `, isActive && 'bg-amanah-navy text-background')}
+                  inline-flex h-9 shrink-0 items-center px-3 text-muted-foreground
+                  transition-colors
+                  hover:text-foreground
+                `, isActive && 'text-foreground')}
               >
                 {item.label}
               </a>

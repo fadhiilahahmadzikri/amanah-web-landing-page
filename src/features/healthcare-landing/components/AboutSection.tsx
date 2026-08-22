@@ -7,14 +7,12 @@ export function AboutSection() {
     <section
       id="tentang-kami"
       className="
-        overflow-hidden bg-background py-10
-        md:py-16
+        overflow-hidden bg-background
       "
     >
-      <SectionContainer>
+      <SectionContainer className="px-0 sm:px-0">
         <div className="
-          overflow-hidden rounded-4xl border border-border/70 bg-background
-          pt-12 shadow-sm
+          overflow-hidden bg-card pt-12
           md:pt-20
         "
         >
@@ -25,21 +23,21 @@ export function AboutSection() {
             "
           >
             <p className="
-              font-amanah-script text-3xl text-amanah-navy
+              font-amanah-script text-3xl text-foreground
               md:text-4xl
             "
             >
               Tentang Kami
             </p>
             <h2 className="
-              text-4xl/tight font-medium text-amanah-navy
+              text-4xl/tight font-medium tracking-tight text-foreground
               md:text-6xl
             "
             >
               Kenali Klinik Amanah
             </h2>
             <p className="
-              max-w-2xl text-base/relaxed text-amanah-navy
+              max-w-2xl text-base/relaxed text-muted-foreground
               md:text-lg/relaxed
             "
             >
