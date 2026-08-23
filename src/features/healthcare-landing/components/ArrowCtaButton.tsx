@@ -27,15 +27,16 @@ export function ArrowCtaButton({
       size="lg"
       variant={buttonVariant}
       className={cn(`
-        h-10 rounded-xl px-4 pr-1.5 text-sm font-semibold tracking-tight
-        shadow-xs
+        group h-10 rounded-xl px-4 pr-1.5 text-sm font-semibold tracking-tight
+        shadow-xs transition-all duration-300
         md:h-11 md:px-5 md:pr-2
       `, className)}
     >
       <a href={href}>
         <span>{children}</span>
         <span className={cn(`
-          inline-flex size-7 items-center justify-center rounded-lg
+          inline-flex size-7 items-center justify-center rounded-lg transition-transform duration-300
+          group-hover:translate-x-0.5 group-hover:-translate-y-0.5
           md:size-8
         `, iconClassName)}
         >
