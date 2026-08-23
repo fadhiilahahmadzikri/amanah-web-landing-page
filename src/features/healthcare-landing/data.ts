@@ -93,48 +93,75 @@ export const trustHighlights = {
 
 export const aboutSlides = [
   {
-    eyebrow: 'Layanan Klinik Terpadu',
-    title: 'Pelayanan Kesehatan yang Mudah Diakses',
-    description: 'Menghadirkan layanan kesehatan keluarga dengan alur kunjungan yang jelas, ruangan nyaman, dan pendampingan tenaga medis profesional.',
+    eyebrow: 'Profil & Komitmen',
+    title: 'Layanan Medis Modern & Tepercaya',
+    description: 'Amanah Healthcare merupakan rumah sakit umum swasta di Sleman, Yogyakarta yang mengutamakan keselamatan pasien (patient safety) dan kenyamanan bagi seluruh keluarga.',
     image: {
       src: '/assets/images/Image__Healthcare_Infrastructure__b4e61fb2.png',
-      alt: 'Infrastruktur perawatan kesehatan modern',
+      alt: 'Fasilitas dan infrastruktur modern Amanah Healthcare',
     },
   },
   {
-    eyebrow: 'Featured • Precision Medicine',
-    title: 'The Future of Cancer Therapy: Breakthrough Genomic Sequencing',
-    description: 'Exploring advanced DNA profiling methods that allow oncologists to tailor targeted treatments specifically tailored to each patient.',
+    eyebrow: 'Transformasi Mutu',
+    title: 'Peningkatan Standar Layanan Medis',
+    description: 'Kami terus melakukan pembenahan infrastruktur, peningkatan standar mutu pelayanan, dan pengembangan kompetensi tenaga kesehatan untuk menjawab kebutuhan masyarakat.',
     image: {
-      src: '/assets/images/Image__Precision_Oncology_Therapy__179c5740.png',
-      alt: 'Peralatan terapi onkologi presisi',
+      src: '/assets/images/Container_512fdd4a.png',
+      alt: 'Pengembangan mutu dan fasilitas medis berkelanjutan',
     },
   },
   {
-    eyebrow: 'Visi Klinik Pratama Healthcare',
-    title: 'Menjadi Rumah Sakit Pilihan',
-    description: 'Menjadi Klinik Pratama pilihan masyarakat Yogyakarta dan sekitarnya dalam memberikan pelayanan kesehatan yang profesional, aman, terpercaya, dan berorientasi pada kebutuhan serta kenyamanan pasien.',
+    eyebrow: 'Layanan Utama',
+    title: 'IGD 24 Jam & Rawat Inap Terpadu',
+    description: 'Siap siaga 24 jam dengan instalasi gawat darurat, poliklinik spesialis, kamar operasi, dan fasilitas rawat inap yang nyaman didukung tim medis yang ramah dan sigap.',
+    image: {
+      src: '/assets/images/Image__Healthcare_and_Medical_Specialists_Consulting__12d9eb1f.png',
+      alt: 'Layanan IGD dan poliklinik spesialis Amanah Healthcare',
+    },
+  },
+  {
+    eyebrow: 'Diagnostik Medis',
+    title: 'Laboratorium & Radiologi Lengkap',
+    description: 'Didukung fasilitas radiologi modern, laboratorium klinik terpadu, serta farmasi lengkap untuk memberikan hasil pemeriksaan yang akurat dan perencanaan terapi tepat.',
     image: {
       src: '/assets/images/Image__Biotechnology_Lab_Research__e8228306.png',
-      alt: 'Peneliti medis di laboratorium bioteknologi',
+      alt: 'Laboratorium dan sarana diagnostik modern',
     },
   },
   {
-    eyebrow: 'Featured • Primary Care',
-    title: 'Strengthening Community Healthcare: Mobile Diagnostic Care',
-    description: 'Innovative health units and connected diagnostic gear are bridging critical healthcare access gaps for remote and underserved populations.',
-    image: {
-      src: '/assets/images/Image__Healthcare_Infrastructure__b4e61fb2.png',
-      alt: 'Infrastruktur perawatan kesehatan modern',
-    },
-  },
-  {
-    eyebrow: 'Kolaborasi Tenaga Kesehatan',
-    title: 'Perawatan Terarah untuk Keluarga',
-    description: 'Setiap kunjungan didukung komunikasi yang jelas, pencatatan yang rapi, dan rekomendasi perawatan yang sesuai kebutuhan pasien.',
+    eyebrow: 'Layanan Unggulan',
+    title: 'Fisioterapi & Tumbuh Kembang Anak',
+    description: 'Hadir dengan layanan rehabilitasi medis & fisioterapi, klinik stimulasi tumbuh kembang anak komprehensif, serta unit hemodialisa dengan pengawasan dokter spesialis.',
     image: {
       src: '/assets/images/Image__Precision_Oncology_Therapy__179c5740.png',
-      alt: 'Peralatan terapi onkologi presisi',
+      alt: 'Peralatan terapi dan layanan unggulan Amanah Healthcare',
+    },
+  },
+  {
+    eyebrow: 'Budaya Kerja',
+    title: 'Solusi JITU Kesehatan Keluarga',
+    description: 'Berlandaskan nilai Janji Ibadah Tuk Umat (JITU) dan budaya Ramah, Santun, Cerdas, serta Cekatan. Kami melayani dengan ketulusan hati sebagai mitra kesehatan terpercaya.',
+    image: {
+      src: '/assets/images/Container_7f4d0544.png',
+      alt: 'Tenaga medis melayani dengan budaya ramah dan cekatan',
+    },
+  },
+  {
+    eyebrow: 'Visi Utama',
+    title: 'Rumah Sakit Pilihan Masyarakat',
+    description: 'Bertekad menjadi rumah sakit rujukan utama bagi masyarakat Yogyakarta dan sekitarnya melalui pelayanan yang profesional, terjangkau, humanis, dan berstandar tinggi.',
+    image: {
+      src: '/assets/images/Image__Appointment__f812337e.png',
+      alt: 'Visi pelayanan kesehatan prima Amanah Healthcare',
+    },
+  },
+  {
+    eyebrow: 'Misi Pelayanan',
+    title: 'Pelayanan Kesehatan Menyeluruh',
+    description: 'Menjangkau masyarakat luas melalui layanan preventif, promotif, kuratif, dan rehabilitatif dengan komitmen penuh pada kepuasan pasien dan disiplin kerja tinggi.',
+    image: {
+      src: '/assets/images/Image__Healthcare_Infrastructure__b4e61fb2.png',
+      alt: 'Komitmen misi pelayanan kesehatan menyeluruh',
     },
   },
 ] satisfies AboutSlide[];

@@ -1,4 +1,5 @@
 import type { HealthcareTeamMember } from '../types';
+import type { CSSProperties } from 'react';
 import { XIcon } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/utils/Helpers';
@@ -8,6 +9,16 @@ type TeamCardProps = {
   member: HealthcareTeamMember;
   priority?: boolean;
 };
+
+const hatchedRailStyle = {
+  backgroundImage: `
+    repeating-linear-gradient(
+      135deg,
+      var(--line) 0 1.5px,
+      transparent 1.5px 8px
+    )
+  `,
+} satisfies CSSProperties;
 
 export function TeamCard({
   className,
@@ -19,20 +30,40 @@ export function TeamCard({
   return (
     <article
       className={cn(`
-        flex h-full min-h-[420px] flex-col bg-background p-6 text-foreground
-        md:p-8
+        relative flex h-full flex-col overflow-hidden
+        bg-background pl-3 text-foreground
+        min-[420px]:pl-4 sm:pl-6 md:pl-8
       `, className)}
     >
-      <div className="min-h-23">
+      <span
+        aria-hidden
+        className="
+          absolute inset-y-0 left-0 w-3 border-r border-line opacity-70
+          min-[420px]:w-4 sm:w-6 md:w-8
+        "
+        style={hatchedRailStyle}
+      />
+
+      <div className="
+        relative min-h-20 px-2.5 pt-3
+        min-[420px]:min-h-24 min-[420px]:px-3 min-[420px]:pt-4
+        sm:min-h-28 sm:px-5 sm:pt-6
+        md:px-8 md:pt-8
+      "
+      >
         <h3 className="
-          max-w-52 text-2xl/[1.05] font-extrabold
+          line-clamp-2 min-h-[2.1em] max-w-52 text-base/[1.05]
+          font-extrabold
+          min-[420px]:text-lg/[1.05] sm:text-2xl/[1.05]
           md:text-[28px]
         "
         >
           {member.name}
         </h3>
         <p className="
-          mt-3 font-amanah-script text-base/[1.1] text-muted-foreground
+          mt-2 line-clamp-2 min-h-[2.3em] font-amanah-script
+          text-xs/[1.15] text-muted-foreground
+          min-[420px]:text-sm/[1.15] sm:mt-3 sm:text-base/[1.1]
           md:text-lg
         "
         >
@@ -40,28 +71,31 @@ export function TeamCard({
         </p>
       </div>
 
-      <div className="
-        relative mt-auto aspect-square overflow-hidden bg-background
-      "
+      <div
+        className="
+          relative mt-auto aspect-[4/3] w-full overflow-hidden bg-background
+          sm:aspect-square
+        "
       >
         <Image
           src={member.image.src}
           alt={member.image.alt}
           fill
           priority={priority}
-          sizes="(min-width: 1280px) 282px, (min-width: 768px) 45vw, calc(100vw - 88px)"
-          className="object-cover object-top"
+          sizes="(min-width: 1200px) 292px, (min-width: 860px) 33vw, 50vw"
+          className="object-contain object-bottom"
         />
 
         {showSocials && (
-          <div className="absolute right-3 bottom-3 flex gap-2">
+          <div className="absolute right-2 bottom-2 flex gap-1.5 sm:right-3 sm:bottom-3 sm:gap-2">
             <a
               href="#kontak"
               aria-label={`LinkedIn ${member.name}`}
               className="
-                inline-flex size-8 items-center justify-center rounded-lg
+                inline-flex size-7 items-center justify-center rounded-lg
                 bg-primary text-primary-foreground transition-transform
                 hover:scale-105
+                sm:size-8
               "
             >
               <span
@@ -75,9 +109,10 @@ export function TeamCard({
               href="#kontak"
               aria-label={`X ${member.name}`}
               className="
-                inline-flex size-8 items-center justify-center rounded-lg
+                inline-flex size-7 items-center justify-center rounded-lg
                 bg-primary text-primary-foreground transition-transform
                 hover:scale-105
+                sm:size-8
               "
             >
               <XIcon aria-hidden className="size-3.5" />

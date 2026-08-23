@@ -18,10 +18,10 @@ export function HealthcareShell({
   return (
     <div className="min-h-screen bg-background text-foreground">
       <HealthcareHeader activePath={activePath} locale={locale} />
-      <main className="mx-auto max-w-[1300px] border-x border-line">
+      <main className="mx-auto max-w-[1300px] border-x-2 border-line">
         {children}
       </main>
-      <div className="mx-auto max-w-[1300px] border-x border-line">
+      <div className="mx-auto max-w-[1300px] border-x-2 border-line">
         <TechnicalDivider />
       </div>
       <HealthcareChatFab />

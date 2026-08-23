@@ -10,7 +10,7 @@ const sharedMidwifeImage = {
 };
 
 export const doctorsHero = {
-  eyebrow: 'KLINIK AMANAH HEALTHCARE',
+  eyebrow: 'Klinik Amanah Healthcare',
   title: 'Kenali Klinik Amanah',
   description: 'Memberikan pelayanan kesehatan yang profesional, nyaman, dan terpercaya untuk Anda dan keluarga.',
   image: {

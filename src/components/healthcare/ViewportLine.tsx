@@ -16,7 +16,7 @@ export function ViewportLine({ className, position }: ViewportLineProps) {
       aria-hidden
       className={cn(
         `
-          pointer-events-none absolute left-1/2 h-px w-screen
+          pointer-events-none absolute left-1/2 h-[1.5px] w-screen
           -translate-x-1/2 bg-line
         `,
         positionClassNames[position],

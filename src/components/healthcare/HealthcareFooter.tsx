@@ -223,8 +223,7 @@ export function HealthcareFooter({
           <a
             href={getI18nPath('/', locale)}
             className="
-              w-fit border-b border-line pb-0.5 transition-colors
-              hover:border-foreground/50
+              w-fit transition-colors hover:text-foreground
             "
           >
             amanah.healthcare

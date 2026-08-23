@@ -10,8 +10,8 @@ const stripeDividerStyle = {
   backgroundImage: `
     repeating-linear-gradient(
       135deg,
-      color-mix(in oklab, var(--line) 42%, transparent) 0 1px,
-      transparent 1px 8px
+      var(--line) 0 1.5px,
+      transparent 1.5px 8px
     )
   `,
 } satisfies CSSProperties;

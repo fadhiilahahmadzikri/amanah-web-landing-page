@@ -38,8 +38,9 @@ export function DoctorsHeroSection() {
 
           <div className="relative mx-auto max-w-2xl text-center">
             <p className="
-              text-xs font-semibold tracking-[0.16em] text-muted-foreground
-              uppercase
+              font-amanah-script text-2xl/[1.05] font-semibold
+              text-foreground
+              md:text-3xl/[1.05]
             "
             >
               {doctorsHero.eyebrow}
