@@ -6,6 +6,7 @@ export { HealthcareFooter } from './HealthcareFooter';
 export { HealthcareHeader } from './HealthcareHeader';
 export { HealthcareShell } from './HealthcareShell';
 export { SectionContainer } from './SectionContainer';
+export { SmoothScroll } from './SmoothScroll';
 export { TechnicalDivider } from './TechnicalDivider';
 export { ThemeToggle } from './ThemeToggle';
 export type { AssetImage } from './types';

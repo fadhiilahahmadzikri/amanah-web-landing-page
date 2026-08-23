@@ -139,8 +139,21 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
   }
   ::selection {
     background: var(--selection);
@@ -150,6 +163,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply overflow-x-hidden bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased;
   }
 }

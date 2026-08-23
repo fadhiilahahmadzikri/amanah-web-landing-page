@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { HealthcareChatFab } from './HealthcareChatFab';
 import { HealthcareFooter } from './HealthcareFooter';
 import { HealthcareHeader } from './HealthcareHeader';
+import { SmoothScroll } from './SmoothScroll';
 import { TechnicalDivider } from './TechnicalDivider';
 
 type HealthcareShellProps = {
@@ -17,6 +18,7 @@ export function HealthcareShell({
 }: HealthcareShellProps) {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SmoothScroll />
       <HealthcareHeader activePath={activePath} locale={locale} />
       <main className="mx-auto max-w-[1300px] border-x-2 border-line">
         {children}

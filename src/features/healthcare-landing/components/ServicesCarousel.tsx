@@ -1,19 +1,52 @@
 'use client';
 
 import type { ServiceItem } from '../types';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useCallback, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/utils/Helpers';
 
+gsap.registerPlugin(ScrollTrigger);
+
 type ServicesCarouselProps = {
   services: ServiceItem[];
 };
 
 export function ServicesCarousel({ services }: ServicesCarouselProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useGSAP(
+    () => {
+      if (!viewportRef.current) {
+        return;
+      }
+
+      const slides = viewportRef.current.querySelectorAll('[data-service-index]');
+      gsap.fromTo(
+        slides,
+        { x: 50, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.08,
+          ease: 'expo.out',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        },
+      );
+    },
+    { scope: containerRef },
+  );
 
   const scrollToService = useCallback((index: number) => {
     if (services.length === 0) {
@@ -34,7 +67,7 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
 
     viewport.scrollTo({
       behavior: 'smooth',
-      left: targetSlide.offsetLeft,
+      left: targetSlide.offsetLeft - (viewport.dataset.initialOffset ? Number(viewport.dataset.initialOffset) : 0),
     });
   }, [services.length]);
 
@@ -79,7 +112,7 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
   }
 
   return (
-    <div className="relative overflow-visible">
+    <div ref={containerRef} className="relative overflow-visible">
       <div
         className="
           pointer-events-none absolute inset-y-0 right-0 left-0 z-20 flex
@@ -120,11 +153,9 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
         ref={viewportRef}
         onScroll={syncActiveService}
         className="
-          scrollbar-none overflow-x-auto scroll-smooth px-6
-          scroll-px-6
-          md:px-16 md:scroll-px-16
-          lg:px-20 lg:scroll-px-20
+          scrollbar-none overflow-x-auto scroll-smooth px-6 scroll-px-6
           [&::-webkit-scrollbar]:hidden
+          md:px-10 md:scroll-px-10
         "
       >
         <div className="flex w-max snap-x snap-mandatory gap-6">

@@ -1,4 +1,9 @@
+'use client';
+
 import type { ReactNode } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowUpRightIcon,
   AtSignIcon,
@@ -8,6 +13,7 @@ import {
   XIcon,
 } from 'lucide-react';
 import Image from 'next/image';
+import { useRef } from 'react';
 import { AppConfig } from '@/utils/AppConfig';
 import { cn, getI18nPath } from '@/utils/Helpers';
 import { AmanahLogo } from './AmanahLogo';
@@ -19,6 +25,8 @@ import {
 import { getHealthcareHref } from './healthcareNavigation';
 import { SectionContainer } from './SectionContainer';
 import { ViewportLine } from './ViewportLine';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const socialIcons = [Share2Icon, XIcon, LinkIcon, AtSignIcon];
 
@@ -50,7 +58,7 @@ function FooterRow({ children, className }: FooterRowProps) {
 
 function FooterPanel({ children, className, label }: FooterPanelProps) {
   return (
-    <section className={cn('bg-background p-5 md:p-6', className)}>
+    <section data-footer-panel className={cn('bg-background p-5 md:p-6', className)}>
       <p className="
         mb-5 text-xs font-semibold tracking-[0.16em] text-muted-foreground
         uppercase
@@ -66,11 +74,39 @@ function FooterPanel({ children, className, label }: FooterPanelProps) {
 export function HealthcareFooter({
   locale = AppConfig.i18n.defaultLocale,
 }: HealthcareFooterProps) {
+  const footerRef = useRef<HTMLElement>(null);
   const phone = healthcareContactItems[1];
   const email = healthcareContactItems[0];
 
+  useGSAP(
+    () => {
+      if (!footerRef.current) {
+        return;
+      }
+
+      const panels = footerRef.current.querySelectorAll('[data-footer-panel]');
+      gsap.fromTo(
+        panels,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          stagger: 0.08,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: 'top 90%',
+            toggleActions: 'play none none reverse',
+          },
+        },
+      );
+    },
+    { scope: footerRef },
+  );
+
   return (
-    <footer className="bg-background pb-6">
+    <footer ref={footerRef} className="bg-background pb-6">
       <SectionContainer className="relative border-x border-line px-0 sm:px-0">
         <FooterRow className="md:grid-cols-4">
           <FooterPanel

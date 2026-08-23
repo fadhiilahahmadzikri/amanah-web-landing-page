@@ -1,10 +1,18 @@
+'use client';
+
 import type { HealthcareTeamSection } from '../types';
 import type { CSSProperties } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
 import {
   SectionContainer,
   TechnicalDivider,
 } from '@/components/healthcare';
 import { TeamCard } from './TeamCard';
+
+gsap.registerPlugin(ScrollTrigger);
 
 type TeamSectionProps = {
   section: HealthcareTeamSection;
@@ -20,12 +28,60 @@ const teamGridStyle = {
 } satisfies TeamGridStyle;
 
 export function TeamSection({ section }: TeamSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (headerRef.current) {
+        const maskLines = headerRef.current.querySelectorAll('[data-mask-text]');
+        gsap.fromTo(
+          maskLines,
+          { yPercent: 120, opacity: 0 },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.12,
+            ease: 'expo.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          },
+        );
+      }
+
+      if (gridRef.current) {
+        const cards = gridRef.current.querySelectorAll('article');
+        gsap.fromTo(
+          cards,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.08,
+            ease: 'expo.out',
+            scrollTrigger: {
+              trigger: gridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          },
+        );
+      }
+    },
+    { scope: sectionRef },
+  );
+
   return (
     <section
+      ref={sectionRef}
       id={section.id}
-      className="
-        bg-background
-      "
+      className="bg-background"
     >
       <SectionContainer className="px-0 sm:px-0">
         <div className="
@@ -33,36 +89,53 @@ export function TeamSection({ section }: TeamSectionProps) {
           md:px-8 md:py-12
         "
         >
-          <div className="mx-auto flex max-w-5xl flex-col items-center">
-            <p className="
-              font-amanah-script text-3xl/[1.05] font-semibold
-              text-foreground
-              md:text-4xl/[1.05]
-            "
-            >
-              {section.eyebrow}
-            </p>
-            <h2 className="
-              mt-3 text-4xl/[1.08] font-medium tracking-tight text-foreground
-              md:text-5xl/[1.08] lg:whitespace-nowrap
-            "
-            >
-              {section.title}
-            </h2>
-            <p className="
-              mt-5 line-clamp-2 max-w-2xl text-sm/[1.65] font-medium
-              text-muted-foreground
-              md:text-base
-            "
-            >
-              {section.description}
-            </p>
+          <div
+            ref={headerRef}
+            className="mx-auto flex max-w-5xl flex-col items-center"
+          >
+            <div className="overflow-hidden">
+              <p
+                data-mask-text
+                className="
+                  inline-block font-amanah-script text-3xl/[1.05] font-semibold
+                  text-foreground will-change-transform
+                  md:text-4xl/[1.05]
+                "
+              >
+                {section.eyebrow}
+              </p>
+            </div>
+            <div className="overflow-hidden">
+              <h2
+                data-mask-text
+                className="
+                  mt-3 inline-block text-4xl/[1.08] font-medium tracking-tight text-foreground
+                  will-change-transform
+                  md:text-5xl/[1.08] lg:whitespace-nowrap
+                "
+              >
+                {section.title}
+              </h2>
+            </div>
+            <div className="overflow-hidden">
+              <p
+                data-mask-text
+                className="
+                  mt-5 inline-block line-clamp-2 max-w-2xl text-sm/[1.65] font-medium
+                  text-muted-foreground will-change-transform
+                  md:text-base
+                "
+              >
+                {section.description}
+              </p>
+            </div>
           </div>
         </div>
 
         <TechnicalDivider />
 
         <div
+          ref={gridRef}
           className="grid auto-rows-fr gap-px bg-line"
           style={teamGridStyle}
         >

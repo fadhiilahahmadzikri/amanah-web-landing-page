@@ -1,19 +1,86 @@
+'use client';
+
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import { useRef } from 'react';
 import { appointment, watermark } from '../data';
 import { ArrowCtaButton } from './ArrowCtaButton';
 import { PillLabel } from './PillLabel';
 import { SectionContainer } from './SectionContainer';
 
+gsap.registerPlugin(ScrollTrigger);
+
 export function AppointmentSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const watermarkRef = useRef<HTMLImageElement>(null);
+
+  useGSAP(
+    () => {
+      if (watermarkRef.current) {
+        gsap.to(watermarkRef.current, {
+          yPercent: 20,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        });
+      }
+
+      if (textRef.current) {
+        const maskLines = textRef.current.querySelectorAll('[data-mask-text]');
+        gsap.fromTo(
+          maskLines,
+          { yPercent: 120, opacity: 0 },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.12,
+            ease: 'expo.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          },
+        );
+      }
+
+      if (imageRef.current) {
+        gsap.fromTo(
+          imageRef.current,
+          { opacity: 0, scale: 1.08 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1.4,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 80%',
+              toggleActions: 'play none none reverse',
+            },
+          },
+        );
+      }
+    },
+    { scope: sectionRef },
+  );
+
   return (
     <section
+      ref={sectionRef}
       id="dokter"
       className="bg-background"
     >
-      <SectionContainer className="
-        relative isolate overflow-hidden px-0 sm:px-0
-      "
-      >
+      <SectionContainer className="relative isolate overflow-hidden px-0 sm:px-0">
         <div className="
           relative z-10 grid
           lg:grid-cols-2
@@ -26,6 +93,7 @@ export function AppointmentSection() {
           "
           >
             <Image
+              ref={watermarkRef}
               src={watermark.src}
               alt=""
               width={547}
@@ -39,33 +107,47 @@ export function AppointmentSection() {
               aria-hidden
             />
 
-            <div className="relative z-10 flex max-w-xl flex-col items-start gap-8">
+            <div
+              ref={textRef}
+              className="relative z-10 flex max-w-xl flex-col items-start gap-8"
+            >
               <PillLabel>{appointment.eyebrow}</PillLabel>
-              <h2 className="
-                text-4xl/tight font-medium tracking-tight
-                md:text-6xl
-              "
-              >
-                {appointment.title}
-              </h2>
-              <p className="
-                text-lg/relaxed text-muted-foreground
-                md:text-xl
-              "
-              >
-                {appointment.description}
-              </p>
+              <div className="overflow-hidden">
+                <h2
+                  data-mask-text
+                  className="
+                    text-4xl/tight font-medium tracking-tight
+                    will-change-transform
+                    md:text-6xl
+                  "
+                >
+                  {appointment.title}
+                </h2>
+              </div>
+              <div className="overflow-hidden">
+                <p
+                  data-mask-text
+                  className="
+                    text-lg/relaxed text-muted-foreground will-change-transform
+                    md:text-xl
+                  "
+                >
+                  {appointment.description}
+                </p>
+              </div>
               <ArrowCtaButton href="#kontak">
                 Buat Janji Temu
               </ArrowCtaButton>
             </div>
           </div>
 
-          <div className="
-            relative min-h-[420px] overflow-hidden border-t border-line
-            bg-background
-            lg:min-h-[560px] lg:border-t-0 lg:border-l
-          "
+          <div
+            ref={imageRef}
+            className="
+              relative min-h-[420px] overflow-hidden border-t border-line
+              bg-background
+              lg:min-h-[560px] lg:border-t-0 lg:border-l
+            "
           >
             <Image
               src={appointment.image.src}
