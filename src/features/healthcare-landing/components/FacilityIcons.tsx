@@ -1,4 +1,4 @@
-export function MaternityCareIcon({ className }: { className?: string }) {
+function MaternityCareIcon({ className }: { className?: string }) {
   return (
     <svg
       width="24"
@@ -33,7 +33,7 @@ export function MaternityCareIcon({ className }: { className?: string }) {
   );
 }
 
-export function LaserPediatricIcon({ className }: { className?: string }) {
+function LaserPediatricIcon({ className }: { className?: string }) {
   return (
     <svg
       width="24"
@@ -63,7 +63,7 @@ export function LaserPediatricIcon({ className }: { className?: string }) {
   );
 }
 
-export function Emergency24hIcon({ className }: { className?: string }) {
+function Emergency24hIcon({ className }: { className?: string }) {
   return (
     <svg
       width="24"
@@ -93,7 +93,7 @@ export function Emergency24hIcon({ className }: { className?: string }) {
   );
 }
 
-export function BpjsHealthCardIcon({ className }: { className?: string }) {
+function BpjsHealthCardIcon({ className }: { className?: string }) {
   return (
     <svg
       width="24"

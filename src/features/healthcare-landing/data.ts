@@ -193,11 +193,6 @@ export const facilities = [
   },
 ] satisfies FacilityItem[];
 
-export const facilityImage = {
-  src: '/assets/images/Container_7f4d0544.png',
-  alt: 'Pelayanan imunisasi keluarga di Klinik Amanah',
-} satisfies AssetImage;
-
 export const services = [
   {
     title: 'Persalinan full bonus',
