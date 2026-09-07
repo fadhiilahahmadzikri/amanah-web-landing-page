@@ -43,9 +43,9 @@ export function useDeckCarousel({
         return;
       }
 
-      const tag = activeCard.querySelector('.card-tag');
-      const title = activeCard.querySelector('.card-title');
-      const desc = activeCard.querySelector('.card-desc');
+      const tag = activeCard.querySelector('.card-tag, [data-card-tag]');
+      const title = activeCard.querySelector('.card-title, [data-card-title]');
+      const desc = activeCard.querySelector('.card-desc, [data-card-desc]');
 
       if (tag && title && desc) {
         gsap.fromTo(

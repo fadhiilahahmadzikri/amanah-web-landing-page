@@ -12,88 +12,95 @@ type CarouselCardProps = {
   totalSlides: number;
 };
 
-export const CarouselCard = memo(function CarouselCard({
+export const CarouselCard = memo(({
   index,
   isPriority,
   onClick,
   ref,
   slide,
   totalSlides,
-}: CarouselCardProps) {
+}: CarouselCardProps) => {
   return (
     <article
       ref={ref}
       className="
-        card-item absolute h-full w-full max-w-4xl cursor-pointer select-none
-        overflow-hidden bg-card shadow-2xl
-        [backface-visibility:hidden] [transform-style:preserve-3d]
-        [will-change:transform,opacity,filter]
+        absolute size-full max-w-4xl cursor-pointer overflow-hidden bg-card
+        shadow-2xl will-change-[transform,opacity,filter] select-none
+        backface-hidden transform-3d
       "
+      data-card-item
       data-index={index}
       onClick={onClick}
     >
-      <Image
-        src={slide.image.src}
-        alt={slide.title}
-        fill
-        priority={isPriority}
-        sizes="(min-width: 1200px) 1022px, calc(100vw - 2rem)"
-        className="card-img absolute inset-0 h-full w-full object-cover object-center pointer-events-none"
-      />
-
+      {/* Image container with upward offset and seamless alpha fade into the card podium */}
       <div
-        className="
-          card-overlay-gradient pointer-events-none absolute inset-0
-          bg-linear-to-t from-card via-card/80 via-40% to-transparent
-        "
-      />
-
-      <div
-        className="
-          gradual-blur-overlay pointer-events-none absolute inset-x-0 bottom-0
-          z-0 h-80 overflow-hidden
-        "
+        className="pointer-events-none absolute inset-0 overflow-hidden"
       >
         <div
-          className="absolute inset-0"
+          className="
+            relative h-[calc(100%+5rem)] w-full -translate-y-20
+            sm:h-[calc(100%+6rem)] sm:-translate-y-24
+            md:h-[calc(100%+7rem)] md:-translate-y-28
+          "
           style={{
-            backdropFilter: 'blur(2px)',
             maskImage:
-              'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 25%)',
+              'linear-gradient(to bottom, black 0%, black 38%, rgba(0, 0, 0, 0.7) 58%, transparent 86%)',
             WebkitMaskImage:
-              'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 25%)',
+              'linear-gradient(to bottom, black 0%, black 38%, rgba(0, 0, 0, 0.7) 58%, transparent 86%)',
           }}
-        />
+        >
+          <Image
+            src={slide.image.src}
+            alt={slide.title}
+            fill
+            priority={isPriority}
+            sizes="(min-width: 1200px) 1022px, calc(100vw - 2rem)"
+            className="pointer-events-none size-full object-cover object-bottom"
+          />
+        </div>
+
+        {/* Seamless gradient overlay blending into the card podium */}
         <div
-          className="absolute inset-0"
-          style={{
-            backdropFilter: 'blur(5px)',
-            maskImage:
-              'linear-gradient(to top, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 50%)',
-            WebkitMaskImage:
-              'linear-gradient(to top, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 50%)',
-          }}
+          className="
+            pointer-events-none absolute inset-x-0 bottom-0 h-72 bg-linear-to-t
+            from-card via-card/85 via-40% to-transparent
+            sm:h-80
+            md:h-96
+          "
         />
+
+        {/* Gradual liquid glass blur fading out softly without harsh boundaries */}
         <div
-          className="absolute inset-0"
+          className="
+            pointer-events-none absolute inset-x-0 bottom-0 z-0 h-56
+            overflow-hidden
+            sm:h-64
+            md:h-72
+          "
           style={{
-            backdropFilter: 'blur(10px)',
             maskImage:
-              'linear-gradient(to top, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 75%)',
+              'linear-gradient(to top, black 0%, rgba(0,0,0,0.8) 35%, transparent 100%)',
             WebkitMaskImage:
-              'linear-gradient(to top, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 75%)',
+              'linear-gradient(to top, black 0%, rgba(0,0,0,0.8) 35%, transparent 100%)',
           }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            backdropFilter: 'blur(18px)',
-            maskImage:
-              'linear-gradient(to top, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 100%)',
-            WebkitMaskImage:
-              'linear-gradient(to top, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 100%)',
-          }}
-        />
+        >
+          <div
+            className="absolute inset-0"
+            style={{
+              backdropFilter: 'blur(3px)',
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              backdropFilter: 'blur(8px)',
+              maskImage:
+                'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
+              WebkitMaskImage:
+                'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
+            }}
+          />
+        </div>
       </div>
 
       <div
@@ -108,11 +115,11 @@ export const CarouselCard = memo(function CarouselCard({
             text-xs font-semibold tracking-widest text-foreground
             shadow-[0_8px_30px_rgb(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.6)]
             backdrop-blur-xl
-            dark:border-white/20 dark:bg-white/10
             sm:px-3.5 sm:py-1.5 sm:text-sm
+            dark:border-white/20 dark:bg-white/10
           "
         >
-          <span className="card-badge-num">{index + 1}</span>
+          <span>{index + 1}</span>
           <span className="px-1.5 opacity-60">/</span>
           <span className="opacity-60">{totalSlides}</span>
         </div>
@@ -128,10 +135,10 @@ export const CarouselCard = memo(function CarouselCard({
         "
       >
         <p
+          data-card-tag
           className="
-            card-tag text-xs font-semibold tracking-wide text-muted-foreground
-            drop-shadow-sm
-            [will-change:transform,opacity,filter]
+            text-xs font-semibold tracking-wide text-muted-foreground
+            drop-shadow-sm will-change-[transform,opacity,filter]
             sm:text-sm
             md:text-base
           "
@@ -139,10 +146,10 @@ export const CarouselCard = memo(function CarouselCard({
           {slide.eyebrow}
         </p>
         <h2
+          data-card-title
           className="
-            card-title font-sans text-xl/tight font-semibold tracking-tight
-            text-foreground drop-shadow-md
-            [will-change:transform,opacity,filter]
+            font-sans text-xl/tight font-semibold tracking-tight text-foreground
+            drop-shadow-md will-change-[transform,opacity,filter]
             sm:text-2xl/snug
             md:text-3xl/tight
             lg:text-4xl/tight
@@ -151,10 +158,11 @@ export const CarouselCard = memo(function CarouselCard({
           {slide.title}
         </h2>
         <p
+          data-card-desc
           className="
-            card-desc line-clamp-3 max-w-3xl text-xs/relaxed font-normal
-            text-muted-foreground drop-shadow
-            [will-change:transform,opacity,filter]
+            line-clamp-3 max-w-3xl text-xs/relaxed font-normal
+            text-muted-foreground drop-shadow-sm
+            will-change-[transform,opacity,filter]
             sm:text-sm/relaxed
             md:text-base/relaxed
           "

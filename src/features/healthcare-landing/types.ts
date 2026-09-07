@@ -12,6 +12,7 @@ export type FacilityItem = {
   title: string;
   description: string;
   icon: AssetImage;
+  image: AssetImage;
 };
 
 export type AboutSlide = {

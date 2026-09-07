@@ -141,27 +141,54 @@ export const aboutSlides = [
 
 export const facilities = [
   {
-    title: 'Ruang Tunggu',
-    description: 'Area tunggu bersih dan nyaman untuk pasien serta keluarga selama kunjungan.',
+    title: 'Spesialis Persalinan',
+    description:
+      'Ditangani dokter kandungan (SpOG), didukung fasilitas USG dan pemeriksaan laboratorium.',
     icon: {
-      src: '/assets/svg/Image__Choose-Icon-1__2049_5039.svg',
-      alt: '',
+      src: '/assets/svg/icon-spesialis-persalinan.svg',
+      alt: 'Ikon Spesialis Persalinan Klinik Amanah',
+    },
+    image: {
+      src: '/assets/images/asset-index-6.jpg',
+      alt: 'Layanan Spesialis Persalinan Klinik Amanah',
     },
   },
   {
-    title: 'Pemeriksaan',
-    description: 'Ruang periksa tertata rapi untuk konsultasi dan tindakan kesehatan dasar.',
+    title: 'Khitan Laser Anak',
+    description: 'Metode laser, ditangani langsung oleh tenaga medis klinik.',
     icon: {
-      src: '/assets/svg/Image__Choose-Icon-2__2049_5050.svg',
-      alt: '',
+      src: '/assets/svg/icon-khitan-laser.svg',
+      alt: 'Ikon Layanan Khitan Laser Anak',
+    },
+    image: {
+      src: '/assets/images/asset-index-7.jpg',
+      alt: 'Layanan Khitan Laser Anak Klinik Amanah',
     },
   },
   {
-    title: 'Apotek',
-    description: 'Obat pasien tersedia sesuai resep, dengan arahan penggunaan yang jelas.',
+    title: 'Persalinan 24 Jam',
+    description:
+      'Siaga penuh untuk persalinan normal, kapan pun Anda membutuhkan.',
     icon: {
-      src: '/assets/svg/Image__Choose-Icon-3__2049_5065.svg',
-      alt: '',
+      src: '/assets/svg/icon-persalinan-24jam.svg',
+      alt: 'Ikon Layanan Persalinan 24 Jam Siaga Penuh',
+    },
+    image: {
+      src: '/assets/images/asset-index-8.jpg',
+      alt: 'Layanan Persalinan 24 Jam Siaga Penuh',
+    },
+  },
+  {
+    title: 'Terima BPJS & Umum',
+    description:
+      'Melayani pasien BPJS Kesehatan maupun non-BPJS, proses administrasi mudah.',
+    icon: {
+      src: '/assets/svg/icon-terima-bpjs.svg',
+      alt: 'Ikon Pelayanan Pasien BPJS dan Umum',
+    },
+    image: {
+      src: '/assets/images/asset-index-9.jpg',
+      alt: 'Pelayanan Pasien BPJS dan Umum Klinik Amanah',
     },
   },
 ] satisfies FacilityItem[];
@@ -221,7 +248,7 @@ export const appointment = {
   title: 'Jadwalkan Kunjungan Anda',
   description: 'Pilih layanan dan jadwal yang sesuai dengan kebutuhan Anda. Buat janji dengan mudah dan dapatkan pelayanan kesehatan terbaik di Klinik Amanah.',
   image: {
-    src: '/assets/images/Image__Appointment__f812337e.png',
+    src: '/assets/images/image-bg-janjitemu.jpg',
     alt: 'Tim dokter Amanah Healthcare siap melayani pasien',
   } satisfies AssetImage,
 };

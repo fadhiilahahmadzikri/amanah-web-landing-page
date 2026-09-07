@@ -5,10 +5,10 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRightIcon, BadgeCheckIcon } from 'lucide-react';
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { ViewportLine } from '@/components/healthcare';
-import { cn } from '@/utils/Helpers';
-import { facilities, facilityImage, watermark } from '../data';
+import { facilities, watermark } from '../data';
+import { FacilityCard } from './FacilityCard';
 import { PillLabel } from './PillLabel';
 import { SectionContainer } from './SectionContainer';
 
@@ -16,8 +16,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const facilityBorderClassNames = [
   'border-b border-line md:border-r xl:border-b-0',
-  'border-b border-line xl:border-r xl:border-b-0',
-  'border-b border-line md:border-r md:border-b-0 xl:border-r',
+  'border-b border-line md:border-r-0 xl:border-r xl:border-b-0',
+  'border-b border-line md:border-r md:border-b-0 xl:border-r xl:border-b-0',
+  'border-b-0 md:border-b-0 xl:border-r-0',
 ];
 
 export function FacilitiesSection() {
@@ -26,8 +27,39 @@ export function FacilitiesSection() {
   const gridRef = useRef<HTMLDivElement>(null);
   const watermarkRef = useRef<HTMLDivElement>(null);
 
+  const [activeCardIndex, setActiveCardIndex] = useState<number>(0);
+  const [isUserHovering, setIsUserHovering] = useState<boolean>(false);
+  const [isInView, setIsInView] = useState<boolean>(false);
+
+  const handleProgressComplete = useCallback((completedIndex: number) => {
+    setActiveCardIndex((current) => {
+      if (current === completedIndex) {
+        return (current + 1) % facilities.length;
+      }
+      return current;
+    });
+  }, []);
+
+  const handleCardHover = useCallback((index: number) => {
+    setIsUserHovering(true);
+    setActiveCardIndex(index);
+  }, []);
+
+  const handleGridLeave = useCallback(() => {
+    setIsUserHovering(false);
+  }, []);
+
   useGSAP(
     () => {
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: 'top 85%',
+        end: 'bottom 15%',
+        onEnter: () => setIsInView(true),
+        onLeave: () => setIsInView(false),
+        onEnterBack: () => setIsInView(true),
+        onLeaveBack: () => setIsInView(false),
+      });
       if (watermarkRef.current) {
         gsap.to(watermarkRef.current, {
           yPercent: 25,
@@ -158,7 +190,7 @@ export function FacilitiesSection() {
                     md:text-6xl
                   "
                 >
-                  Fasilitas untuk Kenyamanan Anda
+                  Kenapa Memilih Amanah
                 </h2>
               </div>
             </div>
@@ -191,80 +223,29 @@ export function FacilitiesSection() {
 
         <div
           ref={gridRef}
+          onMouseLeave={handleGridLeave}
           className="
             relative z-10 grid
             md:grid-cols-2
-            xl:grid-cols-[1.05fr_1.05fr_1.05fr_1fr]
+            xl:grid-cols-4
           "
         >
           {facilities.map((facility, index) => {
             return (
-              <article
+              <FacilityCard
                 key={facility.title}
-                className={cn(
-                  `
-                    flex min-h-[280px] flex-col items-start bg-card px-8 py-9
-                    md:min-h-[320px]
-                    xl:min-h-[344px] xl:px-9 xl:py-10
-                  `,
-                  index % 2 === 0 ? 'bg-background' : 'bg-card',
-                  facilityBorderClassNames[index],
-                )}
-              >
-                <span
-                  data-facility-icon
-                  className="
-                    inline-flex size-12 shrink-0 items-center justify-center
-                    rounded-xl bg-amanah-icon-soft
-                    dark:bg-amanah-blue/20
-                  "
-                >
-                  <Image
-                    src={facility.icon.src}
-                    alt={facility.icon.alt}
-                    width={24}
-                    height={24}
-                    aria-hidden="true"
-                    className="size-6 object-contain"
-                  />
-                </span>
-                <div className="mt-6 flex max-w-[249px] flex-col gap-4">
-                  <h3 className="text-xl/[1.3] font-semibold text-foreground">
-                    {facility.title}
-                  </h3>
-                  <p className="text-base/[1.65] text-muted-foreground">
-                    {facility.description}
-                  </p>
-                </div>
-              </article>
+                facility={facility}
+                index={index}
+                className={facilityBorderClassNames[index]}
+                isActive={isInView && activeCardIndex === index}
+                isPaused={isUserHovering || !isInView}
+                progressDuration={4.5}
+                onProgressComplete={handleProgressComplete}
+                onCardHover={handleCardHover}
+                onCardClick={handleCardHover}
+              />
             );
           })}
-
-          <article className="
-            relative min-h-[280px] overflow-hidden bg-card
-            md:min-h-[320px]
-            xl:min-h-[344px]
-          "
-          >
-            <Image
-              src={facilityImage.src}
-              alt={facilityImage.alt}
-              fill
-              sizes="(min-width: 1280px) 313px, (min-width: 768px) 50vw, 100vw"
-              className="object-cover object-center"
-            />
-            <div className="
-              absolute inset-0 bg-linear-to-t from-card via-card/65 to-card/10
-            "
-            />
-            <h3 className="
-              absolute inset-x-8 bottom-10 max-w-[209px] text-xl/[1.35]
-              font-semibold text-foreground
-            "
-            >
-              Harga Terjangkau & Transparan
-            </h3>
-          </article>
         </div>
       </SectionContainer>
     </section>
