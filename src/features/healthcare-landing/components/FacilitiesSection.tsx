@@ -108,7 +108,11 @@ export function FacilitiesSection() {
       id="fasilitas"
       className="bg-background"
     >
-      <SectionContainer className="relative px-0 sm:px-0">
+      <SectionContainer className="
+        relative px-0
+        sm:px-0
+      "
+      >
         <div className="
           relative px-6 py-12
           md:px-10 md:py-16
@@ -129,8 +133,8 @@ export function FacilitiesSection() {
               height={547}
               className="
                 absolute top-0 -right-14 h-auto w-[617px] max-w-none
-                opacity-[0.045] brightness-0 dark:opacity-[0.08]
-                dark:brightness-100
+                opacity-[0.045] brightness-0
+                dark:opacity-[0.08] dark:brightness-100
               "
               aria-hidden
             />
@@ -160,7 +164,10 @@ export function FacilitiesSection() {
             </div>
 
             <div className="flex items-center gap-5 text-muted-foreground">
-              <BadgeCheckIcon aria-hidden className="shrink-0" />
+              <BadgeCheckIcon
+                aria-hidden
+                className="size-6 shrink-0 text-amanah-mint"
+              />
               <div className="flex flex-col gap-2">
                 <p className="text-base italic">
                   Certified by the American Dental Association
@@ -168,9 +175,9 @@ export function FacilitiesSection() {
                 <a
                   href="#kontak"
                   className="
-                    inline-flex w-fit items-center gap-2 border-b
-                    border-line pb-1 text-base font-semibold text-foreground
-                    hover:border-foreground
+                    inline-flex w-fit items-center gap-2 border-b border-line
+                    pb-1 text-base font-semibold text-primary transition-colors
+                    hover:border-primary hover:text-amanah-blue
                   "
                 >
                   Schedule Your Visit
@@ -195,7 +202,7 @@ export function FacilitiesSection() {
               <article
                 key={facility.title}
                 className={cn(
-                  `               
+                  `
                     flex min-h-[280px] flex-col items-start bg-card px-8 py-9
                     md:min-h-[320px]
                     xl:min-h-[344px] xl:px-9 xl:py-10
@@ -208,6 +215,8 @@ export function FacilitiesSection() {
                   data-facility-icon
                   className="
                     inline-flex size-12 shrink-0 items-center justify-center
+                    rounded-xl bg-amanah-icon-soft
+                    dark:bg-amanah-blue/20
                   "
                 >
                   <Image
@@ -216,13 +225,10 @@ export function FacilitiesSection() {
                     width={24}
                     height={24}
                     aria-hidden="true"
-                    className="size-6 object-contain grayscale"
+                    className="size-6 object-contain"
                   />
                 </span>
-                <div className="
-                  mt-6 flex max-w-[249px] flex-col gap-4
-                "
-                >
+                <div className="mt-6 flex max-w-[249px] flex-col gap-4">
                   <h3 className="text-xl/[1.3] font-semibold text-foreground">
                     {facility.title}
                   </h3>
@@ -248,8 +254,7 @@ export function FacilitiesSection() {
               className="object-cover object-center"
             />
             <div className="
-              absolute inset-0 bg-linear-to-t from-card via-card/65
-              to-card/10
+              absolute inset-0 bg-linear-to-t from-card via-card/65 to-card/10
             "
             />
             <h3 className="

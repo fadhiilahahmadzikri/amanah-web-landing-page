@@ -47,14 +47,14 @@ const navigationLinkClass = `
 `;
 
 const curtainPanelClass = `
-  absolute inset-y-0 origin-bottom scale-y-0 bg-foreground
+  absolute inset-y-0 origin-bottom scale-y-0 bg-primary
   transition-transform duration-[250ms]
   [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]
   group-hover:scale-y-100
   group-focus-visible:scale-y-100
 `;
 
-const activeNavigationLinkClass = 'bg-foreground text-background';
+const activeNavigationLinkClass = 'bg-primary text-primary-foreground';
 
 function getNavigationActiveValue(item: { hash?: string; path: string }) {
   return item.hash ?? item.path;
@@ -107,19 +107,26 @@ function HealthcareNavLink({
     >
       <span className="
         relative z-10 transition-colors duration-200
-        group-hover:text-background group-focus-visible:text-background
+        group-hover:text-primary-foreground
+        group-focus-visible:text-primary-foreground
       "
       >
         {label}
       </span>
       <span aria-hidden className="pointer-events-none absolute inset-0 z-0">
-        <span className={cn(curtainPanelClass, 'left-0 w-[calc(100%/3+1px)] delay-0')} />
+        <span className={cn(curtainPanelClass, `
+          left-0 w-[calc(100%/3+1px)] delay-0
+        `)}
+        />
         <span className={cn(
           curtainPanelClass,
           'left-[33.333333%] w-[calc(100%/3+1px)] delay-[40ms]',
         )}
         />
-        <span className={cn(curtainPanelClass, 'right-0 w-[calc(100%/3+1px)] delay-[80ms]')} />
+        <span className={cn(curtainPanelClass, `
+          right-0 w-[calc(100%/3+1px)] delay-[80ms]
+        `)}
+        />
       </span>
     </a>
   );
@@ -138,9 +145,10 @@ function HealthcareMobileMenu({
           size="icon"
           variant="ghost"
           className="
-            size-12 shrink-0 rounded-none border-l border-line
-            bg-background text-foreground hover:bg-accent
-            hover:text-foreground lg:hidden
+            size-12 shrink-0 rounded-none border-l border-line bg-background
+            text-foreground
+            hover:bg-accent hover:text-foreground
+            lg:hidden
           "
           aria-label="Toggle menu"
           id="mobile-menu-button"
@@ -152,8 +160,9 @@ function HealthcareMobileMenu({
       <SheetContent
         side="right"
         className="
-          w-[min(448px,calc(100vw-48px))] border-line bg-background
-          p-0 text-foreground sm:max-w-none
+          w-[min(448px,calc(100vw-48px))] border-line bg-background p-0
+          text-foreground
+          sm:max-w-none
         "
       >
         <SheetHeader className="border-b border-line p-4 pr-16">
@@ -185,10 +194,14 @@ function HealthcareMobileMenu({
                   onClick={() => onSelect(itemActiveValue)}
                   className={cn(
                     `
-                      flex min-h-14 w-full items-center justify-between
-                      px-4 py-3 text-left transition-colors hover:bg-accent
+                      flex min-h-14 w-full items-center justify-between px-4
+                      py-3 text-left transition-colors
+                      hover:bg-accent
                     `,
-                    isActive && 'bg-foreground text-background hover:bg-foreground',
+                    isActive && `
+                      bg-primary text-primary-foreground
+                      hover:bg-primary
+                    `,
                   )}
                 >
                   <span className="text-base font-medium tracking-[0.01em]">
@@ -206,9 +219,10 @@ function HealthcareMobileMenu({
             <a
               href={getI18nPath('/sign-in', locale)}
               className="
-                flex min-h-12 items-center justify-between rounded-xl
-                border border-line bg-background px-4 text-sm font-semibold
-                text-foreground transition-colors hover:bg-accent
+                flex min-h-12 items-center justify-between rounded-xl border
+                border-line bg-background px-4 text-sm font-semibold
+                text-foreground transition-colors
+                hover:bg-accent
               "
             >
               Masuk
@@ -248,7 +262,8 @@ export function HealthcareHeader({
     >
       <SectionContainer className="
         relative flex h-12 items-center overflow-visible border-x-2 border-line
-        px-0 sm:px-0
+        px-0
+        sm:px-0
       "
       >
         <ViewportLine position="top" />
@@ -264,8 +279,8 @@ export function HealthcareHeader({
         <nav
           aria-label="Navigasi utama"
           className="
-            hidden h-full items-stretch border-l border-line
-            bg-background text-foreground transition-colors
+            hidden h-full items-stretch border-l border-line bg-background
+            text-foreground transition-colors
             lg:flex
           "
         >
@@ -287,7 +302,11 @@ export function HealthcareHeader({
         </nav>
 
         <div className="flex h-full items-center">
-          <div className="flex h-full items-center border-l border-line px-1.5 lg:border-l-0">
+          <div className="
+            flex h-full items-center border-l border-line px-1.5
+            lg:border-l-0
+          "
+          >
             <ThemeToggle />
           </div>
           <a

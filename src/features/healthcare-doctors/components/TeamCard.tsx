@@ -1,5 +1,5 @@
-import type { HealthcareTeamMember } from '../types';
 import type { CSSProperties } from 'react';
+import type { HealthcareTeamMember } from '../types';
 import { XIcon } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/utils/Helpers';
@@ -30,16 +30,20 @@ export function TeamCard({
   return (
     <article
       className={cn(`
-        relative flex h-full flex-col overflow-hidden
-        bg-background pl-3 text-foreground
-        min-[420px]:pl-4 sm:pl-6 md:pl-8
+        relative flex h-full flex-col overflow-hidden bg-background pl-3
+        text-foreground
+        min-[420px]:pl-4
+        sm:pl-6
+        md:pl-8
       `, className)}
     >
       <span
         aria-hidden
         className="
           absolute inset-y-0 left-0 w-3 border-r border-line opacity-70
-          min-[420px]:w-4 sm:w-6 md:w-8
+          min-[420px]:w-4
+          sm:w-6
+          md:w-8
         "
         style={hatchedRailStyle}
       />
@@ -52,18 +56,19 @@ export function TeamCard({
       "
       >
         <h3 className="
-          line-clamp-2 min-h-[2.1em] max-w-52 text-base/[1.05]
-          font-extrabold
-          min-[420px]:text-lg/[1.05] sm:text-2xl/[1.05]
+          line-clamp-2 min-h-[2.1em] max-w-52 text-base/[1.05] font-extrabold
+          min-[420px]:text-lg/[1.05]
+          sm:text-2xl/[1.05]
           md:text-[28px]
         "
         >
           {member.name}
         </h3>
         <p className="
-          mt-2 line-clamp-2 min-h-[2.3em] font-amanah-script
-          text-xs/[1.15] text-muted-foreground
-          min-[420px]:text-sm/[1.15] sm:mt-3 sm:text-base/[1.1]
+          mt-2 line-clamp-2 min-h-[2.3em] font-amanah-script text-xs/[1.15]
+          text-amanah-muted
+          min-[420px]:text-sm/[1.15]
+          sm:mt-3 sm:text-base/[1.1]
           md:text-lg
         "
         >
@@ -73,7 +78,7 @@ export function TeamCard({
 
       <div
         className="
-          relative mt-auto aspect-[4/3] w-full overflow-hidden bg-background
+          relative mt-auto aspect-4/3 w-full overflow-hidden bg-background
           sm:aspect-square
         "
       >
@@ -87,7 +92,11 @@ export function TeamCard({
         />
 
         {showSocials && (
-          <div className="absolute right-2 bottom-2 flex gap-1.5 sm:right-3 sm:bottom-3 sm:gap-2">
+          <div className="
+            absolute right-2 bottom-2 flex gap-1.5
+            sm:right-3 sm:bottom-3 sm:gap-2
+          "
+          >
             <a
               href="#kontak"
               aria-label={`LinkedIn ${member.name}`}

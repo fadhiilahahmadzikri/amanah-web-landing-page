@@ -78,7 +78,8 @@ export function TestimonialsSection() {
       className="bg-background"
     >
       <SectionContainer className="
-        grid px-0 sm:px-0
+        grid px-0
+        sm:px-0
         lg:grid-cols-[0.9fr_1.1fr_1.8fr]
       "
       >
@@ -86,17 +87,18 @@ export function TestimonialsSection() {
           data-testimonial-panel
           className="
             flex min-h-96 flex-col justify-between border-b border-line
-            bg-background p-8 text-foreground
-            lg:border-r lg:border-b-0
+            bg-amanah-navy p-8 text-white
             md:p-10
+            lg:border-r lg:border-b-0
+            dark:bg-card dark:text-foreground
           "
         >
           <div className="flex flex-col items-start gap-10">
             <span className="
-              inline-flex rounded-none border border-line bg-background px-3
-              py-1.5 text-xs font-semibold tracking-[0.16em]
-              text-muted-foreground
+              inline-flex rounded-none border border-white/20 bg-white/10 px-3
+              py-1.5 text-xs font-semibold tracking-[0.16em] text-white
               uppercase
+              dark:border-line dark:bg-amanah-soft/20 dark:text-primary
             "
             >
               # Kisah Pasien
@@ -107,10 +109,14 @@ export function TestimonialsSection() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <p className="text-xl">
+            <p className="text-xl font-semibold">
               {testimonials.featured.name}
             </p>
-            <p className="text-lg text-muted-foreground">
+            <p className="
+              text-lg text-white/75
+              dark:text-muted-foreground
+            "
+            >
               {testimonials.featured.role}
             </p>
           </div>
@@ -143,14 +149,17 @@ export function TestimonialsSection() {
             <div
               ref={quoteMarkRef}
               aria-hidden
-              className="text-9xl leading-none font-bold text-foreground/10 will-change-transform"
+              className="
+                text-9xl leading-none font-bold text-amanah-blue/25
+                will-change-transform
+              "
             >
               ”
             </div>
 
             <blockquote className="
               max-w-2xl font-amanah-script text-3xl/relaxed text-foreground
-              md:text-4xl/[1.25]
+              md:text-4xl/tight
             "
             >
               {activeTestimonial.quote}
@@ -170,7 +179,7 @@ export function TestimonialsSection() {
                 <p className="text-2xl font-semibold text-foreground">
                   {activeTestimonial.name}
                 </p>
-                <p className="text-lg font-medium text-muted-foreground">
+                <p className="text-lg font-medium text-amanah-muted">
                   {activeTestimonial.role}
                 </p>
               </div>

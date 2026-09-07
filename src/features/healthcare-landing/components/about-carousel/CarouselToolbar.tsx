@@ -38,12 +38,16 @@ export function CarouselToolbar({
             hover:scale-105 hover:border-white/50 hover:bg-white/30
             hover:shadow-[0_8px_30px_rgb(0,0,0,0.2),inset_0_1px_2px_rgba(255,255,255,0.8)]
             active:scale-95 active:bg-white/40
-            dark:border-white/20 dark:bg-white/10
             sm:size-12
+            dark:border-white/20 dark:bg-white/10
           "
           onClick={onPrevious}
         >
-          <ArrowLeftIcon className="size-5 transition-transform group-hover:-translate-x-0.5" />
+          <ArrowLeftIcon className="
+            size-5 transition-transform
+            group-hover:-translate-x-0.5
+          "
+          />
         </button>
 
         <button
@@ -58,12 +62,16 @@ export function CarouselToolbar({
             hover:scale-105 hover:border-white/50 hover:bg-white/30
             hover:shadow-[0_8px_30px_rgb(0,0,0,0.2),inset_0_1px_2px_rgba(255,255,255,0.8)]
             active:scale-95 active:bg-white/40
-            dark:border-white/20 dark:bg-white/10
             sm:size-12
+            dark:border-white/20 dark:bg-white/10
           "
           onClick={onNext}
         >
-          <ArrowRightIcon className="size-5 transition-transform group-hover:translate-x-0.5" />
+          <ArrowRightIcon className="
+            size-5 transition-transform
+            group-hover:translate-x-0.5
+          "
+          />
         </button>
       </div>
 
@@ -88,18 +96,25 @@ export function CarouselToolbar({
 
             return (
               <button
+                // eslint-disable-next-line react/no-array-index-key
                 key={index}
                 type="button"
                 aria-label={`Go to slide ${index + 1}`}
-                className="flex h-3 w-8 items-center justify-center focus:outline-none"
+                className="
+                  flex h-3 w-8 items-center justify-center
+                  focus:outline-none
+                "
                 onClick={() => onSelectSlide(index)}
               >
                 <span
                   className={cn(
-                    'indicator-dot block h-1.5 rounded-full transition-all duration-300',
+                    'block h-1.5 rounded-full transition-all duration-300',
                     isActive
-                      ? 'w-8 bg-foreground shadow-sm'
-                      : 'size-1.5 bg-foreground/40 hover:bg-foreground/80',
+                      ? 'w-8 bg-primary shadow-sm'
+                      : `
+                        size-1.5 bg-foreground/40
+                        hover:bg-foreground/80
+                      `,
                   )}
                 />
               </button>

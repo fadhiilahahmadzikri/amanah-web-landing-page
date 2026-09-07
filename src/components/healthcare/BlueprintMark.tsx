@@ -21,9 +21,9 @@ export function BlueprintMark({
     >
       <svg
         className="
-          absolute inset-0 h-full w-full overflow-visible
-          [--blueprint-pattern:color-mix(in_oklab,var(--foreground)_10%,var(--background))]
-          [--blueprint-stroke:color-mix(in_oklab,var(--foreground)_18%,var(--background))]
+          absolute inset-0 size-full overflow-visible
+          [--blueprint-pattern:color-mix(in_oklab,var(--amanah-blue)_12%,var(--background))]
+          [--blueprint-stroke:color-mix(in_oklab,var(--amanah-blue)_22%,var(--background))]
         "
         viewBox="0 0 900 430"
         fill="none"
@@ -82,8 +82,8 @@ export function BlueprintMark({
       </svg>
 
       <figcaption className="
-        absolute right-4 bottom-4 text-sm leading-none font-medium
-        tracking-wide text-muted-foreground/60 tabular-nums select-none
+        absolute right-4 bottom-4 text-sm leading-none font-medium tracking-wide
+        text-muted-foreground/60 tabular-nums select-none
       "
       >
         {figureLabel}

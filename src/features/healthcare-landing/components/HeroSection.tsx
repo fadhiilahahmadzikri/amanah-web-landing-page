@@ -98,7 +98,10 @@ export function HeroSection() {
         md:min-h-[720px]
       "
       >
-        <div ref={imageRef} className="absolute inset-0 size-full will-change-transform">
+        <div
+          ref={imageRef}
+          className="absolute inset-0 size-full will-change-transform"
+        >
           <Image
             src={hero.image.src}
             alt={hero.image.alt}
@@ -129,13 +132,18 @@ export function HeroSection() {
               max-sm:pt-10
             "
           >
-            <div className="mb-7 overflow-hidden md:mb-10">
+            <div className="
+              mb-7 overflow-hidden
+              md:mb-10
+            "
+            >
               <p
                 data-hero-eyebrow
                 className="
-                  inline-flex rounded-none border border-line
-                  bg-background/80 px-3 py-1.5 text-xs font-semibold
-                  tracking-[0.16em] text-muted-foreground uppercase backdrop-blur
+                  inline-flex rounded-none border border-line bg-amanah-soft/70
+                  px-3 py-1.5 text-xs font-semibold tracking-[0.16em]
+                  text-primary uppercase backdrop-blur-sm
+                  dark:bg-amanah-soft/30
                 "
               >
                 {hero.eyebrow}
@@ -150,7 +158,10 @@ export function HeroSection() {
             "
             >
               <div className="overflow-hidden pb-1">
-                <span data-mask-line className="inline-block will-change-transform">
+                <span
+                  data-mask-line
+                  className="inline-block will-change-transform"
+                >
                   {hero.title}
                 </span>
               </div>
@@ -169,7 +180,13 @@ export function HeroSection() {
               </div>
             </h1>
 
-            <div data-hero-cta className="mt-8 w-fit md:mt-10">
+            <div
+              data-hero-cta
+              className="
+                mt-8 w-fit
+                md:mt-10
+              "
+            >
               <ArrowCtaButton href="#kontak">
                 Buat Janji Temu
               </ArrowCtaButton>
@@ -186,9 +203,10 @@ export function HeroSection() {
                   key={item}
                   data-hero-pill
                   className="
-                    border-line py-3 font-medium uppercase tracking-[0.14em]
+                    border-line py-3 font-medium tracking-[0.14em] uppercase
                     sm:border-r sm:px-4
-                    sm:first:pl-0 sm:last:border-r-0
+                    sm:first:pl-0
+                    sm:last:border-r-0
                   "
                 >
                   {item}

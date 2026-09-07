@@ -31,7 +31,7 @@ export const hero = {
   title: 'Sehat Lebih Baik, Bersama Klinik',
   scriptTitle: 'Amanah Healthcare',
   image: {
-    src: '/assets/images/Container_512fdd4a.png',
+    src: '/assets/images/hero-bg-image.png',
     alt: 'Dokter mendampingi pasien di ruang perawatan Klinik Amanah',
   } satisfies AssetImage,
 };
@@ -93,75 +93,48 @@ export const trustHighlights = {
 
 export const aboutSlides = [
   {
-    eyebrow: 'Profil & Komitmen',
-    title: 'Layanan Medis Modern & Tepercaya',
-    description: 'Amanah Healthcare merupakan rumah sakit umum swasta di Sleman, Yogyakarta yang mengutamakan keselamatan pasien (patient safety) dan kenyamanan bagi seluruh keluarga.',
+    eyebrow: 'Cara Kami Melayani',
+    title: 'Ramah, Nyaman, dan Mengayomi',
+    description: 'Setiap pasien kami perlakukan seperti keluarga sendiri, mulai dari pendaftaran hingga konsultasi dengan dokter. Kebersihan klinik dijaga ketat agar Anda tetap nyaman selama berkunjung.',
     image: {
-      src: '/assets/images/Image__Healthcare_Infrastructure__b4e61fb2.png',
-      alt: 'Fasilitas dan infrastruktur modern Amanah Healthcare',
+      src: '/assets/images/asset-index-1.jpg',
+      alt: 'Cara Kami Melayani - Ramah, Nyaman, dan Mengayomi',
     },
   },
   {
-    eyebrow: 'Transformasi Mutu',
-    title: 'Peningkatan Standar Layanan Medis',
-    description: 'Kami terus melakukan pembenahan infrastruktur, peningkatan standar mutu pelayanan, dan pengembangan kompetensi tenaga kesehatan untuk menjawab kebutuhan masyarakat.',
+    eyebrow: 'Tujuan Kami',
+    title: 'Menjadi Pilihan Utama Warga Sleman',
+    description: 'Kami ingin menjadi tempat berobat yang paling Anda percaya — mulai dari pemeriksaan kesehatan umum, konsultasi KB, hingga layanan ibu dan anak, semua ditangani dengan cepat dan tepat.',
     image: {
-      src: '/assets/images/Container_512fdd4a.png',
-      alt: 'Pengembangan mutu dan fasilitas medis berkelanjutan',
+      src: '/assets/images/asset-index-2.jpg',
+      alt: 'Tujuan Kami - Menjadi Pilihan Utama Warga Sleman',
     },
   },
   {
-    eyebrow: 'Layanan Utama',
-    title: 'IGD 24 Jam & Rawat Inap Terpadu',
-    description: 'Siap siaga 24 jam dengan instalasi gawat darurat, poliklinik spesialis, kamar operasi, dan fasilitas rawat inap yang nyaman didukung tim medis yang ramah dan sigap.',
+    eyebrow: 'Cakupan Pelayanan',
+    title: 'Melayani Pasien BPJS dan Umum',
+    description: 'Soal biaya, Anda tidak perlu khawatir. Klinik Amanah resmi melayani pasien BPJS Kesehatan maupun umum, dengan proses administrasi yang cepat dan tidak berbelit.',
     image: {
-      src: '/assets/images/Image__Healthcare_and_Medical_Specialists_Consulting__12d9eb1f.png',
-      alt: 'Layanan IGD dan poliklinik spesialis Amanah Healthcare',
+      src: '/assets/images/asset-index-3.jpg',
+      alt: 'Cakupan Pelayanan - Melayani Pasien BPJS dan Umum',
     },
   },
   {
-    eyebrow: 'Diagnostik Medis',
-    title: 'Laboratorium & Radiologi Lengkap',
-    description: 'Didukung fasilitas radiologi modern, laboratorium klinik terpadu, serta farmasi lengkap untuk memberikan hasil pemeriksaan yang akurat dan perencanaan terapi tepat.',
+    eyebrow: 'Fasilitas & Layanan',
+    title: 'Persalinan 24 Jam & Beragam Fasilitas',
+    description: 'Layanan persalinan normal kami siagakan 24 jam penuh. Klinik ini juga dilengkapi USG kandungan, pemeriksaan laboratorium, khitan laser, serta jadwal vaksinasi rutin untuk bayi dan anak.',
     image: {
-      src: '/assets/images/Image__Biotechnology_Lab_Research__e8228306.png',
-      alt: 'Laboratorium dan sarana diagnostik modern',
+      src: '/assets/images/asset-index-4.jpg',
+      alt: 'Fasilitas & Layanan - Persalinan 24 Jam & Beragam Fasilitas',
     },
   },
   {
-    eyebrow: 'Layanan Unggulan',
-    title: 'Fisioterapi & Tumbuh Kembang Anak',
-    description: 'Hadir dengan layanan rehabilitasi medis & fisioterapi, klinik stimulasi tumbuh kembang anak komprehensif, serta unit hemodialisa dengan pengawasan dokter spesialis.',
+    eyebrow: 'Profil Klinik',
+    title: 'Klinik Kesehatan Keluarga di Condongcatur',
+    description: 'Klinik Pratama Amanah berlokasi di Jalan Anyelir, Perumnas Condongcatur, Sleman, melayani pemeriksaan dokter umum, konsultasi kandungan, dan kebidanan untuk kebutuhan kesehatan harian keluarga Anda.',
     image: {
-      src: '/assets/images/Image__Precision_Oncology_Therapy__179c5740.png',
-      alt: 'Peralatan terapi dan layanan unggulan Amanah Healthcare',
-    },
-  },
-  {
-    eyebrow: 'Budaya Kerja',
-    title: 'Solusi JITU Kesehatan Keluarga',
-    description: 'Berlandaskan nilai Janji Ibadah Tuk Umat (JITU) dan budaya Ramah, Santun, Cerdas, serta Cekatan. Kami melayani dengan ketulusan hati sebagai mitra kesehatan terpercaya.',
-    image: {
-      src: '/assets/images/Container_7f4d0544.png',
-      alt: 'Tenaga medis melayani dengan budaya ramah dan cekatan',
-    },
-  },
-  {
-    eyebrow: 'Visi Utama',
-    title: 'Rumah Sakit Pilihan Masyarakat',
-    description: 'Bertekad menjadi rumah sakit rujukan utama bagi masyarakat Yogyakarta dan sekitarnya melalui pelayanan yang profesional, terjangkau, humanis, dan berstandar tinggi.',
-    image: {
-      src: '/assets/images/Image__Appointment__f812337e.png',
-      alt: 'Visi pelayanan kesehatan prima Amanah Healthcare',
-    },
-  },
-  {
-    eyebrow: 'Misi Pelayanan',
-    title: 'Pelayanan Kesehatan Menyeluruh',
-    description: 'Menjangkau masyarakat luas melalui layanan preventif, promotif, kuratif, dan rehabilitatif dengan komitmen penuh pada kepuasan pasien dan disiplin kerja tinggi.',
-    image: {
-      src: '/assets/images/Image__Healthcare_Infrastructure__b4e61fb2.png',
-      alt: 'Komitmen misi pelayanan kesehatan menyeluruh',
+      src: '/assets/images/asset-index-5.png',
+      alt: 'Profil Klinik - Klinik Kesehatan Keluarga di Condongcatur',
     },
   },
 ] satisfies AboutSlide[];

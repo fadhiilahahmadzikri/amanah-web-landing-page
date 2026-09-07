@@ -115,8 +115,8 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
     <div ref={containerRef} className="relative overflow-visible">
       <div
         className="
-          pointer-events-none absolute inset-y-0 right-0 left-0 z-20 flex
-          items-center justify-between
+          pointer-events-none absolute inset-0 z-20 flex items-center
+          justify-between
         "
         aria-label="Navigasi poster layanan"
       >
@@ -126,7 +126,8 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
           variant="outline"
           className="
             pointer-events-auto -translate-x-1/2 rounded-xl border-line
-            bg-background/95 shadow-sm backdrop-blur
+            bg-background/95 text-foreground shadow-sm backdrop-blur-sm
+            hover:border-primary hover:bg-accent hover:text-primary
           "
           aria-label="Lihat layanan sebelumnya"
           onClick={scrollToPreviousService}
@@ -139,8 +140,8 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
           variant="outline"
           className="
             pointer-events-auto translate-x-1/2 rounded-xl border-line
-            bg-background/95 text-foreground shadow-sm backdrop-blur
-            hover:bg-accent
+            bg-background/95 text-foreground shadow-sm backdrop-blur-sm
+            hover:border-primary hover:bg-accent hover:text-primary
           "
           aria-label="Lihat layanan berikutnya"
           onClick={scrollToNextService}
@@ -153,9 +154,9 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
         ref={viewportRef}
         onScroll={syncActiveService}
         className="
-          scrollbar-none overflow-x-auto scroll-smooth px-6 scroll-px-6
+          scroll-px-6 scrollbar-none overflow-x-auto scroll-smooth px-6
+          md:scroll-px-10 md:px-10
           [&::-webkit-scrollbar]:hidden
-          md:px-10 md:scroll-px-10
         "
       >
         <div className="flex w-max snap-x snap-mandatory gap-6">
@@ -199,8 +200,11 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
               className={cn(
                 'block h-1.5 rounded-full transition-all',
                 index === activeIndex
-                  ? 'w-8 bg-foreground'
-                  : 'size-1.5 bg-foreground/35',
+                  ? 'w-8 bg-primary shadow-sm'
+                  : `
+                    size-1.5 bg-primary/30
+                    hover:bg-primary/60
+                  `,
               )}
             />
           </button>
