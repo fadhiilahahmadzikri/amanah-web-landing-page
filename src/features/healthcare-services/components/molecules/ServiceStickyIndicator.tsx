@@ -18,20 +18,23 @@ export function ServiceStickyIndicator({
       aria-label="Konteks Layanan"
       className={cn(
         `
-          grid w-full grid-cols-2 divide-x divide-line overflow-hidden border
-          border-line bg-background shadow-xs
-          lg:flex lg:flex-col lg:divide-x-0 lg:divide-y
+          grid w-full grid-cols-2 divide-x divide-line border-line bg-background
+          lg:flex lg:flex-col lg:divide-x-0 lg:divide-y lg:border-b
         `,
         className,
       )}
     >
       <ServiceContextItem
+        stepNumber="01"
         label="Dokter umum"
+        sublabel="Pelayanan Dasar"
         isActive={activeContext === 'general-practitioner'}
         onClick={() => onSelectContext('general-practitioner')}
       />
       <ServiceContextItem
-        label="Bidan"
+        stepNumber="02"
+        label="Pelayanan Bidan"
+        sublabel="Kesehatan Ibu & Anak"
         isActive={activeContext === 'midwifery'}
         onClick={() => onSelectContext('midwifery')}
       />

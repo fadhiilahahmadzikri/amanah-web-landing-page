@@ -1,7 +1,15 @@
+'use client';
+
 import type { ServiceCategorySection } from '../../types';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
 import { cn } from '@/utils/Helpers';
 import { ServiceInfoPanel } from '../molecules/ServiceInfoPanel';
 import { ServiceBentoGrid } from './ServiceBentoGrid';
+
+gsap.registerPlugin(ScrollTrigger);
 
 type ServiceCategoryBlockProps = {
   section: ServiceCategorySection;
@@ -12,10 +20,42 @@ export function ServiceCategoryBlock({
   section,
   className,
 }: ServiceCategoryBlockProps) {
+  const blockRef = useRef<HTMLDivElement>(null);
   const isBentoLeft = section.layout === 'bento-left';
+
+  useGSAP(
+    () => {
+      if (!blockRef.current) {
+        return;
+      }
+
+      // Animate on scroll: staggered wave for bento cards (susul-susulan)
+      const cards = blockRef.current.querySelectorAll('[data-service-card]');
+      if (cards.length > 0) {
+        gsap.fromTo(
+          cards,
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.08,
+            ease: 'expo.out',
+            scrollTrigger: {
+              trigger: blockRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          },
+        );
+      }
+    },
+    { scope: blockRef },
+  );
 
   return (
     <div
+      ref={blockRef}
       id={section.id}
       data-service-section={section.contextKey}
       className={cn(`

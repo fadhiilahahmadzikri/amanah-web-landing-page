@@ -21,6 +21,7 @@ export function ServiceBentoCard({
 }: ServiceBentoCardProps) {
   return (
     <article
+      data-service-card
       tabIndex={0}
       aria-label={item.title}
       className={cn(

@@ -18,6 +18,7 @@ export function TestimonialsSection() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const cannonLeftRef = useRef<HTMLSpanElement | null>(null);
   const cannonRightRef = useRef<HTMLSpanElement | null>(null);
+  const carouselContainerRef = useRef<HTMLDivElement | null>(null);
   const confettiInstanceRef = useRef<confetti.CreateTypes | null>(null);
   const lastFiredRef = useRef<number>(0);
 
@@ -174,6 +175,26 @@ export function TestimonialsSection() {
         },
       );
 
+      // Carousel cards entrance AOS
+      if (carouselContainerRef.current) {
+        gsap.fromTo(
+          carouselContainerRef.current,
+          { y: 50, opacity: 0, scale: 0.96 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 1.2,
+            ease: 'expo.out',
+            scrollTrigger: {
+              trigger: carouselContainerRef.current,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          },
+        );
+      }
+
       // Scroll trigger for natural physics confetti burst
       ScrollTrigger.create({
         trigger: sectionRef.current,
@@ -283,7 +304,10 @@ export function TestimonialsSection() {
       </SectionContainer>
 
       {/* Full-width carousel ("tembus ke dinding") with clipped side gradient masking */}
-      <div className="relative w-full overflow-hidden">
+      <div
+        ref={carouselContainerRef}
+        className="relative w-full overflow-hidden"
+      >
         <CardFanCarousel
           cards={documentationMoments}
           autoPlay={true}

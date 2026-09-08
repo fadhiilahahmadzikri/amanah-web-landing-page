@@ -32,7 +32,7 @@ export const hero = {
   title: 'Sehat Lebih Baik, Bersama Klinik',
   scriptTitle: 'Amanah Healthcare',
   image: {
-    src: '/assets/images/hero-bg-image.png',
+    src: '/assets/images/amanah-building-front.jpg',
     alt: 'Dokter mendampingi pasien di ruang perawatan Klinik Amanah',
   } satisfies AssetImage,
 };

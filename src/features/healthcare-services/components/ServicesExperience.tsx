@@ -35,16 +35,16 @@ export function ServicesExperience({ className }: ServicesExperienceProps) {
 
       ScrollTrigger.create({
         trigger: generalEl,
-        start: 'top 50%',
-        end: 'bottom 50%',
+        start: 'top 60%',
+        end: 'bottom 45%',
         onEnter: () => setActiveContext('general-practitioner'),
         onEnterBack: () => setActiveContext('general-practitioner'),
       });
 
       ScrollTrigger.create({
         trigger: midwiferyEl,
-        start: 'top 50%',
-        end: 'bottom 50%',
+        start: 'top 55%',
+        end: 'bottom 40%',
         onEnter: () => setActiveContext('midwifery'),
         onEnterBack: () => setActiveContext('midwifery'),
       });
@@ -60,7 +60,15 @@ export function ServicesExperience({ className }: ServicesExperienceProps) {
 
     const targetEl = document.getElementById(targetId);
     if (targetEl) {
-      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (typeof window !== 'undefined' && window.__lenis) {
+        window.__lenis.scrollTo(targetEl, {
+          offset: -80,
+          duration: 1.2,
+          easing: t => Math.min(1, 1.001 - 2 ** (-10 * t)),
+        });
+      } else {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
@@ -79,15 +87,15 @@ export function ServicesExperience({ className }: ServicesExperienceProps) {
           lg:flex-row lg:items-stretch
         "
         >
-          {/* Left Column: Dedicated panel for Dokter Umum & Bidan indicator */}
+          {/* Left Column: Dedicated panel extending directly through shell and rail boundaries */}
           <aside
             className="
-              shrink-0 border-b border-line bg-background p-4
-              lg:w-[220px] lg:border-r lg:border-b-0 lg:p-6
+              shrink-0 border-b border-line bg-background p-0
+              lg:w-[220px] lg:border-r lg:border-b-0
               xl:w-[240px]
             "
           >
-            <div className="sticky top-20 z-20">
+            <div className="sticky top-20 z-20 w-full">
               <ServiceStickyIndicator
                 activeContext={activeContext}
                 onSelectContext={handleSelectContext}
