@@ -1,7 +1,7 @@
 'use client';
 
-import type { HealthcareTeamSection } from '../types';
 import type { CSSProperties } from 'react';
+import type { HealthcareTeamSection } from '../types';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -24,7 +24,7 @@ type TeamGridStyle = CSSProperties & {
 
 const teamGridStyle = {
   '--doctor-card-min': 'clamp(150px, 48vw, 292px)',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(min(calc((100% - 1px) / 2), var(--doctor-card-min)), 1fr))',
+  'gridTemplateColumns': 'repeat(auto-fit, minmax(min(calc((100% - 1px) / 2), var(--doctor-card-min)), 1fr))',
 } satisfies TeamGridStyle;
 
 export function TeamSection({ section }: TeamSectionProps) {
@@ -83,7 +83,11 @@ export function TeamSection({ section }: TeamSectionProps) {
       id={section.id}
       className="bg-background"
     >
-      <SectionContainer className="px-0 sm:px-0">
+      <SectionContainer className="
+        px-0
+        sm:px-0
+      "
+      >
         <div className="
           px-6 py-10 text-center
           md:px-8 md:py-12
@@ -93,7 +97,7 @@ export function TeamSection({ section }: TeamSectionProps) {
             ref={headerRef}
             className="mx-auto flex max-w-5xl flex-col items-center"
           >
-            <div className="overflow-hidden">
+            <div className="-mb-2 overflow-hidden pb-2">
               <p
                 data-mask-text
                 className="
@@ -105,24 +109,29 @@ export function TeamSection({ section }: TeamSectionProps) {
                 {section.eyebrow}
               </p>
             </div>
-            <div className="overflow-hidden">
+            <div className="
+              -mb-3 overflow-hidden pb-3
+              md:-mb-4 md:pb-4
+            "
+            >
               <h2
                 data-mask-text
                 className="
-                  mt-3 inline-block text-4xl/[1.08] font-medium tracking-tight text-foreground
-                  will-change-transform
-                  md:text-5xl/[1.08] lg:whitespace-nowrap
+                  mt-3 inline-block text-4xl/[1.08] font-medium tracking-tight
+                  text-foreground will-change-transform
+                  md:text-5xl/[1.08]
+                  lg:whitespace-nowrap
                 "
               >
                 {section.title}
               </h2>
             </div>
-            <div className="overflow-hidden">
+            <div className="-mb-2 overflow-hidden pb-2">
               <p
                 data-mask-text
                 className="
-                  mt-5 inline-block line-clamp-2 max-w-2xl text-sm/[1.65] font-medium
-                  text-muted-foreground will-change-transform
+                  mt-5 line-clamp-2 inline-block max-w-2xl text-sm/[1.65]
+                  font-medium text-muted-foreground will-change-transform
                   md:text-base
                 "
               >

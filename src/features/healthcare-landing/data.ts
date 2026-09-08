@@ -2,6 +2,7 @@ import type {
   AboutSlide,
   AssetImage,
   ContactItem,
+  DocumentationMoment,
   FacilityItem,
   NavigationItem,
   ServiceItem,
@@ -243,7 +244,7 @@ export const appointment = {
   title: 'Jadwalkan Kunjungan Anda',
   description: 'Pilih layanan dan jadwal yang sesuai dengan kebutuhan Anda. Buat janji dengan mudah dan dapatkan pelayanan kesehatan terbaik di Klinik Amanah.',
   image: {
-    src: '/assets/images/image-bg-janjitemu.jpg',
+    src: '/assets/images/asset-jadwalkan-kunjungan.jpg',
     alt: 'Tim dokter Amanah Healthcare siap melayani pasien',
   } satisfies AssetImage,
 };
@@ -279,6 +280,85 @@ export const testimonials = {
     },
   ] satisfies TestimonialItem[],
 };
+
+export const documentationMoments = [
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-1.png',
+    alt: 'Momen kebersamaan keluarga pasien dan tenaga medis Klinik Amanah',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-2.png',
+    alt: 'Pemeriksaan kesehatan penuh senyum di Klinik Amanah',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-3.png',
+    alt: 'Pelayanan konsultasi hangat dokter dan pasien',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-4.png',
+    alt: 'Pelayanan kesehatan ibu dan anak penuh perhatian',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-5.png',
+    alt: 'Pendampingan tumbuh kembang balita dengan penuh kasih',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-6.png',
+    alt: 'Pemeriksaan tensi dan deteksi dini oleh tim medis',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-7.png',
+    alt: 'Konsultasi ramah dengan tenaga kesehatan Amanah',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-8.png',
+    alt: 'Pemeriksaan kesehatan keluarga dengan nyaman dan tenang',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-9.png',
+    alt: 'Edukasi dan penyuluhan kesehatan untuk pasien',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-10.png',
+    alt: 'Pelayanan kebidanan dan perawatan ibu ramah',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-11.png',
+    alt: 'Momen bahagia pasien bersama dokter klinik',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-12.png',
+    alt: 'Suasana ruang tunggu dan periksa yang nyaman',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-13.png',
+    alt: 'Pelayanan ramah untuk seluruh anggota keluarga',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-14.png',
+    alt: 'Pemeriksaan menyeluruh dengan peralatan higienis',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-15.png',
+    alt: 'Dokumentasi senyum kepuasan pasien setelah berobat',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-16.png',
+    alt: 'Perawatan medis profesional dengan sentuhan kekeluargaan',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-17.png',
+    alt: 'Pemberian obat dan edukasi pola hidup sehat',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-18.png',
+    alt: 'Pemeriksaan berkala ibu hamil dan janin',
+  },
+  {
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-19.png',
+    alt: 'Dedikasi tim medis Klinik Amanah untuk kesehatan bersama',
+  },
+] satisfies DocumentationMoment[];
 
 export const contactItems = [
   {

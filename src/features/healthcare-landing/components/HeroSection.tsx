@@ -157,7 +157,7 @@ export function HeroSection() {
               md:text-7xl md:font-medium
             "
             >
-              <div className="overflow-hidden pb-1">
+              <div className="-mb-1 overflow-hidden pb-2">
                 <span
                   data-mask-line
                   className="inline-block will-change-transform"
@@ -165,7 +165,7 @@ export function HeroSection() {
                   {hero.title}
                 </span>
               </div>
-              <div className="overflow-hidden pb-2">
+              <div className="-mb-2 overflow-hidden pb-4">
                 <span
                   data-mask-line
                   className="

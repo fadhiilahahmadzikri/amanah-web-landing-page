@@ -15,10 +15,10 @@ type AboutCarouselProps = {
 
 export function AboutCarousel({ slides }: AboutCarouselProps) {
   const stageRef = useRef<HTMLDivElement | null>(null);
-  const cardRefs = useRef<Array<HTMLElement | null>>([]);
+  const cardsRef = useRef<Array<HTMLElement | null>>([]);
 
   const getCardElements = useCallback(() => {
-    return cardRefs.current.filter(Boolean) as HTMLElement[];
+    return cardsRef.current.filter(Boolean) as HTMLElement[];
   }, []);
 
   const carousel = useDeckCarousel({
@@ -53,9 +53,9 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
           <div
             ref={stageRef}
             className="
-              carousel-stage relative flex h-[430px] w-full touch-pan-y
-              items-center justify-center overflow-visible select-none
-              [perspective-origin:50%_50%] [perspective:1200px]
+              relative flex h-[430px] w-full touch-pan-y items-center
+              justify-center overflow-visible select-none perspective-distant
+              perspective-origin-[50%_50%]
               sm:h-[470px]
               md:h-[537px]
             "
@@ -69,7 +69,7 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
               <CarouselCard
                 key={slide.title}
                 ref={(element) => {
-                  cardRefs.current[index] = element;
+                  cardsRef.current[index] = element;
                 }}
                 index={index}
                 isPriority={index === INITIAL_SLIDE_INDEX}

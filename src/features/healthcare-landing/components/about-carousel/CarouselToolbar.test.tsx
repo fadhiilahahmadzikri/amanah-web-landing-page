@@ -28,12 +28,15 @@ describe('CarouselToolbar', () => {
     await expect.element(thirdIndicator).toBeInTheDocument();
 
     await prevButton.click();
+
     expect(handlePrevious).toHaveBeenCalledTimes(1);
 
     await nextButton.click();
+
     expect(handleNext).toHaveBeenCalledTimes(1);
 
     await thirdIndicator.click();
+
     expect(handleSelectSlide).toHaveBeenCalledWith(2);
   });
 });

@@ -35,7 +35,8 @@ export function ArrowCtaButton({
       <a href={href}>
         <span>{children}</span>
         <span className={cn(`
-          inline-flex size-7 items-center justify-center rounded-lg transition-transform duration-300
+          inline-flex size-7 items-center justify-center rounded-lg
+          transition-transform duration-300
           group-hover:translate-x-0.5 group-hover:-translate-y-0.5
           md:size-8
         `, iconClassName)}

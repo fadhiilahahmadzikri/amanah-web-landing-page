@@ -181,7 +181,11 @@ export function FacilitiesSection() {
           >
             <div className="flex flex-col items-start gap-8">
               <PillLabel># Why Choose Us</PillLabel>
-              <div className="overflow-hidden">
+              <div className="
+                -mb-3 overflow-hidden pb-3
+                md:-mb-4 md:pb-4
+              "
+              >
                 <h2
                   data-mask-text
                   className="

@@ -86,10 +86,13 @@ export function ContactSection() {
       id="kontak"
       className="bg-background"
     >
-      <SectionContainer className="px-0 sm:px-0">
+      <SectionContainer className="
+        px-0
+        sm:px-0
+      "
+      >
         <div className="
-          relative
-          grid
+          relative grid
           lg:grid-cols-[1fr_1.05fr]
         "
         >
@@ -97,11 +100,15 @@ export function ContactSection() {
             ref={leftRef}
             className="
               flex flex-col gap-8 border-b border-line bg-background px-6 py-12
-              lg:border-r lg:border-b-0
               md:px-10 md:py-16
+              lg:border-r lg:border-b-0
             "
           >
-            <div className="overflow-hidden">
+            <div className="
+              -mb-3 overflow-hidden pb-3
+              md:-mb-5 md:pb-5
+            "
+            >
               <h2
                 data-mask-text
                 className="
@@ -113,7 +120,7 @@ export function ContactSection() {
                 Mari Terhubung
               </h2>
             </div>
-            <div className="overflow-hidden">
+            <div className="-mb-2 overflow-hidden pb-2">
               <p
                 data-mask-text
                 className="
@@ -135,7 +142,11 @@ export function ContactSection() {
             "
           >
             {contactItems.map(item => (
-              <div key={item.href} data-contact-item className="flex flex-col gap-3">
+              <div
+                key={item.href}
+                data-contact-item
+                className="flex flex-col gap-3"
+              >
                 <p className="text-base font-semibold text-muted-foreground">
                   {item.label}
                 </p>
@@ -159,9 +170,7 @@ export function ContactSection() {
         <div className="relative">
           <div
             ref={imageRef}
-            className="
-              relative aspect-1256/580 overflow-hidden bg-muted
-            "
+            className="relative aspect-1256/580 overflow-hidden bg-muted"
           >
             <Image
               src={contactImage.src}

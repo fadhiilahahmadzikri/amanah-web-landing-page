@@ -80,7 +80,11 @@ export function AppointmentSection() {
       id="dokter"
       className="bg-background"
     >
-      <SectionContainer className="relative isolate overflow-hidden px-0 sm:px-0">
+      <SectionContainer className="
+        relative isolate overflow-hidden px-0
+        sm:px-0
+      "
+      >
         <div className="
           relative z-10 grid
           lg:grid-cols-2
@@ -101,8 +105,9 @@ export function AppointmentSection() {
               className="
                 pointer-events-none absolute top-24 -left-44 hidden h-auto
                 w-[760px] max-w-none opacity-[0.045] brightness-0
-                dark:opacity-[0.08] dark:brightness-100 md:block
+                md:block
                 xl:w-[808px]
+                dark:opacity-[0.08] dark:brightness-100
               "
               aria-hidden
             />
@@ -112,7 +117,11 @@ export function AppointmentSection() {
               className="relative z-10 flex max-w-xl flex-col items-start gap-8"
             >
               <PillLabel>{appointment.eyebrow}</PillLabel>
-              <div className="overflow-hidden">
+              <div className="
+                -mb-3 overflow-hidden pb-3
+                md:-mb-4 md:pb-4
+              "
+              >
                 <h2
                   data-mask-text
                   className="
@@ -124,7 +133,7 @@ export function AppointmentSection() {
                   {appointment.title}
                 </h2>
               </div>
-              <div className="overflow-hidden">
+              <div className="-mb-2 overflow-hidden pb-2">
                 <p
                   data-mask-text
                   className="

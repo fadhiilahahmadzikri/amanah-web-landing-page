@@ -48,7 +48,11 @@ export function AboutSection() {
       id="tentang-kami"
       className="overflow-hidden bg-background"
     >
-      <SectionContainer className="px-0 sm:px-0">
+      <SectionContainer className="
+        px-0
+        sm:px-0
+      "
+      >
         <div className="
           overflow-hidden bg-card pt-12
           md:pt-20
@@ -61,7 +65,7 @@ export function AboutSection() {
               text-center
             "
           >
-            <div className="overflow-hidden">
+            <div className="-mb-2 overflow-hidden pb-2">
               <p
                 data-mask-text
                 className="
@@ -73,7 +77,11 @@ export function AboutSection() {
                 Tentang Kami
               </p>
             </div>
-            <div className="overflow-hidden">
+            <div className="
+              -mb-3 overflow-hidden pb-3
+              md:-mb-4 md:pb-4
+            "
+            >
               <h2
                 data-mask-text
                 className="
@@ -85,7 +93,7 @@ export function AboutSection() {
                 Kenali Klinik Amanah
               </h2>
             </div>
-            <div className="overflow-hidden">
+            <div className="-mb-2 overflow-hidden pb-2">
               <p
                 data-mask-text
                 className="

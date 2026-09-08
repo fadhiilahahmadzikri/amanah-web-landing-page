@@ -39,3 +39,9 @@ export type ContactItem = {
   value: string;
   href: string;
 };
+
+export type DocumentationMoment = {
+  imgUrl: string;
+  alt: string;
+  linkUrl?: string;
+};

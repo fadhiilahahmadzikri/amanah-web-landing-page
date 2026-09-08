@@ -35,6 +35,7 @@ describe('carouselGeometry', () => {
 
   it('returns slot properties for center, adjacent, and hidden cards', () => {
     const centerSlot = getDeckSlot(2, 2, 5);
+
     expect(centerSlot.scale).toBe(1);
     expect(centerSlot.zIndex).toBe(30);
     expect(centerSlot.xPercent).toBe(0);
@@ -42,6 +43,7 @@ describe('carouselGeometry', () => {
     expect(centerSlot.pointerEvents).toBe('auto');
 
     const leftSlot = getDeckSlot(1, 2, 5);
+
     expect(leftSlot.scale).toBe(0.84);
     expect(leftSlot.zIndex).toBe(20);
     expect(leftSlot.xPercent).toBe(-65);
@@ -49,6 +51,7 @@ describe('carouselGeometry', () => {
     expect(leftSlot.pointerEvents).toBe('auto');
 
     const rightSlot = getDeckSlot(3, 2, 5);
+
     expect(rightSlot.scale).toBe(0.84);
     expect(rightSlot.zIndex).toBe(20);
     expect(rightSlot.xPercent).toBe(65);
@@ -56,6 +59,7 @@ describe('carouselGeometry', () => {
     expect(rightSlot.pointerEvents).toBe('auto');
 
     const hiddenFarLeft = getDeckSlot(0, 2, 5);
+
     expect(hiddenFarLeft.opacity).toBe(0);
     expect(hiddenFarLeft.pointerEvents).toBe('none');
     expect(hiddenFarLeft.zIndex).toBe(10);
