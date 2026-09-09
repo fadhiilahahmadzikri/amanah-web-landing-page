@@ -19,20 +19,18 @@ export function ServiceStickyIndicator({
       className={cn(
         `
           grid w-full grid-cols-2 divide-x divide-line border-line bg-background
-          lg:flex lg:flex-col lg:divide-x-0 lg:divide-y lg:border-b
+          lg:flex lg:flex-col lg:divide-x-0 lg:divide-y lg:border-y
         `,
         className,
       )}
     >
       <ServiceContextItem
-        stepNumber="01"
-        label="Dokter umum"
+        label="Dokter Umum"
         sublabel="Pelayanan Dasar"
         isActive={activeContext === 'general-practitioner'}
         onClick={() => onSelectContext('general-practitioner')}
       />
       <ServiceContextItem
-        stepNumber="02"
         label="Pelayanan Bidan"
         sublabel="Kesehatan Ibu & Anak"
         isActive={activeContext === 'midwifery'}
