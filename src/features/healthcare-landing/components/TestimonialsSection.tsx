@@ -7,7 +7,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useCallback, useEffect, useRef } from 'react';
 import { CardFanCarousel } from '@/components/ui/card-fan-carousel';
 import { documentationMoments } from '../data';
-import { PillLabel } from './PillLabel';
 import { SectionContainer } from './SectionContainer';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -235,12 +234,23 @@ export function TestimonialsSection() {
         <div
           ref={headerRef}
           className="
-            mx-auto mb-10 flex w-full max-w-6xl flex-col items-center gap-4 px-2
+            mx-auto mb-10 flex w-full max-w-6xl flex-col items-center gap-2 px-2
             text-center
             md:mb-14
           "
         >
-          <PillLabel># Momen Bersama</PillLabel>
+          <div className="-mb-2 overflow-hidden pb-2">
+            <p
+              data-mask-text
+              className="
+                inline-block font-amanah-script text-3xl text-foreground
+                will-change-transform
+                md:text-4xl
+              "
+            >
+              Momen Bersama
+            </p>
+          </div>
 
           <div className="relative flex w-full items-center justify-center">
             {/* Left cannon position anchor */}

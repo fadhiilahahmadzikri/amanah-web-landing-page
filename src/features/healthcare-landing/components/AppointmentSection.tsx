@@ -7,7 +7,6 @@ import Image from 'next/image';
 import { useRef } from 'react';
 import { appointment, watermark } from '../data';
 import { ArrowCtaButton } from './ArrowCtaButton';
-import { PillLabel } from './PillLabel';
 import { SectionContainer } from './SectionContainer';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -114,9 +113,20 @@ export function AppointmentSection() {
 
             <div
               ref={textRef}
-              className="relative z-10 flex max-w-xl flex-col items-start gap-8"
+              className="relative z-10 flex max-w-xl flex-col items-start"
             >
-              <PillLabel>{appointment.eyebrow}</PillLabel>
+              <div className="-mb-2 overflow-hidden pb-2">
+                <p
+                  data-mask-text
+                  className="
+                    inline-block font-amanah-script text-3xl text-foreground
+                    will-change-transform
+                    md:text-4xl
+                  "
+                >
+                  {appointment.eyebrow}
+                </p>
+              </div>
               <div className="
                 -mb-3 overflow-hidden pb-3
                 md:-mb-4 md:pb-4

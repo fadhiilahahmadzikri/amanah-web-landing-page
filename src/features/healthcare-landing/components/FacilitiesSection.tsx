@@ -10,7 +10,6 @@ import { useCallback, useRef, useState } from 'react';
 import { ViewportLine } from '@/components/healthcare';
 import { facilities, watermark } from '../data';
 import { FacilityCard } from './FacilityCard';
-import { PillLabel } from './PillLabel';
 import { SectionContainer } from './SectionContainer';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -180,8 +179,19 @@ export function FacilitiesSection() {
               lg:grid-cols-[1fr_0.9fr] lg:items-center
             "
           >
-            <div className="flex flex-col items-start gap-8">
-              <PillLabel># Why Choose Us</PillLabel>
+            <div className="flex flex-col items-start">
+              <div className="-mb-2 overflow-hidden pb-2">
+                <p
+                  data-mask-text
+                  className="
+                    inline-block font-amanah-script text-3xl text-foreground
+                    will-change-transform
+                    md:text-4xl
+                  "
+                >
+                  Why Choose Us
+                </p>
+              </div>
               <div className="
                 -mb-3 overflow-hidden pb-3
                 md:-mb-4 md:pb-4

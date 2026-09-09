@@ -17,7 +17,6 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
-import { PillLabel } from '@/features/healthcare-landing/components/PillLabel';
 import { cn } from '@/utils/Helpers';
 import { facilitiesSectionData } from '../../data';
 
@@ -134,11 +133,19 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
               lg:col-span-4
             "
           >
-            <PillLabel>{facilitiesSectionData.eyebrow}</PillLabel>
+            <div className="-mb-2 overflow-hidden pb-2">
+              <p className="
+                inline-block font-amanah-script text-3xl text-foreground
+                md:text-4xl
+              "
+              >
+                {facilitiesSectionData.eyebrow}
+              </p>
+            </div>
 
             <h2
               className="
-                mt-3 text-2xl font-semibold tracking-tight text-foreground
+                mt-1 text-2xl font-semibold tracking-tight text-foreground
                 sm:mt-3.5 sm:text-3xl
                 lg:text-[28px] lg:leading-tight
                 xl:text-4xl

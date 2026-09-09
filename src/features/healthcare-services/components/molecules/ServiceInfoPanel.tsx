@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import { PillLabel } from '@/features/healthcare-landing/components/PillLabel';
 import { cn } from '@/utils/Helpers';
 
 type ServiceInfoPanelProps = {
@@ -26,16 +25,20 @@ export function ServiceInfoPanel({
         className,
       )}
     >
-      <div className="
-        flex flex-col items-start gap-4
-        sm:gap-5
-      "
-      >
-        <PillLabel>{eyebrow}</PillLabel>
+      <div className="flex flex-col items-start">
+        <div className="-mb-2 overflow-hidden pb-2">
+          <p className="
+            inline-block font-amanah-script text-3xl text-foreground
+            md:text-4xl
+          "
+          >
+            {eyebrow}
+          </p>
+        </div>
 
         <h3
           className="
-            text-2xl font-semibold tracking-tight text-foreground
+            mt-1 text-2xl font-semibold tracking-tight text-foreground
             sm:text-3xl
             lg:text-[28px] lg:leading-tight
             xl:text-4xl
@@ -46,14 +49,22 @@ export function ServiceInfoPanel({
 
         <p
           className="
-            max-w-md text-sm/relaxed text-muted-foreground
-            sm:text-base/relaxed
+            mt-4 max-w-md text-sm/relaxed text-muted-foreground
+            sm:mt-5 sm:text-base/relaxed
           "
         >
           {description}
         </p>
 
-        {actionSlot && <div className="mt-2">{actionSlot}</div>}
+        {actionSlot && (
+          <div className="
+            mt-4
+            sm:mt-5
+          "
+          >
+            {actionSlot}
+          </div>
+        )}
       </div>
 
       {footerSlot && <div className="mt-6 border-t border-line/60 pt-6">{footerSlot}</div>}

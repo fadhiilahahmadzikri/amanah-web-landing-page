@@ -10,7 +10,6 @@ import {
 } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { ArrowCtaButton } from './ArrowCtaButton';
-import { PillLabel } from './PillLabel';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -231,9 +230,14 @@ export function KhitanShowcaseSection() {
               xl:p-14
             "
           >
-            {/* Pill label menggunakan komponen PillLabel bawaan tema */}
-            <div data-content-item>
-              <PillLabel># Pengalaman Nyata</PillLabel>
+            <div data-content-item className="-mb-2 overflow-hidden pb-2">
+              <p className="
+                font-amanah-script text-2xl text-foreground
+                sm:text-3xl
+              "
+              >
+                Pengalaman Nyata
+              </p>
             </div>
 
             {/* Isi teks murni sesuai permintaan user */}

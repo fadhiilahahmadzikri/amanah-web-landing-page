@@ -5,7 +5,7 @@ import type {
 } from './types';
 
 export const servicesHeroData: ServiceHeroData = {
-  eyebrow: 'FASILITAS & LAYANAN',
+  eyebrow: 'Fasilitas & Layanan',
   title: 'Mendukung Kesehatan Anda Sepenuhnya',
   description:
     'Klinik Amanah hadir dengan berbagai pilihan layanan dan fasilitas kesehatan yang dirancang untuk memberikan pelayanan terbaik bagi Anda dan keluarga.',
@@ -33,7 +33,7 @@ export const generalPractitionerSection: ServiceCategorySection = {
   id: 'pelayanan-umum',
   contextKey: 'general-practitioner',
   indicatorLabel: 'Dokter umum',
-  eyebrow: 'PELAYANAN UMUM',
+  eyebrow: 'Pelayanan Umum',
   title: 'Dokter Umum',
   description:
     'Pemeriksaan dan penanganan kesehatan dasar oleh dokter umum untuk membantu menjaga kondisi tubuh Anda tetap optimal.',
@@ -154,7 +154,7 @@ export const midwiferySection: ServiceCategorySection = {
   id: 'layanan-ibu-dan-anak',
   contextKey: 'midwifery',
   indicatorLabel: 'Bidan',
-  eyebrow: 'PELAYANAN BIDAN',
+  eyebrow: 'Pelayanan Bidan',
   title: 'Kesehatan Ibu dan Anak',
   description:
     'Untuk mendukung kehamilan yang sehat, persalinan yang aman, dan tumbuh kembang buah hati yang optimal.',
