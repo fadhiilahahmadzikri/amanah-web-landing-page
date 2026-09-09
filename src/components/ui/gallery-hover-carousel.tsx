@@ -116,7 +116,7 @@ export default function GalleryHoverCarousel({
           {/* Left Intro Column (per wireframe) */}
           <div className="
             flex flex-col items-start self-start
-            lg:sticky lg:top-28 lg:col-span-4 lg:-mt-1.5
+            lg:col-span-4
           "
           >
             {eyebrow && (
@@ -236,9 +236,10 @@ export default function GalleryHoverCarousel({
                         {/* Image: shrinks to top half on hover */}
                         <div
                           className="
-                            relative size-full transition-all duration-500
-                            ease-out
+                            relative size-full overflow-hidden transition-all
+                            duration-500 ease-out
                             group-hover:h-1/2
+                            max-md:h-48
                           "
                         >
                           <Image
@@ -252,11 +253,11 @@ export default function GalleryHoverCarousel({
                               group-hover:scale-105
                             "
                           />
-                          {/* Smooth upward masking (like pelayanan umum): active in default, fades on hover */}
+                          {/* Smooth upward masking (like pelayanan umum) */}
                           <div
                             className="
                               pointer-events-none absolute inset-x-0 bottom-0
-                              z-10 h-[60%] bg-linear-to-t from-background/90
+                              z-10 h-[55%] bg-linear-to-t from-background/90
                               via-background/45 to-transparent
                               transition-opacity duration-500
                               group-hover:opacity-0
@@ -264,39 +265,19 @@ export default function GalleryHoverCarousel({
                               dark:to-transparent
                             "
                           />
-
-                          {/* Default state title text (direct on masking, no wrapper box/pill) */}
-                          <div
-                            className="
-                              pointer-events-none absolute inset-x-0 bottom-0
-                              z-20 p-5 transition-opacity duration-300
-                              group-hover:opacity-0
-                              max-md:hidden
-                            "
-                          >
-                            <h3
-                              className="
-                                text-base font-semibold tracking-tight
-                                text-foreground
-                                md:text-lg
-                              "
-                            >
-                              {item.title}
-                            </h3>
-                          </div>
                         </div>
 
-                        {/* Text Section: revealed on hover into bottom half, header aligned to top line */}
+                        {/* Text Section: single unified title, smooth reveal of summary and affordance, NO black border line */}
                         <div
                           className="
-                            absolute inset-x-0 bottom-0 flex flex-col
-                            justify-start border-t border-line/60 bg-card/95
-                            px-5 pt-3.5 pb-4 opacity-0 backdrop-blur-md
-                            transition-all duration-500 ease-out
-                            group-hover:h-1/2 group-hover:opacity-100
-                            max-md:relative max-md:h-auto max-md:border-t
-                            max-md:bg-card max-md:p-4 max-md:opacity-100
-                            dark:bg-[#090d24]/95
+                            absolute inset-x-0 bottom-0 z-20 flex flex-col
+                            justify-start bg-transparent p-5 transition-all
+                            duration-500 ease-out
+                            group-hover:h-1/2 group-hover:bg-card/95
+                            group-hover:pt-3.5 group-hover:backdrop-blur-md
+                            max-md:relative max-md:h-auto max-md:bg-card
+                            max-md:p-4
+                            dark:group-hover:bg-[#090d24]/95
                           "
                         >
                           <h3
@@ -310,8 +291,11 @@ export default function GalleryHoverCarousel({
                           </h3>
                           <p
                             className="
-                              mt-1 line-clamp-2 pr-10 text-xs/relaxed
-                              text-muted-foreground
+                              mt-1 line-clamp-2 max-h-0 pr-10 text-xs/relaxed
+                              text-muted-foreground opacity-0 transition-all
+                              duration-500 ease-out
+                              group-hover:max-h-20 group-hover:opacity-100
+                              max-md:max-h-20 max-md:opacity-100
                               md:text-sm/relaxed
                             "
                           >
@@ -321,11 +305,13 @@ export default function GalleryHoverCarousel({
                             className="
                               absolute right-4 bottom-4 flex size-8 items-center
                               justify-center rounded-full border border-line
-                              bg-surface text-primary shadow-xs transition-all
-                              duration-500
+                              bg-surface text-primary opacity-0 shadow-xs
+                              transition-all duration-500
                               group-hover:-rotate-45 group-hover:border-primary
                               group-hover:bg-primary
                               group-hover:text-primary-foreground
+                              group-hover:opacity-100
+                              max-md:opacity-100
                               md:size-9
                             "
                           >
