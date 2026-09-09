@@ -36,16 +36,22 @@ export function ServiceInfoPanel({
           </p>
         </div>
 
-        <h3
-          className="
-            mt-1 text-2xl font-semibold tracking-tight text-foreground
-            sm:text-3xl
-            lg:text-[28px] lg:leading-tight
-            xl:text-4xl
-          "
+        <div className="
+          -mb-3 overflow-hidden pb-3
+          md:-mb-4 md:pb-4
+        "
         >
-          {title}
-        </h3>
+          <h3
+            className="
+              text-2xl font-semibold tracking-tight text-foreground
+              sm:text-3xl
+              lg:text-[28px] lg:leading-tight
+              xl:text-4xl
+            "
+          >
+            {title}
+          </h3>
+        </div>
 
         <p
           className="

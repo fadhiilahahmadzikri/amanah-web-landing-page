@@ -143,21 +143,27 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
               </p>
             </div>
 
-            <h2
-              className="
-                mt-1 text-2xl font-semibold tracking-tight text-foreground
-                sm:mt-3.5 sm:text-3xl
-                lg:text-[28px] lg:leading-tight
-                xl:text-4xl
-              "
+            <div className="
+              -mb-3 overflow-hidden pb-3
+              md:-mb-4 md:pb-4
+            "
             >
-              {facilitiesSectionData.title}
-            </h2>
+              <h2
+                className="
+                  text-2xl font-semibold tracking-tight text-foreground
+                  sm:text-3xl
+                  lg:text-[28px] lg:leading-tight
+                  xl:text-4xl
+                "
+              >
+                {facilitiesSectionData.title}
+              </h2>
+            </div>
 
             <p
               className="
-                mt-3 text-sm/relaxed text-muted-foreground
-                sm:text-base/relaxed
+                mt-4 text-sm/relaxed text-muted-foreground
+                sm:mt-5 sm:text-base/relaxed
               "
             >
               {facilitiesSectionData.description}

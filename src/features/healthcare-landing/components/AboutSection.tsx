@@ -61,8 +61,7 @@ export function AboutSection() {
           <div
             ref={headerRef}
             className="
-              mx-auto flex max-w-3xl flex-col items-center gap-4 px-6
-              text-center
+              mx-auto flex max-w-3xl flex-col items-center px-6 text-center
             "
           >
             <div className="-mb-2 overflow-hidden pb-2">
@@ -93,7 +92,11 @@ export function AboutSection() {
                 Kenali Klinik Amanah
               </h2>
             </div>
-            <div className="-mb-2 overflow-hidden pb-2">
+            <div className="
+              mt-4 -mb-2 overflow-hidden pb-2
+              sm:mt-5
+            "
+            >
               <p
                 data-mask-text
                 className="

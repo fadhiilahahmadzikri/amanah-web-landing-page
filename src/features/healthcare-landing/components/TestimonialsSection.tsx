@@ -234,7 +234,7 @@ export function TestimonialsSection() {
         <div
           ref={headerRef}
           className="
-            mx-auto mb-10 flex w-full max-w-6xl flex-col items-center gap-2 px-2
+            mx-auto mb-10 flex w-full max-w-6xl flex-col items-center px-2
             text-center
             md:mb-14
           "

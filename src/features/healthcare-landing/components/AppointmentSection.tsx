@@ -143,7 +143,11 @@ export function AppointmentSection() {
                   {appointment.title}
                 </h2>
               </div>
-              <div className="-mb-2 overflow-hidden pb-2">
+              <div className="
+                mt-4 -mb-2 overflow-hidden pb-2
+                sm:mt-5
+              "
+              >
                 <p
                   data-mask-text
                   className="
@@ -154,9 +158,15 @@ export function AppointmentSection() {
                   {appointment.description}
                 </p>
               </div>
-              <ArrowCtaButton href="/kontak">
-                Buat Janji Temu
-              </ArrowCtaButton>
+              <div className="
+                mt-8
+                sm:mt-10
+              "
+              >
+                <ArrowCtaButton href="/kontak">
+                  Buat Janji Temu
+                </ArrowCtaButton>
+              </div>
             </div>
           </div>
 

@@ -117,7 +117,7 @@ export function TeamSection({ section }: TeamSectionProps) {
               <h2
                 data-mask-text
                 className="
-                  mt-3 inline-block text-4xl/[1.08] font-medium tracking-tight
+                  inline-block text-4xl/[1.08] font-medium tracking-tight
                   text-foreground will-change-transform
                   md:text-5xl/[1.08]
                   lg:whitespace-nowrap
@@ -126,12 +126,16 @@ export function TeamSection({ section }: TeamSectionProps) {
                 {section.title}
               </h2>
             </div>
-            <div className="-mb-2 overflow-hidden pb-2">
+            <div className="
+              mt-4 -mb-2 overflow-hidden pb-2
+              sm:mt-5
+            "
+            >
               <p
                 data-mask-text
                 className="
-                  mt-5 line-clamp-2 inline-block max-w-2xl text-sm/[1.65]
-                  font-medium text-muted-foreground will-change-transform
+                  line-clamp-2 inline-block max-w-2xl text-sm/[1.65] font-medium
+                  text-muted-foreground will-change-transform
                   md:text-base
                 "
               >
