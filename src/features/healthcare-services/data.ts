@@ -5,10 +5,10 @@ import type {
 } from './types';
 
 export const servicesHeroData: ServiceHeroData = {
-  eyebrow: 'LAYANAN',
-  title: 'Layanan Kesehatan untuk Anda dan Keluarga',
+  eyebrow: 'LAYANAN & FASILITAS',
+  title: 'Nyaman dalam Setiap Langkah Menjaga Kesehatan',
   description:
-    'Klinik Amanah menyediakan berbagai layanan kesehatan profesional dengan tenaga medis berpengalaman, untuk menjaga kesehatan Anda dan orang tercinta.',
+    'Klinik Amanah hadir dengan berbagai pilihan layanan dan fasilitas kesehatan yang dirancang untuk memberikan pelayanan terbaik bagi Anda dan keluarga.',
   highlights: [
     {
       id: 'highlight-1',
@@ -25,7 +25,7 @@ export const servicesHeroData: ServiceHeroData = {
   ],
   image: {
     src: '/assets/images/asset_hero_sec_service.jpg',
-    alt: 'Layanan Kesehatan Klinik Amanah',
+    alt: 'Layanan dan Fasilitas Kesehatan Klinik Amanah',
   },
 };
 

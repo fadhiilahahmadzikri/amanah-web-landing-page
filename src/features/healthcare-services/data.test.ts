@@ -8,8 +8,8 @@ import {
 
 describe('healthcare-services data', () => {
   it('hero data contains correct metadata and 3 highlights', () => {
-    expect(servicesHeroData.eyebrow).toBe('LAYANAN');
-    expect(servicesHeroData.title).toBe('Layanan Kesehatan untuk Anda dan Keluarga');
+    expect(servicesHeroData.eyebrow).toBe('LAYANAN & FASILITAS');
+    expect(servicesHeroData.title).toBe('Nyaman dalam Setiap Langkah Menjaga Kesehatan');
     expect(servicesHeroData.highlights).toHaveLength(3);
     expect(servicesHeroData.image.src).toBe('/assets/images/asset_hero_sec_service.jpg');
   });
