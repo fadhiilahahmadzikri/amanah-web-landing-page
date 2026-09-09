@@ -284,20 +284,12 @@ export const facilitiesSectionData: FacilitySectionData = {
       image: '/assets/images/dokumentasi/dokumentasi-12.png',
     },
     {
-      id: 'facility-ruang-periksa',
-      title: 'Ruang Periksa Medis',
+      id: 'facility-baby-care',
+      title: 'Baby Care Center',
       summary:
-        'Ruang konsultasi dan tindakan yang higienis, tenang, serta didukung perlengkapan medis yang lengkap.',
+        'Area khusus perawatan dan stimulasi bayi yang aman, bersih, dan nyaman bagi si kecil.',
       url: '#kontak',
       image: '/assets/images/asset-index-1.jpg',
-    },
-    {
-      id: 'facility-usg',
-      title: 'USG Kandungan',
-      summary:
-        'Fasilitas ultrasonografi modern untuk memantau tumbuh kembang janin secara optimal dan akurat.',
-      url: '#kontak',
-      image: '/assets/images/asset-index-6.jpg',
     },
   ],
 };

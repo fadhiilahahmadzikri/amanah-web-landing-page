@@ -62,20 +62,12 @@ export default function GalleryHoverCarousel({
       image: '/assets/images/dokumentasi/dokumentasi-12.png',
     },
     {
-      id: 'item-ruang-periksa',
-      title: 'Ruang Periksa Medis',
+      id: 'item-baby-care',
+      title: 'Baby Care Center',
       summary:
-        'Ruang konsultasi dan tindakan yang higienis, tenang, serta didukung perlengkapan medis yang lengkap.',
+        'Area khusus perawatan dan stimulasi bayi yang aman, bersih, dan nyaman bagi si kecil.',
       url: demoUrl,
       image: '/assets/images/asset-index-1.jpg',
-    },
-    {
-      id: 'item-usg',
-      title: 'Fasilitas USG Kandungan',
-      summary:
-        'Didukung perangkat ultrasonografi modern untuk memantau perkembangan janin dengan jelas dan akurat.',
-      url: demoUrl,
-      image: '/assets/images/asset-index-6.jpg',
     },
   ],
   className,
@@ -123,8 +115,8 @@ export default function GalleryHoverCarousel({
         >
           {/* Left Intro Column (per wireframe) */}
           <div className="
-            flex flex-col items-start
-            lg:sticky lg:top-28 lg:col-span-4
+            flex flex-col items-start self-start
+            lg:sticky lg:top-28 lg:col-span-4 lg:-mt-1.5
           "
           >
             {eyebrow && (
@@ -141,8 +133,8 @@ export default function GalleryHoverCarousel({
             )}
             <h2
               className="
-                mt-4 text-2xl/tight font-medium tracking-tight text-foreground
-                sm:text-3xl/tight
+                mt-3 text-2xl/tight font-medium tracking-tight text-foreground
+                sm:mt-3.5 sm:text-3xl/tight
                 md:text-4xl/tight
               "
             >
@@ -260,43 +252,46 @@ export default function GalleryHoverCarousel({
                               group-hover:scale-105
                             "
                           />
-                          {/* Fade overlay at bottom of image on hover */}
+                          {/* Smooth upward masking (like pelayanan umum): active in default, fades on hover */}
                           <div
                             className="
                               pointer-events-none absolute inset-x-0 bottom-0
-                              h-20 bg-linear-to-t from-black/60 to-transparent
-                              opacity-0 transition-opacity duration-500
-                              group-hover:opacity-100
+                              z-10 h-[60%] bg-linear-to-t from-background/90
+                              via-background/45 to-transparent
+                              transition-opacity duration-500
+                              group-hover:opacity-0
+                              dark:from-[#090d24]/95 dark:via-[#090d24]/50
+                              dark:to-transparent
                             "
                           />
 
-                          {/* Initial Title Tag (fades out on hover when full panel expands) */}
+                          {/* Default state title text (direct on masking, no wrapper box/pill) */}
                           <div
                             className="
-                              pointer-events-none absolute bottom-3.5 left-3.5
-                              z-10 rounded-lg border border-white/20
-                              bg-background/85 px-3 py-1.5 shadow-sm
-                              backdrop-blur-md transition-opacity duration-300
+                              pointer-events-none absolute inset-x-0 bottom-0
+                              z-20 p-5 transition-opacity duration-300
                               group-hover:opacity-0
-                              dark:border-white/10 dark:bg-[#090d24]/85
+                              max-md:hidden
                             "
                           >
-                            <span className="
-                              text-xs font-semibold text-foreground
-                              md:text-sm
-                            "
+                            <h3
+                              className="
+                                text-base font-semibold tracking-tight
+                                text-foreground
+                                md:text-lg
+                              "
                             >
                               {item.title}
-                            </span>
+                            </h3>
                           </div>
                         </div>
 
-                        {/* Text Section: revealed on hover into bottom half */}
+                        {/* Text Section: revealed on hover into bottom half, header aligned to top line */}
                         <div
                           className="
                             absolute inset-x-0 bottom-0 flex flex-col
-                            justify-center border-t border-line/60 bg-card/95
-                            px-4.5 py-4 opacity-0 backdrop-blur-md
+                            justify-start border-t border-line/60 bg-card/95
+                            px-5 pt-3.5 pb-4 opacity-0 backdrop-blur-md
                             transition-all duration-500 ease-out
                             group-hover:h-1/2 group-hover:opacity-100
                             max-md:relative max-md:h-auto max-md:border-t
@@ -306,7 +301,8 @@ export default function GalleryHoverCarousel({
                         >
                           <h3
                             className="
-                              text-base font-semibold text-foreground
+                              text-base font-semibold tracking-tight
+                              text-foreground
                               md:text-lg
                             "
                           >
@@ -314,7 +310,7 @@ export default function GalleryHoverCarousel({
                           </h3>
                           <p
                             className="
-                              mt-1 line-clamp-2 text-xs/relaxed
+                              mt-1 line-clamp-2 pr-10 text-xs/relaxed
                               text-muted-foreground
                               md:text-sm/relaxed
                             "
@@ -323,10 +319,10 @@ export default function GalleryHoverCarousel({
                           </p>
                           <div
                             className="
-                              absolute right-3.5 bottom-3.5 flex size-8
-                              items-center justify-center rounded-full border
-                              border-line bg-surface text-primary shadow-xs
-                              transition-all duration-500
+                              absolute right-4 bottom-4 flex size-8 items-center
+                              justify-center rounded-full border border-line
+                              bg-surface text-primary shadow-xs transition-all
+                              duration-500
                               group-hover:-rotate-45 group-hover:border-primary
                               group-hover:bg-primary
                               group-hover:text-primary-foreground

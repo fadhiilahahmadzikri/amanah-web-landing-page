@@ -14,13 +14,15 @@ describe('healthcare-services data', () => {
     expect(servicesHeroData.image.src).toBe('/assets/images/asset_hero_sec_service.jpg');
   });
 
-  it('facilities section data contains correct metadata and 5 facility items', () => {
+  it('facilities section data contains correct metadata and 4 facility items', () => {
     expect(facilitiesSectionData.eyebrow).toBe('Fasilitas');
     expect(facilitiesSectionData.title).toBe('Ruang Nyaman untuk Anda dan Keluarga');
-    expect(facilitiesSectionData.items).toHaveLength(5);
+    expect(facilitiesSectionData.items).toHaveLength(4);
     expect(facilitiesSectionData.items[0]?.title).toBe('Apotek');
     expect(facilitiesSectionData.items[1]?.title).toBe('Ruang Persalinan 24 Jam');
     expect(facilitiesSectionData.items[2]?.title).toBe('Ruang Tunggu Nyaman');
+    expect(facilitiesSectionData.items[3]?.title).toBe('Baby Care Center');
+    expect(facilitiesSectionData.items.some(item => item.title.includes('USG'))).toBe(false);
   });
 
   it('general practitioner section contains 9 bento service cards', () => {
