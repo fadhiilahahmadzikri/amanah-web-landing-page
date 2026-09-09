@@ -265,7 +265,7 @@ export const facilitiesSectionData: FacilitySectionData = {
       summary:
         'Menyediakan kebutuhan obat-obatan dan resep medis Anda dengan cepat tanpa perlu pindah tempat.',
       url: '#kontak',
-      image: '/assets/images/dokumentasi/dokumentasi-17.png',
+      image: '/assets/images/fasilitas-apotek.png',
     },
     {
       id: 'facility-ruang-bersalin',
@@ -281,7 +281,7 @@ export const facilitiesSectionData: FacilitySectionData = {
       summary:
         'Area tunggu yang bersih, sejuk, dan ramah keluarga agar Anda dan kerabat tetap merasa rileks saat berobat.',
       url: '#kontak',
-      image: '/assets/images/dokumentasi/dokumentasi-12.png',
+      image: '/assets/images/fasilitas-ruangtunggu.png',
     },
     {
       id: 'facility-baby-care',
