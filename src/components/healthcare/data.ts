@@ -16,10 +16,9 @@ export const healthcareBrand = {
 export const healthcareNavigationItems = [
   { label: 'Beranda', path: '/' },
   { label: 'Tentang Kami', path: '/', hash: '#tentang-kami' },
-  { label: 'Fasilitas', path: '/', hash: '#fasilitas' },
+  { label: 'Fasilitas', path: '/fasilitas' },
   { label: 'Dokter', path: '/dokter' },
-  { label: 'Kontak', path: '/', hash: '#kontak' },
-  { label: 'Layanan', path: '/', hash: '#layanan' },
+  { label: 'Kontak', path: '/kontak' },
 ] satisfies HealthcareNavigationItem[];
 
 export const healthcareContactItems = [

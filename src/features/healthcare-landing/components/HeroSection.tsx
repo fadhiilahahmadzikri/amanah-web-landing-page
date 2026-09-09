@@ -187,7 +187,7 @@ export function HeroSection() {
                 md:mt-10
               "
             >
-              <ArrowCtaButton href="#kontak">
+              <ArrowCtaButton href="/kontak">
                 Buat Janji Temu
               </ArrowCtaButton>
             </div>

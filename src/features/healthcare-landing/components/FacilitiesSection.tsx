@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRightIcon, BadgeCheckIcon } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useCallback, useRef, useState } from 'react';
 import { ViewportLine } from '@/components/healthcare';
 import { facilities, watermark } from '../data';
@@ -208,8 +209,8 @@ export function FacilitiesSection() {
                 <p className="text-base italic">
                   Certified by the American Dental Association
                 </p>
-                <a
-                  href="#kontak"
+                <Link
+                  href="/kontak"
                   className="
                     inline-flex w-fit items-center gap-2 border-b border-line
                     pb-1 text-base font-semibold text-primary transition-colors
@@ -218,7 +219,7 @@ export function FacilitiesSection() {
                 >
                   Schedule Your Visit
                   <ArrowUpRightIcon aria-hidden />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

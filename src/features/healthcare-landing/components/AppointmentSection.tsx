@@ -144,7 +144,7 @@ export function AppointmentSection() {
                   {appointment.description}
                 </p>
               </div>
-              <ArrowCtaButton href="#kontak">
+              <ArrowCtaButton href="/kontak">
                 Buat Janji Temu
               </ArrowCtaButton>
             </div>

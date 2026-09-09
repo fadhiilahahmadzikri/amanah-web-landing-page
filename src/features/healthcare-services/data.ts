@@ -264,7 +264,7 @@ export const facilitiesSectionData: FacilitySectionData = {
       title: 'Apotek',
       summary:
         'Menyediakan kebutuhan obat-obatan dan resep medis Anda dengan cepat tanpa perlu pindah tempat.',
-      url: '#kontak',
+      url: '/kontak',
       image: '/assets/images/fasilitas-apotek.png',
     },
     {
@@ -272,7 +272,7 @@ export const facilitiesSectionData: FacilitySectionData = {
       title: 'Ruang Persalinan 24 Jam',
       summary:
         'Siaga setiap saat untuk mendampingi proses melahirkan dengan aman, nyaman, dan ditangani tenaga medis profesional.',
-      url: '#kontak',
+      url: '/kontak',
       image: '/assets/images/asset-index-8.jpg',
     },
     {
@@ -280,7 +280,7 @@ export const facilitiesSectionData: FacilitySectionData = {
       title: 'Ruang Tunggu Nyaman',
       summary:
         'Area tunggu yang bersih, sejuk, dan ramah keluarga agar Anda dan kerabat tetap merasa rileks saat berobat.',
-      url: '#kontak',
+      url: '/kontak',
       image: '/assets/images/fasilitas-ruangtunggu.png',
     },
     {
@@ -288,7 +288,7 @@ export const facilitiesSectionData: FacilitySectionData = {
       title: 'Baby Care Center',
       summary:
         'Area khusus perawatan dan stimulasi bayi yang aman, bersih, dan nyaman bagi si kecil.',
-      url: '#kontak',
+      url: '/kontak',
       image: '/assets/images/asset-index-1.jpg',
     },
   ],

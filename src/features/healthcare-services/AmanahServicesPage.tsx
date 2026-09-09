@@ -7,12 +7,16 @@ import { ServicesHeroSection } from './components/organisms/ServicesHeroSection'
 import { ServicesExperience } from './components/ServicesExperience';
 
 type AmanahServicesPageProps = {
+  activePath?: string;
   locale?: string;
 };
 
-export function AmanahServicesPage({ locale }: AmanahServicesPageProps) {
+export function AmanahServicesPage({
+  activePath = '/fasilitas',
+  locale,
+}: AmanahServicesPageProps) {
   return (
-    <HealthcareShell activePath="/layanan" locale={locale}>
+    <HealthcareShell activePath={activePath} locale={locale}>
       <ServicesHeroSection />
       <TechnicalDivider />
       <FacilitiesCarouselSection />
