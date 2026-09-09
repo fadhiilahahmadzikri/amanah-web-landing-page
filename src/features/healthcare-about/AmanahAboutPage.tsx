@@ -6,6 +6,7 @@ import {
 import { AboutHeroSection } from './components/organisms/AboutHeroSection';
 import { AboutVisionMissionSection } from './components/organisms/AboutVisionMissionSection';
 import { EditorialStorySection } from './components/organisms/EditorialStorySection';
+import { StackedBlocksSection } from './components/organisms/StackedBlocksSection';
 import {
   aboutEditorialStories,
   aboutHeroData,
@@ -35,6 +36,8 @@ export function AmanahAboutPage({ locale }: AmanahAboutPageProps) {
           />
         </Fragment>
       ))}
+      <TechnicalDivider />
+      <StackedBlocksSection />
     </HealthcareShell>
   );
 }
