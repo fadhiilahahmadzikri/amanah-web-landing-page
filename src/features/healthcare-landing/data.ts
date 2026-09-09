@@ -21,7 +21,7 @@ export const brand = {
 export const navigationItems = [
   { label: 'Beranda', href: '/' },
   { label: 'Tentang Kami', href: '/tentang-kami' },
-  { label: 'Fasilitas', href: '/fasilitas' },
+  { label: 'Fasilitas & Layanan', href: '/fasilitas' },
   { label: 'Dokter', href: '/dokter' },
   { label: 'Kontak', href: '/kontak' },
 ] satisfies NavigationItem[];
