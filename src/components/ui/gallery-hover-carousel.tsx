@@ -1,10 +1,11 @@
 'use client';
 
 import type { CarouselApi } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import {
@@ -76,6 +77,10 @@ export default function GalleryHoverCarousel({
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
 
+  const autoplayPluginRef = useRef(
+    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true }),
+  );
+
   // Carousel scroll tracking
   useEffect(() => {
     if (!carouselApi) {
@@ -133,7 +138,7 @@ export default function GalleryHoverCarousel({
             )}
             <h2
               className="
-                mt-3 text-2xl/tight font-medium tracking-tight text-foreground
+                mt-3 text-2xl/tight font-semibold tracking-tight text-foreground
                 sm:mt-3.5 sm:text-3xl/tight
                 md:text-4xl/tight
               "
@@ -196,8 +201,10 @@ export default function GalleryHoverCarousel({
           >
             <Carousel
               setApi={setCarouselApi}
+              plugins={[autoplayPluginRef.current]}
               opts={{
                 align: 'start',
+                loop: true,
                 breakpoints: { '(max-width: 768px)': { dragFree: true } },
               }}
               className="relative w-full"
@@ -226,11 +233,10 @@ export default function GalleryHoverCarousel({
                     >
                       <Card
                         className="
-                          size-full overflow-hidden rounded-2xl border
+                          size-full overflow-hidden rounded-none border
                           border-line bg-card shadow-xs transition-shadow
                           duration-300
                           hover:shadow-md
-                          md:rounded-3xl
                         "
                       >
                         {/* Image: shrinks to top half on hover */}

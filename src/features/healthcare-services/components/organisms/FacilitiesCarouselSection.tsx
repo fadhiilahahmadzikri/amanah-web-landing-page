@@ -2,6 +2,7 @@
 
 import type { CarouselApi } from '@/components/ui/carousel';
 import { useGSAP } from '@gsap/react';
+import Autoplay from 'embla-carousel-autoplay';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -34,6 +35,10 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const autoplayPluginRef = useRef(
+    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true }),
+  );
 
   useEffect(() => {
     if (!carouselApi) {
@@ -133,9 +138,10 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
 
             <h2
               className="
-                mt-3 text-3xl font-medium tracking-tight text-foreground
-                sm:mt-3.5 sm:text-4xl
-                lg:text-4xl/tight
+                mt-3 text-2xl font-semibold tracking-tight text-foreground
+                sm:mt-3.5 sm:text-3xl
+                lg:text-[28px] lg:leading-tight
+                xl:text-4xl
               "
             >
               {facilitiesSectionData.title}
@@ -203,8 +209,10 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
           >
             <Carousel
               setApi={setCarouselApi}
+              plugins={[autoplayPluginRef.current]}
               opts={{
                 align: 'start',
+                loop: true,
                 breakpoints: { '(max-width: 768px)': { dragFree: true } },
               }}
               className="relative w-full"
@@ -233,11 +241,10 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
                     >
                       <Card
                         className="
-                          size-full overflow-hidden rounded-2xl border
+                          size-full overflow-hidden rounded-none border
                           border-line bg-card shadow-xs transition-shadow
                           duration-300
                           hover:shadow-lg
-                          md:rounded-3xl
                         "
                       >
                         {/* Image: shrinks to top half on hover */}
