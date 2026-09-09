@@ -127,16 +127,14 @@ export function ServicesHeroSection({ className }: ServicesHeroSectionProps) {
                   md:text-6xl
                 "
               >
-                Nyaman dalam Setiap
+                Mendukung Kesehatan
                 <br />
-                Langkah Menjaga
-                {' '}
                 <span className="
                   text-amanah-blue
                   dark:text-amanah-sky
                 "
                 >
-                  Kesehatan
+                  Anda Sepenuhnya
                 </span>
               </h2>
             </div>

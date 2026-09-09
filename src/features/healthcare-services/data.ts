@@ -5,8 +5,8 @@ import type {
 } from './types';
 
 export const servicesHeroData: ServiceHeroData = {
-  eyebrow: 'LAYANAN & FASILITAS',
-  title: 'Nyaman dalam Setiap Langkah Menjaga Kesehatan',
+  eyebrow: 'FASILITAS & LAYANAN',
+  title: 'Mendukung Kesehatan Anda Sepenuhnya',
   description:
     'Klinik Amanah hadir dengan berbagai pilihan layanan dan fasilitas kesehatan yang dirancang untuk memberikan pelayanan terbaik bagi Anda dan keluarga.',
   highlights: [
