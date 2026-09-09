@@ -13,19 +13,19 @@ describe('healthcare-services data', () => {
     expect(servicesHeroData.image.src).toBe('/assets/images/asset_hero_sec_service.jpg');
   });
 
-  it('general practitioner section contains 7 bento service cards', () => {
+  it('general practitioner section contains 9 bento service cards', () => {
     expect(generalPractitionerSection.id).toBe('pelayanan-umum');
     expect(generalPractitionerSection.contextKey).toBe('general-practitioner');
     expect(generalPractitionerSection.indicatorLabel).toBe('Dokter umum');
     expect(generalPractitionerSection.layout).toBe('bento-left');
-    expect(generalPractitionerSection.services).toHaveLength(7);
+    expect(generalPractitionerSection.services).toHaveLength(9);
   });
 
-  it('midwifery section contains 7 bento service cards', () => {
+  it('midwifery section contains 8 bento service cards', () => {
     expect(midwiferySection.id).toBe('layanan-ibu-dan-anak');
     expect(midwiferySection.contextKey).toBe('midwifery');
     expect(midwiferySection.indicatorLabel).toBe('Bidan');
     expect(midwiferySection.layout).toBe('bento-right');
-    expect(midwiferySection.services).toHaveLength(7);
+    expect(midwiferySection.services).toHaveLength(8);
   });
 });

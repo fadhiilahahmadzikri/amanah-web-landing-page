@@ -203,10 +203,12 @@ export function FacilityCard({
           sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
           className="object-cover object-center"
         />
-        {/* Responsive light/dark gradient scrim */}
+        {/* Responsive light/dark gradient scrim focused on text readability */}
         <div className="
-          absolute inset-0 bg-linear-to-t from-white/95 via-white/85 to-white/35
-          dark:from-[#090d24]/95 dark:via-[#090d24]/85 dark:to-[#090d24]/35
+          absolute inset-x-0 bottom-0 h-[68%] bg-linear-to-t from-white/95
+          via-white/70 via-40% to-transparent
+          dark:from-[#090d24]/95 dark:via-[#090d24]/70 dark:via-40%
+          dark:to-transparent
         "
         />
       </div>
@@ -273,8 +275,8 @@ export function FacilityCard({
           "
         >
           <p className="
-            text-base/[1.65] font-medium text-foreground/90
-            dark:text-white/90 dark:drop-shadow-sm
+            text-base/[1.65] font-medium text-foreground
+            dark:text-white dark:drop-shadow-sm
           "
           >
             {facility.description}

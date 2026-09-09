@@ -75,6 +75,18 @@ export const generalPractitionerSection: ServiceCategorySection = {
       heightClass: 'min-h-[200px] md:min-h-[220px]',
     },
     {
+      id: 'umum-ekg',
+      title: 'EKG',
+      description:
+        'Pemeriksaan elektrokardiografi untuk membantu mengevaluasi aktivitas dan kondisi jantung sesuai indikasi medis.',
+      image: {
+        src: '/assets/images/layanan-umum-pemantauan.jpg',
+        alt: 'Pemeriksaan EKG',
+      },
+      colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
+      heightClass: 'min-h-[200px] md:min-h-[220px]',
+    },
+    {
       id: 'pemeriksaan-laboratorium',
       title: 'Pemeriksaan Laboratorium',
       description:
@@ -83,20 +95,20 @@ export const generalPractitionerSection: ServiceCategorySection = {
         src: '/assets/images/layanan-umum-laboratorium.jpg',
         alt: 'Pemeriksaan Laboratorium',
       },
-      colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
+      colSpanClass: 'col-span-12 sm:col-span-12 md:col-span-4',
       heightClass: 'min-h-[200px] md:min-h-[220px]',
     },
     {
-      id: 'konsultasi-kesehatan',
-      title: 'Konsultasi Kesehatan',
+      id: 'umum-nebulizer',
+      title: 'Nebulizer',
       description:
-        'Diskusi keluhan dan saran perawatan sesuai kondisi pasien.',
+        'Fasilitas terapi nebulisasi untuk membantu penanganan pasien dengan keluhan saluran pernapasan sesuai anjuran tenaga medis.',
       image: {
-        src: '/assets/images/layanan-umum-konsultasi.jpg',
-        alt: 'Konsultasi Kesehatan',
+        src: '/assets/images/dokumentasi/dokumentasi-14.png',
+        alt: 'Fasilitas Terapi Nebulizer',
       },
-      colSpanClass: 'col-span-12 md:col-span-4',
-      heightClass: 'min-h-[200px] md:min-h-[220px]',
+      colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-7',
+      heightClass: 'min-h-[210px] md:min-h-[230px]',
     },
     {
       id: 'kehamilan-umum',
@@ -107,7 +119,19 @@ export const generalPractitionerSection: ServiceCategorySection = {
         src: '/assets/images/layanan-umum-kehamilan.jpg',
         alt: 'Pemeriksaan Kehamilan',
       },
-      colSpanClass: 'col-span-12 md:col-span-8',
+      colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-5',
+      heightClass: 'min-h-[210px] md:min-h-[230px]',
+    },
+    {
+      id: 'konsultasi-kesehatan',
+      title: 'Konsultasi Kesehatan',
+      description:
+        'Diskusi keluhan dan saran perawatan sesuai kondisi pasien.',
+      image: {
+        src: '/assets/images/layanan-umum-konsultasi.jpg',
+        alt: 'Konsultasi Kesehatan',
+      },
+      colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-6',
       heightClass: 'min-h-[200px] md:min-h-[220px]',
     },
     {
@@ -119,7 +143,7 @@ export const generalPractitionerSection: ServiceCategorySection = {
         src: '/assets/images/layanan-umum-keterangan.jpg',
         alt: 'Surat Keterangan Sehat',
       },
-      colSpanClass: 'col-span-12 md:col-span-4',
+      colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-6',
       heightClass: 'min-h-[200px] md:min-h-[220px]',
     },
   ],
@@ -147,6 +171,18 @@ export const midwiferySection: ServiceCategorySection = {
       heightClass: 'min-h-[220px] md:min-h-[240px]',
     },
     {
+      id: 'bidan-usg',
+      title: 'USG',
+      description:
+        'Pemeriksaan ultrasonografi sebagai fasilitas penunjang untuk membantu dokter melakukan evaluasi kondisi medis sesuai kebutuhan pasien.',
+      image: {
+        src: '/assets/images/asset-index-6.jpg',
+        alt: 'Pemeriksaan USG',
+      },
+      colSpanClass: 'col-span-12 md:col-span-5',
+      heightClass: 'min-h-[220px] md:min-h-[240px]',
+    },
+    {
       id: 'bidan-persalinan',
       title: 'Persalinan',
       description:
@@ -155,8 +191,8 @@ export const midwiferySection: ServiceCategorySection = {
         src: '/assets/images/asset_persalinan.jpg',
         alt: 'Persalinan',
       },
-      colSpanClass: 'col-span-12 md:col-span-5',
-      heightClass: 'min-h-[220px] md:min-h-[240px]',
+      colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
+      heightClass: 'min-h-[200px] md:min-h-[220px]',
     },
     {
       id: 'bidan-perawatan-nifas',
@@ -188,7 +224,7 @@ export const midwiferySection: ServiceCategorySection = {
         src: '/assets/images/asset_kb.jpg',
         alt: 'Keluarga Berencana',
       },
-      colSpanClass: 'col-span-12 md:col-span-4',
+      colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
       heightClass: 'min-h-[200px] md:min-h-[220px]',
     },
     {
@@ -199,8 +235,8 @@ export const midwiferySection: ServiceCategorySection = {
         src: '/assets/images/asset_tumbuhkembanganak.jpg',
         alt: 'Pemeriksaan Tumbuh Kembang',
       },
-      colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-6',
-      heightClass: 'min-h-[210px] md:min-h-[230px]',
+      colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
+      heightClass: 'min-h-[200px] md:min-h-[220px]',
     },
     {
       id: 'bidan-konsultasi-reproduksi',
@@ -210,8 +246,8 @@ export const midwiferySection: ServiceCategorySection = {
         src: '/assets/images/asset_konsul_kb.jpg',
         alt: 'Konsultasi Kesehatan Reproduksi',
       },
-      colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-6',
-      heightClass: 'min-h-[210px] md:min-h-[230px]',
+      colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
+      heightClass: 'min-h-[200px] md:min-h-[220px]',
     },
   ],
 };
