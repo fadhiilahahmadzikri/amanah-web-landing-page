@@ -103,9 +103,9 @@ export function ServicesHeroSection({ className }: ServicesHeroSectionProps) {
           <div
             ref={contentRef}
             className="
-              z-10 flex max-w-full flex-col justify-center px-6 py-10
-              md:max-w-[50%] md:py-14 md:pr-4 md:pl-10
-              lg:max-w-[48%] lg:py-16 lg:pl-12
+              z-10 flex w-full flex-col justify-center px-6 py-10
+              md:w-[60%] md:max-w-[60%] md:py-14 md:pr-4 md:pl-10
+              lg:w-[60%] lg:max-w-[60%] lg:py-16 lg:pl-12
             "
           >
             {/* Pill Eyebrow reusing the existing design system component */}
@@ -124,7 +124,8 @@ export function ServicesHeroSection({ className }: ServicesHeroSectionProps) {
                 className="
                   text-4xl/tight font-medium tracking-tight text-foreground
                   will-change-transform
-                  md:text-6xl
+                  md:text-5xl
+                  lg:text-6xl
                 "
               >
                 Mendukung Kesehatan
@@ -178,8 +179,8 @@ export function ServicesHeroSection({ className }: ServicesHeroSectionProps) {
               relative flex h-[360px] w-full items-end justify-end
               overflow-hidden
               sm:h-[420px]
-              md:absolute md:inset-y-0 md:right-0 md:h-full md:w-[54%]
-              lg:w-[52%]
+              md:absolute md:inset-y-0 md:right-0 md:h-full md:w-[40%]
+              lg:w-[40%]
             "
           >
             <HeroCurvedVisual
