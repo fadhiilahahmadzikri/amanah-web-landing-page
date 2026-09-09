@@ -13,13 +13,13 @@ export const healthcareBrand = {
   } satisfies AssetImage,
 };
 
-export const healthcareNavigationItems = [
+export const healthcareNavigationItems: HealthcareNavigationItem[] = [
   { label: 'Beranda', path: '/' },
-  { label: 'Tentang Kami', path: '/', hash: '#tentang-kami' },
+  { label: 'Tentang Kami', path: '/tentang-kami' },
   { label: 'Fasilitas', path: '/fasilitas' },
   { label: 'Dokter', path: '/dokter' },
   { label: 'Kontak', path: '/kontak' },
-] satisfies HealthcareNavigationItem[];
+];
 
 export const healthcareContactItems = [
   {
