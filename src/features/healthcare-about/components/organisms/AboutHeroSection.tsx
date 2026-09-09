@@ -12,7 +12,7 @@ import { aboutHeroData, aboutPixelIcons, aboutVisualBandData } from '../../data'
 import { DirectionalArrowIndicator } from '../atoms/DirectionalArrowIndicator';
 import { HeroConfetti } from '../atoms/HeroConfetti';
 import { PixelIconBadge } from '../atoms/PixelIconBadge';
-import { PixelMeshBackground } from '../atoms/PixelMeshBackground';
+import { PixelMeshBackground, type PixelMeshBackgroundHandle } from '../atoms/PixelMeshBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -70,6 +70,8 @@ export function AboutHeroSection({
   const arrowContainerRef = useRef<HTMLDivElement>(null);
   const arrowInnerRef = useRef<HTMLDivElement>(null);
   const confettiRef = useRef<HeroConfettiRef>(null);
+  const pixelMeshRef = useRef<PixelMeshBackgroundHandle>(null);
+  const expandedTextContentRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -220,7 +222,7 @@ export function AboutHeroSection({
           scrollTrigger: {
             trigger: containerRef.current,
             start: 'top top+=48',
-            end: '+=750',
+            end: '+=2400', // Generous scroll distance: ensures ~2-3 extra scrolls linger on the 100% completed state
             scrub: 0.8,
             pin: true,
             anticipatePin: 1,
@@ -235,7 +237,7 @@ export function AboutHeroSection({
             {
               autoAlpha: 0,
               scale: 0.85,
-              duration: 0.2,
+              duration: 0.25,
               ease: 'power1.out',
             },
             0,
@@ -246,7 +248,7 @@ export function AboutHeroSection({
             arrowContainerRef.current,
             {
               borderTopWidth: 0,
-              duration: 0.7,
+              duration: 0.85,
               ease: 'power2.inOut',
               height: 0,
             },
@@ -260,7 +262,7 @@ export function AboutHeroSection({
             headlineRef.current,
             {
               autoAlpha: 0,
-              duration: 0.35,
+              duration: 0.4,
               ease: 'power2.inOut',
               y: -50,
             },
@@ -268,12 +270,28 @@ export function AboutHeroSection({
           );
         }
 
-        // 3. TARGET UTAMA: Left column shrinks from 68% to 0%, Right shell EXPANDS from 32% to 100%
+        // 3. Initial text (rata kiri, di bawah sejajar headline) fades out completely first
+        if (initialTextRef.current) {
+          tl.to(
+            initialTextRef.current,
+            {
+              autoAlpha: 0,
+              duration: 0.25,
+              ease: 'power2.in',
+              y: -12,
+            },
+            0,
+          );
+        }
+
+        // 4. PHASE 1: SCREEN EXPANSION (0.0 -> 1.0)
+        // Left column shrinks from 68% to 0%, Right shell EXPANDS from 32% to 100%
+        // During this entire phase, the background remains 100% BLANK ("kertas putih kosong")
         if (leftColRef.current && rightShellRef.current) {
           tl.to(
             leftColRef.current,
             {
-              duration: 1,
+              duration: 1.0,
               ease: 'power2.inOut',
               width: '0%',
             },
@@ -283,7 +301,7 @@ export function AboutHeroSection({
           tl.to(
             rightShellRef.current,
             {
-              duration: 1,
+              duration: 1.0,
               ease: 'power2.inOut',
               width: '100%',
             },
@@ -291,40 +309,46 @@ export function AboutHeroSection({
           );
         }
 
-        // 4. KAMUFLASE: Initial text (rata kiri, di bawah sejajar headline) fades out completely first
-        if (initialTextRef.current) {
-          tl.to(
-            initialTextRef.current,
-            {
-              autoAlpha: 0,
-              duration: 0.2,
-              ease: 'power2.in',
-              y: -12,
-            },
-            0,
-          );
+        // 5. PHASE 2: SCREEN HAS REACHED 100% EXPANDED!
+        // Right at 1.0, the screen is 100% expanded. NOW THE SUMMON ANIMATION BEGINS!
+        if (expandedTextRef.current) {
+          tl.set(expandedTextRef.current, { autoAlpha: 1 }, 1.0);
         }
 
-        // 5. KAMUFLASE: Expanded text (rata tengah, di tengah layar) fades in AFTER initial text has dissolved
-        // Starts at 0.28 so there is zero overlap / ghosting
-        if (expandedTextRef.current) {
+        // 5b. PIXEL SUMMON: Parasite emerges from bottom to top, rendered per pixel ("bercak pixel 1 1 muncul")
+        const crawlState = { progress: 0 };
+        tl.to(
+          crawlState,
+          {
+            duration: 0.85,
+            ease: 'none',
+            progress: 1,
+            onUpdate: () => {
+              pixelMeshRef.current?.setProgress(crawlState.progress);
+            },
+          },
+          1.0,
+        );
+
+        // 5c. Expanded text content glides in as pixels charge past mid-screen
+        if (expandedTextContentRef.current) {
           tl.fromTo(
-            expandedTextRef.current,
+            expandedTextContentRef.current,
             {
               autoAlpha: 0,
               y: 20,
             },
             {
               autoAlpha: 1,
-              duration: 0.4,
+              duration: 0.45,
               ease: 'power2.out',
               y: 0,
             },
-            0.28,
+            1.35,
           );
         }
 
-        // 6. 3 Pixel Icons: Muncul satu-satu dari bawah ke atas setelah shell full screen
+        // 6. PHASE 3: 3 Pixel Icons pop out after pixel mesh is summoned
         if (iconsRef.current.length > 0) {
           tl.fromTo(
             iconsRef.current,
@@ -335,13 +359,13 @@ export function AboutHeroSection({
             },
             {
               autoAlpha: 1,
-              duration: 0.25,
+              duration: 0.3,
               ease: 'back.out(1.5)',
               scale: 1,
-              stagger: 0.08,
+              stagger: 0.1,
               y: 0,
             },
-            0.68,
+            1.85,
           );
         }
 
@@ -351,7 +375,19 @@ export function AboutHeroSection({
             confettiRef.current?.fire();
           },
           [],
-          0.84,
+          2.05,
+        );
+
+        // 8. PHASE 4: HOLD / REST BUFFER (~2-3 extra scrolls linger on 100% completed state)
+        // Keeps the screen pinned so the user can comfortably view and absorb the finished state before unpinning
+        const holdState = { buffer: 0 };
+        tl.to(
+          holdState,
+          {
+            buffer: 1,
+            duration: 1.5,
+          },
+          2.15,
         );
       });
 
@@ -371,7 +407,7 @@ export function AboutHeroSection({
             arrowContainerRef.current,
             {
               autoAlpha: 0,
-              duration: 0.2,
+              duration: 0.25,
             },
             0,
           );
@@ -394,7 +430,7 @@ export function AboutHeroSection({
             initialTextRef.current,
             {
               autoAlpha: 0,
-              duration: 0.2,
+              duration: 0.25,
               ease: 'power2.in',
               y: -10,
             },
@@ -402,20 +438,39 @@ export function AboutHeroSection({
           );
         }
 
+        // Screen is focused / settled at 0.5. NOW pixel summon begins!
         if (expandedTextRef.current) {
+          tl.set(expandedTextRef.current, { autoAlpha: 1 }, 0.5);
+        }
+
+        const mobileCrawlState = { progress: 0 };
+        tl.to(
+          mobileCrawlState,
+          {
+            duration: 0.6,
+            ease: 'none',
+            progress: 1,
+            onUpdate: () => {
+              pixelMeshRef.current?.setProgress(mobileCrawlState.progress);
+            },
+          },
+          0.5,
+        );
+
+        if (expandedTextContentRef.current) {
           tl.fromTo(
-            expandedTextRef.current,
+            expandedTextContentRef.current,
             {
               autoAlpha: 0,
-              y: 15,
+              y: 16,
             },
             {
               autoAlpha: 1,
-              duration: 0.38,
+              duration: 0.4,
               ease: 'power2.out',
               y: 0,
             },
-            0.28,
+            0.75,
           );
         }
 
@@ -429,13 +484,13 @@ export function AboutHeroSection({
             },
             {
               autoAlpha: 1,
-              duration: 0.25,
+              duration: 0.28,
               ease: 'back.out(1.5)',
               scale: 1,
-              stagger: 0.08,
+              stagger: 0.09,
               y: 0,
             },
-            0.66,
+            1.1,
           );
         }
 
@@ -445,7 +500,18 @@ export function AboutHeroSection({
             confettiRef.current?.fire();
           },
           [],
-          0.82,
+          1.28,
+        );
+
+        // Mobile Hold Buffer
+        const mobileHoldState = { buffer: 0 };
+        tl.to(
+          mobileHoldState,
+          {
+            buffer: 1,
+            duration: 0.8,
+          },
+          1.38,
         );
       });
     },
@@ -627,16 +693,21 @@ export function AboutHeroSection({
               lg:px-16
             "
           >
-            {/* Mosaic pixel mesh texture: strictly scoped to the expandable layer */}
-            <PixelMeshBackground className="z-0" />
+            {/* Mosaic pixel mesh texture: strictly scoped to the expandable layer with serialized charging parasite crawler */}
+            <PixelMeshBackground
+              ref={pixelMeshRef}
+              className="pointer-events-none absolute inset-0 size-full overflow-hidden z-0"
+            />
 
             {/* Confetti strictly confined to this pixel background shell */}
             <HeroConfetti ref={confettiRef} className="z-20" />
 
-            <div className="
-              relative z-10 flex max-w-3xl flex-col items-center justify-center
-              text-center
-            "
+            <div
+              ref={expandedTextContentRef}
+              className="
+                relative z-10 flex max-w-3xl flex-col items-center justify-center
+                text-center opacity-0 will-change-transform
+              "
             >
               {/* 3 Pixel Icons: Di atas teks, muncul satu-satu dari bawah ke atas saat full screen */}
               {icons.length > 0 && (
