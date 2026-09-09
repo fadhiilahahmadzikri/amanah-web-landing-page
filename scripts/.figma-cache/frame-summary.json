@@ -1,0 +1,3380 @@
+{
+  "frameName": "dokter page",
+  "frameSize": {
+    "x": 11816,
+    "y": -20072,
+    "width": 1521,
+    "height": 3878.275146484375
+  },
+  "sections": [
+    {
+      "id": "2061:9571",
+      "name": "Body",
+      "type": "FRAME",
+      "box": {
+        "x": 11816,
+        "y": -20072,
+        "width": 1521,
+        "height": 3401.60009765625
+      },
+      "layoutMode": "VERTICAL",
+      "padding": {
+        "top": 48,
+        "right": 48,
+        "bottom": 48,
+        "left": 48
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "childCount": 2
+    },
+    {
+      "id": "2061:9837",
+      "name": "Section",
+      "type": "FRAME",
+      "box": {
+        "x": 11816,
+        "y": -16670.400390625,
+        "width": 1521,
+        "height": 476.6750183105469
+      },
+      "layoutMode": "VERTICAL",
+      "padding": {
+        "right": 10,
+        "bottom": 10,
+        "left": 10
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "childCount": 1
+    },
+    {
+      "id": "2061:9946",
+      "name": "Section",
+      "type": "FRAME",
+      "box": {
+        "x": 11815.900390625,
+        "y": -20072.099609375,
+        "width": 1521,
+        "height": 95
+      },
+      "layoutMode": "VERTICAL",
+      "padding": {
+        "top": 15,
+        "right": 20,
+        "bottom": 15,
+        "left": 20
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "childCount": 1
+    },
+    {
+      "id": "2130:9022",
+      "name": "Button - Open chat (Free Website Chat Widget for Business - Get Started Today - Crisp)",
+      "type": "INSTANCE",
+      "box": {
+        "x": 13253,
+        "y": -16730,
+        "width": 54,
+        "height": 54
+      },
+      "layoutMode": "VERTICAL",
+      "padding": {},
+      "fills": [],
+      "childCount": 1
+    }
+  ],
+  "imageRefs": [
+    {
+      "ref": "107bc4454da792655d811dd76cba4cb357767a02",
+      "nodeId": "2061:9627",
+      "nodeName": "Container",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container"
+    },
+    {
+      "ref": "a6676277805283f3ed70fabec1b1b288d69b22fc",
+      "nodeId": "2061:10827",
+      "nodeName": "Image (Bhagaskara Yudha)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Bhagaskara Yudha)"
+    },
+    {
+      "ref": "cf83c009162e648f79e5969fded04464645d30ea",
+      "nodeId": "2061:10842",
+      "nodeName": "Image (Martha Suwanti)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Martha Suwanti)"
+    },
+    {
+      "ref": "f433cdb06960b82150c399efef3dd19081132d54",
+      "nodeId": "2061:10857",
+      "nodeName": "Image (Srikandi Wulandari)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Srikandi Wulandari)"
+    },
+    {
+      "ref": "0c8cf0ae5a141189593e49510147bd67c94ed184",
+      "nodeId": "2061:10872",
+      "nodeName": "Image (Tri Mulyanto)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Tri Mulyanto)"
+    },
+    {
+      "ref": "6dffa2e1a42e48e43ea6866506550bb621ae921c",
+      "nodeId": "2061:10887",
+      "nodeName": "Image (Dr. Aris Setiawan)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Dr. Aris Setiawan)"
+    },
+    {
+      "ref": "4f3fb4e6892d581e2c2ebc02a860194961c20a50",
+      "nodeId": "2061:10902",
+      "nodeName": "Image (Dr. Maya Putri)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Dr. Maya Putri)"
+    },
+    {
+      "ref": "e60e247ec069cc0e12e0d063ea02a4e485348f4a",
+      "nodeId": "2061:10917",
+      "nodeName": "Image (Dr. Hendra Wijaya)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Dr. Hendra Wijaya)"
+    },
+    {
+      "ref": "f3a9a0f7a43fe49f4f74757f1136488ba7fd927b",
+      "nodeId": "2061:10932",
+      "nodeName": "Image (Dr. Nina Amelia)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Dr. Nina Amelia)"
+    },
+    {
+      "ref": "cf83c009162e648f79e5969fded04464645d30ea",
+      "nodeId": "2061:11221",
+      "nodeName": "Image (Bidan Siti Rahmawati)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Image (Bidan Siti Rahmawati)"
+    },
+    {
+      "ref": "cf83c009162e648f79e5969fded04464645d30ea",
+      "nodeId": "2061:11112",
+      "nodeName": "Image (Bidan Siti Rahmawati)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Bidan Siti Rahmawati)"
+    },
+    {
+      "ref": "cf83c009162e648f79e5969fded04464645d30ea",
+      "nodeId": "2061:11127",
+      "nodeName": "Image (Bidan Dewi Lestari)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Bidan Dewi Lestari)"
+    },
+    {
+      "ref": "cf83c009162e648f79e5969fded04464645d30ea",
+      "nodeId": "2061:11142",
+      "nodeName": "Image (Bidan Anita Wijaya)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Bidan Anita Wijaya)"
+    },
+    {
+      "ref": "cf83c009162e648f79e5969fded04464645d30ea",
+      "nodeId": "2061:11157",
+      "nodeName": "Image (Bidan Nurul Hidayah)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Bidan Nurul Hidayah)"
+    },
+    {
+      "ref": "cf83c009162e648f79e5969fded04464645d30ea",
+      "nodeId": "2061:11172",
+      "nodeName": "Image (Bidan Rina Astuti)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Bidan Rina Astuti)"
+    },
+    {
+      "ref": "cf83c009162e648f79e5969fded04464645d30ea",
+      "nodeId": "2061:11223",
+      "nodeName": "Image (Bidan Dian Permata)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Image (Bidan Dian Permata)"
+    },
+    {
+      "ref": "cf83c009162e648f79e5969fded04464645d30ea",
+      "nodeId": "2061:11204",
+      "nodeName": "Image (Bidan Dian Permata)",
+      "scaleMode": "FILL",
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Image (Bidan Dian Permata)"
+    },
+    {
+      "ref": "7a4161dbe96591753ffeee6c214b34f45555a89d",
+      "nodeId": "I2061:9844;2050:6",
+      "nodeName": "logo healthcare 1",
+      "scaleMode": "FILL",
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > logo > logo healthcare 1"
+    },
+    {
+      "ref": "bfb9b6d302a3784814339f021fe51df49e64b655",
+      "nodeId": "2061:9893",
+      "nodeName": "image 1",
+      "scaleMode": "FILL",
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Container (RSCC | Layanan Unggulan) > Section:margin > Section > Container > Container:margin > Container > image 1"
+    },
+    {
+      "ref": "7a4161dbe96591753ffeee6c214b34f45555a89d",
+      "nodeId": "I2061:9949;2050:6",
+      "nodeName": "logo healthcare 1",
+      "scaleMode": "FILL",
+      "path": "dokter page > Section > Container:margin > Banner > logo > logo healthcare 1"
+    },
+    {
+      "ref": "b494e02852539be7c489ba06804d1476670c83f7",
+      "nodeId": "I2130:9022;2130:8381",
+      "nodeName": "Text",
+      "scaleMode": "FIT",
+      "path": "dokter page > Button - Open chat (Free Website Chat Widget for Business - Get Started Today - Crisp) > Text > Text"
+    }
+  ],
+  "vectorNodes": [
+    {
+      "id": "2061:10830",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12103.7001953125,
+        "y": -18360.001953125,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10831",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12105.7001953125,
+        "y": -18358.001953125,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10833",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12144.7001953125,
+        "y": -18359.001953125,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10834",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12145.431640625,
+        "y": -18357.689453125,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10845",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12459.7001953125,
+        "y": -18360.001953125,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10846",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12461.7001953125,
+        "y": -18358.001953125,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10848",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12500.7001953125,
+        "y": -18359.001953125,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10849",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12501.431640625,
+        "y": -18357.689453125,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10860",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12815.7001953125,
+        "y": -18360.001953125,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10861",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12817.7001953125,
+        "y": -18358.001953125,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10863",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12856.7001953125,
+        "y": -18359.001953125,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10864",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12857.431640625,
+        "y": -18357.689453125,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10875",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 13171.69921875,
+        "y": -18360.001953125,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10876",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13173.69921875,
+        "y": -18358.001953125,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10878",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 13212.69921875,
+        "y": -18359.001953125,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10879",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13213.4306640625,
+        "y": -18357.689453125,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10890",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12103.7001953125,
+        "y": -17916.001953125,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10891",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12105.7001953125,
+        "y": -17914.001953125,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10893",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12144.7001953125,
+        "y": -17915.001953125,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10894",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12145.431640625,
+        "y": -17913.689453125,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10905",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12459.7001953125,
+        "y": -17916.001953125,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10906",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12461.7001953125,
+        "y": -17914.001953125,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10908",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12500.7001953125,
+        "y": -17915.001953125,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10909",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12501.431640625,
+        "y": -17913.689453125,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10920",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12815.7001953125,
+        "y": -17916.001953125,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10921",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12817.7001953125,
+        "y": -17914.001953125,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10923",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12856.7001953125,
+        "y": -17915.001953125,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10924",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12857.431640625,
+        "y": -17913.689453125,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10935",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 13171.69921875,
+        "y": -17916.001953125,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10936",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13173.69921875,
+        "y": -17914.001953125,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:10938",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 13212.69921875,
+        "y": -17915.001953125,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:10939",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13213.4306640625,
+        "y": -17913.689453125,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:11115",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12459.7001953125,
+        "y": -17203.201171875,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:11116",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12461.7001953125,
+        "y": -17201.201171875,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:11118",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12500.7001953125,
+        "y": -17202.201171875,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:11119",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12501.431640625,
+        "y": -17200.888671875,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:11130",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12815.7001953125,
+        "y": -17203.201171875,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:11131",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12817.7001953125,
+        "y": -17201.201171875,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:11133",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12856.7001953125,
+        "y": -17202.201171875,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:11134",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12857.431640625,
+        "y": -17200.888671875,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:11145",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 13171.69921875,
+        "y": -17203.201171875,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:11146",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13173.69921875,
+        "y": -17201.201171875,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:11148",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 13212.69921875,
+        "y": -17202.201171875,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:11149",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13213.4306640625,
+        "y": -17200.888671875,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:11160",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12103.7001953125,
+        "y": -16759.201171875,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:11161",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12105.7001953125,
+        "y": -16757.201171875,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:11163",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12144.7001953125,
+        "y": -16758.201171875,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:11164",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12145.431640625,
+        "y": -16756.888671875,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:11175",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12459.7001953125,
+        "y": -16759.201171875,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:11176",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12461.7001953125,
+        "y": -16757.201171875,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:11178",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 12500.7001953125,
+        "y": -16758.201171875,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:11179",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 12501.431640625,
+        "y": -16756.888671875,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:11207",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 13171.69921875,
+        "y": -16759.201171875,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:11208",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13173.69921875,
+        "y": -16757.201171875,
+        "width": 12,
+        "height": 12
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:11210",
+      "name": "Icon",
+      "type": "FRAME",
+      "box": {
+        "x": 13212.69921875,
+        "y": -16758.201171875,
+        "width": 14,
+        "height": 14
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon"
+    },
+    {
+      "id": "2061:11211",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13213.4306640625,
+        "y": -16756.888671875,
+        "width": 12.584249496459961,
+        "height": 11.375
+      },
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Container > Link > Icon > Vector"
+    },
+    {
+      "id": "2061:9844",
+      "name": "logo",
+      "type": "INSTANCE",
+      "box": {
+        "x": 11926.5,
+        "y": -16624.103515625,
+        "width": 162.92324829101562,
+        "height": 47.40817642211914
+      },
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > logo"
+    },
+    {
+      "id": "I2061:9844;2050:6",
+      "name": "logo healthcare 1",
+      "type": "RECTANGLE",
+      "box": {
+        "x": 11926.5,
+        "y": -16624.103515625,
+        "width": 47.40817642211914,
+        "height": 47.40817642211914
+      },
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > logo > logo healthcare 1"
+    },
+    {
+      "id": "2061:9901",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13052.556640625,
+        "y": -16297.0390625,
+        "width": 8.569000244140625,
+        "height": 16
+      },
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Link > Image (facebook-white) > Vector"
+    },
+    {
+      "id": "2061:9904",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13099.0302734375,
+        "y": -16295.896484375,
+        "width": 15.61900806427002,
+        "height": 13.714286804199219
+      },
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Link > Image (twtiter-white) > Vector"
+    },
+    {
+      "id": "2061:9907",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13149.2177734375,
+        "y": -16296.6591796875,
+        "width": 15.238136291503906,
+        "height": 15.238136291503906
+      },
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Link > Image (lindin-white) > Vector"
+    },
+    {
+      "id": "2061:9910",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13200.615234375,
+        "y": -16297.0390625,
+        "width": 12.446858406066895,
+        "height": 16.00029945373535
+      },
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Link > Image (pinteres-white) > Vector"
+    },
+    {
+      "id": "2061:9949",
+      "name": "logo",
+      "type": "INSTANCE",
+      "box": {
+        "x": 11926.400390625,
+        "y": -20046.927734375,
+        "width": 153.90936279296875,
+        "height": 44.656368255615234
+      },
+      "path": "dokter page > Section > Container:margin > Banner > logo"
+    },
+    {
+      "id": "I2061:9949;2050:6",
+      "name": "logo healthcare 1",
+      "type": "RECTANGLE",
+      "box": {
+        "x": 11926.400390625,
+        "y": -20046.927734375,
+        "width": 44.656368255615234,
+        "height": 44.656368255615234
+      },
+      "path": "dokter page > Section > Container:margin > Banner > logo > logo healthcare 1"
+    },
+    {
+      "id": "I2191:43144;2191:43000",
+      "name": "Image (arrow-02)",
+      "type": "FRAME",
+      "box": {
+        "x": 13193.400390625,
+        "y": -20032.599609375,
+        "width": 16,
+        "height": 16
+      },
+      "path": "dokter page > Section > Container:margin > Banner > Container > [button] -  masuk > Link > Container > Image (arrow-02)"
+    },
+    {
+      "id": "I2191:43144;2191:43001",
+      "name": "Vector",
+      "type": "VECTOR",
+      "box": {
+        "x": 13193.880859375,
+        "y": -20032.599609375,
+        "width": 14.794800758361816,
+        "height": 14.794831275939941
+      },
+      "path": "dokter page > Section > Container:margin > Banner > Container > [button] -  masuk > Link > Container > Image (arrow-02) > Vector"
+    }
+  ],
+  "textNodes": [
+    {
+      "id": "2061:9615",
+      "name": "KLINIK AMANAH HEALTHCARE",
+      "characters": "KLINIK AMANAH HEALTHCARE",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": "PlusJakartaSans-Medium",
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textCase": "UPPER",
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "CENTER",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 32,
+        "lineHeightPercent": 105.82010650634766,
+        "lineHeightPercentFontSize": 133.3333282470703,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Text > KLINIK AMANAH HEALTHCARE"
+    },
+    {
+      "id": "2061:9618",
+      "name": "Kenali Klinik Amanah",
+      "characters": "Kenali Klinik Amanah",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": "PlusJakartaSans-Medium",
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 48,
+        "textAlignHorizontal": "CENTER",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -1.2000000476837158,
+        "lineHeightPx": 48,
+        "lineHeightPercent": 79.36508178710938,
+        "lineHeightPercentFontSize": 100,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Heading 2 > Kenali Klinik Amanah"
+    },
+    {
+      "id": "2061:9621",
+      "name": "A perfect blend of clinical excellence and medical",
+      "characters": "Memberikan pelayanan kesehatan yang profesional, nyaman, dan terpercaya untuk Anda dan keluarga.",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textAutoResize": "HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "CENTER",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 24,
+        "lineHeightPercent": 119.04761505126953,
+        "lineHeightPercentFontSize": 150,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Paragraph > A perfect blend of clinical excellence and medical"
+    },
+    {
+      "id": "2061:9671",
+      "name": "Click on any pin marker to view team doctor detail",
+      "characters": "Click on any pin marker to view team doctor details",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "SemiBold",
+        "fontWeight": 600,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 12,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 16,
+        "lineHeightPercent": 105.82010650634766,
+        "lineHeightPercentFontSize": 133.3333282470703,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Click on any pin marker to view team doctor detail"
+    },
+    {
+      "id": "2061:10813",
+      "name": "Kenali Dokter Kami",
+      "characters": "Kenali Dokter Kami",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": "Caveat-Regular",
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 36,
+        "textAlignHorizontal": "CENTER",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 40,
+        "lineHeightPercent": 88.18341827392578,
+        "lineHeightPercentFontSize": 111.11111450195312,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Text > Kenali Dokter Kami"
+    },
+    {
+      "id": "2061:10815",
+      "name": "Profesional. Peduli. Terpercaya.",
+      "characters": "Profesional. Peduli. Terpercaya.",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": "PlusJakartaSans-Medium",
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textAutoResize": "HEIGHT",
+        "fontSize": 48,
+        "textAlignHorizontal": "CENTER",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -1.2000000476837158,
+        "lineHeightPx": 48,
+        "lineHeightPercent": 79.36508178710938,
+        "lineHeightPercentFontSize": 100,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Heading 2 > Profesional. Peduli. Terpercaya."
+    },
+    {
+      "id": "2061:10817",
+      "name": "Tim Dokter MedCore terpercaya dengan keahlian medi",
+      "characters": "Didukung oleh dokter dan tenaga kesehatan yang berdedikasi, Klinik Amanah Healthcare berkomitmen memberikan pelayanan kesehatan yang berkualitas, nyaman, dan terpercaya bagi Anda dan keluarga.",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textAutoResize": "HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "CENTER",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 24,
+        "lineHeightPercent": 119.04761505126953,
+        "lineHeightPercentFontSize": 150,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Paragraph > Tim Dokter MedCore terpercaya dengan keahlian medi"
+    },
+    {
+      "id": "2061:10823",
+      "name": "Bhagaskara Yudha",
+      "characters": "Bhagaskara\nYudha ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Bhagaskara Yudha"
+    },
+    {
+      "id": "2061:10825",
+      "name": "Founder & Lead Doctor",
+      "characters": "Founder & Lead Doctor",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Founder & Lead Doctor"
+    },
+    {
+      "id": "2061:10838",
+      "name": "Martha Suwanti",
+      "characters": "Martha\nSuwanti ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Martha Suwanti"
+    },
+    {
+      "id": "2061:10840",
+      "name": "Co-Founder & Surgeon",
+      "characters": "Co-Founder & Surgeon",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Co-Founder & Surgeon"
+    },
+    {
+      "id": "2061:10853",
+      "name": "Srikandi Wulandari",
+      "characters": "Srikandi\nWulandari ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Srikandi Wulandari"
+    },
+    {
+      "id": "2061:10855",
+      "name": "VP of Tech & Research",
+      "characters": "VP of Tech & Research",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > VP of Tech & Research"
+    },
+    {
+      "id": "2061:10868",
+      "name": "Tri Mulyanto",
+      "characters": "Tri\nMulyanto ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Tri Mulyanto"
+    },
+    {
+      "id": "2061:10870",
+      "name": "VP of Patient Care",
+      "characters": "VP of Patient Care",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > VP of Patient Care"
+    },
+    {
+      "id": "2061:10883",
+      "name": "Dr. Aris Setiawan",
+      "characters": "Dr. Aris\nSetiawan ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Dr. Aris Setiawan"
+    },
+    {
+      "id": "2061:10885",
+      "name": "Head of Cardiology",
+      "characters": "Head of Cardiology",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Head of Cardiology"
+    },
+    {
+      "id": "2061:10898",
+      "name": "Dr. Maya Putri",
+      "characters": "Dr. Maya\nPutri ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Dr. Maya Putri"
+    },
+    {
+      "id": "2061:10900",
+      "name": "Pediatric Director",
+      "characters": "Pediatric Director",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Pediatric Director"
+    },
+    {
+      "id": "2061:10913",
+      "name": "Dr. Hendra Wijaya",
+      "characters": "Dr. Hendra\nWijaya ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Dr. Hendra Wijaya"
+    },
+    {
+      "id": "2061:10915",
+      "name": "Neurology Specialist",
+      "characters": "Neurology Specialist",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Neurology Specialist"
+    },
+    {
+      "id": "2061:10928",
+      "name": "Dr. Nina Amelia",
+      "characters": "Dr. Nina\nAmelia ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Dr. Nina Amelia"
+    },
+    {
+      "id": "2061:10930",
+      "name": "Emergency Medicine Lead",
+      "characters": "Emergency Medicine Lead",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Emergency Medicine Lead"
+    },
+    {
+      "id": "2061:11081",
+      "name": "Kenali Bidan Kami",
+      "characters": "Kenali Bidan Kami",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": "Caveat-Regular",
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 36,
+        "textAlignHorizontal": "CENTER",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 40,
+        "lineHeightPercent": 88.18341827392578,
+        "lineHeightPercentFontSize": 111.11111450195312,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Text > Kenali Bidan Kami"
+    },
+    {
+      "id": "2061:11083",
+      "name": "Hangat Mendampingi, Sepenuh Hati.",
+      "characters": "Hangat Mendampingi, Sepenuh Hati.",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": "PlusJakartaSans-Medium",
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 48,
+        "textAlignHorizontal": "CENTER",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -1.2000000476837158,
+        "lineHeightPx": 48,
+        "lineHeightPercent": 79.36508178710938,
+        "lineHeightPercentFontSize": 100,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Heading 2 > Hangat Mendampingi, Sepenuh Hati."
+    },
+    {
+      "id": "2061:11085",
+      "name": "Tim Bidan Profesional MedCore hadir mendampingi pe",
+      "characters": "Bidan Klinik Amanah Healthcare berkomitmen memberikan pendampingan yang nyaman dan terpercaya bagi ibu dan keluarga, mulai dari kehamilan, persalinan, hingga masa pascamelahirkan.",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textAutoResize": "HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "CENTER",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 24,
+        "lineHeightPercent": 119.04761505126953,
+        "lineHeightPercentFontSize": 150,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Paragraph > Tim Bidan Profesional MedCore hadir mendampingi pe"
+    },
+    {
+      "id": "2061:11091",
+      "name": "Bidan Sarah Amalia",
+      "characters": "Bidan Sarah\nAmalia ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Bidan Sarah Amalia"
+    },
+    {
+      "id": "2061:11093",
+      "name": "Head of Maternity",
+      "characters": "Head of Maternity",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Head of Maternity"
+    },
+    {
+      "id": "2061:11108",
+      "name": "Bidan Siti Rahmawati",
+      "characters": "Bidan Siti\nRahmawati ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Bidan Siti Rahmawati"
+    },
+    {
+      "id": "2061:11110",
+      "name": "Clinical Midwife Lead",
+      "characters": "Clinical Midwife Lead",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Clinical Midwife Lead"
+    },
+    {
+      "id": "2061:11123",
+      "name": "Bidan Dewi Lestari",
+      "characters": "Bidan Dewi\nLestari ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Bidan Dewi Lestari"
+    },
+    {
+      "id": "2061:11125",
+      "name": "Perinatal Care Lead",
+      "characters": "Perinatal Care Lead",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Perinatal Care Lead"
+    },
+    {
+      "id": "2061:11138",
+      "name": "Bidan Anita Wijaya",
+      "characters": "Bidan Anita\nWijaya ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Bidan Anita Wijaya"
+    },
+    {
+      "id": "2061:11140",
+      "name": "Neonatal Specialist",
+      "characters": "Neonatal Specialist",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Neonatal Specialist"
+    },
+    {
+      "id": "2061:11153",
+      "name": "Bidan Nurul Hidayah",
+      "characters": "Bidan Nurul\nHidayah ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Bidan Nurul Hidayah"
+    },
+    {
+      "id": "2061:11155",
+      "name": "Postpartum Recovery",
+      "characters": "Postpartum Recovery",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Postpartum Recovery"
+    },
+    {
+      "id": "2061:11168",
+      "name": "Bidan Rina Astuti",
+      "characters": "Bidan Rina\nAstuti ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Bidan Rina Astuti"
+    },
+    {
+      "id": "2061:11170",
+      "name": "Family Planning Lead",
+      "characters": "Family Planning Lead",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Family Planning Lead"
+    },
+    {
+      "id": "2061:11183",
+      "name": "Bidan Kartika Sari",
+      "characters": "Bidan Kartika\nSari ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Bidan Kartika Sari"
+    },
+    {
+      "id": "2061:11185",
+      "name": "Gentle Birth Consultant",
+      "characters": "Gentle Birth Consultant",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Gentle Birth Consultant"
+    },
+    {
+      "id": "2061:11200",
+      "name": "Bidan Dian Permata",
+      "characters": "Bidan Dian\nPermata ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "ExtraBold",
+        "fontWeight": 800,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 24,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -0.6000000238418579,
+        "lineHeightPx": 30,
+        "lineHeightPercent": 99.20635223388672,
+        "lineHeightPercentFontSize": 125,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Heading 3 > Bidan Dian Permata"
+    },
+    {
+      "id": "2061:11202",
+      "name": "Community Care Director",
+      "characters": "Community Care Director",
+      "style": {
+        "fontFamily": "Caveat",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 20,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28,
+        "lineHeightPercent": 111.1111068725586,
+        "lineHeightPercentFontSize": 140,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.800000011920929,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.1882352977991104,
+            "g": 0.27450981736183167,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Body > Main Content > Section > Container:margin > Container > Container > Container > Paragraph > Community Care Director"
+    },
+    {
+      "id": "I2061:9844;2049:6912",
+      "name": "Amanah",
+      "characters": "Amanah",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": "PlusJakartaSans-Medium",
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 30.70244598388672,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -1.8060262203216553,
+        "lineHeightPx": 33.15864181518555,
+        "lineHeightPercent": 85.71428680419922,
+        "lineHeightPercentFontSize": 108,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > logo > Amanah"
+    },
+    {
+      "id": "2061:9845",
+      "name": "Jl. Anyelir 1 No.243, Perumnas Condong Catur Condongcatur, Kec. Depok, Kab. Sleman Daerah Istimewa Yogyakarta 55281",
+      "characters": "Jl. Anyelir 1 No.243, Perumnas Condong Catur Condongcatur, Kec. Depok, Kab. Sleman Daerah Istimewa Yogyakarta 55281",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 25.600000381469727,
+        "lineHeightPercent": 126.984130859375,
+        "lineHeightPercentFontSize": 160,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Jl. Anyelir 1 No.243, Perumnas Condong Catur Condongcatur, Kec. Depok, Kab. Sleman Daerah Istimewa Yogyakarta 55281"
+    },
+    {
+      "id": "2061:9848",
+      "name": "© 2026,",
+      "characters": "© 2026, ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 15,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 21.75,
+        "lineHeightPercent": 115.0793685913086,
+        "lineHeightPercentFontSize": 145,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.699999988079071,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Paragraph > © 2026,"
+    },
+    {
+      "id": "2061:9850",
+      "name": "Klinik Amanah Healthcare.",
+      "characters": "Klinik Amanah Healthcare.",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "textDecoration": "UNDERLINE",
+        "fontSize": 15,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 21.75,
+        "lineHeightPercent": 115.0793685913086,
+        "lineHeightPercentFontSize": 145,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.699999988079071,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Paragraph > Link > Klinik Amanah Healthcare."
+    },
+    {
+      "id": "2061:9851",
+      "name": "All Rights Reserved.",
+      "characters": "All Rights Reserved.",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 15,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 21.75,
+        "lineHeightPercent": 115.0793685913086,
+        "lineHeightPercentFontSize": 145,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.699999988079071,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Paragraph > All Rights Reserved."
+    },
+    {
+      "id": "2061:9854",
+      "name": "Expert medical care, easily scheduled at your conv",
+      "characters": "Pelayanan kesehatan terpercaya, mudah dijangkau untuk anda dan keluarga",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "HEIGHT",
+        "fontSize": 18,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 28.799999237060547,
+        "lineHeightPercent": 126.98411560058594,
+        "lineHeightPercentFontSize": 160,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Paragraph > Expert medical care, easily scheduled at your conv"
+    },
+    {
+      "id": "2061:9857",
+      "name": "+62 813-9245-6664",
+      "characters": "+62 813-9245-6664",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "SemiBold",
+        "fontWeight": 600,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 13,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 32.880001068115234,
+        "lineHeightPercent": 200.73260498046875,
+        "lineHeightPercentFontSize": 252.92308044433594,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.08235294371843338,
+            "g": 0.10196078568696976,
+            "b": 0.3019607961177826,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Frame 1 > Link > +62 813-9245-6664"
+    },
+    {
+      "id": "2061:9859",
+      "name": "klinikamanahhealthcare@gmail.com",
+      "characters": "klinikamanahhealthcare@gmail.com",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "hyperlink": {
+          "type": "URL",
+          "url": "mailto:klinikamanahhealthcare@gmail.com"
+        },
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "textDecoration": "UNDERLINE",
+        "fontSize": 13,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 27.399999618530273,
+        "lineHeightPercent": 167.2771759033203,
+        "lineHeightPercentFontSize": 210.76922607421875,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.08235294371843338,
+            "g": 0.10196078568696976,
+            "b": 0.3019607961177826,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Frame 1 > Link > klinikamanahhealthcare@gmail.com"
+    },
+    {
+      "id": "2061:9864",
+      "name": "Quick Links",
+      "characters": "Quick Links",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "SemiBold",
+        "fontWeight": 600,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 18,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 19.440000534057617,
+        "lineHeightPercent": 85.71428680419922,
+        "lineHeightPercentFontSize": 108,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.699999988079071,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Heading 6 > Quick Links"
+    },
+    {
+      "id": "2061:9867",
+      "name": "Beranda",
+      "characters": "Beranda",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 17.280000686645508,
+        "lineHeightPercent": 85.71429443359375,
+        "lineHeightPercentFontSize": 108.00000762939453,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Container > Link > Beranda"
+    },
+    {
+      "id": "2061:9869",
+      "name": "Dokter",
+      "characters": "Dokter",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 17.280000686645508,
+        "lineHeightPercent": 85.71429443359375,
+        "lineHeightPercentFontSize": 108.00000762939453,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Container > Link > Dokter"
+    },
+    {
+      "id": "2061:9872",
+      "name": "Fasilitas",
+      "characters": "Fasilitas",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 17.280000686645508,
+        "lineHeightPercent": 85.71429443359375,
+        "lineHeightPercentFontSize": 108.00000762939453,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Container > Link > Fasilitas"
+    },
+    {
+      "id": "2061:9874",
+      "name": "Kontak",
+      "characters": "Kontak",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 17.280000686645508,
+        "lineHeightPercent": 85.71429443359375,
+        "lineHeightPercentFontSize": 108.00000762939453,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Container > Link > Kontak"
+    },
+    {
+      "id": "2061:9877",
+      "name": "Tentang Kami",
+      "characters": "Tentang Kami",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 17.280000686645508,
+        "lineHeightPercent": 85.71429443359375,
+        "lineHeightPercentFontSize": 108.00000762939453,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Container > Link > Tentang Kami"
+    },
+    {
+      "id": "2061:9878",
+      "name": "Layanan",
+      "characters": "Layanan",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 17.280000686645508,
+        "lineHeightPercent": 85.71429443359375,
+        "lineHeightPercentFontSize": 108.00000762939453,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Container > Layanan"
+    },
+    {
+      "id": "2061:9887",
+      "name": "Lokasi Kami",
+      "characters": "Lokasi Kami",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "SemiBold",
+        "fontWeight": 600,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 18,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 19.440000534057617,
+        "lineHeightPercent": 85.71428680419922,
+        "lineHeightPercentFontSize": 108,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "opacity": 0.699999988079071,
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Container (RSCC | Layanan Unggulan) > Section:margin > Section > Container > Container > Heading 6 > Lokasi Kami"
+    },
+    {
+      "id": "2061:9890",
+      "name": "Jl. Manggis No.6, Condongcatur",
+      "characters": " Jl. Manggis No.6, Condongcatur ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": "PlusJakartaSans-Regular",
+        "fontStyle": "Regular",
+        "fontWeight": 400,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 9.22669792175293,
+        "textAlignHorizontal": "CENTER",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 13.840045928955078,
+        "lineHeightPercent": 119.04761505126953,
+        "lineHeightPercentFontSize": 150,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Container (RSCC | Layanan Unggulan) > Section:margin > Section > Container > Container > Paragraph:margin > Paragraph > Jl. Manggis No.6, Condongcatur"
+    },
+    {
+      "id": "2061:9897",
+      "name": "Petunjuk Arah",
+      "characters": " Petunjuk Arah ",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": "PlusJakartaSans-Medium",
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 11.26037311553955,
+        "textAlignHorizontal": "CENTER",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0.3909851610660553,
+        "lineHeightPx": 16.89055824279785,
+        "lineHeightPercent": 119.047607421875,
+        "lineHeightPercentFontSize": 149.99998474121094,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container > Container:margin > Container > Container > Container > Container > Container (RSCC | Layanan Unggulan) > Section:margin > Section > Container > Container > Container > Link > Petunjuk Arah"
+    },
+    {
+      "id": "I2061:9949;2049:6912",
+      "name": "Amanah",
+      "characters": "Amanah",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": "PlusJakartaSans-Medium",
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 28.920320510864258,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": -1.7011953592300415,
+        "lineHeightPx": 31.23394775390625,
+        "lineHeightPercent": 85.71429443359375,
+        "lineHeightPercentFontSize": 108.00000762939453,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container:margin > Banner > logo > Amanah"
+    },
+    {
+      "id": "2061:9952",
+      "name": "Beranda",
+      "characters": "Beranda",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textCase": "TITLE",
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 16,
+        "lineHeightPercent": 79.36508178710938,
+        "lineHeightPercentFontSize": 100,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container:margin > Banner > Navigation > Link > Beranda"
+    },
+    {
+      "id": "2061:9954",
+      "name": "Tentang Kami",
+      "characters": "Tentang Kami",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textCase": "TITLE",
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 16,
+        "lineHeightPercent": 79.36508178710938,
+        "lineHeightPercentFontSize": 100,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container:margin > Banner > Navigation > Link > Tentang Kami"
+    },
+    {
+      "id": "2061:9956",
+      "name": "Fasilitas",
+      "characters": "Fasilitas",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textCase": "TITLE",
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 16,
+        "lineHeightPercent": 79.36508178710938,
+        "lineHeightPercentFontSize": 100,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container:margin > Banner > Navigation > Link > Fasilitas"
+    },
+    {
+      "id": "2061:9958",
+      "name": "Dokter",
+      "characters": "Dokter",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textCase": "TITLE",
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 16,
+        "lineHeightPercent": 79.36508178710938,
+        "lineHeightPercentFontSize": 100,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container:margin > Banner > Navigation > Link > Dokter"
+    },
+    {
+      "id": "2061:9960",
+      "name": "Kontak",
+      "characters": "Kontak",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textCase": "TITLE",
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 16,
+        "lineHeightPercent": 79.36508178710938,
+        "lineHeightPercentFontSize": 100,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container:margin > Banner > Navigation > Link > Kontak"
+    },
+    {
+      "id": "2061:9962",
+      "name": "Layanan",
+      "characters": "Layanan",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textCase": "TITLE",
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 16,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 16,
+        "lineHeightPercent": 79.36508178710938,
+        "lineHeightPercentFontSize": 100,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.07450980693101883,
+            "g": 0.09803921729326248,
+            "b": 0.3607843220233917,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container:margin > Banner > Navigation > Link > Layanan"
+    },
+    {
+      "id": "I2191:43144;2191:42996",
+      "name": "Masuk",
+      "characters": "Masuk",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 18,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 18,
+        "lineHeightPercent": 79.36508178710938,
+        "lineHeightPercentFontSize": 100,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container:margin > Banner > Container > [button] -  masuk > Link > Container > Container > Masuk"
+    },
+    {
+      "id": "I2191:43144;2191:42998",
+      "name": "Let’s Talk",
+      "characters": "Let’s Talk",
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontPostScriptName": null,
+        "fontStyle": "Medium",
+        "fontWeight": 500,
+        "textAutoResize": "WIDTH_AND_HEIGHT",
+        "fontSize": 18,
+        "textAlignHorizontal": "LEFT",
+        "textAlignVertical": "TOP",
+        "letterSpacing": 0,
+        "lineHeightPx": 18,
+        "lineHeightPercent": 79.36508178710938,
+        "lineHeightPercentFontSize": 100,
+        "lineHeightUnit": "PIXELS"
+      },
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      ],
+      "path": "dokter page > Section > Container:margin > Banner > Container > [button] -  masuk > Link > Container > Container > Let’s Talk"
+    }
+  ],
+  "stats": {
+    "totalSections": 4,
+    "totalImageFills": 21,
+    "totalVectors": 66,
+    "totalTexts": 69
+  }
+}
