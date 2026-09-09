@@ -2,6 +2,7 @@
 
 import type { AboutHeroData, AboutVisualBandData } from '../../types';
 import type { HeroConfettiRef } from '../atoms/HeroConfetti';
+import type { PixelMeshBackgroundHandle } from '../atoms/PixelMeshBackground';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,7 +13,7 @@ import { aboutHeroData, aboutPixelIcons, aboutVisualBandData } from '../../data'
 import { DirectionalArrowIndicator } from '../atoms/DirectionalArrowIndicator';
 import { HeroConfetti } from '../atoms/HeroConfetti';
 import { PixelIconBadge } from '../atoms/PixelIconBadge';
-import { PixelMeshBackground, type PixelMeshBackgroundHandle } from '../atoms/PixelMeshBackground';
+import { PixelMeshBackground } from '../atoms/PixelMeshBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -523,11 +524,11 @@ export function AboutHeroSection({
       ref={containerRef}
       className={cn(`
         relative w-full overflow-hidden border-b border-line bg-background
-        lg:h-[calc(100vh-48px)] lg:max-h-[860px] lg:min-h-[600px]
+        lg:h-[calc(100vh-48px)] lg:min-h-[600px]
       `, className)}
     >
       <div className="
-        relative flex size-full flex-col overflow-hidden
+        relative z-0 flex size-full flex-col overflow-hidden
         lg:flex-row
       "
       >
@@ -683,70 +684,6 @@ export function AboutHeroSection({
             </div>
           </div>
 
-          {/* Expanded Camouflaged Content: Dead-center of the expanding shell */}
-          <div
-            ref={expandedTextRef}
-            className="
-              pointer-events-none absolute inset-0 z-10 flex items-center
-              justify-center px-6 opacity-0 will-change-transform
-              sm:px-10
-              lg:px-16
-            "
-          >
-            {/* Mosaic pixel mesh texture: strictly scoped to the expandable layer with serialized charging parasite crawler */}
-            <PixelMeshBackground
-              ref={pixelMeshRef}
-              className="pointer-events-none absolute inset-0 size-full overflow-hidden z-0"
-            />
-
-            {/* Confetti strictly confined to this pixel background shell */}
-            <HeroConfetti ref={confettiRef} className="z-20" />
-
-            <div
-              ref={expandedTextContentRef}
-              className="
-                relative z-10 flex max-w-3xl flex-col items-center justify-center
-                text-center opacity-0 will-change-transform
-              "
-            >
-              {/* 3 Pixel Icons: Di atas teks, muncul satu-satu dari bawah ke atas saat full screen */}
-              {icons.length > 0 && (
-                <div
-                  ref={iconsContainerRef}
-                  className="
-                    mb-6 flex items-center justify-center gap-4
-                    sm:mb-8 sm:gap-6
-                  "
-                >
-                  {icons.map((icon, index) => (
-                    <div
-                      key={icon.id}
-                      ref={(el) => {
-                        if (el) {
-                          iconsRef.current[index] = el;
-                        }
-                      }}
-                      className="opacity-0 will-change-transform"
-                    >
-                      <PixelIconBadge icon={icon} size={48} />
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              <p className="
-                max-w-2xl text-center text-lg/relaxed font-medium
-                text-foreground
-                sm:text-xl/relaxed
-                md:text-2xl/relaxed
-                lg:max-w-3xl lg:text-3xl/[1.35]
-              "
-              >
-                {resolvedHero.description}
-              </p>
-            </div>
-          </div>
-
           {/* Lower: Downward Arrows with Continuous Game Glow */}
           <div
             ref={arrowContainerRef}
@@ -761,6 +698,68 @@ export function AboutHeroSection({
               <DirectionalArrowIndicator />
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Expanded Camouflaged Content: fills the entire hero surface, not only the right shell. */}
+      <div
+        ref={expandedTextRef}
+        className="
+          pointer-events-none absolute inset-0 z-10 flex items-center
+          justify-center overflow-hidden px-6 opacity-0 will-change-transform
+          sm:px-10
+          lg:px-16
+        "
+      >
+        <PixelMeshBackground
+          ref={pixelMeshRef}
+          className="
+            pointer-events-none absolute inset-0 z-0 size-full overflow-hidden
+          "
+        />
+
+        <HeroConfetti ref={confettiRef} className="z-20" />
+
+        <div
+          ref={expandedTextContentRef}
+          className="
+            relative z-10 flex max-w-3xl flex-col items-center justify-center
+            text-center opacity-0 will-change-transform
+          "
+        >
+          {icons.length > 0 && (
+            <div
+              ref={iconsContainerRef}
+              className="
+                mb-6 flex items-center justify-center gap-4
+                sm:mb-8 sm:gap-6
+              "
+            >
+              {icons.map((icon, index) => (
+                <div
+                  key={icon.id}
+                  ref={(el) => {
+                    if (el) {
+                      iconsRef.current[index] = el;
+                    }
+                  }}
+                  className="opacity-0 will-change-transform"
+                >
+                  <PixelIconBadge icon={icon} size={48} />
+                </div>
+              ))}
+            </div>
+          )}
+
+          <p className="
+            max-w-2xl text-center text-lg/relaxed font-medium text-foreground
+            sm:text-xl/relaxed
+            md:text-2xl/relaxed
+            lg:max-w-3xl lg:text-3xl/[1.35]
+          "
+          >
+            {resolvedHero.description}
+          </p>
         </div>
       </div>
     </div>

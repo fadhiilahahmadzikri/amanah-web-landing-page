@@ -1,9 +1,14 @@
 'use client';
 
 import type { CSSProperties, ReactNode } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { cn } from '@/utils/Helpers';
+
+gsap.registerPlugin(ScrollTrigger);
 
 type PrincipleId = 'aman' | 'cepat' | 'peduli' | 'profesional' | 'ramah' | 'terpercaya';
 type RevealDirection = -1 | 1;
@@ -23,6 +28,7 @@ type BrickRow = {
 
 type BrickCell = {
   box: AbsoluteBox;
+  buildOrder: number;
   key: string;
   principleId?: PrincipleId;
   row: number;
@@ -51,6 +57,10 @@ const STAGE_BOX: AbsoluteBox = {
 const BRICK_WIDTH = 340;
 const BRICK_HEIGHT = 160;
 const OPEN_DISTANCE = BRICK_WIDTH;
+const BASE_BRICK_Z_INDEX = 20;
+const ROW_Z_INDEX_STEP = 2;
+const SHIFTED_BRICK_Z_INDEX = 70;
+const ACTIVE_BRICK_Z_INDEX = 80;
 const ROW_1_TOP = 20;
 const ROW_2_TOP = ROW_1_TOP + BRICK_HEIGHT;
 const ROW_3_TOP = ROW_2_TOP + BRICK_HEIGHT;
@@ -167,24 +177,101 @@ const PRINCIPLE_ID_BY_POSITION = new Map(
 );
 
 const WALL_CELLS = BRICK_ROWS.flatMap(row =>
-  row.lefts.map(left => ({
+  row.lefts.map((left, column) => ({
     box: createBrickBox(left, row.top),
+    buildOrder: getBuildOrder(row.index, column),
     key: getPositionKey(row.index, left),
     principleId: PRINCIPLE_ID_BY_POSITION.get(getPositionKey(row.index, left)),
     row: row.index,
   })),
 );
 
+const WALL_POSITION_KEYS = new Set(WALL_CELLS.map(cell => getPositionKey(cell.row, cell.box.left)));
+
 type StackedBlocksSectionProps = {
   className?: string;
 };
 
 export function StackedBlocksSection({ className }: StackedBlocksSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
   const [hoveredCard, setHoveredCard] = useState<PrincipleId | null>(null);
   const activePrinciple = hoveredCard ? PRINCIPLES_BY_ID[hoveredCard] : null;
 
+  useGSAP(
+    () => {
+      if (!sectionRef.current) {
+        return;
+      }
+
+      const section = sectionRef.current;
+      const headingLines = section.querySelectorAll('[data-mask-text]');
+      if (headingLines.length > 0) {
+        gsap.fromTo(
+          headingLines,
+          { opacity: 0, yPercent: 120 },
+          {
+            duration: 1.2,
+            ease: 'expo.out',
+            opacity: 1,
+            scrollTrigger: {
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+              trigger: section,
+            },
+            stagger: 0.1,
+            yPercent: 0,
+          },
+        );
+      }
+
+      const brickPieces = getOrderedBrickPieces(section);
+      if (brickPieces.length === 0) {
+        return;
+      }
+
+      const brickAnimationTrigger = {
+        start: 'top 82%',
+        toggleActions: 'play none none reverse',
+        trigger: section,
+      };
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.fromTo(
+          brickPieces,
+          { autoAlpha: 0 },
+          {
+            autoAlpha: 1,
+            duration: 0.35,
+            ease: 'power2.out',
+            scrollTrigger: brickAnimationTrigger,
+            stagger: 0.045,
+          },
+        );
+        return;
+      }
+
+      gsap.fromTo(
+        brickPieces,
+        {
+          autoAlpha: 0,
+          y: 56,
+        },
+        {
+          autoAlpha: 1,
+          duration: 0.75,
+          ease: 'expo.out',
+          scrollTrigger: brickAnimationTrigger,
+          stagger: 0.045,
+          y: 0,
+        },
+      );
+    },
+    { scope: sectionRef },
+  );
+
   return (
     <section
+      ref={sectionRef}
       aria-label="Prinsip klinik amanah healthcare"
       className={cn(
         `
@@ -219,19 +306,24 @@ export function StackedBlocksSection({ className }: StackedBlocksSectionProps) {
         sm:mb-16
       "
       >
-        <h2 className="
-          text-3xl font-medium tracking-tight text-foreground
-          sm:text-4xl
-          md:text-5xl
-        "
-        >
-          Prinsip klinik amanah healthcare
-        </h2>
+        <div className="-mb-2 overflow-hidden pb-2">
+          <h2
+            data-mask-text
+            className="
+              inline-block text-3xl font-medium tracking-tight text-foreground
+              will-change-transform
+              sm:text-4xl
+              md:text-5xl
+            "
+          >
+            Prinsip klinik amanah healthcare
+          </h2>
+        </div>
       </div>
 
       <div
         className="
-            relative mx-auto flex h-[360px] w-full max-w-[1360px] items-center
+          relative mx-auto flex h-[360px] w-full max-w-[1360px] items-center
           justify-center px-4
           sm:h-[520px]
           md:h-[620px]
@@ -242,7 +334,7 @@ export function StackedBlocksSection({ className }: StackedBlocksSectionProps) {
       >
         <div
           className="
-              relative h-[720px] w-[1040px] shrink-0 origin-center scale-[0.42]
+            relative h-[720px] w-[1040px] shrink-0 origin-center scale-[0.42]
             transition-transform duration-300
             sm:scale-[0.64]
             md:scale-[0.78]
@@ -289,34 +381,55 @@ function BrickWallCell({
   onHoverStart: (id: PrincipleId) => void;
 }) {
   const offsetX = getCellOffsetX(cell, activePrinciple);
+  const zIndex = getCellZIndex(cell, activePrinciple);
 
   if (!cell.principleId) {
-    return <PlaceholderBrick box={cell.box} offsetX={offsetX} />;
+    return <PlaceholderBrick cell={cell} offsetX={offsetX} zIndex={zIndex} />;
   }
 
   const principle = PRINCIPLES_BY_ID[cell.principleId];
 
   return (
     <PrincipleCard
+      cell={cell}
       isHovered={activePrinciple?.id === principle.id}
       offsetX={offsetX}
       onHoverEnd={onHoverEnd}
       onHoverStart={() => onHoverStart(principle.id)}
       principle={principle}
+      zIndex={zIndex}
     />
   );
 }
 
-function PlaceholderBrick({ box, offsetX }: { box: AbsoluteBox; offsetX: number }) {
+function PlaceholderBrick({
+  cell,
+  offsetX,
+  zIndex,
+}: {
+  cell: BrickCell;
+  offsetX: number;
+  zIndex: number;
+}) {
   return (
     <div
       aria-hidden="true"
-      className="
-        absolute z-20 rounded-none border border-border bg-card
-        transition-transform duration-300 ease-out
-      "
-      style={getTranslatedBoxStyle(box, offsetX)}
-    />
+      data-brick-piece
+      data-build-order={cell.buildOrder}
+      className="absolute overflow-visible will-change-transform"
+      style={getLayeredBoxStyle(cell.box, zIndex)}
+    >
+      <div
+        className={cn(
+          `
+            size-full rounded-none bg-card transition-transform duration-300
+            ease-out will-change-transform
+          `,
+          getCollapsedBorderClass(cell),
+        )}
+        style={getOffsetStyle(offsetX)}
+      />
+    </div>
   );
 }
 
@@ -337,7 +450,7 @@ function PrincipleImagePreview({
       onMouseLeave={onHoverEnd}
       className={cn(
         `
-          absolute z-10 overflow-hidden rounded-none border border-border
+          absolute z-30 overflow-hidden rounded-none border border-border
           bg-card transition-opacity duration-200
         `,
         isHovered
@@ -364,17 +477,21 @@ function PrincipleImagePreview({
 }
 
 function PrincipleCard({
+  cell,
   isHovered,
   offsetX,
   onHoverEnd,
   onHoverStart,
   principle,
+  zIndex,
 }: {
+  cell: BrickCell;
   isHovered: boolean;
   offsetX: number;
   onHoverEnd: () => void;
   onHoverStart: () => void;
   principle: PrincipleBrick;
+  zIndex: number;
 }) {
   return (
     <div
@@ -383,29 +500,42 @@ function PrincipleCard({
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
       tabIndex={0}
-      className={cn(
-        `
-          absolute z-20 flex cursor-pointer flex-col justify-between
-          rounded-none border border-border bg-card p-6 transition-all
-          duration-300 ease-out
-          focus-visible:ring-1 focus-visible:ring-ring
-          focus-visible:outline-none
-        `,
-        isHovered && cn('z-30 border-primary/50 bg-card ring-1', principle.ringClass),
-      )}
-      style={getTranslatedBoxStyle(principle.box, offsetX)}
+      data-brick-piece
+      data-build-order={cell.buildOrder}
+      className="
+        group absolute overflow-visible will-change-transform
+        focus-visible:outline-none
+      "
+      style={getLayeredBoxStyle(principle.box, zIndex)}
     >
-      <PixelBadge bgClass={principle.badgeClass}>
-        {principle.icon}
-      </PixelBadge>
+      <div
+        className={cn(
+          `
+            flex size-full cursor-pointer flex-col justify-between rounded-none
+            bg-card p-6 transition-transform duration-300 ease-out
+            will-change-transform
+            group-focus-visible:ring-1 group-focus-visible:ring-ring
+          `,
+          getCollapsedBorderClass(cell),
+          isHovered && cn('border-primary/50 ring-1', principle.ringClass),
+        )}
+        style={getOffsetStyle(offsetX)}
+      >
+        <PixelBadge bgClass={principle.badgeClass}>
+          {principle.icon}
+        </PixelBadge>
 
-      <div>
-        <h3 className="text-xl font-medium tracking-tight text-card-foreground">
-          {principle.title}
-        </h3>
-        <p className="mt-1.5 text-xs/relaxed text-muted-foreground">
-          {principle.description}
-        </p>
+        <div>
+          <h3 className="
+            text-xl font-medium tracking-tight text-card-foreground
+          "
+          >
+            {principle.title}
+          </h3>
+          <p className="mt-1.5 text-xs/relaxed text-muted-foreground">
+            {principle.description}
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -554,6 +684,10 @@ function getPositionKey(row: number, left: number): string {
   return `${row}:${left}`;
 }
 
+function getBuildOrder(row: number, column: number): number {
+  return (BRICK_ROWS.length - 1 - row) * 10 + column;
+}
+
 function getCellOffsetX(cell: BrickCell, activePrinciple: PrincipleBrick | null): number {
   if (!activePrinciple || cell.row !== activePrinciple.row) {
     return 0;
@@ -574,6 +708,44 @@ function getCellOffsetX(cell: BrickCell, activePrinciple: PrincipleBrick | null)
   return 0;
 }
 
+function getCellZIndex(cell: BrickCell, activePrinciple: PrincipleBrick | null): number {
+  if (!activePrinciple || cell.row !== activePrinciple.row) {
+    return getRestingBrickZIndex(cell.row);
+  }
+
+  if (cell.principleId === activePrinciple.id) {
+    return ACTIVE_BRICK_Z_INDEX;
+  }
+
+  if (getCellOffsetX(cell, activePrinciple) !== 0) {
+    return SHIFTED_BRICK_Z_INDEX;
+  }
+
+  return getRestingBrickZIndex(cell.row);
+}
+
+function getRestingBrickZIndex(row: number): number {
+  return BASE_BRICK_Z_INDEX + (BRICK_ROWS.length - row) * ROW_Z_INDEX_STEP;
+}
+
+function getCollapsedBorderClass(cell: BrickCell): string {
+  return cn(
+    'border-t border-l border-border',
+    !hasHorizontalNeighbor(cell, 1) && 'border-r',
+    cell.row === BRICK_ROWS.length - 1 && 'border-b',
+  );
+}
+
+function hasHorizontalNeighbor(cell: BrickCell, direction: RevealDirection): boolean {
+  return WALL_POSITION_KEYS.has(getPositionKey(cell.row, cell.box.left + direction * BRICK_WIDTH));
+}
+
+function getOrderedBrickPieces(section: HTMLElement): HTMLElement[] {
+  return Array.from(section.querySelectorAll<HTMLElement>('[data-brick-piece]')).sort(
+    (current, next) => Number(current.dataset.buildOrder ?? 0) - Number(next.dataset.buildOrder ?? 0),
+  );
+}
+
 function getBoxStyle(box: AbsoluteBox): CSSProperties {
   return {
     height: box.height,
@@ -583,9 +755,15 @@ function getBoxStyle(box: AbsoluteBox): CSSProperties {
   };
 }
 
-function getTranslatedBoxStyle(box: AbsoluteBox, offsetX: number): CSSProperties {
+function getLayeredBoxStyle(box: AbsoluteBox, zIndex: number): CSSProperties {
   return {
     ...getBoxStyle(box),
+    zIndex,
+  };
+}
+
+function getOffsetStyle(offsetX: number): CSSProperties {
+  return {
     transform: `translate3d(${offsetX}px, 0, 0)`,
   };
 }
