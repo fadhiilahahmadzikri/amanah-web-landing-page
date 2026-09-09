@@ -1,4 +1,5 @@
 import type {
+  FacilitySectionData,
   ServiceCategorySection,
   ServiceHeroData,
 } from './types';
@@ -248,6 +249,55 @@ export const midwiferySection: ServiceCategorySection = {
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
       heightClass: 'min-h-[200px] md:min-h-[220px]',
+    },
+  ],
+};
+
+export const facilitiesSectionData: FacilitySectionData = {
+  eyebrow: 'Fasilitas',
+  title: 'Ruang Nyaman untuk Anda dan Keluarga',
+  description:
+    'Klinik Amanah menyediakan fasilitas yang nyaman dan lengkap untuk mendukung kebutuhan kesehatan Anda dan keluarga.',
+  items: [
+    {
+      id: 'facility-apotek',
+      title: 'Apotek',
+      summary:
+        'Menyediakan kebutuhan obat-obatan dan resep medis Anda dengan cepat tanpa perlu pindah tempat.',
+      url: '#kontak',
+      image: '/assets/images/dokumentasi/dokumentasi-17.png',
+    },
+    {
+      id: 'facility-ruang-bersalin',
+      title: 'Ruang Persalinan 24 Jam',
+      summary:
+        'Siaga setiap saat untuk mendampingi proses melahirkan dengan aman, nyaman, dan ditangani tenaga medis profesional.',
+      url: '#kontak',
+      image: '/assets/images/asset-index-8.jpg',
+    },
+    {
+      id: 'facility-ruang-tunggu',
+      title: 'Ruang Tunggu Nyaman',
+      summary:
+        'Area tunggu yang bersih, sejuk, dan ramah keluarga agar Anda dan kerabat tetap merasa rileks saat berobat.',
+      url: '#kontak',
+      image: '/assets/images/dokumentasi/dokumentasi-12.png',
+    },
+    {
+      id: 'facility-ruang-periksa',
+      title: 'Ruang Periksa Medis',
+      summary:
+        'Ruang konsultasi dan tindakan yang higienis, tenang, serta didukung perlengkapan medis yang lengkap.',
+      url: '#kontak',
+      image: '/assets/images/asset-index-1.jpg',
+    },
+    {
+      id: 'facility-usg',
+      title: 'USG Kandungan',
+      summary:
+        'Fasilitas ultrasonografi modern untuk memantau tumbuh kembang janin secara optimal dan akurat.',
+      url: '#kontak',
+      image: '/assets/images/asset-index-6.jpg',
     },
   ],
 };

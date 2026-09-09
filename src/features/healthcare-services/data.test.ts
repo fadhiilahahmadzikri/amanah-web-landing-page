@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  facilitiesSectionData,
   generalPractitionerSection,
   midwiferySection,
   servicesHeroData,
@@ -11,6 +12,15 @@ describe('healthcare-services data', () => {
     expect(servicesHeroData.title).toBe('Layanan Kesehatan untuk Anda dan Keluarga');
     expect(servicesHeroData.highlights).toHaveLength(3);
     expect(servicesHeroData.image.src).toBe('/assets/images/asset_hero_sec_service.jpg');
+  });
+
+  it('facilities section data contains correct metadata and 5 facility items', () => {
+    expect(facilitiesSectionData.eyebrow).toBe('Fasilitas');
+    expect(facilitiesSectionData.title).toBe('Ruang Nyaman untuk Anda dan Keluarga');
+    expect(facilitiesSectionData.items).toHaveLength(5);
+    expect(facilitiesSectionData.items[0]?.title).toBe('Apotek');
+    expect(facilitiesSectionData.items[1]?.title).toBe('Ruang Persalinan 24 Jam');
+    expect(facilitiesSectionData.items[2]?.title).toBe('Ruang Tunggu Nyaman');
   });
 
   it('general practitioner section contains 9 bento service cards', () => {
