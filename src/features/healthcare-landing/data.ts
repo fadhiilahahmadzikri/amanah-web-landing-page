@@ -1,5 +1,4 @@
 import type {
-  AboutSlide,
   AssetImage,
   ContactItem,
   DocumentationMoment,
@@ -91,54 +90,6 @@ export const trustHighlights = {
     } satisfies AssetImage,
   },
 };
-
-export const aboutSlides = [
-  {
-    eyebrow: 'Cara Kami Melayani',
-    title: 'Ramah, Nyaman, dan Mengayomi',
-    description: 'Setiap pasien kami perlakukan seperti keluarga sendiri, mulai dari pendaftaran hingga konsultasi dengan dokter. Kebersihan klinik dijaga ketat agar Anda tetap nyaman selama berkunjung.',
-    image: {
-      src: '/assets/images/asset-index-1.jpg',
-      alt: 'Cara Kami Melayani - Ramah, Nyaman, dan Mengayomi',
-    },
-  },
-  {
-    eyebrow: 'Tujuan Kami',
-    title: 'Menjadi Pilihan Utama Warga Sleman',
-    description: 'Kami ingin menjadi tempat berobat yang paling Anda percaya — mulai dari pemeriksaan kesehatan umum, konsultasi KB, hingga layanan ibu dan anak, semua ditangani dengan cepat dan tepat.',
-    image: {
-      src: '/assets/images/asset-index-2.jpg',
-      alt: 'Tujuan Kami - Menjadi Pilihan Utama Warga Sleman',
-    },
-  },
-  {
-    eyebrow: 'Cakupan Pelayanan',
-    title: 'Melayani Pasien BPJS dan Umum',
-    description: 'Soal biaya, Anda tidak perlu khawatir. Klinik Amanah resmi melayani pasien BPJS Kesehatan maupun umum, dengan proses administrasi yang cepat dan tidak berbelit.',
-    image: {
-      src: '/assets/images/asset-index-3.jpg',
-      alt: 'Cakupan Pelayanan - Melayani Pasien BPJS dan Umum',
-    },
-  },
-  {
-    eyebrow: 'Fasilitas & Layanan',
-    title: 'Persalinan 24 Jam & Beragam Fasilitas',
-    description: 'Layanan persalinan normal kami siagakan 24 jam penuh. Klinik ini juga dilengkapi USG kandungan, pemeriksaan laboratorium, khitan laser, serta jadwal vaksinasi rutin untuk bayi dan anak.',
-    image: {
-      src: '/assets/images/asset-index-4.jpg',
-      alt: 'Fasilitas & Layanan - Persalinan 24 Jam & Beragam Fasilitas',
-    },
-  },
-  {
-    eyebrow: 'Profil Klinik',
-    title: 'Klinik Kesehatan Keluarga di Condongcatur',
-    description: 'Klinik Pratama Amanah berlokasi di Jalan Anyelir, Perumnas Condongcatur, Sleman, melayani pemeriksaan dokter umum, konsultasi kandungan, dan kebidanan untuk kebutuhan kesehatan harian keluarga Anda.',
-    image: {
-      src: '/assets/images/asset-index-5.png',
-      alt: 'Profil Klinik - Klinik Kesehatan Keluarga di Condongcatur',
-    },
-  },
-] satisfies AboutSlide[];
 
 export const facilities = [
   {

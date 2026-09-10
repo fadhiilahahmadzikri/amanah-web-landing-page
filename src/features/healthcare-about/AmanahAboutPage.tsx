@@ -3,6 +3,7 @@ import {
   HealthcareShell,
   TechnicalDivider,
 } from '@/components/healthcare';
+import { AboutCarouselSection } from './components/organisms/AboutCarouselSection';
 import { AboutHeroSection } from './components/organisms/AboutHeroSection';
 import { AboutVisionMissionSection } from './components/organisms/AboutVisionMissionSection';
 import { EditorialStorySection } from './components/organisms/EditorialStorySection';
@@ -25,6 +26,8 @@ export function AmanahAboutPage({ locale }: AmanahAboutPageProps) {
         heroData={aboutHeroData}
         visualData={aboutVisualBandData}
       />
+      <AboutCarouselSection />
+      <TechnicalDivider />
       <AboutVisionMissionSection data={aboutVisionMissionData} />
       <TechnicalDivider />
       {aboutEditorialStories.map((story, index) => (

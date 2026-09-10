@@ -18,6 +18,13 @@ export type AboutVisualBandData = {
   image: AssetImage;
 };
 
+export type AboutSlide = {
+  description: string;
+  eyebrow: string;
+  image: AssetImage;
+  title: string;
+};
+
 export type VisionMissionItem = {
   description: string;
   icon?: PixelFeatureIcon;

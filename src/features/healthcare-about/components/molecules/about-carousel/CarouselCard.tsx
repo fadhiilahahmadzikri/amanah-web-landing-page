@@ -1,5 +1,5 @@
 import type { Ref } from 'react';
-import type { AboutSlide } from '../../types';
+import type { AboutSlide } from '../../../types';
 import Image from 'next/image';
 import { memo } from 'react';
 

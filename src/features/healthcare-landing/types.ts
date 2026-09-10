@@ -15,13 +15,6 @@ export type FacilityItem = {
   image: AssetImage;
 };
 
-export type AboutSlide = {
-  eyebrow: string;
-  title: string;
-  description: string;
-  image: AssetImage;
-};
-
 export type ServiceItem = {
   title: string;
   image: AssetImage;

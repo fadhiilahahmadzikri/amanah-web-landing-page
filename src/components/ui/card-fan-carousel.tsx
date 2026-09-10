@@ -1,5 +1,6 @@
 'use client';
 
+import type { PointerEvent, WheelEvent } from 'react';
 import gsap from 'gsap';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
@@ -21,6 +22,11 @@ export type SocialCardsProps = {
 
 const MAX_VISIBLE = 7;
 const HALF = 3;
+const DRAG_CANCEL_CLICK_THRESHOLD_PX = 8;
+const DRAG_SWIPE_THRESHOLD_PX = 48;
+const WHEEL_SWIPE_THRESHOLD_PX = 36;
+const WHEEL_COOLDOWN_MS = 450;
+const AUTOPLAY_RESUME_DELAY_MS = 700;
 
 const FAN_POSITIONS = [
   { rot: -21, scale: 0.7756, x: -30, y: 7.3, zIndex: 1 },
@@ -95,7 +101,17 @@ function getSlotConfig(totalCards: number, slot: number) {
 }
 
 const ARROW_CLASSES
-  = 'relative flex items-center justify-center rounded-full border-[1.5px] border-black/10 dark:border-white/10 bg-background/80 dark:bg-card/80 backdrop-blur-[16px] text-foreground/70 dark:text-foreground/80 cursor-pointer shrink-0 z-30 outline-none shadow-md hover:border-amanah-blue/40 hover:text-amanah-blue hover:scale-105 active:scale-95 transition-all duration-300 before:content-[\'\'] before:absolute before:inset-[3px] before:rounded-full before:border before:border-black/[0.04] dark:before:border-white/[0.04] before:pointer-events-none';
+  = `
+    group pointer-events-auto flex size-11 cursor-pointer items-center
+    justify-center rounded-full border border-white/30 bg-white/15
+    text-foreground shadow-[0_8px_30px_rgb(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.6)]
+    backdrop-blur-xl transition-all duration-300
+    hover:scale-105 hover:border-white/50 hover:bg-white/30
+    hover:shadow-[0_8px_30px_rgb(0,0,0,0.2),inset_0_1px_2px_rgba(255,255,255,0.8)]
+    active:scale-95 active:bg-white/40
+    sm:size-12
+    dark:border-white/20 dark:bg-white/10
+  `;
 
 export function CardFanCarousel({
   cards,
@@ -109,6 +125,12 @@ export function CardFanCarousel({
   const directionRef = useRef<'left' | 'right' | null>(null);
   const prevVisibleRef = useRef<Set<number>>(new Set());
   const isPausedRef = useRef(false);
+  const dragStartXRef = useRef<number | null>(null);
+  const dragStartYRef = useRef<number | null>(null);
+  const hasDraggedRef = useRef(false);
+  const autoplayResumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const wheelCooldownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isWheelCoolingDownRef = useRef(false);
 
   const totalCards = cards.length;
   const needsPagination = totalCards > MAX_VISIBLE;
@@ -137,6 +159,25 @@ export function CardFanCarousel({
     );
   }, [totalCards, needsPagination]);
 
+  const pauseAutoplay = useCallback(() => {
+    isPausedRef.current = true;
+    if (autoplayResumeTimerRef.current) {
+      clearTimeout(autoplayResumeTimerRef.current);
+      autoplayResumeTimerRef.current = null;
+    }
+  }, []);
+
+  const scheduleAutoplayResume = useCallback(() => {
+    if (autoplayResumeTimerRef.current) {
+      clearTimeout(autoplayResumeTimerRef.current);
+    }
+
+    autoplayResumeTimerRef.current = setTimeout(() => {
+      isPausedRef.current = false;
+      autoplayResumeTimerRef.current = null;
+    }, AUTOPLAY_RESUME_DELAY_MS);
+  }, []);
+
   // Infinite Auto-play loop
   useEffect(() => {
     if (!autoPlay || !needsPagination) {
@@ -156,6 +197,17 @@ export function CardFanCarousel({
 
     return () => clearInterval(intervalTimer);
   }, [autoPlay, autoPlayInterval, cycle, needsPagination]);
+
+  useEffect(() => {
+    return () => {
+      if (autoplayResumeTimerRef.current) {
+        clearTimeout(autoplayResumeTimerRef.current);
+      }
+      if (wheelCooldownTimerRef.current) {
+        clearTimeout(wheelCooldownTimerRef.current);
+      }
+    };
+  }, []);
 
   // GSAP fan positioning and entrance animations
   useEffect(() => {
@@ -358,11 +410,11 @@ export function CardFanCarousel({
     });
 
     const onMouseEnterContainer = () => {
-      isPausedRef.current = true;
+      pauseAutoplay();
     };
 
     const onMouseLeaveContainer = () => {
-      isPausedRef.current = false;
+      scheduleAutoplayResume();
       if (isAnimatingRef.current) {
         return;
       }
@@ -375,18 +427,8 @@ export function CardFanCarousel({
       }, 50);
     };
 
-    const onTouchStartContainer = () => {
-      isPausedRef.current = true;
-    };
-
-    const onTouchEndContainer = () => {
-      isPausedRef.current = false;
-    };
-
     container.addEventListener('mouseenter', onMouseEnterContainer);
     container.addEventListener('mouseleave', onMouseLeaveContainer);
-    container.addEventListener('touchstart', onTouchStartContainer, { passive: true });
-    container.addEventListener('touchend', onTouchEndContainer, { passive: true });
 
     const onResize = () => {
       if (!isAnimatingRef.current) {
@@ -400,27 +442,134 @@ export function CardFanCarousel({
       enterHandlers.forEach(({ el, handler }) => el.removeEventListener('mouseenter', handler));
       container.removeEventListener('mouseenter', onMouseEnterContainer);
       container.removeEventListener('mouseleave', onMouseLeaveContainer);
-      container.removeEventListener('touchstart', onTouchStartContainer);
-      container.removeEventListener('touchend', onTouchEndContainer);
       window.removeEventListener('resize', onResize);
       if (leaveTimer) {
         clearTimeout(leaveTimer);
       }
     };
-  }, [centerIndex, totalCards, getVisibleMap, needsPagination]);
+  }, [
+    centerIndex,
+    getVisibleMap,
+    needsPagination,
+    pauseAutoplay,
+    scheduleAutoplayResume,
+    totalCards,
+  ]);
+
+  const goToCard = useCallback((index: number) => {
+    if (!needsPagination || isAnimatingRef.current || index === centerIndex) {
+      return;
+    }
+
+    const diff = (index - centerIndex + totalCards) % totalCards;
+    directionRef.current = diff <= totalCards / 2 ? 'right' : 'left';
+    setCenterIndex(index);
+  }, [centerIndex, needsPagination, totalCards]);
+
+  const handleCardClick = useCallback((index: number) => {
+    if (hasDraggedRef.current) {
+      hasDraggedRef.current = false;
+      return;
+    }
+
+    goToCard(index);
+  }, [goToCard]);
+
+  const handlePointerDown = useCallback((event: PointerEvent<HTMLDivElement>) => {
+    if (!needsPagination || event.button !== 0) {
+      return;
+    }
+
+    pauseAutoplay();
+    dragStartXRef.current = event.clientX;
+    dragStartYRef.current = event.clientY;
+    hasDraggedRef.current = false;
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }, [needsPagination, pauseAutoplay]);
+
+  const handlePointerMove = useCallback((event: PointerEvent<HTMLDivElement>) => {
+    if (dragStartXRef.current === null || dragStartYRef.current === null) {
+      return;
+    }
+
+    const deltaX = event.clientX - dragStartXRef.current;
+    const deltaY = event.clientY - dragStartYRef.current;
+
+    if (
+      Math.abs(deltaX) > DRAG_CANCEL_CLICK_THRESHOLD_PX
+      && Math.abs(deltaX) > Math.abs(deltaY)
+    ) {
+      hasDraggedRef.current = true;
+    }
+  }, []);
+
+  const handlePointerEnd = useCallback((event: PointerEvent<HTMLDivElement>) => {
+    if (dragStartXRef.current === null || dragStartYRef.current === null) {
+      scheduleAutoplayResume();
+      return;
+    }
+
+    const deltaX = event.clientX - dragStartXRef.current;
+    const deltaY = event.clientY - dragStartYRef.current;
+    dragStartXRef.current = null;
+    dragStartYRef.current = null;
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    if (
+      Math.abs(deltaX) >= DRAG_SWIPE_THRESHOLD_PX
+      && Math.abs(deltaX) > Math.abs(deltaY)
+    ) {
+      hasDraggedRef.current = true;
+      cycle(deltaX < 0 ? 'right' : 'left');
+    }
+
+    scheduleAutoplayResume();
+  }, [cycle, scheduleAutoplayResume]);
+
+  const handlePointerCancel = useCallback((event: PointerEvent<HTMLDivElement>) => {
+    dragStartXRef.current = null;
+    dragStartYRef.current = null;
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    scheduleAutoplayResume();
+  }, [scheduleAutoplayResume]);
+
+  const handleWheel = useCallback((event: WheelEvent<HTMLDivElement>) => {
+    if (!needsPagination || isAnimatingRef.current || isWheelCoolingDownRef.current) {
+      return;
+    }
+
+    const horizontalDelta = Math.abs(event.deltaX) >= Math.abs(event.deltaY)
+      ? event.deltaX
+      : event.shiftKey
+        ? event.deltaY
+        : 0;
+
+    if (Math.abs(horizontalDelta) < WHEEL_SWIPE_THRESHOLD_PX) {
+      return;
+    }
+
+    event.preventDefault();
+    pauseAutoplay();
+    isWheelCoolingDownRef.current = true;
+    cycle(horizontalDelta > 0 ? 'right' : 'left');
+
+    wheelCooldownTimerRef.current = setTimeout(() => {
+      isWheelCoolingDownRef.current = false;
+      scheduleAutoplayResume();
+      wheelCooldownTimerRef.current = null;
+    }, WHEEL_COOLDOWN_MS);
+  }, [cycle, needsPagination, pauseAutoplay, scheduleAutoplayResume]);
 
   if (!totalCards) {
     return null;
   }
-
-  const handleCardClick = (index: number) => {
-    if (isAnimatingRef.current || index === centerIndex) {
-      return;
-    }
-    const diff = (index - centerIndex + totalCards) % totalCards;
-    directionRef.current = diff <= totalCards / 2 ? 'right' : 'left';
-    setCenterIndex(index);
-  };
 
   return (
     <div className={cn(`
@@ -442,13 +591,19 @@ export function CardFanCarousel({
           ref={containerRef}
           data-fan-layout
           className="
-            relative flex h-88 w-full items-center justify-center
-            overflow-visible
+            relative flex h-88 w-full cursor-grab touch-pan-y items-center
+            justify-center overflow-visible
+            active:cursor-grabbing
             sm:h-104
             md:h-112
             lg:h-136
             xl:h-152
           "
+          onPointerCancel={handlePointerCancel}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerEnd}
+          onWheel={handleWheel}
         >
           {cards.map((card, index) => {
             const image = (
@@ -490,6 +645,13 @@ export function CardFanCarousel({
                     href={card.linkUrl}
                     target={card.linkUrl.startsWith('http') ? '_blank' : '_self'}
                     rel="noopener noreferrer"
+                    draggable={false}
+                    onClick={(event) => {
+                      if (hasDraggedRef.current) {
+                        event.preventDefault();
+                        hasDraggedRef.current = false;
+                      }
+                    }}
                     className={cn(cardClasses, 'block')}
                   >
                     {image}
@@ -516,92 +678,90 @@ export function CardFanCarousel({
         </div>
       </div>
 
-      {/* Pagination controls below the cards viewport (outside the mask so they remain crisp) */}
       {needsPagination && (
-        <div className="
-          z-30 mt-4 flex items-center justify-center gap-3
-          sm:gap-4
-          md:mt-6
-        "
-        >
-          <button
-            type="button"
-            className={cn(ARROW_CLASSES, `
-              size-10
-              sm:size-11
-              md:size-12
-            `)}
-            onClick={() => cycle('left')}
-            aria-label="Dokumentasi sebelumnya"
+        <>
+          <div
+            className="
+              pointer-events-none absolute inset-x-4 top-1/2 z-40 flex
+              -translate-y-1/2 items-center justify-between
+              sm:inset-x-8
+              lg:inset-x-14
+            "
           >
-            <ChevronLeft
-              className="
-                relative z-2 size-4
-                md:size-5
-              "
-              strokeWidth={2.5}
-            />
-          </button>
-
-          <div className="
-            flex max-w-[260px] scrollbar-none items-center gap-1.5
-            overflow-x-auto py-1
-            sm:max-w-none sm:gap-2
-          "
-          >
-            {cards.map((card, i) => (
-              <button
-                key={`dot-${card.imgUrl}`}
-                type="button"
-                onClick={() => {
-                  if (isAnimatingRef.current || i === centerIndex) {
-                    return;
-                  }
-                  const diff = (i - centerIndex + totalCards) % totalCards;
-                  directionRef.current = diff <= totalCards / 2 ? 'right' : 'left';
-                  setCenterIndex(i);
-                }}
-                aria-label={`Lihat dokumentasi ke-${i + 1}`}
-                className={cn(
-                  `
-                    h-2 shrink-0 cursor-pointer rounded-full transition-all
-                    duration-300
-                  `,
-                  i === centerIndex
-                    ? `
-                      w-6 scale-105 bg-amanah-blue
-                      dark:bg-amanah-sky
-                    `
-                    : `
-                      w-2 bg-foreground/20
-                      hover:bg-foreground/40
-                      dark:bg-white/20
-                      dark:hover:bg-white/40
-                    `,
-                )}
+            <button
+              type="button"
+              className={ARROW_CLASSES}
+              onClick={() => cycle('left')}
+              aria-label="Dokumentasi sebelumnya"
+            >
+              <ChevronLeft
+                className="
+                  size-5 transition-transform
+                  group-hover:-translate-x-0.5
+                "
               />
-            ))}
+            </button>
+
+            <button
+              type="button"
+              className={ARROW_CLASSES}
+              onClick={() => cycle('right')}
+              aria-label="Dokumentasi selanjutnya"
+            >
+              <ChevronRight
+                className="
+                  size-5 transition-transform
+                  group-hover:translate-x-0.5
+                "
+              />
+            </button>
           </div>
 
-          <button
-            type="button"
-            className={cn(ARROW_CLASSES, `
-              size-10
-              sm:size-11
-              md:size-12
-            `)}
-            onClick={() => cycle('right')}
-            aria-label="Dokumentasi selanjutnya"
+          <div className="
+            pointer-events-none absolute inset-x-0 bottom-8 z-40 flex
+            justify-center
+            sm:bottom-10
+            md:bottom-12
+          "
           >
-            <ChevronRight
+            <div
               className="
-                relative z-2 size-4
-                md:size-5
+                pointer-events-auto flex max-w-[min(520px,calc(100vw-2rem))]
+                scrollbar-none items-center gap-1.5 overflow-x-auto rounded-full
+                border border-white/25 bg-white/15 px-3.5 py-2
+                shadow-[0_8px_30px_rgb(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.4)]
+                backdrop-blur-xl
+                dark:border-white/20 dark:bg-white/10
               "
-              strokeWidth={2.5}
-            />
-          </button>
-        </div>
+            >
+              {cards.map((card, i) => (
+                <button
+                  key={`dot-${card.imgUrl}`}
+                  type="button"
+                  onClick={() => goToCard(i)}
+                  aria-label={`Lihat dokumentasi ke-${i + 1}`}
+                  className="
+                    flex h-3 w-8 shrink-0 cursor-pointer items-center
+                    justify-center
+                    focus:outline-none
+                  "
+                >
+                  <span
+                    className={cn(
+                      'block h-1.5 rounded-full transition-all duration-300',
+                      i === centerIndex
+                        ? 'w-8 bg-primary shadow-sm'
+                        : `
+                          size-1.5 bg-foreground/40
+                          hover:bg-foreground/80
+                        `,
+                    )}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
       )}
     </div>
   );

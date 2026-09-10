@@ -1,6 +1,6 @@
 'use client';
 
-import type { AboutSlide } from '../types';
+import type { AboutSlide } from '../../types';
 import { useCallback, useRef } from 'react';
 import {
   CarouselCard,

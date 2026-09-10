@@ -4,13 +4,13 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
-import { aboutSlides } from '../data';
-import { AboutCarousel } from './AboutCarousel';
-import { SectionContainer } from './SectionContainer';
+import { SectionContainer } from '@/components/healthcare';
+import { aboutSlides } from '../../data';
+import { AboutCarousel } from '../molecules/AboutCarousel';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function AboutSection() {
+export function AboutCarouselSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
@@ -45,7 +45,7 @@ export function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      id="tentang-kami"
+      id="tentang-kami-carousel"
       className="overflow-hidden bg-background"
     >
       <SectionContainer className="

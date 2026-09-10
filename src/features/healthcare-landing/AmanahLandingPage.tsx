@@ -2,7 +2,6 @@ import {
   HealthcareShell,
   TechnicalDivider,
 } from '@/components/healthcare';
-import { AboutSection } from './components/AboutSection';
 import { AppointmentSection } from './components/AppointmentSection';
 import { ContactSection } from './components/ContactSection';
 import { FacilitiesSection } from './components/FacilitiesSection';
@@ -21,8 +20,6 @@ export function AmanahLandingPage({ locale }: AmanahLandingPageProps) {
     <HealthcareShell activePath="/" locale={locale}>
       <HeroSection />
       <TrustHighlights />
-      <TechnicalDivider />
-      <AboutSection />
       <TechnicalDivider />
       <FacilitiesSection />
       <TechnicalDivider />
