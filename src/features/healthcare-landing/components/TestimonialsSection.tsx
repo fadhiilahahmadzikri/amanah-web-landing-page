@@ -5,6 +5,7 @@ import confetti from 'canvas-confetti';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useCallback, useEffect, useRef } from 'react';
+import { AmanahScriptText } from '@/components/healthcare';
 import { CardFanCarousel } from '@/components/ui/card-fan-carousel';
 import { documentationMoments } from '../data';
 import { SectionContainer } from './SectionContainer';
@@ -240,16 +241,15 @@ export function TestimonialsSection() {
           "
         >
           <div className="-mb-2 overflow-hidden pb-2">
-            <p
-              data-mask-text
+            <AmanahScriptText
+              mask="text"
               className="
-                inline-block font-amanah-script text-3xl text-foreground
-                will-change-transform
+                inline-block text-3xl text-foreground
                 md:text-4xl
               "
             >
               Momen Bersama
-            </p>
+            </AmanahScriptText>
           </div>
 
           <div className="relative flex w-full items-center justify-center">

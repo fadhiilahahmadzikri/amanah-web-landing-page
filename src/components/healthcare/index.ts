@@ -1,4 +1,5 @@
 export { AmanahLogo } from './AmanahLogo';
+export { AmanahScriptText } from './AmanahScriptText';
 export { ArrowCtaButton } from './ArrowCtaButton';
 export { BlueprintMark } from './BlueprintMark';
 export { HealthcareChatFab } from './HealthcareChatFab';

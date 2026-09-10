@@ -9,6 +9,7 @@ import {
   VolumeX,
 } from 'lucide-react';
 import { useRef, useState } from 'react';
+import { AmanahScriptText } from '@/components/healthcare';
 import { ArrowCtaButton } from './ArrowCtaButton';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -204,7 +205,7 @@ export function KhitanShowcaseSection() {
               lg:text-6xl
             "
           >
-            Khitan Ramah Anak.
+            Khitan Nyaman, Anak Tenang.
           </h2>
         </div>
       </div>
@@ -231,13 +232,14 @@ export function KhitanShowcaseSection() {
             "
           >
             <div data-content-item className="-mb-2 overflow-hidden pb-2">
-              <p className="
-                inline-block font-amanah-script text-3xl text-foreground
-                md:text-4xl
-              "
+              <AmanahScriptText
+                className="
+                  inline-block text-3xl text-foreground
+                  md:text-4xl
+                "
               >
                 Pengalaman Nyata
-              </p>
+              </AmanahScriptText>
             </div>
 
             {/* Headline Kutipan */}

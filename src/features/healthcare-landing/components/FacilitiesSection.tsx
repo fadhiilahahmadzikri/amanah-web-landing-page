@@ -7,7 +7,7 @@ import { ArrowUpRightIcon, BadgeCheckIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useRef, useState } from 'react';
-import { ViewportLine } from '@/components/healthcare';
+import { AmanahScriptText, ViewportLine } from '@/components/healthcare';
 import { facilities, watermark } from '../data';
 import { FacilityCard } from './FacilityCard';
 import { SectionContainer } from './SectionContainer';
@@ -181,16 +181,15 @@ export function FacilitiesSection() {
           >
             <div className="flex flex-col items-start">
               <div className="-mb-2 overflow-hidden pb-2">
-                <p
-                  data-mask-text
+                <AmanahScriptText
+                  mask="text"
                   className="
-                    inline-block font-amanah-script text-3xl text-foreground
-                    will-change-transform
+                    inline-block text-3xl text-foreground
                     md:text-4xl
                   "
                 >
                   Why Choose Us
-                </p>
+                </AmanahScriptText>
               </div>
               <div className="
                 -mb-3 overflow-hidden pb-3

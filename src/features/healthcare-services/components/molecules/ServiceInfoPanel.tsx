@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { AmanahScriptText } from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 
 type ServiceInfoPanelProps = {
@@ -27,13 +28,14 @@ export function ServiceInfoPanel({
     >
       <div className="flex flex-col items-start">
         <div className="-mb-2 overflow-hidden pb-2">
-          <p className="
-            inline-block font-amanah-script text-3xl text-foreground
-            md:text-4xl
-          "
+          <AmanahScriptText
+            className="
+              inline-block text-3xl text-foreground
+              md:text-4xl
+            "
           >
             {eyebrow}
-          </p>
+          </AmanahScriptText>
         </div>
 
         <div className="

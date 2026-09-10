@@ -3,6 +3,7 @@ import type { HealthcareTeamMember } from '../types';
 import { XIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { AmanahScriptText } from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 
 type TeamCardProps = {
@@ -89,15 +90,16 @@ export function TeamCard({
         >
           {member.name}
         </h3>
-        <p className="
-          mt-2 line-clamp-2 font-amanah-script text-xs/[1.15] text-amanah-muted
-          min-[420px]:text-sm/[1.15]
-          sm:mt-3 sm:text-base/[1.1]
-          md:text-lg
-        "
+        <AmanahScriptText
+          className="
+            mt-2 line-clamp-2 text-xs/[1.15] text-amanah-muted
+            min-[420px]:text-sm/[1.15]
+            sm:mt-3 sm:text-base/[1.1]
+            md:text-lg
+          "
         >
           {member.role}
-        </p>
+        </AmanahScriptText>
       </div>
 
       <div

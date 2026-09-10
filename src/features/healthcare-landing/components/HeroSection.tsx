@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { useRef } from 'react';
-import { ViewportLine } from '@/components/healthcare';
+import { AmanahScriptText, ViewportLine } from '@/components/healthcare';
 import { hero } from '../data';
 import { ArrowCtaButton } from './ArrowCtaButton';
 import { SectionContainer } from './SectionContainer';
@@ -166,17 +166,17 @@ export function HeroSection() {
                 </span>
               </div>
               <div className="-mb-2 overflow-hidden pb-4">
-                <span
-                  data-mask-line
+                <AmanahScriptText
+                  as="span"
+                  mask="line"
                   className="
-                    inline-block font-amanah-script text-5xl leading-none
-                    will-change-transform
+                    inline-block text-5xl leading-none
                     sm:text-6xl
                     md:text-7xl
                   "
                 >
                   {hero.scriptTitle}
-                </span>
+                </AmanahScriptText>
               </div>
             </h1>
 

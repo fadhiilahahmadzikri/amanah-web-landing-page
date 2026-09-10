@@ -9,7 +9,7 @@ import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { SectionContainer } from '@/components/healthcare';
+import { AmanahScriptText, SectionContainer } from '@/components/healthcare';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import {
@@ -134,13 +134,14 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
             "
           >
             <div className="-mb-2 overflow-hidden pb-2">
-              <p className="
-                inline-block font-amanah-script text-3xl text-foreground
-                md:text-4xl
-              "
+              <AmanahScriptText
+                className="
+                  inline-block text-3xl text-foreground
+                  md:text-4xl
+                "
               >
                 {facilitiesSectionData.eyebrow}
-              </p>
+              </AmanahScriptText>
             </div>
 
             <div className="

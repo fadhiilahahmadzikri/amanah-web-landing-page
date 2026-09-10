@@ -4,6 +4,7 @@ import type { DoctorMarkerTone } from '../types';
 import Image from 'next/image';
 import { useState } from 'react';
 import {
+  AmanahScriptText,
   BlueprintMark,
   SectionContainer,
 } from '@/components/healthcare';
@@ -46,14 +47,14 @@ export function DoctorsHeroSection() {
 
           <div className="relative mx-auto max-w-2xl text-center">
             <div className="-mb-2 overflow-hidden pb-2">
-              <p className="
-                inline-block font-amanah-script text-3xl/[1.05] font-semibold
-                text-foreground
-                md:text-4xl/[1.05]
-              "
+              <AmanahScriptText
+                className="
+                  inline-block text-3xl/[1.05] font-semibold text-foreground
+                  md:text-4xl/[1.05]
+                "
               >
                 {doctorsHero.eyebrow}
-              </p>
+              </AmanahScriptText>
             </div>
             <div className="
               -mb-3 overflow-hidden pb-3
@@ -136,9 +137,9 @@ export function DoctorsHeroSection() {
               "
               >
                 <p className="text-base font-semibold">{selectedMember.name}</p>
-                <p className="mt-1 font-amanah-script text-lg text-amanah-muted">
+                <AmanahScriptText className="mt-1 text-lg text-amanah-muted">
                   {selectedMember.role}
-                </p>
+                </AmanahScriptText>
               </div>
             )}
           </div>

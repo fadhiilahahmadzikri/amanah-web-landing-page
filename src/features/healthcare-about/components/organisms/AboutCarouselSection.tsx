@@ -4,7 +4,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
-import { SectionContainer } from '@/components/healthcare';
+import { AmanahScriptText, SectionContainer } from '@/components/healthcare';
 import { aboutSlides } from '../../data';
 import { AboutCarousel } from '../molecules/AboutCarousel';
 
@@ -65,16 +65,15 @@ export function AboutCarouselSection() {
             "
           >
             <div className="-mb-2 overflow-hidden pb-2">
-              <p
-                data-mask-text
+              <AmanahScriptText
+                mask="text"
                 className="
-                  inline-block font-amanah-script text-3xl text-foreground
-                  will-change-transform
+                  inline-block text-3xl text-foreground
                   md:text-4xl
                 "
               >
                 Tentang Kami
-              </p>
+              </AmanahScriptText>
             </div>
             <div className="
               -mb-3 overflow-hidden pb-3

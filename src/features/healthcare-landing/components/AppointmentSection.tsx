@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { useRef } from 'react';
+import { AmanahScriptText } from '@/components/healthcare';
 import { appointment, watermark } from '../data';
 import { ArrowCtaButton } from './ArrowCtaButton';
 import { SectionContainer } from './SectionContainer';
@@ -116,16 +117,15 @@ export function AppointmentSection() {
               className="relative z-10 flex max-w-xl flex-col items-start"
             >
               <div className="-mb-2 overflow-hidden pb-2">
-                <p
-                  data-mask-text
+                <AmanahScriptText
+                  mask="text"
                   className="
-                    inline-block font-amanah-script text-3xl text-foreground
-                    will-change-transform
+                    inline-block text-3xl text-foreground
                     md:text-4xl
                   "
                 >
                   {appointment.eyebrow}
-                </p>
+                </AmanahScriptText>
               </div>
               <div className="
                 -mb-3 overflow-hidden pb-3

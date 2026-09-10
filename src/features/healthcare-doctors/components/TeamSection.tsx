@@ -7,6 +7,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 import {
+  AmanahScriptText,
   SectionContainer,
   TechnicalDivider,
 } from '@/components/healthcare';
@@ -98,16 +99,15 @@ export function TeamSection({ section }: TeamSectionProps) {
             className="mx-auto flex max-w-5xl flex-col items-center"
           >
             <div className="-mb-2 overflow-hidden pb-2">
-              <p
-                data-mask-text
+              <AmanahScriptText
+                mask="text"
                 className="
-                  inline-block font-amanah-script text-3xl/[1.05] font-semibold
-                  text-foreground will-change-transform
+                  inline-block text-3xl/[1.05] font-semibold text-foreground
                   md:text-4xl/[1.05]
                 "
               >
                 {section.eyebrow}
-              </p>
+              </AmanahScriptText>
             </div>
             <div className="
               -mb-3 overflow-hidden pb-3

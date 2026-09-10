@@ -4,7 +4,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
-import { SectionContainer } from '@/components/healthcare';
+import { AmanahScriptText, SectionContainer } from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 import { servicesHeroData } from '../../data';
 import { HeroCurvedVisual } from '../atoms/HeroCurvedVisual';
@@ -109,13 +109,14 @@ export function ServicesHeroSection({ className }: ServicesHeroSectionProps) {
           >
             {/* Eyebrow in script typography without wrapper */}
             <div data-hero-eyebrow className="-mb-2 overflow-hidden pb-2">
-              <p className="
-                inline-block font-amanah-script text-3xl text-foreground
-                md:text-4xl
-              "
+              <AmanahScriptText
+                className="
+                  inline-block text-3xl text-foreground
+                  md:text-4xl
+                "
               >
                 {servicesHeroData.eyebrow}
-              </p>
+              </AmanahScriptText>
             </div>
 
             {/* Headline with project-wide typography convention */}

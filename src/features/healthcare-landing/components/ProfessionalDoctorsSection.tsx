@@ -1,5 +1,5 @@
 import type { HealthcareTeamMember } from '@/features/healthcare-doctors/types';
-import { ViewportLine } from '@/components/healthcare';
+import { AmanahScriptText, ViewportLine } from '@/components/healthcare';
 import { TeamCard } from '@/features/healthcare-doctors/components/TeamCard';
 import { SectionContainer } from './SectionContainer';
 
@@ -41,13 +41,14 @@ export function ProfessionalDoctorsSection() {
         "
         >
           <div className="mx-auto flex max-w-5xl flex-col items-center">
-            <p className="
-              font-amanah-script text-3xl/[1.05] font-semibold text-foreground
-              md:text-4xl/[1.05]
-            "
+            <AmanahScriptText
+              className="
+                text-3xl/[1.05] font-semibold text-foreground
+                md:text-4xl/[1.05]
+              "
             >
               Kenali Dokter Kami
-            </p>
+            </AmanahScriptText>
             <h2 className="
               mt-1 text-4xl/[1.08] font-medium tracking-tight text-foreground
               md:text-5xl/[1.08]
