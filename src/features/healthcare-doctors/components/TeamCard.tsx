@@ -3,7 +3,10 @@ import type { HealthcareTeamMember } from '../types';
 import { XIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { AmanahScriptText } from '@/components/healthcare';
+import {
+  AmanahScriptText,
+  HealthcareHeading,
+} from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 
 type TeamCardProps = {
@@ -81,21 +84,18 @@ export function TeamCard({
         md:px-8 md:pt-8 md:pb-6
       "
       >
-        <h3 className="
-          line-clamp-3 max-w-72 text-base/[1.05] font-extrabold
-          min-[420px]:text-lg/[1.05]
-          sm:text-2xl/[1.05]
-          md:text-[28px]
-        "
+        <HealthcareHeading
+          as="h3"
+          size="card"
+          className="line-clamp-3 max-w-72 font-extrabold"
         >
           {member.name}
-        </h3>
+        </HealthcareHeading>
         <AmanahScriptText
+          size="inherit"
           className="
-            mt-2 line-clamp-2 text-xs/[1.15] text-amanah-muted
-            min-[420px]:text-sm/[1.15]
-            sm:mt-3 sm:text-base/[1.1]
-            md:text-lg
+            mt-2 line-clamp-2 amanah-type-small text-amanah-muted
+            sm:mt-3
           "
         >
           {member.role}
@@ -137,7 +137,7 @@ export function TeamCard({
             >
               <span
                 aria-hidden
-                className="text-[10px] leading-none font-extrabold"
+                className="amanah-type-caption font-extrabold"
               >
                 in
               </span>

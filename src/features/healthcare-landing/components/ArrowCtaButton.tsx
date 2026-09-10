@@ -28,7 +28,7 @@ export function ArrowCtaButton({
       size="lg"
       variant={buttonVariant}
       className={cn(`
-        group h-10 rounded-xl px-4 pr-1.5 text-sm font-semibold tracking-tight
+        group h-10 rounded-xl px-4 pr-1.5 amanah-type-small font-semibold
         shadow-xs transition-all duration-300
         md:h-11 md:px-5 md:pr-2
       `, className)}

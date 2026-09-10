@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import type { ServiceCardItem } from '../../types';
 import Image from 'next/image';
+import { HealthcareHeading, HealthcareText } from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 import { ServiceCardAffordance } from '../atoms/ServiceCardAffordance';
 
@@ -93,17 +94,16 @@ export function ServiceBentoCard({
       >
         {contentSlot ?? (
           <div className="flex flex-col gap-1">
-            <h3
+            <HealthcareHeading
+              as="h3"
+              size="compact"
               className="
-                text-xs font-semibold tracking-tight text-foreground
-                transition-transform duration-300
+                text-foreground transition-transform duration-300
                 group-hover:-translate-y-0.5
-                sm:text-[13px]
-                md:text-sm
               "
             >
               {item.title}
-            </h3>
+            </HealthcareHeading>
 
             {/* Description revealed on hover / focus, gently visible on mobile */}
             <div
@@ -115,15 +115,15 @@ export function ServiceBentoCard({
                 max-md:max-h-24 max-md:opacity-90
               "
             >
-              <p
+              <HealthcareText
+                size="caption"
                 className="
-                  text-[11px]/relaxed text-muted-foreground
-                  sm:text-xs/relaxed
+                  text-muted-foreground
                   dark:text-slate-300
                 "
               >
                 {item.description}
-              </p>
+              </HealthcareText>
             </div>
           </div>
         )}

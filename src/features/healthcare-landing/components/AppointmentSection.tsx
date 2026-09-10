@@ -5,7 +5,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { useRef } from 'react';
-import { AmanahScriptText } from '@/components/healthcare';
+import {
+  AmanahScriptText,
+  HealthcareHeading,
+  HealthcareText,
+} from '@/components/healthcare';
 import { appointment, watermark } from '../data';
 import { ArrowCtaButton } from './ArrowCtaButton';
 import { SectionContainer } from './SectionContainer';
@@ -119,10 +123,7 @@ export function AppointmentSection() {
               <div className="-mb-2 overflow-hidden pb-2">
                 <AmanahScriptText
                   mask="text"
-                  className="
-                    inline-block text-3xl text-foreground
-                    md:text-4xl
-                  "
+                  className="inline-block text-foreground"
                 >
                   {appointment.eyebrow}
                 </AmanahScriptText>
@@ -132,31 +133,27 @@ export function AppointmentSection() {
                 md:-mb-4 md:pb-4
               "
               >
-                <h2
+                <HealthcareHeading
+                  as="h2"
                   data-mask-text
-                  className="
-                    text-4xl/tight font-medium tracking-tight
-                    will-change-transform
-                    md:text-6xl
-                  "
+                  size="display"
+                  className="text-foreground will-change-transform"
                 >
                   {appointment.title}
-                </h2>
+                </HealthcareHeading>
               </div>
               <div className="
                 mt-4 -mb-2 overflow-hidden pb-2
                 sm:mt-5
               "
               >
-                <p
+                <HealthcareText
                   data-mask-text
-                  className="
-                    text-lg/relaxed text-muted-foreground will-change-transform
-                    md:text-xl
-                  "
+                  size="lead"
+                  className="text-muted-foreground will-change-transform"
                 >
                   {appointment.description}
-                </p>
+                </HealthcareText>
               </div>
               <div className="
                 mt-8

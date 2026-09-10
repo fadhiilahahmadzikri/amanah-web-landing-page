@@ -12,8 +12,8 @@ export function PillLabel({ children, className }: PillLabelProps) {
     <Badge
       variant="secondary"
       className={cn(`
-        rounded-none border border-line bg-transparent px-3 py-1.5 text-xs
-        font-semibold tracking-[0.16em] text-primary uppercase
+        rounded-none border border-line bg-transparent px-3 py-1.5
+        amanah-type-eyebrow text-primary
         dark:bg-transparent
       `, className)}
     >

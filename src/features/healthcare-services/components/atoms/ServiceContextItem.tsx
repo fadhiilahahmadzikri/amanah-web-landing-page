@@ -26,12 +26,11 @@ export function ServiceContextItem({
       className={cn(
         `
           group relative flex w-full cursor-pointer items-center justify-between
-          gap-3 px-4 py-3.5 text-left text-xs font-semibold tracking-tight
+          gap-3 px-4 py-3.5 text-left amanah-type-caption font-semibold
           transition-all duration-300 select-none
           focus-visible:ring-2 focus-visible:ring-primary
           focus-visible:ring-offset-1 focus-visible:outline-none
           sm:px-5 sm:py-4
-          md:text-sm
         `,
         isActive
           ? `
@@ -71,7 +70,7 @@ export function ServiceContextItem({
             <span
               className={cn(
                 `
-                  font-mono text-[11px] font-normal transition-colors
+                  font-mono amanah-type-caption font-normal transition-colors
                   duration-300
                 `,
                 isActive
@@ -85,11 +84,7 @@ export function ServiceContextItem({
               {stepNumber}
             </span>
           )}
-          <span className="
-            truncate text-xs font-semibold
-            md:text-sm
-          "
-          >
+          <span className="truncate amanah-type-caption font-semibold">
             {label}
           </span>
         </div>
@@ -97,7 +92,10 @@ export function ServiceContextItem({
         {sublabel && (
           <span
             className={cn(
-              'truncate text-[11px] font-normal transition-colors duration-300',
+              `
+                truncate amanah-type-caption font-normal transition-colors
+                duration-300
+              `,
               isActive
                 ? `
                   text-primary-foreground/80

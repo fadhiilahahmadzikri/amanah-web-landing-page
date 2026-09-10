@@ -5,26 +5,10 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { useRef } from 'react';
+import { HealthcareHeading, HealthcareText } from '@/components/healthcare';
+import { cn } from '@/utils/Helpers';
 import { trustHighlights } from '../data';
 import { SectionContainer } from './SectionContainer';
-
-gsap.registerPlugin(ScrollTrigger);
-
-export function TrustHighlights() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const counterRef = useRef<HTMLElement>(null);
-
-  useGSAP(
-    () => {
-      const panels = sectionRef.current?.querySelectorAll('[data-trust-panel]');
-      if (panels && panels.length > 0) {
-        gsap.fromTo(
-          panels,
-          { y: 45, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
             stagger: 0.12,
             ease: 'expo.out',
             scrollTrigger: {
@@ -92,39 +76,44 @@ export function TrustHighlights() {
       "
       >
         <div className="
-          grid border-b border-line
-          min-[1400px]:grid-cols-[241px_361px]
+          grid grid-cols-2 border-b border-line
           sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] sm:items-stretch
+          min-[1400px]:grid-cols-[241px_361px]
           lg:border-r lg:border-b-0
         "
         >
           <div
             data-trust-panel
             className="
-              flex min-h-[149px] flex-col items-start justify-between gap-10
-              border-b border-line bg-background p-6
-              sm:border-r sm:border-b-0
+              flex flex-col items-start justify-between gap-6
+              border-r border-line bg-background p-4
+              sm:min-h-[149px] sm:gap-10 sm:p-6
               lg:px-[30px] lg:py-[18px]
             "
           >
-            <div className="flex flex-col gap-[15px]">
-              <h2 className="text-xl font-medium text-foreground">
+            <div className="flex flex-col gap-2 sm:gap-[15px]">
+              <HealthcareHeading
+                as="h2"
+                size="card"
+                className="text-sm font-medium text-foreground sm:text-base"
+              >
                 {trustHighlights.service.eyebrow}
-              </h2>
-              <p className="
-                max-w-[203px] text-[15px]/[22px] text-muted-foreground
-              "
+              </HealthcareHeading>
+              <HealthcareText
+                size="small"
+                className="max-w-[203px] text-xs text-muted-foreground sm:text-sm"
               >
                 {trustHighlights.service.title}
-              </p>
+              </HealthcareText>
             </div>
 
             <a
               href="#layanan"
               className="
-                inline-flex items-center gap-[10px] border-b border-line pb-0.5
-                text-[15px]/[22px] font-semibold text-primary transition-colors
+                inline-flex items-center gap-1.5 border-b border-line pb-0.5
+                text-xs font-semibold text-primary transition-colors
                 hover:border-primary hover:text-amanah-blue
+                sm:gap-[10px] sm:amanah-type-small
               "
             >
               {trustHighlights.service.cta}
@@ -139,17 +128,16 @@ export function TrustHighlights() {
           </div>
 
           <div className="
-            grid
+            flex flex-col
+            sm:grid sm:grid-cols-2
             min-[1400px]:grid-cols-[163px_178px]
-            sm:grid-cols-2
           "
           >
             <div
               data-trust-panel
               className="
-                flex min-h-[205px] flex-col justify-center gap-[15px] border-b
-                border-line bg-background px-6 py-7
-                sm:border-r sm:border-b-0
+                flex flex-1 flex-col justify-center gap-3 bg-background p-4
+                sm:min-h-[205px] sm:gap-[15px] sm:border-r sm:border-line sm:px-6 sm:py-7
               "
             >
               <Image
@@ -158,16 +146,19 @@ export function TrustHighlights() {
                 width={20}
                 height={20}
                 aria-hidden="true"
-                className="size-5 object-contain"
+                className="size-4 object-contain sm:size-5"
               />
-              <div className="flex flex-col gap-[15px] pt-2">
-                <p className="text-[15px]/[22px] text-muted-foreground">
+              <div className="flex flex-col gap-1.5 pt-1 sm:gap-[15px] sm:pt-2">
+                <HealthcareText size="small" className="text-xs text-muted-foreground sm:text-sm">
                   {trustHighlights.patientCount.label}
-                </p>
+                </HealthcareText>
                 <div className="overflow-hidden">
                   <strong
                     ref={counterRef}
-                    className="inline-block text-2xl font-bold text-foreground"
+                    className="
+                      inline-block text-2xl font-bold text-foreground
+                      sm:amanah-type-subsection
+                    "
                   >
                     {trustHighlights.patientCount.value}
                   </strong>
@@ -178,8 +169,8 @@ export function TrustHighlights() {
             <div
               data-trust-panel
               className="
-                flex min-h-[203px] items-center justify-center overflow-hidden
-                bg-linear-to-r from-amanah-sky/25 to-background px-6 py-7
+                hidden sm:flex sm:min-h-[203px] sm:items-center sm:justify-center
+                sm:overflow-hidden bg-linear-to-r from-amanah-sky/25 to-background px-6 py-7
                 dark:from-amanah-blue/20 dark:to-card
               "
             >
@@ -204,12 +195,16 @@ export function TrustHighlights() {
           "
         >
           <div className="flex flex-col gap-3">
-            <h2 className="text-[17px]/[25px] font-medium text-foreground">
+            <HealthcareHeading
+              as="h2"
+              size="card"
+              className="font-medium text-foreground"
+            >
               {trustHighlights.community.title}
-            </h2>
-            <p className="text-[17px]/[25px] text-muted-foreground">
+            </HealthcareHeading>
+            <HealthcareText className="text-muted-foreground">
               {trustHighlights.community.description}
-            </p>
+            </HealthcareText>
           </div>
           <div className="flex">
             {trustHighlights.community.avatars.map((avatar, index) => (
@@ -243,15 +238,15 @@ export function TrustHighlights() {
             aria-hidden="true"
             className="size-5 object-contain"
           />
-          <blockquote className="
-            text-[17px]/[25px] font-medium text-foreground italic
-          "
+          <HealthcareText
+            as="blockquote"
+            className="font-medium text-foreground italic"
           >
             {trustHighlights.quote.text}
-          </blockquote>
-          <p className="text-[15px]/[23px] text-muted-foreground">
+          </HealthcareText>
+          <HealthcareText size="small" className="text-muted-foreground">
             {trustHighlights.quote.author}
-          </p>
+          </HealthcareText>
         </div>
       </SectionContainer>
     </section>

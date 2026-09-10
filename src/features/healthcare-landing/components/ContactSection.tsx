@@ -5,7 +5,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { useRef } from 'react';
-import { ViewportLine } from '@/components/healthcare';
+import {
+  HealthcareHeading,
+  HealthcareText,
+  ViewportLine,
+} from '@/components/healthcare';
 import { contactImage, contactItems } from '../data';
 import { SectionContainer } from './SectionContainer';
 
@@ -109,28 +113,23 @@ export function ContactSection() {
               md:-mb-5 md:pb-5
             "
             >
-              <h2
+              <HealthcareHeading
+                as="h2"
                 data-mask-text
-                className="
-                  text-5xl/tight font-medium tracking-tight text-foreground
-                  will-change-transform
-                  md:text-7xl
-                "
+                size="display"
+                className="font-medium text-foreground will-change-transform"
               >
                 Mari Terhubung
-              </h2>
+              </HealthcareHeading>
             </div>
             <div className="-mb-2 overflow-hidden pb-2">
-              <p
+              <HealthcareText
                 data-mask-text
-                className="
-                  max-w-xl text-lg/relaxed text-muted-foreground
-                  will-change-transform
-                  md:text-xl
-                "
+                size="lead"
+                className="max-w-xl text-muted-foreground will-change-transform"
               >
                 Punya pertanyaan atau ingin membuat janji kunjungan? Hubungi Klinik Amanah Healthcare. Tim kami siap membantu memberikan informasi mengenai layanan, jadwal dokter, dan kebutuhan kesehatan Anda.
-              </p>
+              </HealthcareText>
             </div>
           </div>
 
@@ -147,16 +146,15 @@ export function ContactSection() {
                 data-contact-item
                 className="flex flex-col gap-3"
               >
-                <p className="text-base font-semibold text-muted-foreground">
+                <HealthcareText className="font-semibold text-muted-foreground">
                   {item.label}
-                </p>
+                </HealthcareText>
                 <a
                   href={item.href}
                   className="
-                    w-fit border-b border-line pb-0.5 text-2xl font-bold
-                    wrap-break-word text-foreground transition-colors
+                    w-fit border-b border-line pb-0.5 amanah-type-subsection
+                    font-bold wrap-break-word text-foreground transition-colors
                     hover:border-foreground/50
-                    md:text-3xl
                   "
                 >
                   {item.value}

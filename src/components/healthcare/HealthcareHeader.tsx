@@ -42,7 +42,7 @@ type HealthcareMobileMenuProps = {
 
 const navigationLinkClass = `
   group relative flex h-12 shrink-0 items-center overflow-hidden bg-background
-  border-r border-line px-5 text-base font-medium leading-6 tracking-[0.01em]
+  border-r border-line px-5 amanah-type-body font-medium
   text-foreground
 `;
 
@@ -204,7 +204,7 @@ function HealthcareMobileMenu({
                     `,
                   )}
                 >
-                  <span className="text-base font-medium tracking-[0.01em]">
+                  <span className="amanah-type-body font-medium">
                     {item.label}
                   </span>
                   <ArrowRightIcon aria-hidden className="size-4" />
@@ -220,7 +220,7 @@ function HealthcareMobileMenu({
               href={getI18nPath('/sign-in', locale)}
               className="
                 flex min-h-12 items-center justify-between rounded-xl border
-                border-line bg-background px-4 text-sm font-semibold
+                border-line bg-background px-4 amanah-type-small font-semibold
                 text-foreground transition-colors
                 hover:bg-accent
               "
@@ -312,8 +312,9 @@ export function HealthcareHeader({
           <a
             href={getI18nPath('/sign-in', locale)}
             className="
-              hidden h-full items-center border-l border-line px-4 text-sm
-              font-medium text-muted-foreground transition-colors
+              hidden h-full items-center border-l border-line px-4
+              amanah-type-small font-medium text-muted-foreground
+              transition-colors
               hover:text-foreground
               sm:inline-flex
             "

@@ -26,14 +26,11 @@ export function AmanahLogo({
         alt={healthcareBrand.logo.alt}
         width={48}
         height={48}
-        className={cn(`
-          size-8 shrink-0 rounded-none object-contain
-        `, markClassName)}
+        className={cn(`size-8 shrink-0 rounded-none object-contain`, markClassName)}
         priority
       />
       <span className={cn(`
-        truncate text-lg font-semibold tracking-tight text-foreground
-        sm:text-xl
+        truncate amanah-type-card-title font-semibold text-foreground
       `, textClassName)}
       >
         {healthcareBrand.name}

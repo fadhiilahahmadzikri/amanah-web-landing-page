@@ -9,7 +9,12 @@ import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { AmanahScriptText, SectionContainer } from '@/components/healthcare';
+import {
+  AmanahScriptText,
+  HealthcareHeading,
+  HealthcareText,
+  SectionContainer,
+} from '@/components/healthcare';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import {
@@ -135,10 +140,7 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
           >
             <div className="-mb-2 overflow-hidden pb-2">
               <AmanahScriptText
-                className="
-                  inline-block text-3xl text-foreground
-                  md:text-4xl
-                "
+                className="inline-block text-foreground"
               >
                 {facilitiesSectionData.eyebrow}
               </AmanahScriptText>
@@ -149,26 +151,24 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
               md:-mb-4 md:pb-4
             "
             >
-              <h2
-                className="
-                  text-2xl font-semibold tracking-tight text-foreground
-                  sm:text-3xl
-                  lg:text-[28px] lg:leading-tight
-                  xl:text-4xl
-                "
+              <HealthcareHeading
+                as="h2"
+                size="subsection"
+                className="text-foreground"
               >
                 {facilitiesSectionData.title}
-              </h2>
+              </HealthcareHeading>
             </div>
 
-            <p
+            <HealthcareText
+              size="body"
               className="
-                mt-4 text-sm/relaxed text-muted-foreground
-                sm:mt-5 sm:text-base/relaxed
+                mt-4 text-muted-foreground
+                sm:mt-5
               "
             >
               {facilitiesSectionData.description}
-            </p>
+            </HealthcareText>
 
             {/* Navigation Buttons */}
             <div className="
@@ -308,27 +308,25 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
                             dark:group-hover:bg-[#090d24]/95
                           "
                         >
-                          <h3
-                            className="
-                              text-base font-semibold tracking-tight
-                              text-foreground
-                              md:text-lg
-                            "
+                          <HealthcareHeading
+                            as="h3"
+                            size="card"
+                            className="text-foreground"
                           >
                             {item.title}
-                          </h3>
-                          <p
+                          </HealthcareHeading>
+                          <HealthcareText
+                            size="small"
                             className="
-                              mt-1 line-clamp-2 max-h-0 pr-10 text-xs/relaxed
+                              mt-1 line-clamp-2 max-h-0 pr-10
                               text-muted-foreground opacity-0 transition-all
                               duration-500 ease-out
                               group-hover:max-h-20 group-hover:opacity-100
                               max-md:max-h-20 max-md:opacity-100
-                              md:text-sm/relaxed
                             "
                           >
                             {item.summary}
-                          </p>
+                          </HealthcareText>
                           <div
                             className="
                               absolute right-4 bottom-4 flex size-8 items-center

@@ -3,13 +3,21 @@ import { cn } from '@/utils/Helpers';
 
 type AmanahScriptTextMask = 'line' | 'text';
 type AmanahScriptTextElement = 'p' | 'span';
+type AmanahScriptTextSize = 'accent' | 'hero' | 'inherit';
 
 type AmanahScriptTextProps = {
   as?: AmanahScriptTextElement;
   children: ReactNode;
   className?: string;
   mask?: AmanahScriptTextMask;
+  size?: AmanahScriptTextSize;
 };
+
+const scriptSizeClassNames = {
+  accent: 'amanah-type-script-accent',
+  hero: 'amanah-type-script-hero',
+  inherit: '',
+} satisfies Record<AmanahScriptTextSize, string>;
 
 function getMaskAttributes(mask: AmanahScriptTextMask | undefined) {
   if (mask === 'line') {
@@ -28,9 +36,11 @@ export function AmanahScriptText({
   children,
   className,
   mask,
+  size = 'accent',
 }: AmanahScriptTextProps) {
   const scriptClassName = cn(
     'font-amanah-script',
+    scriptSizeClassNames[size],
     mask !== undefined && 'will-change-transform',
     className,
   );

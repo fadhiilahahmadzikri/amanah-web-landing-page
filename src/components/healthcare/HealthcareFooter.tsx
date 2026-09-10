@@ -23,6 +23,7 @@ import {
   healthcareNavigationItems,
 } from './data';
 import { getHealthcareHref } from './healthcareNavigation';
+import { HealthcareEyebrow, HealthcareText } from './HealthcareTypography';
 import { SectionContainer } from './SectionContainer';
 import { ViewportLine } from './ViewportLine';
 
@@ -58,14 +59,18 @@ function FooterRow({ children, className }: FooterRowProps) {
 
 function FooterPanel({ children, className, label }: FooterPanelProps) {
   return (
-    <section data-footer-panel className={cn('bg-background p-5 md:p-6', className)}>
-      <p className="
-        mb-5 text-xs font-semibold tracking-[0.16em] text-muted-foreground
-        uppercase
-      "
+    <section
+      data-footer-panel
+      className={cn(`
+        bg-background p-5
+        md:p-6
+      `, className)}
+    >
+      <HealthcareEyebrow
+        className="mb-5 text-muted-foreground"
       >
         {label}
-      </p>
+      </HealthcareEyebrow>
       {children}
     </section>
   );
@@ -107,7 +112,11 @@ export function HealthcareFooter({
 
   return (
     <footer ref={footerRef} className="bg-background pb-6">
-      <SectionContainer className="relative border-x border-line px-0 sm:px-0">
+      <SectionContainer className="
+        relative border-x border-line px-0
+        sm:px-0
+      "
+      >
         <FooterRow className="md:grid-cols-4">
           <FooterPanel
             label="Klinik"
@@ -118,13 +127,13 @@ export function HealthcareFooter({
           >
             <div className="flex flex-col gap-8">
               <AmanahLogo locale={locale} />
-              <address className="
-                max-w-2xl text-base/relaxed text-muted-foreground not-italic
-                md:text-lg/relaxed
-              "
+              <HealthcareText
+                as="address"
+                size="lead"
+                className="max-w-2xl text-muted-foreground not-italic"
               >
                 {healthcareFooter.address}
-              </address>
+              </HealthcareText>
             </div>
           </FooterPanel>
 
@@ -132,10 +141,13 @@ export function HealthcareFooter({
             label="Kontak"
             className={cn(mobilePanelDividerClassName, 'md:border-r')}
           >
-            <p className="mb-6 text-xl/relaxed font-medium text-foreground">
+            <HealthcareText
+              size="lead"
+              className="mb-6 font-medium text-foreground"
+            >
               {healthcareFooter.cardText}
-            </p>
-            <div className="flex flex-col gap-3 text-sm font-semibold">
+            </HealthcareText>
+            <div className="flex flex-col gap-3 amanah-type-small font-semibold">
               {phone && (
                 <a
                   href={phone.href}
@@ -151,8 +163,9 @@ export function HealthcareFooter({
                 <a
                   href={email.href}
                   className="
-                    wrap-break-word w-fit border-b border-line pb-0.5
-                    transition-colors hover:border-foreground/50
+                    w-fit border-b border-line pb-0.5 wrap-break-word
+                    transition-colors
+                    hover:border-foreground/50
                   "
                 >
                   {email.value}
@@ -195,7 +208,9 @@ export function HealthcareFooter({
           >
             <nav
               aria-label="Navigasi footer"
-              className="grid grid-cols-2 gap-x-8 gap-y-4 text-base font-medium"
+              className="
+                grid amanah-type-body grid-cols-2 gap-x-8 gap-y-4 font-medium
+              "
             >
               {healthcareNavigationItems.map(item => (
                 <a
@@ -203,8 +218,8 @@ export function HealthcareFooter({
                   href={getHealthcareHref(item, locale)}
                   className="
                     w-fit border-b border-line pb-0.5 text-muted-foreground
-                    transition-colors hover:border-foreground/50
-                    hover:text-foreground
+                    transition-colors
+                    hover:border-foreground/50 hover:text-foreground
                   "
                 >
                   {item.label}
@@ -229,15 +244,19 @@ export function HealthcareFooter({
                 />
               </div>
               <div className="flex flex-col items-start gap-5">
-                <p className="flex items-center gap-2 text-sm text-muted-foreground">
+                <HealthcareText
+                  size="small"
+                  className="flex items-center gap-2 text-muted-foreground"
+                >
                   <MapPinIcon aria-hidden className="size-4 shrink-0" />
                   {healthcareFooter.location}
-                </p>
+                </HealthcareText>
                 <a
                   href="https://maps.google.com/?q=Jl.%20Manggis%20No.6%2C%20Condongcatur"
                   className="
                     inline-flex h-10 items-center gap-2 rounded-xl border
-                    border-line px-3 text-sm font-semibold transition-colors
+                    border-line px-3 amanah-type-small font-semibold
+                    transition-colors
                     hover:bg-accent
                   "
                 >
@@ -250,7 +269,8 @@ export function HealthcareFooter({
         </FooterRow>
 
         <div className="
-          relative flex flex-col gap-2 px-5 py-4 text-xs text-muted-foreground
+          relative flex flex-col gap-2 px-5 py-4 amanah-type-caption
+          text-muted-foreground
           sm:flex-row sm:items-center sm:justify-between
           md:px-6
         "
@@ -259,7 +279,8 @@ export function HealthcareFooter({
           <a
             href={getI18nPath('/', locale)}
             className="
-              w-fit transition-colors hover:text-foreground
+              w-fit transition-colors
+              hover:text-foreground
             "
           >
             amanah.healthcare

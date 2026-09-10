@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
+import { HealthcareHeading, HealthcareText } from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 import { FacilityContextIcon } from './FacilityIcons';
 
@@ -254,16 +255,15 @@ export function FacilityCard({
       "
       >
         {/* Slot 3: Title */}
-        <h3
+        <HealthcareHeading
+          as="h3"
           ref={titleRef}
           data-card-title
-          className="
-            text-xl/[1.3] font-semibold text-foreground
-            will-change-[transform,opacity]
-          "
+          size="card"
+          className="text-foreground will-change-[transform,opacity]"
         >
           {facility.title}
-        </h3>
+        </HealthcareHeading>
 
         {/* Slot 4: Description */}
         <div
@@ -274,13 +274,14 @@ export function FacilityCard({
             will-change-[transform,opacity]
           "
         >
-          <p className="
-            text-base/[1.65] font-medium text-foreground
-            dark:text-white dark:drop-shadow-sm
-          "
+          <HealthcareText
+            className="
+              font-medium text-foreground
+              dark:text-white dark:drop-shadow-sm
+            "
           >
             {facility.description}
-          </p>
+          </HealthcareText>
         </div>
       </div>
     </article>

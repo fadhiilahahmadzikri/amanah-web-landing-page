@@ -4,12 +4,19 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
+  BabyIcon,
   Play,
+  SparklesIcon,
+  StethoscopeIcon,
   Volume2,
   VolumeX,
 } from 'lucide-react';
 import { useRef, useState } from 'react';
-import { AmanahScriptText } from '@/components/healthcare';
+import {
+  AmanahScriptText,
+  HealthcareHeading,
+  HealthcareText,
+} from '@/components/healthcare';
 import { ArrowCtaButton } from './ArrowCtaButton';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -181,32 +188,40 @@ export function KhitanShowcaseSection() {
         <div
           data-header-icons
           className="
-            mb-3 flex items-center justify-center gap-2 text-2xl select-none
-            sm:text-3xl
+            mb-3 flex items-center justify-center gap-2 text-amanah-blue
+            select-none
           "
           aria-hidden
         >
-          <span>🩺</span>
-          <span>👶</span>
-          <span>✨</span>
+          <StethoscopeIcon className="
+            size-6
+            sm:size-7
+          "
+          />
+          <BabyIcon className="
+            size-6
+            sm:size-7
+          "
+          />
+          <SparklesIcon className="
+            size-6
+            sm:size-7
+          "
+          />
         </div>
         <div className="
           -mb-3 overflow-hidden pb-3
           md:-mb-4 md:pb-4
         "
         >
-          <h2
+          <HealthcareHeading
+            as="h2"
             data-mask-text
-            className="
-              text-3xl font-medium tracking-tight text-foreground
-              will-change-transform
-              sm:text-4xl
-              md:text-5xl
-              lg:text-6xl
-            "
+            size="display"
+            className="font-medium text-foreground will-change-transform"
           >
             Khitan Nyaman, Anak Tenang.
-          </h2>
+          </HealthcareHeading>
         </div>
       </div>
 
@@ -233,10 +248,7 @@ export function KhitanShowcaseSection() {
           >
             <div data-content-item className="-mb-2 overflow-hidden pb-2">
               <AmanahScriptText
-                className="
-                  inline-block text-3xl text-foreground
-                  md:text-4xl
-                "
+                className="inline-block text-foreground"
               >
                 Pengalaman Nyata
               </AmanahScriptText>
@@ -250,41 +262,34 @@ export function KhitanShowcaseSection() {
                 md:-mb-4 md:pb-4
               "
             >
-              <h2 className="
-                text-lg/snug font-medium tracking-tight text-foreground
-                sm:text-xl
-                md:text-2xl
-                lg:text-[1.75rem]
-              "
+              <HealthcareHeading
+                as="h2"
+                size="subsection"
+                className="font-medium text-foreground"
               >
                 &ldquo;Gibran aja sudah buktiin, kalau khitan itu nggak semenakutkan yang dibayangkan! 🤩✨&rdquo;
-              </h2>
+              </HealthcareHeading>
             </div>
 
             {/* Isi teks narasi */}
             <div
               data-content-item
               className="
-                mt-4 space-y-4
+                mt-4 flex flex-col gap-4
                 sm:mt-5
               "
             >
-              <p className="
-                text-sm/relaxed text-muted-foreground
-                sm:text-base
-                md:text-lg
-              "
+              <HealthcareText
+                className="text-muted-foreground"
               >
                 Bukannya nangis, Gibran malah ketiduran saking nyamannya proses khitan di Klinik Amanah Health Care Yogyakarta. 💤👍
-              </p>
-              <p className="
-                text-xs/relaxed text-muted-foreground/85
-                sm:text-sm
-                md:text-base
-              "
+              </HealthcareText>
+              <HealthcareText
+                size="small"
+                className="text-muted-foreground/85"
               >
                 Buat Ayah &amp; Bunda yang masih ragu pilih tempat khitan untuk si kecil, yuk ke Klinik Amanah aja! Prosesnya cepat, minim sakit, dan ditangani oleh tim profesional.
-              </p>
+              </HealthcareText>
             </div>
 
             {/* Identitas Pasien & Tombol Jadwalkan */}
@@ -296,16 +301,15 @@ export function KhitanShowcaseSection() {
               "
             >
               <div>
-                <p className="
-                  text-sm font-semibold tracking-wide text-foreground
-                  sm:text-base
-                "
+                <HealthcareText
+                  size="small"
+                  className="font-semibold text-foreground"
                 >
                   Gibran (8 tahun)
-                </p>
-                <p className="text-xs text-muted-foreground">
+                </HealthcareText>
+                <HealthcareText size="caption" className="text-muted-foreground">
                   Pasien Khitan Anak Klinik Amanah
-                </p>
+                </HealthcareText>
               </div>
 
               <div>

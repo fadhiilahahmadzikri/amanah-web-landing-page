@@ -1,0 +1,825 @@
+{
+  "$schema": "DesignSystemExtractionSchema_v2_Agnostic",
+  "metadata": {
+    "url": "https://mistral.ai/",
+    "domain": "mistral.ai",
+    "extractedAt": "2026-09-10T17:38:37.515Z",
+    "viewport": {
+      "width": 444,
+      "height": 730,
+      "devicePixelRatio": 1.25,
+      "mode": "mobile"
+    },
+    "scannedElements": 754
+  },
+  "tokens": {
+    "typography": {
+      "fontFamilies": [
+        {
+          "value": "Avenir Next",
+          "count": 630
+        },
+        {
+          "value": "icomoon",
+          "count": 105
+        },
+        {
+          "value": "system-ui",
+          "count": 18
+        },
+        {
+          "value": "Times New Roman",
+          "count": 1
+        }
+      ],
+      "fontSizeScale": [
+        {
+          "px": 6.4,
+          "rem": 0.4
+        },
+        {
+          "px": 9,
+          "rem": 0.563
+        },
+        {
+          "px": 9.6,
+          "rem": 0.6
+        },
+        {
+          "px": 10,
+          "rem": 0.625
+        },
+        {
+          "px": 11,
+          "rem": 0.688
+        },
+        {
+          "px": 12,
+          "rem": 0.75
+        },
+        {
+          "px": 13.33,
+          "rem": 0.833
+        },
+        {
+          "px": 13.6,
+          "rem": 0.85
+        },
+        {
+          "px": 14,
+          "rem": 0.875
+        },
+        {
+          "px": 14.4,
+          "rem": 0.9
+        },
+        {
+          "px": 15,
+          "rem": 0.938
+        },
+        {
+          "px": 16,
+          "rem": 1
+        },
+        {
+          "px": 17.6,
+          "rem": 1.1
+        },
+        {
+          "px": 19.2,
+          "rem": 1.2
+        },
+        {
+          "px": 20,
+          "rem": 1.25
+        },
+        {
+          "px": 24,
+          "rem": 1.5
+        },
+        {
+          "px": 25.6,
+          "rem": 1.6
+        },
+        {
+          "px": 432,
+          "rem": 27
+        }
+      ],
+      "fontWeights": [
+        300,
+        400,
+        500,
+        600,
+        700
+      ],
+      "lineHeights": [
+        {
+          "px": 7.04,
+          "rem": 0.44
+        },
+        {
+          "px": 9,
+          "rem": 0.563
+        },
+        {
+          "px": 9.6,
+          "rem": 0.6
+        },
+        {
+          "px": 10.8,
+          "rem": 0.675
+        },
+        {
+          "px": 11,
+          "rem": 0.688
+        },
+        {
+          "px": 12,
+          "rem": 0.75
+        },
+        {
+          "px": 13.2,
+          "rem": 0.825
+        },
+        {
+          "px": 14,
+          "rem": 0.875
+        },
+        {
+          "px": 14.4,
+          "rem": 0.9
+        },
+        {
+          "px": 15,
+          "rem": 0.938
+        },
+        {
+          "px": 15.4,
+          "rem": 0.963
+        },
+        {
+          "px": 15.84,
+          "rem": 0.99
+        },
+        {
+          "px": 16,
+          "rem": 1
+        },
+        {
+          "px": 16.32,
+          "rem": 1.02
+        },
+        {
+          "px": 16.5,
+          "rem": 1.031
+        },
+        {
+          "px": 17.6,
+          "rem": 1.1
+        },
+        {
+          "px": 18,
+          "rem": 1.125
+        },
+        {
+          "px": 20,
+          "rem": 1.25
+        },
+        {
+          "px": 21,
+          "rem": 1.313
+        },
+        {
+          "px": 21.12,
+          "rem": 1.32
+        },
+        {
+          "px": 22,
+          "rem": 1.375
+        },
+        {
+          "px": 24,
+          "rem": 1.5
+        },
+        {
+          "px": 25.6,
+          "rem": 1.6
+        },
+        {
+          "px": 26.4,
+          "rem": 1.65
+        },
+        {
+          "px": 30,
+          "rem": 1.875
+        },
+        {
+          "px": 36,
+          "rem": 2.25
+        },
+        {
+          "px": 432,
+          "rem": 27
+        },
+        {
+          "px": 540,
+          "rem": 33.75
+        }
+      ],
+      "letterSpacings": [
+        {
+          "value": "0.5px",
+          "count": 1
+        }
+      ],
+      "agnosticVisualHierarchy": [
+        {
+          "inferredRole": "Heading 2 (H2)",
+          "fontSize": "25.6px (1.6rem)",
+          "fontWeight": 400,
+          "lineHeight": "25.6px (ratio: 1)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#8d94a0",
+          "renderedUnderTag": "<span>",
+          "sampleTextFromPage": "+",
+          "occurrences": 1
+        },
+        {
+          "inferredRole": "Heading 2 (H2)",
+          "fontSize": "25.6px (1.6rem)",
+          "fontWeight": 300,
+          "lineHeight": "25.6px (ratio: 1)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#aaaaaa",
+          "renderedUnderTag": "<span>",
+          "sampleTextFromPage": "+",
+          "occurrences": 1
+        },
+        {
+          "inferredRole": "Heading 4 / Subhead (H4)",
+          "fontSize": "19.2px (1.2rem)",
+          "fontWeight": 400,
+          "lineHeight": "21.12px (ratio: 1.1)",
+          "letterSpacing": "normal",
+          "fontFamily": "system-ui",
+          "color": "#eeeeef",
+          "renderedUnderTag": "<span>",
+          "sampleTextFromPage": "A",
+          "occurrences": 1
+        },
+        {
+          "inferredRole": "Body (Regular)",
+          "fontSize": "16px (1rem)",
+          "fontWeight": 700,
+          "lineHeight": "17.6px (ratio: 1.1)",
+          "letterSpacing": "normal",
+          "fontFamily": "system-ui",
+          "color": "#ffffff",
+          "renderedUnderTag": "<div>",
+          "sampleTextFromPage": "12:38 AM",
+          "occurrences": 1
+        },
+        {
+          "inferredRole": "Body (Regular)",
+          "fontSize": "16px (1rem)",
+          "fontWeight": 400,
+          "lineHeight": "24px (ratio: 1.5)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#ffffff",
+          "renderedUnderTag": "<span>",
+          "sampleTextFromPage": "Generate a capture",
+          "occurrences": 2
+        },
+        {
+          "inferredRole": "Body (Regular)",
+          "fontSize": "16px (1rem)",
+          "fontWeight": 700,
+          "lineHeight": "24px (ratio: 1.5)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#dbdbdb",
+          "renderedUnderTag": "<div>",
+          "sampleTextFromPage": "Frequently Asked Questions",
+          "occurrences": 1
+        },
+        {
+          "inferredRole": "Body (Regular)",
+          "fontSize": "15px (0.938rem)",
+          "fontWeight": 400,
+          "lineHeight": "16.5px (ratio: 1.1)",
+          "letterSpacing": "normal",
+          "fontFamily": "system-ui",
+          "color": "#eeeeef",
+          "renderedUnderTag": "<div>",
+          "sampleTextFromPage": "A",
+          "occurrences": 2
+        },
+        {
+          "inferredRole": "Body (Regular)",
+          "fontSize": "14.4px (0.9rem)",
+          "fontWeight": 400,
+          "lineHeight": "15.84px (ratio: 1.1)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#dbdbdb",
+          "renderedUnderTag": "<span>",
+          "sampleTextFromPage": "Microphone",
+          "occurrences": 3
+        },
+        {
+          "inferredRole": "Body (Regular)",
+          "fontSize": "14.4px (0.9rem)",
+          "fontWeight": 400,
+          "lineHeight": "14.4px (ratio: 1)",
+          "letterSpacing": "normal",
+          "fontFamily": "icomoon",
+          "color": "#dbdbdb",
+          "renderedUnderTag": "<i>",
+          "sampleTextFromPage": "",
+          "occurrences": 1
+        },
+        {
+          "inferredRole": "Body (Regular)",
+          "fontSize": "14px (0.875rem)",
+          "fontWeight": 400,
+          "lineHeight": "21px (ratio: 1.5)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#4a4a4a",
+          "renderedUnderTag": "<h2>",
+          "sampleTextFromPage": "Android Phones",
+          "occurrences": 18
+        },
+        {
+          "inferredRole": "Body (Regular)",
+          "fontSize": "14px (0.875rem)",
+          "fontWeight": 400,
+          "lineHeight": "14px (ratio: 1)",
+          "letterSpacing": "normal",
+          "fontFamily": "icomoon",
+          "color": "#4a4a4a",
+          "renderedUnderTag": "<i>",
+          "sampleTextFromPage": "",
+          "occurrences": 6
+        },
+        {
+          "inferredRole": "Caption / Badge / Small",
+          "fontSize": "13.6px (0.85rem)",
+          "fontWeight": 400,
+          "lineHeight": "16.32px (ratio: 1.2)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#ffffff",
+          "renderedUnderTag": "<div>",
+          "sampleTextFromPage": "Disable the simulator",
+          "occurrences": 11
+        },
+        {
+          "inferredRole": "Caption / Badge / Small",
+          "fontSize": "12px (0.75rem)",
+          "fontWeight": 400,
+          "lineHeight": "18px (ratio: 1.5)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#dbdbdb",
+          "renderedUnderTag": "<span>",
+          "sampleTextFromPage": "Good",
+          "occurrences": 3
+        },
+        {
+          "inferredRole": "Caption / Badge / Small",
+          "fontSize": "11px (0.688rem)",
+          "fontWeight": 600,
+          "lineHeight": "16.5px (ratio: 1.5)",
+          "letterSpacing": "0.5px",
+          "fontFamily": "Avenir Next",
+          "color": "#8d94a0",
+          "renderedUnderTag": "<h2>",
+          "sampleTextFromPage": "Visible devices in the tab",
+          "occurrences": 1
+        },
+        {
+          "inferredRole": "Caption / Badge / Small",
+          "fontSize": "11px (0.688rem)",
+          "fontWeight": 500,
+          "lineHeight": "11px (ratio: 1)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#2d3d4e",
+          "renderedUnderTag": "<span>",
+          "sampleTextFromPage": "Samsung Galaxy S20",
+          "occurrences": 73
+        },
+        {
+          "inferredRole": "Caption / Badge / Small",
+          "fontSize": "10px (0.625rem)",
+          "fontWeight": 700,
+          "lineHeight": "12px (ratio: 1.2)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#ffffff",
+          "renderedUnderTag": "<div>",
+          "sampleTextFromPage": "PRO",
+          "occurrences": 35
+        },
+        {
+          "inferredRole": "Caption / Badge / Small",
+          "fontSize": "9.6px (0.6rem)",
+          "fontWeight": 700,
+          "lineHeight": "9.6px (ratio: 1)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#ffffff",
+          "renderedUnderTag": "<i>",
+          "sampleTextFromPage": "NEW",
+          "occurrences": 3
+        },
+        {
+          "inferredRole": "Caption / Badge / Small",
+          "fontSize": "9px (0.563rem)",
+          "fontWeight": 700,
+          "lineHeight": "9px (ratio: 1)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#ffffff",
+          "renderedUnderTag": "<span>",
+          "sampleTextFromPage": "NEW",
+          "occurrences": 8
+        },
+        {
+          "inferredRole": "Caption / Badge / Small",
+          "fontSize": "6.4px (0.4rem)",
+          "fontWeight": 700,
+          "lineHeight": "7.04px (ratio: 1.1)",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#ffffff",
+          "renderedUnderTag": "<i>",
+          "sampleTextFromPage": "NEW",
+          "occurrences": 1
+        }
+      ],
+      "explicitSemanticTagsFound": {
+        "button": {
+          "fontSize": "20px",
+          "fontWeight": "400",
+          "lineHeight": "30px",
+          "lineHeightRatio": 1.5,
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#969696"
+        },
+        "h2": {
+          "fontSize": "11px",
+          "fontWeight": "600",
+          "lineHeight": "16.5px",
+          "lineHeightRatio": 1.5,
+          "letterSpacing": "0.5px",
+          "fontFamily": "Avenir Next",
+          "color": "#8d94a0",
+          "sampleText": "Visible devices in the tab"
+        },
+        "a": {
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "15.4px",
+          "lineHeightRatio": 1.1,
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#4a4a4a",
+          "sampleText": "The device you're looking for isn't in t..."
+        },
+        "label": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "20px",
+          "lineHeightRatio": 1.25,
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#409eff"
+        },
+        "input": {
+          "fontSize": "13.3333px",
+          "fontWeight": "400",
+          "lineHeight": "normal",
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#000000"
+        },
+        "p": {
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "13.2px",
+          "lineHeightRatio": 1.1,
+          "letterSpacing": "normal",
+          "fontFamily": "Avenir Next",
+          "color": "#dbdbdb",
+          "sampleText": "Video recordings are limited to 5 minute..."
+        }
+      }
+    },
+    "spacing": {
+      "tokenScalePx": [
+        0,
+        1,
+        2,
+        2.4,
+        3,
+        4,
+        4.4,
+        4.5,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11.2,
+        12,
+        12.8,
+        16,
+        18,
+        19.2,
+        20,
+        21,
+        22,
+        24,
+        48,
+        57
+      ],
+      "layoutScalePx": [
+        109.2,
+        280.6
+      ],
+      "paddingScalePx": [
+        0,
+        2,
+        2.4,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11.2,
+        12,
+        16,
+        19.2,
+        20,
+        21,
+        22,
+        48
+      ],
+      "marginScalePx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        4.4,
+        4.5,
+        8,
+        10,
+        11.2,
+        12,
+        12.8,
+        16,
+        18,
+        20,
+        24,
+        57,
+        109.2,
+        280.6
+      ],
+      "gapScalePx": [
+        8,
+        12.8
+      ]
+    },
+    "colors": {
+      "textPalette": [
+        {
+          "value": "#4a4a4a",
+          "count": 252
+        },
+        {
+          "value": "#dbdbdb",
+          "count": 171
+        },
+        {
+          "value": "#c8d0dd",
+          "count": 73
+        },
+        {
+          "value": "#2d3d4e",
+          "count": 73
+        },
+        {
+          "value": "#ffffff",
+          "count": 67
+        },
+        {
+          "value": "#969696",
+          "count": 44
+        },
+        {
+          "value": "#363636",
+          "count": 30
+        },
+        {
+          "value": "#eeeeef",
+          "count": 13
+        },
+        {
+          "value": "#409eff",
+          "count": 12
+        },
+        {
+          "value": "#000000",
+          "count": 10
+        },
+        {
+          "value": "#808080",
+          "count": 4
+        },
+        {
+          "value": "#8d94a0",
+          "count": 3
+        },
+        {
+          "value": "#aaaaaa",
+          "count": 2
+        }
+      ],
+      "backgroundPalette": [
+        {
+          "value": "#ffffff",
+          "count": 78
+        },
+        {
+          "value": "#409eff",
+          "count": 38
+        },
+        {
+          "value": "#48c774",
+          "count": 7
+        },
+        {
+          "value": "#42b96c",
+          "count": 5
+        },
+        {
+          "value": "#3c3c3c",
+          "count": 5
+        },
+        {
+          "value": "#282828",
+          "count": 4
+        },
+        {
+          "value": "#dddddd",
+          "count": 4
+        },
+        {
+          "value": "#8888883d",
+          "count": 3
+        },
+        {
+          "value": "#101013",
+          "count": 2
+        },
+        {
+          "value": "#000000",
+          "count": 2
+        },
+        {
+          "value": "#f4f9fd",
+          "count": 2
+        },
+        {
+          "value": "#4a5158",
+          "count": 2
+        },
+        {
+          "value": "#b6b6b6",
+          "count": 2
+        },
+        {
+          "value": "#eeeeef30",
+          "count": 1
+        },
+        {
+          "value": "#007aff",
+          "count": 1
+        },
+        {
+          "value": "#dbdbdb",
+          "count": 1
+        },
+        {
+          "value": "#b5b5b5",
+          "count": 1
+        },
+        {
+          "value": "#f5f5f5",
+          "count": 1
+        },
+        {
+          "value": "#454545",
+          "count": 1
+        },
+        {
+          "value": "#333333",
+          "count": 1
+        }
+      ],
+      "borderPalette": [
+        {
+          "value": "#cdd3dd",
+          "count": 73
+        },
+        {
+          "value": "#409eff",
+          "count": 5
+        },
+        {
+          "value": "#777777",
+          "count": 5
+        },
+        {
+          "value": "#ffffff",
+          "count": 1
+        },
+        {
+          "value": "#282828",
+          "count": 1
+        },
+        {
+          "value": "#4a4a4a",
+          "count": 1
+        },
+        {
+          "value": "#90a5bc",
+          "count": 1
+        },
+        {
+          "value": "#b6b6b6",
+          "count": 1
+        },
+        {
+          "value": "#808080",
+          "count": 1
+        }
+      ]
+    },
+    "bordersAndEffects": {
+      "borderRadiusScalePx": [
+        2,
+        3,
+        4,
+        5,
+        9,
+        1000,
+        9999
+      ],
+      "borderWidthScalePx": [
+        0.8,
+        1.6,
+        2.4,
+        4
+      ],
+      "elevationShadows": [
+        {
+          "value": "rgba(10, 10, 10, 0.24) 0px 8px 32px -2px, rgba(10, 10, 10, 0.02) 0px 0px 0px 1px",
+          "count": 7
+        },
+        {
+          "value": "rgb(122, 122, 122) 0px 0px 0px 0px",
+          "count": 1
+        }
+      ]
+    },
+    "cssCustomProperties": {
+      "--color-green": "#42b96c",
+      "--color-grey-lighter": "#dbdbdb",
+      "--color-bg-lighter": "#3c3c3c",
+      "--color-hr": "hsla(0,0%,53.3%,0.23921568627450981)",
+      "--color-bg": "#282828",
+      "--dark-lighter": "#3c3c3c",
+      "--color-grey-1": "#777",
+      "--color-primary": "#409eff",
+      "--color-icons": "#969696",
+      "--color-hr-lighther": "#383838",
+      "--color-red": "#ff3860",
+      "--dark": "#282828",
+      "--font-size-7": "0.9rem",
+      "--color-text": "#dbdbdb"
+    }
+  }
+}

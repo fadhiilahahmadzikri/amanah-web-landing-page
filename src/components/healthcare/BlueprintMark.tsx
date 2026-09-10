@@ -82,7 +82,7 @@ export function BlueprintMark({
       </svg>
 
       <figcaption className="
-        absolute right-4 bottom-4 text-sm leading-none font-medium tracking-wide
+        absolute right-4 bottom-4 amanah-type-small font-medium
         text-muted-foreground/60 tabular-nums select-none
       "
       >

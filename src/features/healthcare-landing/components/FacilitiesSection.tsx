@@ -7,7 +7,12 @@ import { ArrowUpRightIcon, BadgeCheckIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useRef, useState } from 'react';
-import { AmanahScriptText, ViewportLine } from '@/components/healthcare';
+import {
+  AmanahScriptText,
+  HealthcareHeading,
+  HealthcareText,
+  ViewportLine,
+} from '@/components/healthcare';
 import { facilities, watermark } from '../data';
 import { FacilityCard } from './FacilityCard';
 import { SectionContainer } from './SectionContainer';
@@ -183,10 +188,7 @@ export function FacilitiesSection() {
               <div className="-mb-2 overflow-hidden pb-2">
                 <AmanahScriptText
                   mask="text"
-                  className="
-                    inline-block text-3xl text-foreground
-                    md:text-4xl
-                  "
+                  className="inline-block text-foreground"
                 >
                   Why Choose Us
                 </AmanahScriptText>
@@ -196,16 +198,14 @@ export function FacilitiesSection() {
                 md:-mb-4 md:pb-4
               "
               >
-                <h2
+                <HealthcareHeading
+                  as="h2"
                   data-mask-text
-                  className="
-                    max-w-2xl text-4xl/tight font-medium tracking-tight
-                    text-foreground will-change-transform
-                    md:text-6xl
-                  "
+                  size="display"
+                  className="max-w-2xl text-foreground will-change-transform"
                 >
                   Kenapa Memilih Amanah
-                </h2>
+                </HealthcareHeading>
               </div>
             </div>
 
@@ -215,14 +215,15 @@ export function FacilitiesSection() {
                 className="size-6 shrink-0 text-amanah-mint"
               />
               <div className="flex flex-col gap-2">
-                <p className="text-base italic">
+                <HealthcareText className="italic">
                   Certified by the American Dental Association
-                </p>
+                </HealthcareText>
                 <Link
                   href="/kontak"
                   className="
-                    inline-flex w-fit items-center gap-2 border-b border-line
-                    pb-1 text-base font-semibold text-primary transition-colors
+                    inline-flex w-fit amanah-type-body items-center gap-2
+                    border-b border-line pb-1 font-semibold text-primary
+                    transition-colors
                     hover:border-primary hover:text-amanah-blue
                   "
                 >

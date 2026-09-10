@@ -4,7 +4,12 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
-import { AmanahScriptText, SectionContainer } from '@/components/healthcare';
+import {
+  AmanahScriptText,
+  HealthcareHeading,
+  HealthcareText,
+  SectionContainer,
+} from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 import { servicesHeroData } from '../../data';
 import { HeroCurvedVisual } from '../atoms/HeroCurvedVisual';
@@ -110,29 +115,22 @@ export function ServicesHeroSection({ className }: ServicesHeroSectionProps) {
             {/* Eyebrow in script typography without wrapper */}
             <div data-hero-eyebrow className="-mb-2 overflow-hidden pb-2">
               <AmanahScriptText
-                className="
-                  inline-block text-3xl text-foreground
-                  md:text-4xl
-                "
+                className="inline-block text-foreground"
               >
                 {servicesHeroData.eyebrow}
               </AmanahScriptText>
             </div>
 
-            {/* Headline with project-wide typography convention */}
             <div className="
               -mb-3 overflow-hidden pb-3
               md:-mb-4 md:pb-4
             "
             >
-              <h2
+              <HealthcareHeading
+                as="h2"
                 data-hero-heading
-                className="
-                  text-4xl/tight font-medium tracking-tight text-foreground
-                  will-change-transform
-                  md:text-5xl
-                  lg:text-6xl
-                "
+                size="display"
+                className="font-medium text-foreground will-change-transform"
               >
                 Mendukung Kesehatan
                 <br />
@@ -143,20 +141,17 @@ export function ServicesHeroSection({ className }: ServicesHeroSectionProps) {
                 >
                   Anda Sepenuhnya
                 </span>
-              </h2>
+              </HealthcareHeading>
             </div>
 
-            {/* Subtitle */}
             <div className="mt-5 -mb-2 overflow-hidden pb-2">
-              <p
+              <HealthcareText
                 data-hero-desc
-                className="
-                  max-w-xl text-base/relaxed text-muted-foreground
-                  md:text-lg/relaxed
-                "
+                size="lead"
+                className="max-w-xl text-muted-foreground"
               >
                 {servicesHeroData.description}
-              </p>
+              </HealthcareText>
             </div>
 
             {/* 3 Circular KPI Indicators in a STRICT single horizontal row */}

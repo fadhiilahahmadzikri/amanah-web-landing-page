@@ -6,6 +6,7 @@ export { HealthcareChatFab } from './HealthcareChatFab';
 export { HealthcareFooter } from './HealthcareFooter';
 export { HealthcareHeader } from './HealthcareHeader';
 export { HealthcareShell } from './HealthcareShell';
+export { HealthcareEyebrow, HealthcareHeading, HealthcareText } from './HealthcareTypography';
 export { SectionContainer } from './SectionContainer';
 export { SmoothScroll } from './SmoothScroll';
 export { TechnicalDivider } from './TechnicalDivider';

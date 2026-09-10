@@ -64,16 +64,14 @@ export function ServiceFeatureHighlight({
       </span>
       <div className="flex min-w-0 flex-col text-left">
         <span className="
-          truncate text-[11px] leading-tight font-semibold text-foreground
-          sm:text-xs
+          truncate amanah-type-caption font-semibold text-foreground
         "
         >
           {line1}
         </span>
         {line2 && (
           <span className="
-            truncate text-[10px] leading-tight font-medium text-muted-foreground
-            sm:text-[11px]
+            truncate amanah-type-caption font-medium text-muted-foreground
           "
           >
             {line2}

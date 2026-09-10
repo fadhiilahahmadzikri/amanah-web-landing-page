@@ -8,6 +8,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 import {
   AmanahScriptText,
+  HealthcareHeading,
+  HealthcareText,
   SectionContainer,
   TechnicalDivider,
 } from '@/components/healthcare';
@@ -101,10 +103,7 @@ export function TeamSection({ section }: TeamSectionProps) {
             <div className="-mb-2 overflow-hidden pb-2">
               <AmanahScriptText
                 mask="text"
-                className="
-                  inline-block text-3xl/[1.05] font-semibold text-foreground
-                  md:text-4xl/[1.05]
-                "
+                className="inline-block font-semibold text-foreground"
               >
                 {section.eyebrow}
               </AmanahScriptText>
@@ -114,33 +113,32 @@ export function TeamSection({ section }: TeamSectionProps) {
               md:-mb-4 md:pb-4
             "
             >
-              <h2
+              <HealthcareHeading
+                as="h2"
                 data-mask-text
+                size="section"
                 className="
-                  inline-block text-4xl/[1.08] font-medium tracking-tight
-                  text-foreground will-change-transform
-                  md:text-5xl/[1.08]
-                  lg:whitespace-nowrap
+                  inline-block font-medium text-foreground will-change-transform
                 "
               >
                 {section.title}
-              </h2>
+              </HealthcareHeading>
             </div>
             <div className="
               mt-4 -mb-2 overflow-hidden pb-2
               sm:mt-5
             "
             >
-              <p
+              <HealthcareText
                 data-mask-text
+                size="body"
                 className="
-                  line-clamp-2 inline-block max-w-2xl text-sm/[1.65] font-medium
+                  line-clamp-2 inline-block max-w-2xl font-medium
                   text-muted-foreground will-change-transform
-                  md:text-base
                 "
               >
                 {section.description}
-              </p>
+              </HealthcareText>
             </div>
           </div>
         </div>

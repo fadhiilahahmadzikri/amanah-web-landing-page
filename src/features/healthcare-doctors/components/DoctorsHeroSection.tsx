@@ -6,6 +6,8 @@ import { useState } from 'react';
 import {
   AmanahScriptText,
   BlueprintMark,
+  HealthcareHeading,
+  HealthcareText,
   SectionContainer,
 } from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
@@ -48,10 +50,7 @@ export function DoctorsHeroSection() {
           <div className="relative mx-auto max-w-2xl text-center">
             <div className="-mb-2 overflow-hidden pb-2">
               <AmanahScriptText
-                className="
-                  inline-block text-3xl/[1.05] font-semibold text-foreground
-                  md:text-4xl/[1.05]
-                "
+                className="inline-block font-semibold text-foreground"
               >
                 {doctorsHero.eyebrow}
               </AmanahScriptText>
@@ -61,28 +60,28 @@ export function DoctorsHeroSection() {
               md:-mb-4 md:pb-4
             "
             >
-              <h1 className="
-                inline-block text-4xl/[1.08] font-medium tracking-tight
-                text-foreground
-                md:text-5xl/[1.08]
-              "
+              <HealthcareHeading
+                as="h1"
+                size="section"
+                className="inline-block font-medium text-foreground"
               >
                 {doctorsHero.title}
-              </h1>
+              </HealthcareHeading>
             </div>
             <div className="
               mt-4 -mb-2 overflow-hidden pb-2
               sm:mt-5
             "
             >
-              <p className="
-                mx-auto inline-block max-w-lg text-sm/[1.65] font-medium
-                text-muted-foreground
-                md:text-base
-              "
+              <HealthcareText
+                size="body"
+                className="
+                  mx-auto inline-block max-w-lg font-medium
+                  text-muted-foreground
+                "
               >
                 {doctorsHero.description}
-              </p>
+              </HealthcareText>
             </div>
           </div>
 
@@ -121,9 +120,9 @@ export function DoctorsHeroSection() {
 
             <div className="
               absolute bottom-3 left-4 max-w-[330px] border border-line
-              bg-background/90 px-4 py-2 text-[10px] font-semibold
+              bg-background/90 px-4 py-2 amanah-type-caption font-semibold
               text-muted-foreground backdrop-blur-sm
-              md:bottom-4 md:left-5 md:text-xs
+              md:bottom-4 md:left-5
             "
             >
               {doctorsHero.helperText}
@@ -136,8 +135,11 @@ export function DoctorsHeroSection() {
                 md:block
               "
               >
-                <p className="text-base font-semibold">{selectedMember.name}</p>
-                <AmanahScriptText className="mt-1 text-lg text-amanah-muted">
+                <HealthcareText className="font-semibold">{selectedMember.name}</HealthcareText>
+                <AmanahScriptText
+                  size="inherit"
+                  className="mt-1 amanah-type-body text-amanah-muted"
+                >
                   {selectedMember.role}
                 </AmanahScriptText>
               </div>

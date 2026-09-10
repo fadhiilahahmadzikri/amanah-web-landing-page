@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
+import { HealthcareHeading, HealthcareText } from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -307,17 +308,16 @@ export function StackedBlocksSection({ className }: StackedBlocksSectionProps) {
       "
       >
         <div className="-mb-2 overflow-hidden pb-2">
-          <h2
+          <HealthcareHeading
+            as="h2"
             data-mask-text
+            size="section"
             className="
-              inline-block text-3xl font-medium tracking-tight text-foreground
-              will-change-transform
-              sm:text-4xl
-              md:text-5xl
+              inline-block font-medium text-foreground will-change-transform
             "
           >
             Prinsip klinik amanah healthcare
-          </h2>
+          </HealthcareHeading>
         </div>
       </div>
 
@@ -526,15 +526,19 @@ function PrincipleCard({
         </PixelBadge>
 
         <div>
-          <h3 className="
-            text-xl font-medium tracking-tight text-card-foreground
-          "
+          <HealthcareHeading
+            as="h3"
+            size="card"
+            className="font-medium text-card-foreground"
           >
             {principle.title}
-          </h3>
-          <p className="mt-1.5 text-xs/relaxed text-muted-foreground">
+          </HealthcareHeading>
+          <HealthcareText
+            size="caption"
+            className="mt-1.5 text-muted-foreground"
+          >
             {principle.description}
-          </p>
+          </HealthcareText>
         </div>
       </div>
     </div>

@@ -5,7 +5,11 @@ import confetti from 'canvas-confetti';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useCallback, useEffect, useRef } from 'react';
-import { AmanahScriptText } from '@/components/healthcare';
+import {
+  AmanahScriptText,
+  HealthcareHeading,
+  HealthcareText,
+} from '@/components/healthcare';
 import { CardFanCarousel } from '@/components/ui/card-fan-carousel';
 import { documentationMoments } from '../data';
 import { SectionContainer } from './SectionContainer';
@@ -226,7 +230,6 @@ export function TestimonialsSection() {
         className="pointer-events-none absolute inset-0 z-30 size-full"
       />
 
-      {/* Header & Subtitle - 1 Horizon (Single Line) without wrap */}
       <SectionContainer className="
         relative flex flex-col items-center px-4
         sm:px-6
@@ -243,10 +246,7 @@ export function TestimonialsSection() {
           <div className="-mb-2 overflow-hidden pb-2">
             <AmanahScriptText
               mask="text"
-              className="
-                inline-block text-3xl text-foreground
-                md:text-4xl
-              "
+              className="inline-block text-foreground"
             >
               Momen Bersama
             </AmanahScriptText>
@@ -270,19 +270,17 @@ export function TestimonialsSection() {
               md:-mb-4 md:pb-4
             "
             >
-              <h2
+              <HealthcareHeading
+                as="h2"
                 data-mask-text
+                size="display"
                 className="
-                  inline-block text-[1.65rem] font-medium tracking-tight
-                  whitespace-nowrap text-foreground will-change-transform
-                  sm:text-3xl
-                  md:text-5xl
-                  lg:text-6xl
-                  xl:text-[3.85rem]
+                  inline-block max-w-5xl font-medium text-foreground
+                  will-change-transform
                 "
               >
                 Bersama Keluarga, Setiap Langkah
-              </h2>
+              </HealthcareHeading>
             </div>
 
             {/* Right cannon position anchor */}
@@ -299,16 +297,16 @@ export function TestimonialsSection() {
           </div>
 
           <div className="-mb-2 overflow-hidden pb-2">
-            <p
+            <HealthcareText
               data-mask-text
+              size="lead"
               className="
-                inline-block max-w-2xl text-base/relaxed text-muted-foreground
+                inline-block max-w-2xl text-muted-foreground
                 will-change-transform
-                md:text-lg/relaxed
               "
             >
               Dokumentasi momen keluarga yang kami dampingi dalam berbagai perjalanan kesehatan.
-            </p>
+            </HealthcareText>
           </div>
         </div>
       </SectionContainer>

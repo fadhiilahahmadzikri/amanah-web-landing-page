@@ -4,7 +4,12 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
-import { AmanahScriptText, SectionContainer } from '@/components/healthcare';
+import {
+  AmanahScriptText,
+  HealthcareHeading,
+  HealthcareText,
+  SectionContainer,
+} from '@/components/healthcare';
 import { aboutSlides } from '../../data';
 import { AboutCarousel } from '../molecules/AboutCarousel';
 
@@ -67,10 +72,7 @@ export function AboutCarouselSection() {
             <div className="-mb-2 overflow-hidden pb-2">
               <AmanahScriptText
                 mask="text"
-                className="
-                  inline-block text-3xl text-foreground
-                  md:text-4xl
-                "
+                className="inline-block text-foreground"
               >
                 Tentang Kami
               </AmanahScriptText>
@@ -80,32 +82,32 @@ export function AboutCarouselSection() {
               md:-mb-4 md:pb-4
             "
             >
-              <h2
+              <HealthcareHeading
+                as="h2"
                 data-mask-text
+                size="display"
                 className="
-                  inline-block text-4xl/tight font-medium tracking-tight
-                  text-foreground will-change-transform
-                  md:text-6xl
+                  inline-block font-medium text-foreground will-change-transform
                 "
               >
                 Kenali Klinik Amanah
-              </h2>
+              </HealthcareHeading>
             </div>
             <div className="
               mt-4 -mb-2 overflow-hidden pb-2
               sm:mt-5
             "
             >
-              <p
+              <HealthcareText
                 data-mask-text
+                size="lead"
                 className="
-                  inline-block max-w-2xl text-base/relaxed text-muted-foreground
+                  inline-block max-w-2xl text-muted-foreground
                   will-change-transform
-                  md:text-lg/relaxed
                 "
               >
                 Memberikan pelayanan kesehatan yang profesional, nyaman, dan terpercaya untuk Anda dan keluarga.
-              </p>
+              </HealthcareText>
             </div>
           </div>
 

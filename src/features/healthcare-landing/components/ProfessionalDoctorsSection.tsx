@@ -1,5 +1,10 @@
 import type { HealthcareTeamMember } from '@/features/healthcare-doctors/types';
-import { AmanahScriptText, ViewportLine } from '@/components/healthcare';
+import {
+  AmanahScriptText,
+  HealthcareHeading,
+  HealthcareText,
+  ViewportLine,
+} from '@/components/healthcare';
 import { TeamCard } from '@/features/healthcare-doctors/components/TeamCard';
 import { SectionContainer } from './SectionContainer';
 
@@ -42,27 +47,23 @@ export function ProfessionalDoctorsSection() {
         >
           <div className="mx-auto flex max-w-5xl flex-col items-center">
             <AmanahScriptText
-              className="
-                text-3xl/[1.05] font-semibold text-foreground
-                md:text-4xl/[1.05]
-              "
+              className="font-semibold text-foreground"
             >
               Kenali Dokter Kami
             </AmanahScriptText>
-            <h2 className="
-              mt-1 text-4xl/[1.08] font-medium tracking-tight text-foreground
-              md:text-5xl/[1.08]
-            "
+            <HealthcareHeading
+              as="h2"
+              size="section"
+              className="mt-1 font-medium text-foreground"
             >
               Hangat Mendampingi, Sepenuh Hati.
-            </h2>
-            <p className="
-              mt-5 max-w-2xl text-sm/[1.65] font-medium text-muted-foreground
-              md:text-base
-            "
+            </HealthcareHeading>
+            <HealthcareText
+              size="body"
+              className="mt-5 max-w-2xl font-medium text-muted-foreground"
             >
               Dokter Klinik Amanah Healthcare berkomitmen memberikan pendampingan yang nyaman dan terpercaya bagi pasien dan keluarga, mulai dari pemeriksaan, konsultasi, hingga perawatan lanjutan.
-            </p>
+            </HealthcareText>
           </div>
         </div>
 

@@ -2,6 +2,11 @@ import type { Ref } from 'react';
 import type { AboutSlide } from '../../../types';
 import Image from 'next/image';
 import { memo } from 'react';
+import {
+  HealthcareEyebrow,
+  HealthcareHeading,
+  HealthcareText,
+} from '@/components/healthcare';
 
 type CarouselCardProps = {
   index: number;
@@ -112,10 +117,10 @@ export const CarouselCard = memo(({
         <div
           className="
             rounded-lg border border-white/30 bg-white/15 px-3 py-1 font-mono
-            text-xs font-semibold tracking-widest text-foreground
+            amanah-type-caption font-semibold text-foreground
             shadow-[0_8px_30px_rgb(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.6)]
             backdrop-blur-xl
-            sm:px-3.5 sm:py-1.5 sm:text-sm
+            sm:px-3.5 sm:py-1.5
             dark:border-white/20 dark:bg-white/10
           "
         >
@@ -134,41 +139,36 @@ export const CarouselCard = memo(({
           lg:p-10 lg:pb-24
         "
       >
-        <p
+        <HealthcareEyebrow
           data-card-tag
           className="
-            text-xs font-semibold tracking-wide text-muted-foreground
-            drop-shadow-sm will-change-[transform,opacity,filter]
-            sm:text-sm
-            md:text-base
+            text-muted-foreground drop-shadow-sm
+            will-change-[transform,opacity,filter]
           "
         >
           {slide.eyebrow}
-        </p>
-        <h2
+        </HealthcareEyebrow>
+        <HealthcareHeading
+          as="h2"
           data-card-title
+          size="subsection"
           className="
-            font-sans text-xl/tight font-semibold tracking-tight text-foreground
-            drop-shadow-md will-change-[transform,opacity,filter]
-            sm:text-2xl/snug
-            md:text-3xl/tight
-            lg:text-4xl/tight
+            font-sans font-semibold text-foreground drop-shadow-md
+            will-change-[transform,opacity,filter]
           "
         >
           {slide.title}
-        </h2>
-        <p
+        </HealthcareHeading>
+        <HealthcareText
           data-card-desc
+          size="body"
           className="
-            line-clamp-3 max-w-3xl text-xs/relaxed font-normal
-            text-muted-foreground drop-shadow-sm
-            will-change-[transform,opacity,filter]
-            sm:text-sm/relaxed
-            md:text-base/relaxed
+            line-clamp-3 max-w-3xl font-normal text-muted-foreground
+            drop-shadow-sm will-change-[transform,opacity,filter]
           "
         >
           {slide.description}
-        </p>
+        </HealthcareText>
       </div>
     </article>
   );

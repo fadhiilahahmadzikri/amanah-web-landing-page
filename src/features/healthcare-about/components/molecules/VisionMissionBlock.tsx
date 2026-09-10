@@ -1,4 +1,5 @@
 import type { PixelFeatureIcon } from '../../types';
+import { HealthcareHeading, HealthcareText } from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 import { DecorativeMarker } from '../atoms/DecorativeMarker';
 import { PixelIconBadge } from '../atoms/PixelIconBadge';
@@ -38,29 +39,29 @@ export function VisionMissionBlock({
               )}
         </div>
         <div className="-mb-2 overflow-hidden pb-2">
-          <h2
+          <HealthcareHeading
+            as="h2"
             data-mask-text
+            size="subsection"
             className="
-              inline-block text-2xl font-medium tracking-tight text-foreground
-              will-change-transform
-              sm:text-3xl
+              inline-block font-medium text-foreground will-change-transform
             "
           >
             {title}
-          </h2>
+          </HealthcareHeading>
         </div>
       </div>
       <div className="-mb-2 overflow-hidden pb-2">
-        <p
+        <HealthcareText
           data-mask-text
+          size="body"
           className="
-            mt-5 inline-block max-w-lg text-sm/relaxed text-muted-foreground
+            mt-5 inline-block max-w-lg text-muted-foreground
             will-change-transform
-            sm:text-base/relaxed
           "
         >
           {description}
-        </p>
+        </HealthcareText>
       </div>
     </article>
   );
