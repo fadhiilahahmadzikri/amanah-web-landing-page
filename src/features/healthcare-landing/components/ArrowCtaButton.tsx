@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { ArrowUpRightIcon } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/utils/Helpers';
 
@@ -32,7 +33,7 @@ export function ArrowCtaButton({
         md:h-11 md:px-5 md:pr-2
       `, className)}
     >
-      <a href={href}>
+      <Link href={href}>
         <span>{children}</span>
         <span className={cn(`
           inline-flex size-7 items-center justify-center rounded-lg
@@ -43,7 +44,7 @@ export function ArrowCtaButton({
         >
           <ArrowUpRightIcon data-icon="inline-end" />
         </span>
-      </a>
+      </Link>
     </Button>
   );
 }

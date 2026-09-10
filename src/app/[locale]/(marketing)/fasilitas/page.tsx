@@ -2,19 +2,19 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { AmanahServicesPage } from '@/features/healthcare-services';
 
-type ServicesPageProps = {
+type FacilitiesPageProps = {
   params: Promise<{ locale: string }>;
 };
 
 export function generateMetadata(): Metadata {
   return {
-    title: 'Layanan Kesehatan - Klinik Amanah Healthcare',
+    title: 'Fasilitas & Layanan - Klinik Amanah Healthcare',
     description:
-      'Pelayanan dokter umum dan kebidanan profesional, nyaman, dan terpercaya untuk Anda dan keluarga.',
+      'Fasilitas dan layanan kesehatan profesional, nyaman, dan terpercaya untuk Anda dan keluarga.',
   };
 }
 
-export default async function ServicesPage(props: ServicesPageProps) {
+export default async function FacilitiesPage(props: FacilitiesPageProps) {
   const { locale } = await props.params;
   setRequestLocale(locale);
 

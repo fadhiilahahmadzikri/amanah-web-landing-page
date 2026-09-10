@@ -10,7 +10,6 @@ import {
 } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { ArrowCtaButton } from './ArrowCtaButton';
-import { PillLabel } from './PillLabel';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -231,20 +230,25 @@ export function KhitanShowcaseSection() {
               xl:p-14
             "
           >
-            {/* Pill label menggunakan komponen PillLabel bawaan tema */}
-            <div data-content-item>
-              <PillLabel># Pengalaman Nyata</PillLabel>
+            <div data-content-item className="-mb-2 overflow-hidden pb-2">
+              <p className="
+                inline-block font-amanah-script text-3xl text-foreground
+                md:text-4xl
+              "
+              >
+                Pengalaman Nyata
+              </p>
             </div>
 
-            {/* Isi teks murni sesuai permintaan user */}
+            {/* Headline Kutipan */}
             <div
               data-content-item
               className="
-                my-8 space-y-4
-                sm:my-10
+                -mb-3 overflow-hidden pb-3
+                md:-mb-4 md:pb-4
               "
             >
-              <p className="
+              <h2 className="
                 text-lg/snug font-medium tracking-tight text-foreground
                 sm:text-xl
                 md:text-2xl
@@ -252,7 +256,17 @@ export function KhitanShowcaseSection() {
               "
               >
                 &ldquo;Gibran aja sudah buktiin, kalau khitan itu nggak semenakutkan yang dibayangkan! 🤩✨&rdquo;
-              </p>
+              </h2>
+            </div>
+
+            {/* Isi teks narasi */}
+            <div
+              data-content-item
+              className="
+                mt-4 space-y-4
+                sm:mt-5
+              "
+            >
               <p className="
                 text-sm/relaxed text-muted-foreground
                 sm:text-base
@@ -275,8 +289,8 @@ export function KhitanShowcaseSection() {
             <div
               data-content-item
               className="
-                flex flex-col gap-4 border-t border-line pt-6
-                sm:flex-row sm:items-center sm:justify-between
+                mt-8 flex flex-col gap-4 border-t border-line pt-6
+                sm:mt-10 sm:flex-row sm:items-center sm:justify-between
               "
             >
               <div>

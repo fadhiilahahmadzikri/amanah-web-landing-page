@@ -18,12 +18,11 @@ export const brand = {
 };
 
 export const navigationItems = [
-  { label: 'Beranda', href: '#beranda' },
-  { label: 'Tentang Kami', href: '#tentang-kami' },
-  { label: 'Fasilitas', href: '#fasilitas' },
-  { label: 'Dokter', href: '#dokter' },
-  { label: 'Kontak', href: '#kontak' },
-  { label: 'Layanan', href: '#layanan' },
+  { label: 'Beranda', href: '/' },
+  { label: 'Tentang Kami', href: '/tentang-kami' },
+  { label: 'Fasilitas & Layanan', href: '/fasilitas' },
+  { label: 'Dokter', href: '/dokter' },
+  { label: 'Kontak', href: '/kontak' },
 ] satisfies NavigationItem[];
 
 export const hero = {

@@ -38,3 +38,18 @@ export type ServiceCategorySection = {
   services: ServiceCardItem[];
   layout: 'bento-left' | 'bento-right';
 };
+
+export type FacilityCarouselItem = {
+  id: string;
+  title: string;
+  summary: string;
+  url: string;
+  image: string;
+};
+
+export type FacilitySectionData = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  items: FacilityCarouselItem[];
+};

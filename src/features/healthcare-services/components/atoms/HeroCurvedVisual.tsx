@@ -47,7 +47,7 @@ export function HeroCurvedVisual({
               alt={alt}
               fill
               priority={priority}
-              sizes="(min-width: 1024px) 55vw, (min-width: 768px) 50vw, 100vw"
+              sizes="(min-width: 1024px) 40vw, (min-width: 768px) 40vw, 100vw"
               className="object-cover object-center"
             />
           )

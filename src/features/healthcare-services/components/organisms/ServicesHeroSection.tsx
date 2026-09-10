@@ -5,7 +5,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 import { SectionContainer } from '@/components/healthcare';
-import { PillLabel } from '@/features/healthcare-landing/components/PillLabel';
 import { cn } from '@/utils/Helpers';
 import { servicesHeroData } from '../../data';
 import { HeroCurvedVisual } from '../atoms/HeroCurvedVisual';
@@ -103,19 +102,25 @@ export function ServicesHeroSection({ className }: ServicesHeroSectionProps) {
           <div
             ref={contentRef}
             className="
-              z-10 flex max-w-full flex-col justify-center px-6 py-10
-              md:max-w-[50%] md:py-14 md:pr-4 md:pl-10
-              lg:max-w-[48%] lg:py-16 lg:pl-12
+              z-10 flex w-full flex-col justify-center px-6 py-10
+              md:w-[60%] md:max-w-[60%] md:py-14 md:pr-4 md:pl-10
+              lg:w-[60%] lg:max-w-[60%] lg:py-16 lg:pl-12
             "
           >
-            {/* Pill Eyebrow reusing the existing design system component */}
-            <div data-hero-eyebrow>
-              <PillLabel>{servicesHeroData.eyebrow}</PillLabel>
+            {/* Eyebrow in script typography without wrapper */}
+            <div data-hero-eyebrow className="-mb-2 overflow-hidden pb-2">
+              <p className="
+                inline-block font-amanah-script text-3xl text-foreground
+                md:text-4xl
+              "
+              >
+                {servicesHeroData.eyebrow}
+              </p>
             </div>
 
             {/* Headline with project-wide typography convention */}
             <div className="
-              mt-6 -mb-3 overflow-hidden pb-3
+              -mb-3 overflow-hidden pb-3
               md:-mb-4 md:pb-4
             "
             >
@@ -124,17 +129,18 @@ export function ServicesHeroSection({ className }: ServicesHeroSectionProps) {
                 className="
                   text-4xl/tight font-medium tracking-tight text-foreground
                   will-change-transform
-                  md:text-6xl
+                  md:text-5xl
+                  lg:text-6xl
                 "
               >
-                Layanan Kesehatan untuk
-                {' '}
+                Mendukung Kesehatan
+                <br />
                 <span className="
                   text-amanah-blue
                   dark:text-amanah-sky
                 "
                 >
-                  Anda dan Keluarga
+                  Anda Sepenuhnya
                 </span>
               </h2>
             </div>
@@ -178,8 +184,8 @@ export function ServicesHeroSection({ className }: ServicesHeroSectionProps) {
               relative flex h-[360px] w-full items-end justify-end
               overflow-hidden
               sm:h-[420px]
-              md:absolute md:inset-y-0 md:right-0 md:h-full md:w-[54%]
-              lg:w-[52%]
+              md:absolute md:inset-y-0 md:right-0 md:h-full md:w-[40%]
+              lg:w-[40%]
             "
           >
             <HeroCurvedVisual

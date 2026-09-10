@@ -5,11 +5,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRightIcon, BadgeCheckIcon } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useCallback, useRef, useState } from 'react';
 import { ViewportLine } from '@/components/healthcare';
 import { facilities, watermark } from '../data';
 import { FacilityCard } from './FacilityCard';
-import { PillLabel } from './PillLabel';
 import { SectionContainer } from './SectionContainer';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -179,8 +179,19 @@ export function FacilitiesSection() {
               lg:grid-cols-[1fr_0.9fr] lg:items-center
             "
           >
-            <div className="flex flex-col items-start gap-8">
-              <PillLabel># Why Choose Us</PillLabel>
+            <div className="flex flex-col items-start">
+              <div className="-mb-2 overflow-hidden pb-2">
+                <p
+                  data-mask-text
+                  className="
+                    inline-block font-amanah-script text-3xl text-foreground
+                    will-change-transform
+                    md:text-4xl
+                  "
+                >
+                  Why Choose Us
+                </p>
+              </div>
               <div className="
                 -mb-3 overflow-hidden pb-3
                 md:-mb-4 md:pb-4
@@ -208,8 +219,8 @@ export function FacilitiesSection() {
                 <p className="text-base italic">
                   Certified by the American Dental Association
                 </p>
-                <a
-                  href="#kontak"
+                <Link
+                  href="/kontak"
                   className="
                     inline-flex w-fit items-center gap-2 border-b border-line
                     pb-1 text-base font-semibold text-primary transition-colors
@@ -218,7 +229,7 @@ export function FacilitiesSection() {
                 >
                   Schedule Your Visit
                   <ArrowUpRightIcon aria-hidden />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

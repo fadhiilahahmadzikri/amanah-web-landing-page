@@ -45,28 +45,44 @@ export function DoctorsHeroSection() {
           />
 
           <div className="relative mx-auto max-w-2xl text-center">
-            <p className="
-              font-amanah-script text-2xl/[1.05] font-semibold text-foreground
-              md:text-3xl/[1.05]
+            <div className="-mb-2 overflow-hidden pb-2">
+              <p className="
+                inline-block font-amanah-script text-3xl/[1.05] font-semibold
+                text-foreground
+                md:text-4xl/[1.05]
+              "
+              >
+                {doctorsHero.eyebrow}
+              </p>
+            </div>
+            <div className="
+              -mb-3 overflow-hidden pb-3
+              md:-mb-4 md:pb-4
             "
             >
-              {doctorsHero.eyebrow}
-            </p>
-            <h1 className="
-              mt-3 text-4xl/[1.08] font-medium tracking-tight text-foreground
-              md:text-5xl/[1.08]
+              <h1 className="
+                inline-block text-4xl/[1.08] font-medium tracking-tight
+                text-foreground
+                md:text-5xl/[1.08]
+              "
+              >
+                {doctorsHero.title}
+              </h1>
+            </div>
+            <div className="
+              mt-4 -mb-2 overflow-hidden pb-2
+              sm:mt-5
             "
             >
-              {doctorsHero.title}
-            </h1>
-            <p className="
-              mx-auto mt-4 max-w-lg text-sm/[1.65] font-medium
-              text-muted-foreground
-              md:text-base
-            "
-            >
-              {doctorsHero.description}
-            </p>
+              <p className="
+                mx-auto inline-block max-w-lg text-sm/[1.65] font-medium
+                text-muted-foreground
+                md:text-base
+              "
+              >
+                {doctorsHero.description}
+              </p>
+            </div>
           </div>
 
           <div className="

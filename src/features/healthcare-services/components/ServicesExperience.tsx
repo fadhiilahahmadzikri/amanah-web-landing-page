@@ -91,8 +91,8 @@ export function ServicesExperience({ className }: ServicesExperienceProps) {
           <aside
             className="
               shrink-0 border-b border-line bg-background p-0
-              lg:w-[220px] lg:border-r lg:border-b-0
-              xl:w-[240px]
+              lg:w-[220px] lg:border-r lg:border-b-0 lg:pt-[72px]
+              xl:w-[240px] xl:pt-20
             "
           >
             <div className="sticky top-20 z-20 w-full">
