@@ -6,6 +6,7 @@ import { AppointmentSection } from './components/AppointmentSection';
 import { FacilitiesSection } from './components/FacilitiesSection';
 import { HeroSection } from './components/HeroSection';
 import { KhitanShowcaseSection } from './components/KhitanShowcaseSection';
+import { ProfessionalDoctorsSection } from './components/ProfessionalDoctorsSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { TrustHighlights } from './components/TrustHighlights';
 
@@ -20,6 +21,8 @@ export function AmanahLandingPage({ locale }: AmanahLandingPageProps) {
       <TrustHighlights />
       <TechnicalDivider />
       <FacilitiesSection />
+      <TechnicalDivider />
+      <ProfessionalDoctorsSection />
       <TechnicalDivider />
       <KhitanShowcaseSection />
       <TechnicalDivider />
