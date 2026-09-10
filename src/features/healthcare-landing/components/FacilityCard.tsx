@@ -5,9 +5,12 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
-import { HealthcareHeading, HealthcareText } from '@/components/healthcare';
+import {
+  HealthcareHeading,
+  HealthcareText,
+  PixelIcon,
+} from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
-import { FacilityContextIcon } from './FacilityIcons';
 
 type FacilityCardProps = {
   facility: FacilityItem;
@@ -36,84 +39,106 @@ export function FacilityCard({
   const titleRef = useRef<HTMLHeadingElement>(null);
   const descRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
-  const iconRef = useRef<HTMLSpanElement>(null);
+  const iconRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
-  const tlRef = useRef<gsap.core.Timeline | null>(null);
   const progressTweenRef = useRef<gsap.core.Tween | null>(null);
+  const isFirstRender = useRef<boolean>(true);
 
-  // Initialize GSAP reveal timeline
+  // Synchronize card reveal with active state using robust GSAP tweens
   useGSAP(
     () => {
-      gsap.set(descRef.current, { y: 35, opacity: 0 });
-      gsap.set(bgRef.current, { opacity: 0, scale: 1 });
-      gsap.set(titleRef.current, { y: 0, opacity: 1 });
-      gsap.set(progressBarRef.current, { scaleX: 0, transformOrigin: 'left' });
+      if (isFirstRender.current) {
+        isFirstRender.current = false;
+        if (isActive) {
+          gsap.set(titleRef.current, { y: -18, opacity: 0 });
+          gsap.set(iconRef.current, { y: -14, opacity: 0, scale: 0.75 });
+          gsap.set(bgRef.current, { opacity: 1, scale: 1.05 });
+          gsap.set(descRef.current, { y: 0, opacity: 1 });
+        } else {
+          gsap.set(titleRef.current, { y: 0, opacity: 1 });
+          gsap.set(iconRef.current, { y: 0, opacity: 1, scale: 1 });
+          gsap.set(bgRef.current, { opacity: 0, scale: 1 });
+          gsap.set(descRef.current, { y: 35, opacity: 0 });
+        }
+        return;
+      }
 
-      const tl = gsap.timeline({
-        paused: true,
-        defaults: { ease: 'power2.out' },
-      });
-
-      // 1. Title retreats early along y-axis and fades out
-      tl.to(
-        titleRef.current,
-        {
+      if (isActive) {
+        // Active: background & description enter, title & icon disappear
+        gsap.to(titleRef.current, {
           y: -18,
           opacity: 0,
-          duration: 0.2,
+          duration: 0.25,
           ease: 'power2.in',
-        },
-        0,
-      )
-        // 2. Background Layer activates with opacity fade & subtle scale
-        .to(
-          bgRef.current,
-          {
-            opacity: 1,
-            scale: 1.05,
-            duration: 0.45,
-            ease: 'power2.out',
-          },
-          0.06,
-        )
-        // Icon container gets subtle scale enhancement
-        .to(
-          iconRef.current,
-          {
-            scale: 1.06,
-            duration: 0.35,
-            ease: 'power2.out',
-          },
-          0.08,
-        )
-        // 3. Description rises into place from below with opacity fade-in
-        .to(
-          descRef.current,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.4,
-            ease: 'power3.out',
-          },
-          0.12,
-        );
-
-      tlRef.current = tl;
+          overwrite: 'auto',
+        });
+        gsap.to(iconRef.current, {
+          y: -14,
+          opacity: 0,
+          scale: 0.75,
+          duration: 0.25,
+          ease: 'power2.in',
+          overwrite: 'auto',
+        });
+        gsap.to(bgRef.current, {
+          opacity: 1,
+          scale: 1.05,
+          duration: 0.45,
+          ease: 'power2.out',
+          overwrite: 'auto',
+        });
+        gsap.to(descRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.4,
+          delay: 0.08,
+          ease: 'power3.out',
+          overwrite: 'auto',
+        });
+      } else {
+        // Inactive: title & icon return to visible, background & description disappear
+        gsap.to(titleRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.35,
+          ease: 'power2.out',
+          overwrite: 'auto',
+        });
+        gsap.to(iconRef.current, {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.35,
+          ease: 'power2.out',
+          overwrite: 'auto',
+        });
+        gsap.to(bgRef.current, {
+          opacity: 0,
+          scale: 1,
+          duration: 0.35,
+          ease: 'power2.in',
+          overwrite: 'auto',
+        });
+        gsap.to(descRef.current, {
+          y: 35,
+          opacity: 0,
+          duration: 0.25,
+          ease: 'power2.in',
+          overwrite: 'auto',
+        });
+      }
     },
-    { scope: cardRef },
+    { dependencies: [isActive], scope: cardRef },
   );
 
-  // Synchronize active state with card reveal & progressive interval bar
+  // Synchronize progressive interval bar
   useEffect(() => {
-    const cardTl = tlRef.current;
     const bar = progressBarRef.current;
-    if (!cardTl || !bar) {
+    if (!bar) {
       return;
     }
 
     if (isActive) {
-      cardTl.play();
-
       if (!progressTweenRef.current) {
         gsap.set(bar, { scaleX: 0, transformOrigin: 'left' });
         progressTweenRef.current = gsap.to(bar, {
@@ -133,8 +158,6 @@ export function FacilityCard({
         progressTweenRef.current?.resume();
       }
     } else {
-      cardTl.reverse();
-
       if (progressTweenRef.current) {
         progressTweenRef.current.kill();
         progressTweenRef.current = null;
@@ -146,6 +169,12 @@ export function FacilityCard({
       });
     }
   }, [isActive, isPaused, index, progressDuration, onProgressComplete]);
+
+  useEffect(() => {
+    return () => {
+      progressTweenRef.current?.kill();
+    };
+  }, []);
 
   return (
     <article
@@ -168,12 +197,13 @@ export function FacilityCard({
         className,
       )}
     >
-      {/* Interval Progressive Bar */}
+      {/* Interval Progressive Bar (active only on desktop) */}
       <div
         aria-hidden="true"
         className="
-          pointer-events-none absolute inset-x-0 top-0 z-30 h-[3.5px]
+          pointer-events-none absolute inset-x-0 top-0 z-30 hidden h-[3.5px]
           overflow-hidden bg-line/20
+          md:block
           dark:bg-white/10
         "
       >
@@ -182,7 +212,7 @@ export function FacilityCard({
           className="
             size-full origin-left scale-x-0 bg-amanah-blue
             shadow-[0_1px_6px_rgba(49,113,222,0.4)] will-change-transform
-            dark:bg-amanah-mint dark:shadow-[0_1px_8px_rgba(52,211,153,0.5)]
+            dark:bg-amanah-blue dark:shadow-[0_1px_8px_rgba(49,113,222,0.6)]
           "
         />
       </div>
@@ -214,39 +244,19 @@ export function FacilityCard({
         />
       </div>
 
-      {/* Slot 2: Icon */}
+      {/* Slot 2: Pixel Botanical Icon (No wrapper, pure pixel art) */}
       <div className="relative z-10">
-        <span
+        <div
           ref={iconRef}
           data-facility-icon
-          className={cn(
-            `
-              inline-flex size-12 shrink-0 items-center justify-center
-              rounded-xl bg-amanah-icon-soft text-amanah-blue transition-colors
-              duration-300
-              group-hover:border group-hover:border-slate-200/80
-              group-hover:bg-white group-hover:text-amanah-blue
-              group-hover:shadow-md
-              dark:bg-amanah-blue/20 dark:text-amanah-mint
-              dark:group-hover:border-white/20 dark:group-hover:bg-white/15
-              dark:group-hover:text-white dark:group-hover:shadow-lg
-              dark:group-hover:backdrop-blur-md
-            `,
-            isActive && `
-              border border-slate-200/80 bg-white text-amanah-blue shadow-md
-              dark:border-white/20 dark:bg-white/15 dark:text-white
-              dark:shadow-lg dark:backdrop-blur-md
-            `,
-          )}
+          className="inline-flex shrink-0 items-center justify-center will-change-[transform,opacity]"
         >
-          <FacilityContextIcon
-            src={facility.icon.src}
-            className="
-              size-6 transition-transform duration-300
-              group-hover:scale-110
-            "
+          <PixelIcon
+            name={facility.pixelIcon ?? 'sakura'}
+            size="responsive"
+            svgClassName="size-10 md:size-8 transition-transform duration-300 group-hover:scale-110"
           />
-        </span>
+        </div>
       </div>
 
       {/* Bottom slots wrapper */}

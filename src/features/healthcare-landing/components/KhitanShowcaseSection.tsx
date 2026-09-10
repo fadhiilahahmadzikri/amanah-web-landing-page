@@ -16,6 +16,7 @@ import {
   AmanahScriptText,
   HealthcareHeading,
   HealthcareText,
+  SectionHeader,
 } from '@/components/healthcare';
 import { ArrowCtaButton } from './ArrowCtaButton';
 
@@ -176,54 +177,29 @@ export function KhitanShowcaseSection() {
         md:py-24
       "
     >
-      {/* Header persis seperti referensi: 3 icon di atas, heading ringkas tanpa subtitle */}
-      <div
+      <SectionHeader
         ref={headerRef}
         className="
-          mx-auto mb-10 flex w-full flex-col items-center justify-center px-4
-          text-center
+          mb-10 w-full px-4
           md:mb-14
         "
-      >
-        <div
-          data-header-icons
-          className="
-            mb-3 flex items-center justify-center gap-2 text-amanah-blue
-            select-none
-          "
-          aria-hidden
-        >
-          <StethoscopeIcon className="
-            size-6
-            sm:size-7
-          "
-          />
-          <BabyIcon className="
-            size-6
-            sm:size-7
-          "
-          />
-          <SparklesIcon className="
-            size-6
-            sm:size-7
-          "
-          />
-        </div>
-        <div className="
-          -mb-3 overflow-hidden pb-3
-          md:-mb-4 md:pb-4
-        "
-        >
-          <HealthcareHeading
-            as="h2"
-            data-mask-text
-            size="display"
-            className="font-medium text-foreground will-change-transform"
+        eyebrow={(
+          <div
+            data-header-icons
+            className="
+              mb-3 flex items-center justify-center gap-2 text-amanah-blue
+              select-none
+            "
+            aria-hidden
           >
-            Khitan Nyaman, Anak Tenang.
-          </HealthcareHeading>
-        </div>
-      </div>
+            <StethoscopeIcon className="size-6 sm:size-7" />
+            <BabyIcon className="size-6 sm:size-7" />
+            <SparklesIcon className="size-6 sm:size-7" />
+          </div>
+        )}
+        headingSize="display"
+        title="Khitan Nyaman, Anak Tenang."
+      />
 
       {/* Wrapper mentok kanan-kiri tanpa padding/margin luar, bersatu dengan shell rails dan respect tema */}
       <div

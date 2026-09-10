@@ -1,3 +1,5 @@
+import type { PixelIconName } from '@/components/healthcare';
+
 export type AssetImage = {
   src: string;
   alt: string;
@@ -13,6 +15,7 @@ export type FacilityItem = {
   description: string;
   icon: AssetImage;
   image: AssetImage;
+  pixelIcon?: PixelIconName;
 };
 
 export type ServiceItem = {

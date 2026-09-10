@@ -6,11 +6,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRightIcon, BadgeCheckIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
-  AmanahScriptText,
-  HealthcareHeading,
   HealthcareText,
+  SectionHeader,
   ViewportLine,
 } from '@/components/healthcare';
 import { facilities, watermark } from '../data';
@@ -35,6 +34,15 @@ export function FacilitiesSection() {
   const [activeCardIndex, setActiveCardIndex] = useState<number>(0);
   const [isUserHovering, setIsUserHovering] = useState<boolean>(false);
   const [isInView, setIsInView] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 767px)');
+    const updateMobile = () => setIsMobile(media.matches);
+    updateMobile();
+    media.addEventListener('change', updateMobile);
+    return () => media.removeEventListener('change', updateMobile);
+  }, []);
 
   const handleProgressComplete = useCallback((completedIndex: number) => {
     setActiveCardIndex((current) => {
@@ -49,6 +57,17 @@ export function FacilitiesSection() {
     setIsUserHovering(true);
     setActiveCardIndex(index);
   }, []);
+
+  const handleCardClick = useCallback(
+    (index: number) => {
+      if (isMobile) {
+        setActiveCardIndex((current) => (current === index ? -1 : index));
+      } else {
+        handleCardHover(index);
+      }
+    },
+    [isMobile, handleCardHover],
+  );
 
   const handleGridLeave = useCallback(() => {
     setIsUserHovering(false);
@@ -65,6 +84,7 @@ export function FacilitiesSection() {
         onEnterBack: () => setIsInView(true),
         onLeaveBack: () => setIsInView(false),
       });
+
       if (watermarkRef.current) {
         gsap.to(watermarkRef.current, {
           yPercent: 25,
@@ -116,25 +136,38 @@ export function FacilitiesSection() {
             },
           },
         );
-
-        const icons = gridRef.current.querySelectorAll('[data-facility-icon]');
-        gsap.fromTo(
-          icons,
-          { scale: 0, opacity: 0 },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.12,
-            ease: 'back.out(1.7)',
-            scrollTrigger: {
-              trigger: gridRef.current,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse',
-            },
-          },
-        );
       }
+
+      const mm = gsap.matchMedia();
+
+      // Mobile Strada-style scroll accordion
+      mm.add('(max-width: 767px)', () => {
+        if (!gridRef.current) {
+          return;
+        }
+
+        const cardElements = gridRef.current.querySelectorAll('article');
+        cardElements.forEach((card, index) => {
+          ScrollTrigger.create({
+            trigger: card,
+            start: 'top 65%',
+            end: 'bottom 35%',
+            onEnter: () => setActiveCardIndex(index),
+            onEnterBack: () => setActiveCardIndex(index),
+            onLeave: () => {
+              setActiveCardIndex((current) => (current === index ? -1 : current));
+            },
+            onLeaveBack: () => {
+              setActiveCardIndex((current) => (current === index ? -1 : current));
+            },
+          });
+        });
+      });
+
+      // Desktop: restore first card active if none was active
+      mm.add('(min-width: 768px)', () => {
+        setActiveCardIndex((current) => (current === -1 ? 0 : current));
+      });
     },
     { scope: sectionRef },
   );
@@ -184,30 +217,12 @@ export function FacilitiesSection() {
               lg:grid-cols-[1fr_0.9fr] lg:items-center
             "
           >
-            <div className="flex flex-col items-start">
-              <div className="-mb-2 overflow-hidden pb-2">
-                <AmanahScriptText
-                  mask="text"
-                  className="inline-block text-foreground"
-                >
-                  Why Choose Us
-                </AmanahScriptText>
-              </div>
-              <div className="
-                -mb-3 overflow-hidden pb-3
-                md:-mb-4 md:pb-4
-              "
-              >
-                <HealthcareHeading
-                  as="h2"
-                  data-mask-text
-                  size="section"
-                  className="max-w-2xl text-foreground will-change-transform"
-                >
-                  Langkah Pertama, Untuk Keluarga
-                </HealthcareHeading>
-              </div>
-            </div>
+            <SectionHeader
+              align="left"
+              eyebrow="Why Choose Us"
+              title="Langkah Pertama, Untuk Keluarga"
+              headingClassName="max-w-2xl"
+            />
 
             <div className="flex items-center gap-5 text-muted-foreground">
               <BadgeCheckIcon
@@ -252,12 +267,12 @@ export function FacilitiesSection() {
                 facility={facility}
                 index={index}
                 className={facilityBorderClassNames[index]}
-                isActive={isInView && activeCardIndex === index}
-                isPaused={isUserHovering || !isInView}
+                isActive={isMobile ? activeCardIndex === index : isInView && activeCardIndex === index}
+                isPaused={isMobile ? true : isUserHovering || !isInView}
                 progressDuration={4.5}
                 onProgressComplete={handleProgressComplete}
                 onCardHover={handleCardHover}
-                onCardClick={handleCardHover}
+                onCardClick={handleCardClick}
               />
             );
           })}

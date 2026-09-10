@@ -6,9 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 import {
-  AmanahScriptText,
-  HealthcareHeading,
-  HealthcareText,
+  SectionHeader,
   ViewportLine,
 } from '@/components/healthcare';
 import { TeamCard } from '@/features/healthcare-doctors/components/TeamCard';
@@ -103,48 +101,12 @@ export function ProfessionalDoctorsSection() {
           md:px-8 md:py-14
         "
         >
-          <div
+          <SectionHeader
             ref={headerRef}
-            className="mx-auto flex max-w-5xl flex-col items-center"
-          >
-            <div className="-mb-2 overflow-hidden pb-2">
-              <AmanahScriptText
-                mask="text"
-                className="inline-block font-semibold text-foreground"
-              >
-                Kenali Dokter Kami
-              </AmanahScriptText>
-            </div>
-            <div className="
-              -mb-3 overflow-hidden pb-3
-              md:-mb-4 md:pb-4
-            "
-            >
-              <HealthcareHeading
-                as="h2"
-                data-mask-text
-                size="section"
-                className="mt-1 inline-block font-medium text-foreground will-change-transform"
-              >
-                Hangat Mendampingi, Sepenuh Hati.
-              </HealthcareHeading>
-            </div>
-            <div className="
-              mt-4 -mb-2 overflow-hidden pb-2
-              sm:mt-5
-            "
-            >
-              <HealthcareText
-                data-mask-text
-                size="body"
-                className="
-                  inline-block max-w-2xl font-medium text-muted-foreground will-change-transform
-                "
-              >
-                Dokter Klinik Amanah Healthcare berkomitmen memberikan pendampingan yang nyaman dan terpercaya bagi pasien dan keluarga, mulai dari pemeriksaan, konsultasi, hingga perawatan lanjutan.
-              </HealthcareText>
-            </div>
-          </div>
+            eyebrow="Kenali Dokter Kami"
+            title="Hangat Mendampingi, Sepenuh Hati."
+            description="Dokter Klinik Amanah Healthcare berkomitmen memberikan pendampingan yang nyaman dan terpercaya bagi pasien dan keluarga, mulai dari pemeriksaan, konsultasi, hingga perawatan lanjutan."
+          />
         </div>
 
         <div

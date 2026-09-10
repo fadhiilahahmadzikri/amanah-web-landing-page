@@ -5,11 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { useRef } from 'react';
-import {
-  AmanahScriptText,
-  HealthcareHeading,
-  HealthcareText,
-} from '@/components/healthcare';
+import { SectionHeader } from '@/components/healthcare';
 import { appointment, watermark } from '../data';
 import { ArrowCtaButton } from './ArrowCtaButton';
 import { SectionContainer } from './SectionContainer';
@@ -116,55 +112,23 @@ export function AppointmentSection() {
               aria-hidden
             />
 
-            <div
+            <SectionHeader
               ref={textRef}
-              className="relative z-10 flex max-w-xl flex-col items-start"
-            >
-              <div className="-mb-2 overflow-hidden pb-2">
-                <AmanahScriptText
-                  mask="text"
-                  className="inline-block text-foreground"
-                >
-                  {appointment.eyebrow}
-                </AmanahScriptText>
-              </div>
-              <div className="
-                -mb-3 overflow-hidden pb-3
-                md:-mb-4 md:pb-4
-              "
-              >
-                <HealthcareHeading
-                  as="h2"
-                  data-mask-text
-                  size="display"
-                  className="text-foreground will-change-transform"
-                >
-                  {appointment.title}
-                </HealthcareHeading>
-              </div>
-              <div className="
-                mt-4 -mb-2 overflow-hidden pb-2
-                sm:mt-5
-              "
-              >
-                <HealthcareText
-                  data-mask-text
-                  size="lead"
-                  className="text-muted-foreground will-change-transform"
-                >
-                  {appointment.description}
-                </HealthcareText>
-              </div>
-              <div className="
-                mt-8
-                sm:mt-10
-              "
-              >
-                <ArrowCtaButton href="/kontak">
-                  Buat Janji Temu
-                </ArrowCtaButton>
-              </div>
-            </div>
+              align="left"
+              className="relative z-10 max-w-xl"
+              eyebrow={appointment.eyebrow}
+              headingSize="display"
+              title={appointment.title}
+              description={appointment.description}
+              descriptionSize="lead"
+              actionSlot={(
+                <div className="mt-8 sm:mt-10">
+                  <ArrowCtaButton href="/kontak">
+                    Buat Janji Temu
+                  </ArrowCtaButton>
+                </div>
+              )}
+            />
           </div>
 
           <div

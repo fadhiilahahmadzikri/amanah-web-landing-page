@@ -95,6 +95,7 @@ export const facilities = [
     title: 'Spesialis Persalinan',
     description:
       'Ditangani dokter kandungan (SpOG), didukung fasilitas USG dan pemeriksaan laboratorium.',
+    pixelIcon: 'sakura',
     icon: {
       src: '/assets/svg/icon-spesialis-persalinan.svg',
       alt: 'Ikon Spesialis Persalinan Klinik Amanah',
@@ -107,6 +108,7 @@ export const facilities = [
   {
     title: 'Khitan Laser Anak',
     description: 'Metode laser, ditangani langsung oleh tenaga medis klinik.',
+    pixelIcon: 'bunga-matahari',
     icon: {
       src: '/assets/svg/icon-khitan-laser.svg',
       alt: 'Ikon Layanan Khitan Laser Anak',
@@ -120,6 +122,7 @@ export const facilities = [
     title: 'Persalinan 24 Jam',
     description:
       'Siaga penuh untuk persalinan normal, kapan pun Anda membutuhkan.',
+    pixelIcon: 'teratai',
     icon: {
       src: '/assets/svg/icon-persalinan-24jam.svg',
       alt: 'Ikon Layanan Persalinan 24 Jam Siaga Penuh',
@@ -133,6 +136,7 @@ export const facilities = [
     title: 'Terima BPJS & Umum',
     description:
       'Melayani pasien BPJS Kesehatan maupun non-BPJS, proses administrasi mudah.',
+    pixelIcon: 'melati',
     icon: {
       src: '/assets/svg/icon-terima-bpjs.svg',
       alt: 'Ikon Pelayanan Pasien BPJS dan Umum',

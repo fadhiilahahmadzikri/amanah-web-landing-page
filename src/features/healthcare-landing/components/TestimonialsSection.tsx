@@ -5,11 +5,7 @@ import confetti from 'canvas-confetti';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useCallback, useEffect, useRef } from 'react';
-import {
-  AmanahScriptText,
-  HealthcareHeading,
-  HealthcareText,
-} from '@/components/healthcare';
+import { SectionHeader } from '@/components/healthcare';
 import { CardFanCarousel } from '@/components/ui/card-fan-carousel';
 import { documentationMoments } from '../data';
 import { SectionContainer } from './SectionContainer';
@@ -230,88 +226,52 @@ export function TestimonialsSection() {
         className="pointer-events-none absolute inset-0 z-30 size-full"
       />
 
-      <SectionContainer className="
-        relative flex flex-col items-center px-4
-        sm:px-6
-      "
+      <SectionContainer
+        className="
+          relative flex flex-col items-center px-4
+          sm:px-6
+        "
       >
-        <div
-          ref={headerRef}
-          className="
-            mx-auto mb-10 flex w-full max-w-6xl flex-col items-center px-2
-            text-center
-            md:mb-14
-          "
-        >
-          <div className="-mb-2 overflow-hidden pb-2">
-            <AmanahScriptText
-              mask="text"
-              className="inline-block text-foreground"
-            >
-              Momen Bersama
-            </AmanahScriptText>
-          </div>
-
-          <div className="relative flex w-full items-center justify-center">
-            {/* Left cannon position anchor */}
-            <span
-              ref={cannonLeftRef}
-              className="
-                pointer-events-none absolute top-1/2 left-0 size-1
-                -translate-y-1/2 opacity-0
-                sm:left-2
-                md:left-4
-              "
-              aria-hidden
-            />
-
-            <div className="
-              -mb-3 overflow-hidden pb-3
-              md:-mb-4 md:pb-4
+        <div className="relative flex w-full max-w-6xl items-center justify-center">
+          {/* Confetti launch anchors positioned at sides of header */}
+          <span
+            ref={cannonLeftRef}
+            className="
+              pointer-events-none absolute top-1/2 left-0 size-1 -translate-y-1/2
+              opacity-0
+              sm:left-2
+              md:left-4
             "
-            >
-              <HealthcareHeading
-                as="h2"
-                data-mask-text
-                size="display"
-                className="
-                  inline-block max-w-5xl font-medium text-foreground
-                  will-change-transform
-                "
-              >
-                Bersama Keluarga, Setiap Langkah
-              </HealthcareHeading>
-            </div>
+            aria-hidden
+          />
 
-            {/* Right cannon position anchor */}
-            <span
-              ref={cannonRightRef}
-              className="
-                pointer-events-none absolute top-1/2 right-0 size-1
-                -translate-y-1/2 opacity-0
-                sm:right-2
-                md:right-4
-              "
-              aria-hidden
-            />
-          </div>
+          <SectionHeader
+            ref={headerRef}
+            className="
+              mb-10 w-full px-2
+              md:mb-14
+            "
+            eyebrow="Momen Bersama"
+            headingSize="display"
+            headingClassName="max-w-5xl"
+            title="Bersama Keluarga, Setiap Langkah"
+            description="Dokumentasi momen keluarga yang kami dampingi dalam berbagai perjalanan kesehatan."
+            descriptionSize="lead"
+          />
 
-          <div className="-mb-2 overflow-hidden pb-2">
-            <HealthcareText
-              data-mask-text
-              size="lead"
-              className="
-                inline-block max-w-2xl text-muted-foreground
-                will-change-transform
-              "
-            >
-              Dokumentasi momen keluarga yang kami dampingi dalam berbagai perjalanan kesehatan.
-            </HealthcareText>
-          </div>
+          <span
+            ref={cannonRightRef}
+            className="
+              pointer-events-none absolute top-1/2 right-0 size-1 -translate-y-1/2
+              opacity-0
+              sm:right-2
+              md:right-4
+            "
+            aria-hidden
+          />
         </div>
       </SectionContainer>
 
-      {/* Full-width carousel ("tembus ke dinding") with clipped side gradient masking */}
       <div
         ref={carouselContainerRef}
         className="relative w-full overflow-hidden"

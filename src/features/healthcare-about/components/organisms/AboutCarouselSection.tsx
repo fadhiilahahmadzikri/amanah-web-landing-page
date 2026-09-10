@@ -5,10 +5,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 import {
-  AmanahScriptText,
-  HealthcareHeading,
-  HealthcareText,
   SectionContainer,
+  SectionHeader,
 } from '@/components/healthcare';
 import { aboutSlides } from '../../data';
 import { AboutCarousel } from '../molecules/AboutCarousel';
@@ -63,53 +61,15 @@ export function AboutCarouselSection() {
           md:pt-20
         "
         >
-          <div
+          <SectionHeader
             ref={headerRef}
-            className="
-              mx-auto flex max-w-3xl flex-col items-center px-6 text-center
-            "
-          >
-            <div className="-mb-2 overflow-hidden pb-2">
-              <AmanahScriptText
-                mask="text"
-                className="inline-block text-foreground"
-              >
-                Tentang Kami
-              </AmanahScriptText>
-            </div>
-            <div className="
-              -mb-3 overflow-hidden pb-3
-              md:-mb-4 md:pb-4
-            "
-            >
-              <HealthcareHeading
-                as="h2"
-                data-mask-text
-                size="display"
-                className="
-                  inline-block font-medium text-foreground will-change-transform
-                "
-              >
-                Kenali Klinik Amanah
-              </HealthcareHeading>
-            </div>
-            <div className="
-              mt-4 -mb-2 overflow-hidden pb-2
-              sm:mt-5
-            "
-            >
-              <HealthcareText
-                data-mask-text
-                size="lead"
-                className="
-                  inline-block max-w-2xl text-muted-foreground
-                  will-change-transform
-                "
-              >
-                Memberikan pelayanan kesehatan yang profesional, nyaman, dan terpercaya untuk Anda dan keluarga.
-              </HealthcareText>
-            </div>
-          </div>
+            className="px-6"
+            eyebrow="Tentang Kami"
+            title="Kenali Klinik Amanah"
+            headingSize="display"
+            description="Memberikan pelayanan kesehatan yang profesional, nyaman, dan terpercaya untuk Anda dan keluarga."
+            descriptionSize="lead"
+          />
 
           <AboutCarousel slides={aboutSlides} />
         </div>

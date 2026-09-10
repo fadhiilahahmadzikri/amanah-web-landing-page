@@ -7,10 +7,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 import {
-  AmanahScriptText,
-  HealthcareHeading,
-  HealthcareText,
   SectionContainer,
+  SectionHeader,
   TechnicalDivider,
 } from '@/components/healthcare';
 import { TeamCard } from './TeamCard';
@@ -96,51 +94,13 @@ export function TeamSection({ section }: TeamSectionProps) {
           md:px-8 md:py-12
         "
         >
-          <div
+          <SectionHeader
             ref={headerRef}
-            className="mx-auto flex max-w-5xl flex-col items-center"
-          >
-            <div className="-mb-2 overflow-hidden pb-2">
-              <AmanahScriptText
-                mask="text"
-                className="inline-block font-semibold text-foreground"
-              >
-                {section.eyebrow}
-              </AmanahScriptText>
-            </div>
-            <div className="
-              -mb-3 overflow-hidden pb-3
-              md:-mb-4 md:pb-4
-            "
-            >
-              <HealthcareHeading
-                as="h2"
-                data-mask-text
-                size="section"
-                className="
-                  inline-block font-medium text-foreground will-change-transform
-                "
-              >
-                {section.title}
-              </HealthcareHeading>
-            </div>
-            <div className="
-              mt-4 -mb-2 overflow-hidden pb-2
-              sm:mt-5
-            "
-            >
-              <HealthcareText
-                data-mask-text
-                size="body"
-                className="
-                  line-clamp-2 inline-block max-w-2xl font-medium
-                  text-muted-foreground will-change-transform
-                "
-              >
-                {section.description}
-              </HealthcareText>
-            </div>
-          </div>
+            eyebrow={section.eyebrow}
+            title={section.title}
+            description={section.description}
+            descriptionClassName="line-clamp-2"
+          />
         </div>
 
         <TechnicalDivider />

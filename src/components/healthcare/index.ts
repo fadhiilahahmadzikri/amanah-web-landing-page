@@ -8,6 +8,21 @@ export { HealthcareHeader } from './HealthcareHeader';
 export { HealthcareShell } from './HealthcareShell';
 export { HealthcareEyebrow, HealthcareHeading, HealthcareText } from './HealthcareTypography';
 export { SectionContainer } from './SectionContainer';
+export { SectionHeader } from './SectionHeader';
+export type { SectionHeaderAlign, SectionHeaderProps } from './SectionHeader';
+export {
+  getPixelIcon,
+  PIXEL_ICONS,
+  PixelIcon,
+  pixelIconNames,
+} from './pixel-icons';
+export type {
+  PixelIconCategory,
+  PixelIconMetadata,
+  PixelIconName,
+  PixelIconProps,
+  PixelIconWrapperVariant,
+} from './pixel-icons';
 export { SmoothScroll } from './SmoothScroll';
 export { TechnicalDivider } from './TechnicalDivider';
 export { ThemeToggle } from './ThemeToggle';
