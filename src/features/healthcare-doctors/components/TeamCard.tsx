@@ -38,16 +38,14 @@ export function TeamCard({
     <article
       className={cn(
         `
-          relative flex h-full flex-col overflow-hidden bg-background pl-3
+          relative flex h-full flex-col overflow-hidden bg-background pl-2.5
           text-foreground
-          min-[420px]:pl-4
           sm:pl-6
           md:pl-8
         `,
         showRightRail
         && `
-          border-r border-line pr-3
-          min-[420px]:pr-4
+          border-r border-line pr-2.5
           sm:pr-6
           md:pr-8
         `,
@@ -57,8 +55,7 @@ export function TeamCard({
       <span
         aria-hidden
         className="
-          absolute inset-y-0 left-0 z-10 w-3 border-r border-line opacity-70
-          min-[420px]:w-4
+          absolute inset-y-0 left-0 z-10 w-2.5 border-r border-line opacity-70
           sm:w-6
           md:w-8
         "
@@ -68,8 +65,7 @@ export function TeamCard({
         <span
           aria-hidden
           className="
-            absolute inset-y-0 right-0 z-10 w-3 border-l border-line opacity-70
-            min-[420px]:w-4
+            absolute inset-y-0 right-0 z-10 w-2.5 border-l border-line opacity-70
             sm:w-6
             md:w-8
           "
@@ -78,8 +74,8 @@ export function TeamCard({
       )}
 
       <div className="
-        relative px-2.5 py-3
-        min-[420px]:px-3 min-[420px]:py-4
+        relative px-3.5 py-3
+        min-[380px]:px-4
         sm:px-5 sm:pt-6 sm:pb-5
         md:px-8 md:pt-8 md:pb-6
       "
@@ -87,15 +83,22 @@ export function TeamCard({
         <HealthcareHeading
           as="h3"
           size="card"
-          className="line-clamp-3 max-w-72 font-extrabold"
+          className="
+            line-clamp-2 max-w-72 font-extrabold leading-snug
+            text-sm
+            min-[380px]:text-base
+            md:amanah-type-card-title
+          "
         >
           {member.name}
         </HealthcareHeading>
         <AmanahScriptText
           size="inherit"
           className="
-            mt-2 line-clamp-2 amanah-type-small text-amanah-muted
-            sm:mt-3
+            mt-1 line-clamp-2 text-base font-medium text-amanah-muted
+            min-[380px]:text-lg
+            sm:mt-2 sm:text-xl
+            md:text-2xl
           "
         >
           {member.role}
@@ -104,8 +107,8 @@ export function TeamCard({
 
       <div
         className="
-          relative min-h-[260px] w-full flex-1 overflow-hidden bg-background
-          min-[420px]:min-h-[300px]
+          relative min-h-[150px] w-full flex-1 overflow-hidden bg-background
+          min-[380px]:min-h-[175px]
           sm:min-h-[340px]
           md:min-h-[360px]
         "
@@ -121,7 +124,7 @@ export function TeamCard({
 
         {showSocials && (
           <div className="
-            absolute right-2 bottom-2 flex gap-1.5
+            absolute right-1.5 bottom-1.5 flex gap-1
             sm:right-3 sm:bottom-3 sm:gap-2
           "
           >
@@ -129,15 +132,15 @@ export function TeamCard({
               href="/kontak"
               aria-label={`LinkedIn ${member.name}`}
               className="
-                inline-flex size-7 items-center justify-center rounded-lg
+                inline-flex size-6 items-center justify-center rounded-md
                 bg-primary text-primary-foreground transition-transform
                 hover:scale-105
-                sm:size-8
+                sm:size-8 sm:rounded-lg
               "
             >
               <span
                 aria-hidden
-                className="amanah-type-caption font-extrabold"
+                className="text-[10px] font-extrabold sm:amanah-type-caption"
               >
                 in
               </span>
@@ -146,13 +149,13 @@ export function TeamCard({
               href="/kontak"
               aria-label={`X ${member.name}`}
               className="
-                inline-flex size-7 items-center justify-center rounded-lg
+                inline-flex size-6 items-center justify-center rounded-md
                 bg-primary text-primary-foreground transition-transform
                 hover:scale-105
-                sm:size-8
+                sm:size-8 sm:rounded-lg
               "
             >
-              <XIcon aria-hidden className="size-3.5" />
+              <XIcon aria-hidden className="size-3 sm:size-3.5" />
             </Link>
           </div>
         )}

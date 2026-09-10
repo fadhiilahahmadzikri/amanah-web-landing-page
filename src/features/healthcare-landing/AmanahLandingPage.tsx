@@ -18,6 +18,7 @@ export function AmanahLandingPage({ locale }: AmanahLandingPageProps) {
   return (
     <HealthcareShell activePath="/" locale={locale}>
       <HeroSection />
+      <TechnicalDivider className="lg:hidden" />
       <TrustHighlights />
       <TechnicalDivider />
       <FacilitiesSection />

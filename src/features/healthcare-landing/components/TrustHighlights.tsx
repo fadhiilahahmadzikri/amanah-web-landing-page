@@ -4,11 +4,68 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { HealthcareHeading, HealthcareText } from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 import { trustHighlights } from '../data';
 import { SectionContainer } from './SectionContainer';
+
+gsap.registerPlugin(ScrollTrigger);
+
+type TextCtaLinkProps = {
+  children: React.ReactNode;
+  className?: string;
+  href: string;
+};
+
+function TextCtaLink({ children, className, href }: TextCtaLinkProps) {
+  return (
+    <a
+      href={href}
+      className={cn(
+        `
+          inline-flex items-center gap-1.5 border-b border-line pb-0.5
+          text-xs font-semibold text-primary transition-colors
+          hover:border-primary hover:text-amanah-blue
+          sm:gap-[10px] sm:amanah-type-small
+        `,
+        className,
+      )}
+    >
+      <span>{children}</span>
+      <svg
+        width="13"
+        height="13"
+        viewBox="0 0 13 13"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="size-3 shrink-0"
+        aria-hidden="true"
+      >
+        <path
+          d="M10.4114 3.41421L1.80483 12.0208L0.390625 10.6066L8.99722 2H1.41144V0H12.4114V11H10.4114V3.41421Z"
+          fill="currentColor"
+        />
+      </svg>
+    </a>
+  );
+}
+
+export function TrustHighlights() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const counterRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      const panels = sectionRef.current?.querySelectorAll('[data-trust-panel]');
+      if (panels && panels.length > 0) {
+        gsap.fromTo(
+          panels,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
             stagger: 0.12,
             ease: 'expo.out',
             scrollTrigger: {
@@ -76,8 +133,8 @@ import { SectionContainer } from './SectionContainer';
       "
       >
         <div className="
-          grid grid-cols-2 border-b border-line
-          sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] sm:items-stretch
+          grid grid-cols-2 min-h-[220px] border-b border-line
+          sm:min-h-0 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] sm:items-stretch
           min-[1400px]:grid-cols-[241px_361px]
           lg:border-r lg:border-b-0
         "
@@ -85,8 +142,8 @@ import { SectionContainer } from './SectionContainer';
           <div
             data-trust-panel
             className="
-              flex flex-col items-start justify-between gap-6
-              border-r border-line bg-background p-4
+              flex min-h-[220px] flex-col items-start justify-between gap-6
+              border-r border-line bg-background p-5
               sm:min-h-[149px] sm:gap-10 sm:p-6
               lg:px-[30px] lg:py-[18px]
             "
@@ -107,24 +164,9 @@ import { SectionContainer } from './SectionContainer';
               </HealthcareText>
             </div>
 
-            <a
-              href="#layanan"
-              className="
-                inline-flex items-center gap-1.5 border-b border-line pb-0.5
-                text-xs font-semibold text-primary transition-colors
-                hover:border-primary hover:text-amanah-blue
-                sm:gap-[10px] sm:amanah-type-small
-              "
-            >
+            <TextCtaLink href="#layanan">
               {trustHighlights.service.cta}
-              <Image
-                src={trustHighlights.service.ctaIcon.src}
-                alt={trustHighlights.service.ctaIcon.alt}
-                width={13}
-                height={13}
-                aria-hidden="true"
-              />
-            </a>
+            </TextCtaLink>
           </div>
 
           <div className="
@@ -136,8 +178,8 @@ import { SectionContainer } from './SectionContainer';
             <div
               data-trust-panel
               className="
-                flex flex-1 flex-col justify-center gap-3 bg-background p-4
-                sm:min-h-[205px] sm:gap-[15px] sm:border-r sm:border-line sm:px-6 sm:py-7
+                flex min-h-[220px] flex-1 flex-col justify-between gap-3 bg-background p-5
+                sm:min-h-[205px] sm:justify-center sm:gap-[15px] sm:border-r sm:border-line sm:px-6 sm:py-7
               "
             >
               <Image
@@ -188,8 +230,9 @@ import { SectionContainer } from './SectionContainer';
         <div
           data-trust-panel
           className="
-            flex min-h-[241px] flex-col justify-center gap-8 border-b
-            border-line bg-background px-8 py-10
+            flex min-h-[241px] flex-col justify-between gap-8 border-b
+            border-line bg-background p-6
+            sm:p-8
             md:px-[38px] md:py-[45px]
             lg:border-r lg:border-b-0
           "
@@ -206,28 +249,35 @@ import { SectionContainer } from './SectionContainer';
               {trustHighlights.community.description}
             </HealthcareText>
           </div>
-          <div className="flex">
-            {trustHighlights.community.avatars.map((avatar, index) => (
-              <Image
-                key={avatar.src}
-                data-avatar-item
-                src={avatar.src}
-                alt={avatar.alt}
-                width={56}
-                height={56}
-                className="
-                  size-14 rounded-full border-2 border-background object-cover
-                "
-                style={{ marginLeft: index === 0 ? 0 : -16 }}
-              />
-            ))}
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center">
+              {trustHighlights.community.avatars.map((avatar, index) => (
+                <Image
+                  key={avatar.src}
+                  data-avatar-item
+                  src={avatar.src}
+                  alt={avatar.alt}
+                  width={56}
+                  height={56}
+                  className="
+                    size-11 rounded-full border-2 border-background object-cover
+                    sm:size-14
+                  "
+                  style={{ marginLeft: index === 0 ? 0 : -14 }}
+                />
+              ))}
+            </div>
+            <TextCtaLink href="/kontak">
+              Daftar Segera
+            </TextCtaLink>
           </div>
         </div>
 
         <div
           data-trust-panel
           className="
-            flex min-h-[241px] flex-col justify-center gap-5 bg-background p-8
+            flex min-h-[241px] flex-col justify-center gap-5 bg-background p-6
+            sm:p-8
           "
         >
           <Image

@@ -201,10 +201,10 @@ export function FacilitiesSection() {
                 <HealthcareHeading
                   as="h2"
                   data-mask-text
-                  size="display"
+                  size="section"
                   className="max-w-2xl text-foreground will-change-transform"
                 >
-                  Kenapa Memilih Amanah
+                  Langkah Pertama, Untuk Keluarga
                 </HealthcareHeading>
               </div>
             </div>

@@ -335,12 +335,12 @@ export function HeroSection() {
         <HeroMetricsRail
           placement="mobile"
           className="
-            border-t-0 opacity-0 will-change-transform
+            border-y-0 opacity-0 will-change-transform
             lg:hidden
           "
         />
       </div>
-      <ViewportLine position="bottom" />
+      <ViewportLine position="bottom" className="hidden lg:block" />
     </section>
   );
 }

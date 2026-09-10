@@ -1,4 +1,10 @@
+'use client';
+
 import type { HealthcareTeamMember } from '@/features/healthcare-doctors/types';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
 import {
   AmanahScriptText,
   HealthcareHeading,
@@ -7,6 +13,8 @@ import {
 } from '@/components/healthcare';
 import { TeamCard } from '@/features/healthcare-doctors/components/TeamCard';
 import { SectionContainer } from './SectionContainer';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const professionalDoctors = [
   {
@@ -30,8 +38,58 @@ const professionalDoctors = [
 ] satisfies HealthcareTeamMember[];
 
 export function ProfessionalDoctorsSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (headerRef.current) {
+        const maskLines = headerRef.current.querySelectorAll('[data-mask-text]');
+        gsap.fromTo(
+          maskLines,
+          { yPercent: 120, opacity: 0 },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.12,
+            ease: 'expo.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          },
+        );
+      }
+
+      if (gridRef.current) {
+        const cards = gridRef.current.querySelectorAll('article');
+        gsap.fromTo(
+          cards,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.1,
+            ease: 'expo.out',
+            scrollTrigger: {
+              trigger: gridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          },
+        );
+      }
+    },
+    { scope: sectionRef },
+  );
+
   return (
     <section
+      ref={sectionRef}
       id="tenaga-profesional"
       className="bg-background"
     >
@@ -45,32 +103,56 @@ export function ProfessionalDoctorsSection() {
           md:px-8 md:py-14
         "
         >
-          <div className="mx-auto flex max-w-5xl flex-col items-center">
-            <AmanahScriptText
-              className="font-semibold text-foreground"
+          <div
+            ref={headerRef}
+            className="mx-auto flex max-w-5xl flex-col items-center"
+          >
+            <div className="-mb-2 overflow-hidden pb-2">
+              <AmanahScriptText
+                mask="text"
+                className="inline-block font-semibold text-foreground"
+              >
+                Kenali Dokter Kami
+              </AmanahScriptText>
+            </div>
+            <div className="
+              -mb-3 overflow-hidden pb-3
+              md:-mb-4 md:pb-4
+            "
             >
-              Kenali Dokter Kami
-            </AmanahScriptText>
-            <HealthcareHeading
-              as="h2"
-              size="section"
-              className="mt-1 font-medium text-foreground"
+              <HealthcareHeading
+                as="h2"
+                data-mask-text
+                size="section"
+                className="mt-1 inline-block font-medium text-foreground will-change-transform"
+              >
+                Hangat Mendampingi, Sepenuh Hati.
+              </HealthcareHeading>
+            </div>
+            <div className="
+              mt-4 -mb-2 overflow-hidden pb-2
+              sm:mt-5
+            "
             >
-              Hangat Mendampingi, Sepenuh Hati.
-            </HealthcareHeading>
-            <HealthcareText
-              size="body"
-              className="mt-5 max-w-2xl font-medium text-muted-foreground"
-            >
-              Dokter Klinik Amanah Healthcare berkomitmen memberikan pendampingan yang nyaman dan terpercaya bagi pasien dan keluarga, mulai dari pemeriksaan, konsultasi, hingga perawatan lanjutan.
-            </HealthcareText>
+              <HealthcareText
+                data-mask-text
+                size="body"
+                className="
+                  inline-block max-w-2xl font-medium text-muted-foreground will-change-transform
+                "
+              >
+                Dokter Klinik Amanah Healthcare berkomitmen memberikan pendampingan yang nyaman dan terpercaya bagi pasien dan keluarga, mulai dari pemeriksaan, konsultasi, hingga perawatan lanjutan.
+              </HealthcareText>
+            </div>
           </div>
         </div>
 
-        <div className="
-          relative mx-auto grid max-w-3xl auto-rows-fr gap-px bg-line
-          md:grid-cols-2
-        "
+        <div
+          ref={gridRef}
+          className="
+            relative mx-auto grid max-w-3xl auto-rows-fr gap-px bg-line
+            grid-cols-2
+          "
         >
           {professionalDoctors.map((doctor, index) => (
             <TeamCard
