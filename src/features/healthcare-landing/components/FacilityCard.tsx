@@ -10,6 +10,7 @@ import {
   HealthcareText,
   PixelIcon,
 } from '@/components/healthcare';
+import { PixelMeshBackground } from '@/features/healthcare-about/components/atoms/PixelMeshBackground';
 import { cn } from '@/utils/Helpers';
 
 type FacilityCardProps = {
@@ -36,10 +37,9 @@ export function FacilityCard({
   onCardClick,
 }: FacilityCardProps) {
   const cardRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const descRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const iconRef = useRef<HTMLDivElement>(null);
+  const cornerMeshRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const progressTweenRef = useRef<gsap.core.Tween | null>(null);
   const isFirstRender = useRef<boolean>(true);
@@ -50,28 +50,19 @@ export function FacilityCard({
       if (isFirstRender.current) {
         isFirstRender.current = false;
         if (isActive) {
-          gsap.set(titleRef.current, { y: -18, opacity: 0 });
           gsap.set(iconRef.current, { y: -14, opacity: 0, scale: 0.75 });
+          gsap.set(cornerMeshRef.current, { opacity: 0 });
           gsap.set(bgRef.current, { opacity: 1, scale: 1.05 });
-          gsap.set(descRef.current, { y: 0, opacity: 1 });
         } else {
-          gsap.set(titleRef.current, { y: 0, opacity: 1 });
           gsap.set(iconRef.current, { y: 0, opacity: 1, scale: 1 });
+          gsap.set(cornerMeshRef.current, { opacity: 1 });
           gsap.set(bgRef.current, { opacity: 0, scale: 1 });
-          gsap.set(descRef.current, { y: 35, opacity: 0 });
         }
         return;
       }
 
       if (isActive) {
-        // Active: background & description enter, title & icon disappear
-        gsap.to(titleRef.current, {
-          y: -18,
-          opacity: 0,
-          duration: 0.25,
-          ease: 'power2.in',
-          overwrite: 'auto',
-        });
+        // Active: background image reveals, icon & corner mesh fade out
         gsap.to(iconRef.current, {
           y: -14,
           opacity: 0,
@@ -80,30 +71,21 @@ export function FacilityCard({
           ease: 'power2.in',
           overwrite: 'auto',
         });
+        gsap.to(cornerMeshRef.current, {
+          opacity: 0,
+          duration: 0.25,
+          ease: 'power2.in',
+          overwrite: 'auto',
+        });
         gsap.to(bgRef.current, {
           opacity: 1,
           scale: 1.05,
-          duration: 0.45,
+          duration: 0.5,
           ease: 'power2.out',
-          overwrite: 'auto',
-        });
-        gsap.to(descRef.current, {
-          y: 0,
-          opacity: 1,
-          duration: 0.4,
-          delay: 0.08,
-          ease: 'power3.out',
           overwrite: 'auto',
         });
       } else {
-        // Inactive: title & icon return to visible, background & description disappear
-        gsap.to(titleRef.current, {
-          y: 0,
-          opacity: 1,
-          duration: 0.35,
-          ease: 'power2.out',
-          overwrite: 'auto',
-        });
+        // Inactive: background image conceals, icon & corner mesh fade back in
         gsap.to(iconRef.current, {
           y: 0,
           opacity: 1,
@@ -112,17 +94,16 @@ export function FacilityCard({
           ease: 'power2.out',
           overwrite: 'auto',
         });
+        gsap.to(cornerMeshRef.current, {
+          opacity: 1,
+          duration: 0.45,
+          ease: 'power2.out',
+          overwrite: 'auto',
+        });
         gsap.to(bgRef.current, {
           opacity: 0,
           scale: 1,
           duration: 0.35,
-          ease: 'power2.in',
-          overwrite: 'auto',
-        });
-        gsap.to(descRef.current, {
-          y: 35,
-          opacity: 0,
-          duration: 0.25,
           ease: 'power2.in',
           overwrite: 'auto',
         });
@@ -217,13 +198,31 @@ export function FacilityCard({
         />
       </div>
 
-      {/* Slot 5: Background Layer */}
+      {/* Top-Right Corner Pixel Mesh Texture (Active when closed, behind photo layer) */}
+      <div
+        ref={cornerMeshRef}
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute -top-1 -right-1 z-0 size-44
+          overflow-hidden select-none will-change-[transform,opacity]
+          sm:size-52
+        "
+      >
+        <PixelMeshBackground
+          initialProgress={1}
+          progress={1}
+          maskGradient="radial-gradient(ellipse at top right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.65) 45%, rgba(0, 0, 0, 0.2) 68%, transparent 85%)"
+          className="size-full opacity-60 dark:opacity-75"
+        />
+      </div>
+
+      {/* Slot 5: Background Layer (z-1 covers corner mesh cleanly) */}
       <div
         ref={bgRef}
         aria-hidden="true"
         data-card-bg
         className="
-          pointer-events-none absolute inset-0 z-0 opacity-0
+          pointer-events-none absolute inset-0 z-1 opacity-0
           will-change-[transform,opacity]
         "
       >
@@ -234,13 +233,31 @@ export function FacilityCard({
           sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
           className="object-cover object-center"
         />
-        {/* Responsive light/dark gradient scrim focused on text readability */}
-        <div className="
-          absolute inset-x-0 bottom-0 h-[68%] bg-linear-to-t from-white/95
-          via-white/70 via-40% to-transparent
-          dark:from-[#090d24]/95 dark:via-[#090d24]/70 dark:via-40%
-          dark:to-transparent
-        "
+
+        {/* Liquid Glass progressive blur mask - comfortably encases text section */}
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none absolute inset-x-0 bottom-0 h-[62%]
+            backdrop-blur-md
+            [mask-image:linear-gradient(to_top,black_0%,black_65%,rgba(0,0,0,0.5)_85%,transparent_100%)]
+            [-webkit-mask-image:linear-gradient(to_top,black_0%,black_65%,rgba(0,0,0,0.5)_85%,transparent_100%)]
+            md:h-[64%]
+            xl:h-[65%]
+          "
+        />
+
+        {/* Liquid Glass soft translucent gradient tone */}
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none absolute inset-x-0 bottom-0 h-[62%]
+            bg-linear-to-t from-white/95 via-white/75 via-50% to-transparent
+            dark:from-[#090d24]/95 dark:via-[#090d24]/75 dark:via-50%
+            dark:to-transparent
+            md:h-[64%]
+            xl:h-[65%]
+          "
         />
       </div>
 
@@ -260,38 +277,38 @@ export function FacilityCard({
       </div>
 
       {/* Bottom slots wrapper */}
-      <div className="
-        relative z-10 mt-auto flex min-h-[84px] flex-col justify-end
-      "
-      >
-        {/* Slot 3: Title */}
+      <div className="relative z-10 mt-auto flex flex-col justify-end">
+        {/* Slot 3: Title / Header (Always visible, lifted naturally when subtitle expands) */}
         <HealthcareHeading
           as="h3"
-          ref={titleRef}
           data-card-title
           size="card"
-          className="text-foreground will-change-[transform,opacity]"
+          className="text-foreground transition-colors duration-300 select-none"
         >
           {facility.title}
         </HealthcareHeading>
 
-        {/* Slot 4: Description */}
+        {/* Slot 4: Subtitle / Description (Smoothly expands from below without collision) */}
         <div
-          ref={descRef}
-          data-card-desc
-          className="
-            pointer-events-none absolute inset-x-0 bottom-0 opacity-0
-            will-change-[transform,opacity]
-          "
+          className={cn(
+            'grid transition-[grid-template-rows,opacity] duration-500 ease-out',
+            isActive
+              ? 'grid-rows-[1fr] opacity-100'
+              : 'grid-rows-[0fr] opacity-0 pointer-events-none',
+          )}
         >
-          <HealthcareText
-            className="
-              font-medium text-foreground
-              dark:text-white dark:drop-shadow-sm
-            "
-          >
-            {facility.description}
-          </HealthcareText>
+          <div className="overflow-hidden">
+            <div className="pt-2">
+              <HealthcareText
+                className="
+                  font-medium text-foreground
+                  dark:text-white dark:drop-shadow-sm
+                "
+              >
+                {facility.description}
+              </HealthcareText>
+            </div>
+          </div>
         </div>
       </div>
     </article>

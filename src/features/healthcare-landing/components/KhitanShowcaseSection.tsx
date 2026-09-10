@@ -4,10 +4,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
-  BabyIcon,
   Play,
-  SparklesIcon,
-  StethoscopeIcon,
   Volume2,
   VolumeX,
 } from 'lucide-react';
@@ -16,11 +13,19 @@ import {
   AmanahScriptText,
   HealthcareHeading,
   HealthcareText,
+  PixelIcon,
+  type PixelIconName,
   SectionHeader,
 } from '@/components/healthcare';
 import { ArrowCtaButton } from './ArrowCtaButton';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const khitanPixelIcons = [
+  { name: 'roket', title: 'Roket Petualangan Anak' },
+  { name: 'bintang', title: 'Bintang Berani' },
+  { name: 'gamepad', title: 'Gamepad Santai' },
+] as const satisfies readonly { name: PixelIconName; title: string }[];
 
 export function KhitanShowcaseSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -61,19 +66,21 @@ export function KhitanShowcaseSection() {
         return;
       }
 
-      // Animate on scroll: Header icons bounce & heading reveal
+      // Animate on scroll: Header pixel icons anime pop-in stagger & heading reveal
       if (headerRef.current) {
-        const icons = headerRef.current.querySelector('[data-header-icons]');
+        const iconItems = headerRef.current.querySelectorAll('[data-header-icon]');
         const heading = headerRef.current.querySelector('[data-mask-text]');
 
-        if (icons) {
+        if (iconItems.length > 0) {
           gsap.fromTo(
-            icons,
-            { scale: 0.6, opacity: 0 },
+            iconItems,
+            { scale: 0.35, y: 18, opacity: 0 },
             {
               scale: 1,
+              y: 0,
               opacity: 1,
-              duration: 0.8,
+              duration: 0.7,
+              stagger: 0.12,
               ease: 'back.out(2)',
               scrollTrigger: {
                 trigger: sectionRef.current,
@@ -181,23 +188,36 @@ export function KhitanShowcaseSection() {
         ref={headerRef}
         className="
           mb-10 w-full px-4
+          sm:mb-12
           md:mb-14
         "
         eyebrow={(
           <div
             data-header-icons
             className="
-              mb-3 flex items-center justify-center gap-2 text-amanah-blue
+              mb-3.5 flex items-center justify-center gap-3
+              sm:gap-4
               select-none
             "
             aria-hidden
           >
-            <StethoscopeIcon className="size-6 sm:size-7" />
-            <BabyIcon className="size-6 sm:size-7" />
-            <SparklesIcon className="size-6 sm:size-7" />
+            {khitanPixelIcons.map((icon) => (
+              <div
+                key={icon.name}
+                data-header-icon
+                className="inline-flex shrink-0 items-center justify-center will-change-transform"
+              >
+                <PixelIcon
+                  name={icon.name}
+                  size="responsive"
+                  svgClassName="size-10 md:size-8 transition-transform duration-300 hover:scale-110"
+                  title={icon.title}
+                />
+              </div>
+            ))}
           </div>
         )}
-        headingSize="display"
+        headingSize="section"
         title="Khitan Nyaman, Anak Tenang."
       />
 
@@ -211,69 +231,67 @@ export function KhitanShowcaseSection() {
           lg:flex-row lg:items-stretch
         "
         >
-          {/* SISI KIRI: Porsi lebih luas, cerita & kutipan Gibran */}
+          {/* SISI KIRI (Desktop) / SISI BAWAH (Mobile): Cerita & kutipan Gibran */}
           <div
             ref={contentRef}
             className="
-              flex flex-1 flex-col justify-between p-6
+              order-2 flex flex-1 flex-col justify-between p-6
               sm:p-8
               md:p-10
-              lg:p-12
+              lg:order-1 lg:p-12
               xl:p-14
             "
           >
-            <div data-content-item className="-mb-2 overflow-hidden pb-2">
-              <AmanahScriptText
-                className="inline-block text-foreground"
-              >
-                Pengalaman Nyata
-              </AmanahScriptText>
-            </div>
+            {/* Group Atas: Pengalaman Nyata & Narasi Cerita */}
+            <div className="flex flex-col">
+              <div data-content-item className="mb-3.5 overflow-hidden sm:mb-5">
+                <AmanahScriptText
+                  size="accent"
+                  className="inline-block font-semibold text-amanah-blue dark:text-amanah-sky"
+                >
+                  Pengalaman Nyata
+                </AmanahScriptText>
+              </div>
 
-            {/* Headline Kutipan */}
-            <div
-              data-content-item
-              className="
-                -mb-3 overflow-hidden pb-3
-                md:-mb-4 md:pb-4
-              "
-            >
-              <HealthcareHeading
-                as="h2"
-                size="subsection"
-                className="font-medium text-foreground"
+              {/* Headline Kutipan */}
+              <div
+                data-content-item
+                className="mb-5 overflow-hidden sm:mb-6"
               >
-                &ldquo;Gibran aja sudah buktiin, kalau khitan itu nggak semenakutkan yang dibayangkan! 🤩✨&rdquo;
-              </HealthcareHeading>
-            </div>
+                <HealthcareHeading
+                  as="h2"
+                  size="subsection"
+                  className="font-medium leading-snug text-foreground"
+                >
+                  &ldquo;Gibran aja sudah buktiin, kalau khitan itu nggak semenakutkan yang dibayangkan! 🤩✨&rdquo;
+                </HealthcareHeading>
+              </div>
 
-            {/* Isi teks narasi */}
-            <div
-              data-content-item
-              className="
-                mt-4 flex flex-col gap-4
-                sm:mt-5
-              "
-            >
-              <HealthcareText
-                className="text-muted-foreground"
+              {/* Isi teks narasi */}
+              <div
+                data-content-item
+                className="flex flex-col gap-4 text-muted-foreground sm:gap-5"
               >
-                Bukannya nangis, Gibran malah ketiduran saking nyamannya proses khitan di Klinik Amanah Health Care Yogyakarta. 💤👍
-              </HealthcareText>
-              <HealthcareText
-                size="small"
-                className="text-muted-foreground/85"
-              >
-                Buat Ayah &amp; Bunda yang masih ragu pilih tempat khitan untuk si kecil, yuk ke Klinik Amanah aja! Prosesnya cepat, minim sakit, dan ditangani oleh tim profesional.
-              </HealthcareText>
+                <HealthcareText
+                  className="leading-relaxed text-muted-foreground"
+                >
+                  Bukannya nangis, Gibran malah ketiduran saking nyamannya proses khitan di Klinik Amanah Health Care Yogyakarta. 💤👍
+                </HealthcareText>
+                <HealthcareText
+                  size="small"
+                  className="leading-relaxed text-muted-foreground/85"
+                >
+                  Buat Ayah &amp; Bunda yang masih ragu pilih tempat khitan untuk si kecil, yuk ke Klinik Amanah aja! Prosesnya cepat, minim sakit, dan ditangani oleh tim profesional.
+                </HealthcareText>
+              </div>
             </div>
 
             {/* Identitas Pasien & Tombol Jadwalkan */}
             <div
               data-content-item
               className="
-                mt-8 flex flex-col gap-4 border-t border-line pt-6
-                sm:mt-10 sm:flex-row sm:items-center sm:justify-between
+                mt-10 flex flex-col gap-5 border-t border-line pt-6
+                sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:pt-8
               "
             >
               <div>
@@ -299,19 +317,19 @@ export function KhitanShowcaseSection() {
             </div>
           </div>
 
-          {/* SISI KANAN: Video Vertikal 9:16 dari Gibran dengan autoplay */}
+          {/* SISI KANAN (Desktop) / SISI ATAS (Mobile): Video Vertikal 9:16 dari Gibran dengan autoplay */}
           <div
             ref={videoWrapperRef}
             className="
-              relative flex w-full shrink-0 items-center justify-center
-              overflow-hidden border-t border-line bg-muted/30
-              lg:w-[380px] lg:border-t-0 lg:border-l
+              order-1 relative flex w-full shrink-0 items-center justify-center
+              overflow-hidden border-b border-line bg-muted/30
+              lg:order-2 lg:w-[380px] lg:border-b-0 lg:border-l
               xl:w-[420px]
             "
           >
             <div className="
-              relative aspect-9/16 size-full max-h-[640px] overflow-hidden
-              bg-black
+              relative aspect-9/16 w-full overflow-hidden bg-black
+              lg:h-full lg:w-full lg:aspect-auto
             "
             >
               <video
@@ -365,7 +383,7 @@ export function KhitanShowcaseSection() {
                 >
                   {isMuted
                     ? <VolumeX className="size-4" />
-                    : <Volume2 className="size-4 text-emerald-400" />}
+                    : <Volume2 className="size-4 text-amanah-blue" />}
                 </button>
               </div>
             </div>

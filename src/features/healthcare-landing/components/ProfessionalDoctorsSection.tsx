@@ -105,7 +105,8 @@ export function ProfessionalDoctorsSection() {
             ref={headerRef}
             eyebrow="Kenali Dokter Kami"
             title="Hangat Mendampingi, Sepenuh Hati."
-            description="Dokter Klinik Amanah Healthcare berkomitmen memberikan pendampingan yang nyaman dan terpercaya bagi pasien dan keluarga, mulai dari pemeriksaan, konsultasi, hingga perawatan lanjutan."
+            description="Dokter Klinik Amanah Healthcare berkomitmen memberikan pendampingan yang nyaman dan terpercaya bagi pasien dan keluarga."
+            descriptionClassName="max-w-xl"
           />
         </div>
 
