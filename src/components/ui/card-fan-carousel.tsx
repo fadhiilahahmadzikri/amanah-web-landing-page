@@ -131,10 +131,22 @@ export function CardFanCarousel({
   const autoplayResumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const wheelCooldownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isWheelCoolingDownRef = useRef(false);
+  const activeDotRef = useRef<HTMLButtonElement | null>(null);
 
   const totalCards = cards.length;
   const needsPagination = totalCards > MAX_VISIBLE;
   const [centerIndex, setCenterIndex] = useState(needsPagination ? HALF : totalCards >> 1);
+
+  // Auto-scroll active indicator dot into center view
+  useEffect(() => {
+    if (activeDotRef.current) {
+      activeDotRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    }
+  }, [centerIndex]);
 
   const getVisibleMap = useCallback((center: number) => {
     const map = new Map<number, number>();
@@ -577,109 +589,114 @@ export function CardFanCarousel({
       sm:py-4
     `, className)}
     >
-      {/* Full-width cards container with left & right gradient masking ("tembus ke dinding tapi kena clip") */}
-      <div
-        className="
-          relative flex w-full items-center justify-center overflow-hidden
-        "
-        style={{
-          maskImage: 'linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)',
-        }}
-      >
+      {/* Cards and navigation arrows wrapper */}
+      <div className="relative w-full">
+        {/* Full-width cards container with left & right gradient masking ("tembus ke dinding tapi kena clip") */}
         <div
-          ref={containerRef}
-          data-fan-layout
           className="
-            relative flex h-88 w-full cursor-grab touch-pan-y items-center
-            justify-center overflow-visible
-            active:cursor-grabbing
-            sm:h-104
-            md:h-112
-            lg:h-136
-            xl:h-152
+            relative flex w-full items-center justify-center overflow-hidden
+            pt-8 pb-4
+            sm:pt-10 sm:pb-6
+            md:pt-12
           "
-          onPointerCancel={handlePointerCancel}
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerEnd}
-          onWheel={handleWheel}
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)',
+          }}
         >
-          {cards.map((card, index) => {
-            const image = (
-              <div className="
-                relative size-full overflow-hidden rounded-2xl bg-muted
-                shadow-xl ring-1 ring-black/10
-                md:rounded-3xl md:shadow-2xl
-                dark:ring-white/10
-              "
-              >
-                <Image
-                  src={card.imgUrl}
-                  alt={card.alt || `Dokumentasi Amanah ${index + 1}`}
-                  fill
-                  sizes="(max-width: 640px) 240px, (max-width: 1024px) 300px, 360px"
-                  className="
-                    pointer-events-none object-cover transition-transform
-                    duration-500 select-none
-                    hover:scale-105
-                  "
-                  priority={index < 4}
-                />
+          <div
+            ref={containerRef}
+            data-fan-layout
+            className="
+              relative flex h-[23.5rem] w-full cursor-grab touch-pan-y items-center
+              justify-center overflow-visible
+              active:cursor-grabbing
+              sm:h-[27.5rem]
+              md:h-[29.5rem]
+              lg:h-[35rem]
+              xl:h-[38rem]
+            "
+            onPointerCancel={handlePointerCancel}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerEnd}
+            onWheel={handleWheel}
+          >
+            {cards.map((card, index) => {
+              const image = (
                 <div className="
-                  pointer-events-none absolute inset-0 bg-linear-to-t
-                  from-black/50 via-transparent to-transparent opacity-30
+                  relative size-full overflow-hidden rounded-2xl bg-muted
+                  shadow-xl ring-1 ring-black/10
+                  md:rounded-3xl md:shadow-2xl
+                  dark:ring-white/10
                 "
-                />
-              </div>
-            );
+                >
+                  <Image
+                    src={card.imgUrl}
+                    alt={card.alt || `Dokumentasi Amanah ${index + 1}`}
+                    fill
+                    sizes="(max-width: 640px) 240px, (max-width: 1024px) 300px, 360px"
+                    className="
+                      pointer-events-none object-cover transition-transform
+                      duration-500 select-none
+                      hover:scale-105
+                    "
+                    priority={index < 4}
+                  />
+                  <div className="
+                    pointer-events-none absolute inset-0 bg-linear-to-t
+                    from-black/50 via-transparent to-transparent opacity-30
+                  "
+                  />
+                </div>
+              );
 
-            const cardClasses
-              = 'absolute w-[12.5rem] h-[17.5rem] sm:w-[15rem] sm:h-[21rem] md:w-[16.5rem] md:h-[23rem] lg:w-[18.5rem] lg:h-[25.5rem] rounded-2xl md:rounded-3xl cursor-pointer will-change-transform';
+              const cardClasses
+                = 'absolute w-[12.5rem] h-[17.5rem] sm:w-[15rem] sm:h-[21rem] md:w-[16.5rem] md:h-[23rem] lg:w-[18.5rem] lg:h-[25.5rem] rounded-2xl md:rounded-3xl cursor-pointer will-change-transform';
 
-            return card.linkUrl
-              ? (
-                  <a
-                    key={card.imgUrl}
-                    data-fan-card
-                    href={card.linkUrl}
-                    target={card.linkUrl.startsWith('http') ? '_blank' : '_self'}
-                    rel="noopener noreferrer"
-                    draggable={false}
-                    onClick={(event) => {
-                      if (hasDraggedRef.current) {
-                        event.preventDefault();
-                        hasDraggedRef.current = false;
-                      }
-                    }}
-                    className={cn(cardClasses, 'block')}
-                  >
-                    {image}
-                  </a>
-                )
-              : (
-                  <div
-                    key={card.imgUrl}
-                    data-fan-card
-                    onClick={() => handleCardClick(index)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        handleCardClick(index);
-                      }
-                    }}
-                    role="button"
-                    tabIndex={0}
-                    className={cardClasses}
-                  >
-                    {image}
-                  </div>
-                );
-          })}
+              return card.linkUrl
+                ? (
+                    <a
+                      key={card.imgUrl}
+                      data-fan-card
+                      href={card.linkUrl}
+                      target={card.linkUrl.startsWith('http') ? '_blank' : '_self'}
+                      rel="noopener noreferrer"
+                      draggable={false}
+                      onClick={(event) => {
+                        if (hasDraggedRef.current) {
+                          event.preventDefault();
+                          hasDraggedRef.current = false;
+                        }
+                      }}
+                      className={cn(cardClasses, 'block')}
+                    >
+                      {image}
+                    </a>
+                  )
+                : (
+                    <div
+                      key={card.imgUrl}
+                      data-fan-card
+                      onClick={() => handleCardClick(index)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          handleCardClick(index);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
+                      className={cardClasses}
+                    >
+                      {image}
+                    </div>
+                  );
+            })}
+          </div>
         </div>
-      </div>
 
-      {needsPagination && (
-        <>
+        {/* Navigation arrows centered on the cards */}
+        {needsPagination && (
           <div
             className="
               pointer-events-none absolute inset-x-4 top-1/2 z-40 flex
@@ -716,52 +733,48 @@ export function CardFanCarousel({
               />
             </button>
           </div>
+        )}
+      </div>
 
-          <div className="
-            pointer-events-none absolute inset-x-0 bottom-8 z-40 flex
-            justify-center
-            sm:bottom-10
-            md:bottom-12
-          "
+      {/* Pagination indicators placed below the cards container */}
+      {needsPagination && (
+        <div className="mt-4 flex w-full justify-center px-4 sm:mt-6 md:mt-8">
+          <div
+            className="
+              flex max-w-[min(480px,calc(100vw-2rem))] items-center gap-1.5
+              overflow-x-auto rounded-full border border-line/70 bg-card/90
+              px-3.5 py-1.5 shadow-xs backdrop-blur-md scrollbar-none
+              dark:border-line/50 dark:bg-card/80
+            "
           >
-            <div
-              className="
-                pointer-events-auto flex max-w-[min(520px,calc(100vw-2rem))]
-                scrollbar-none items-center gap-1.5 overflow-x-auto rounded-full
-                border border-white/25 bg-white/15 px-3.5 py-2
-                shadow-[0_8px_30px_rgb(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.4)]
-                backdrop-blur-xl
-                dark:border-white/20 dark:bg-white/10
-              "
-            >
-              {cards.map((card, i) => (
-                <button
-                  key={`dot-${card.imgUrl}`}
-                  type="button"
-                  onClick={() => goToCard(i)}
-                  aria-label={`Lihat dokumentasi ke-${i + 1}`}
-                  className="
-                    flex h-3 w-8 shrink-0 cursor-pointer items-center
-                    justify-center
-                    focus:outline-none
-                  "
-                >
-                  <span
-                    className={cn(
-                      'block h-1.5 rounded-full transition-all duration-300',
-                      i === centerIndex
-                        ? 'w-8 bg-primary shadow-sm'
-                        : `
-                          size-1.5 bg-foreground/40
-                          hover:bg-foreground/80
-                        `,
-                    )}
-                  />
-                </button>
-              ))}
-            </div>
+            {cards.map((card, i) => (
+              <button
+                key={`dot-${card.imgUrl}`}
+                ref={i === centerIndex ? activeDotRef : null}
+                type="button"
+                onClick={() => goToCard(i)}
+                aria-label={`Lihat dokumentasi ke-${i + 1}`}
+                className="
+                  flex h-5 shrink-0 cursor-pointer items-center
+                  justify-center p-0.5
+                  focus:outline-none
+                "
+              >
+                <span
+                  className={cn(
+                    'block h-1.5 rounded-full transition-all duration-300',
+                    i === centerIndex
+                      ? 'w-7 bg-primary shadow-xs'
+                      : `
+                        size-1.5 bg-foreground/35
+                        hover:bg-foreground/75
+                      `,
+                  )}
+                />
+              </button>
+            ))}
           </div>
-        </>
+        </div>
       )}
     </div>
   );

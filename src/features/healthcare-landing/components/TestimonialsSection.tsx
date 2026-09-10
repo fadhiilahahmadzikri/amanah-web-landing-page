@@ -274,7 +274,7 @@ export function TestimonialsSection() {
 
       <div
         ref={carouselContainerRef}
-        className="relative w-full overflow-hidden"
+        className="relative w-full overflow-x-clip overflow-y-visible"
       >
         <CardFanCarousel
           cards={documentationMoments}
