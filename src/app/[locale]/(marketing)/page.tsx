@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { AmanahLandingPage } from '@/features/healthcare-landing';
 import { getI18nPath } from '@/utils/Helpers';
+import { defaultOgImages, defaultTwitterCard } from '@/utils/seo';
 
 type IndexProps = {
   params: Promise<{ locale: string }>;
@@ -21,6 +22,12 @@ export async function generateMetadata(props: IndexProps): Promise<Metadata> {
       title: t('meta_title'),
       description: t('meta_description'),
       url: getI18nPath('/', locale),
+      images: defaultOgImages,
+    },
+    twitter: {
+      ...defaultTwitterCard,
+      title: t('meta_title'),
+      description: t('meta_description'),
     },
   };
 }

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { AmanahTestimonialsPage } from '@/features/healthcare-testimonials';
 import { getI18nPath } from '@/utils/Helpers';
+import { defaultOgImages, defaultTwitterCard } from '@/utils/seo';
 
 type TestimonialsPageProps = {
   params: Promise<{ locale: string }>;
@@ -22,6 +23,13 @@ export async function generateMetadata(props: TestimonialsPageProps): Promise<Me
       description:
         'Cerita nyata para pasien yang merasakan langsung pelayanan hangat, profesional, dan bersahabat di Klinik Amanah.',
       url: getI18nPath('/testimoni', locale),
+      images: defaultOgImages,
+    },
+    twitter: {
+      ...defaultTwitterCard,
+      title: 'Testimoni Pasien - Klinik Amanah Healthcare',
+      description:
+        'Cerita nyata para pasien yang merasakan langsung pelayanan hangat, profesional, dan bersahabat di Klinik Amanah.',
     },
   };
 }

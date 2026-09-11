@@ -3,6 +3,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { AmanahReviewsPage } from '@/features/healthcare-reviews';
 import { reviewsPageContent } from '@/features/healthcare-reviews/data';
 import { getI18nPath } from '@/utils/Helpers';
+import { defaultOgImages, defaultTwitterCard } from '@/utils/seo';
 
 type ReviewsPageProps = {
   params: Promise<{ locale: string }>;
@@ -22,6 +23,12 @@ export async function generateMetadata(props: ReviewsPageProps): Promise<Metadat
       description: `Rating ${reviewsPageContent.summary.overallRatingLabel}/5 dari Google Maps untuk ${reviewsPageContent.summary.placeTitle}.`,
       url: getI18nPath('/ulasan', locale),
       type: 'website',
+      images: defaultOgImages,
+    },
+    twitter: {
+      ...defaultTwitterCard,
+      title: 'Ulasan Pasien - Klinik Amanah Healthcare',
+      description: `Rating ${reviewsPageContent.summary.overallRatingLabel}/5 dari Google Maps untuk ${reviewsPageContent.summary.placeTitle}.`,
     },
   };
 }

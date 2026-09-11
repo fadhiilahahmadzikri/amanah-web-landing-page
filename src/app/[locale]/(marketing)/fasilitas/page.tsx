@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { AmanahServicesPage } from '@/features/healthcare-services';
 import { getI18nPath } from '@/utils/Helpers';
+import { defaultOgImages, defaultTwitterCard } from '@/utils/seo';
 
 type FacilitiesPageProps = {
   params: Promise<{ locale: string }>;
@@ -22,6 +23,13 @@ export async function generateMetadata(props: FacilitiesPageProps): Promise<Meta
       description:
         'Fasilitas kesehatan modern, higienis, dan nyaman untuk menunjang kenyamanan pemulihan Anda dan keluarga.',
       url: getI18nPath('/fasilitas', locale),
+      images: defaultOgImages,
+    },
+    twitter: {
+      ...defaultTwitterCard,
+      title: 'Fasilitas Medis - Klinik Amanah Healthcare',
+      description:
+        'Fasilitas kesehatan modern, higienis, dan nyaman untuk menunjang kenyamanan pemulihan Anda dan keluarga.',
     },
   };
 }

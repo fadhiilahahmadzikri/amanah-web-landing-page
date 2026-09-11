@@ -1,7 +1,6 @@
 import type { ClassValue } from 'clsx';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { Env } from '@/libs/Env';
 import { routing } from '@/libs/I18nRouting';
 
 export function cn(...inputs: ClassValue[]) {
@@ -10,14 +9,22 @@ export function cn(...inputs: ClassValue[]) {
 
 /**
  * Resolves the public base URL of the application.
- * @returns The configured public app URL or the local development URL.
+ * @returns The configured public app URL or the production Vercel URL.
  */
 export const getBaseUrl = () => {
-  if (Env.NEXT_PUBLIC_APP_URL) {
-    return Env.NEXT_PUBLIC_APP_URL;
+  if (process.env.NEXT_PUBLIC_APP_URL && !process.env.NEXT_PUBLIC_APP_URL.includes('react-saas.com')) {
+    return process.env.NEXT_PUBLIC_APP_URL;
   }
 
-  return 'http://localhost:3000';
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+
+  return 'https://klinik-pratama-amanah-healthcare.vercel.app';
 };
 
 /**

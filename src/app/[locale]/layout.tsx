@@ -42,22 +42,29 @@ const themeInitializer = `
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseUrl()),
   title: {
-    default: 'Klinik Pratama Amanah Healthcare - Layanan Kesehatan Keluarga',
-    template: '%s | Klinik Amanah Healthcare',
+    default: 'Klinik Pratama Amanah Healthcare - Klinik Persalinan dan Umum Yogyakarta',
+    template: '%s | Klinik Pratama Amanah Healthcare',
   },
   description:
-    'Klinik Pratama Amanah Healthcare menyediakan layanan dokter umum, kebidanan & persalinan 24 jam, imunisasi, dan khitan di Condongcatur, Sleman, Yogyakarta.',
+    'Klinik Pratama Amanah Healthcare menyediakan layanan dokter umum, kebidanan & persalinan 24 jam, imunisasi anak, dan khitan di Condongcatur, Sleman, Yogyakarta.',
   keywords: [
     'klinik amanah',
     'klinik pratama amanah',
-    'klinik sleman',
-    'klinik condongcatur',
+    'klinik pratama amanah healthcare',
+    'klinik persalinan yogyakarta',
+    'klinik bersalin sleman',
     'persalinan 24 jam jogja',
-    'khitan modern yogyakarta',
+    'dokter umum condongcatur',
+    'dokter umum sleman',
     'dokter umum jogja',
+    'bidan 24 jam sleman',
+    'khitan modern yogyakarta',
+    'sunat anak yogyakarta',
     'imunisasi anak sleman',
+    'pemeriksaan kehamilan jogja',
+    'klinik bpjs condongcatur',
   ],
-  authors: [{ name: 'Klinik Pratama Amanah Healthcare' }],
+  authors: [{ name: 'Klinik Pratama Amanah Healthcare', url: getBaseUrl() }],
   creator: 'Klinik Pratama Amanah Healthcare',
   publisher: 'Klinik Pratama Amanah Healthcare',
   formatDetection: {
@@ -68,26 +75,34 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'id_ID',
-    url: getBaseUrl(),
-    siteName: 'Klinik Amanah Healthcare',
-    title: 'Klinik Pratama Amanah Healthcare - Layanan Kesehatan Keluarga',
+    url: '/',
+    siteName: 'Klinik Pratama Amanah Healthcare',
+    title: 'Klinik Pratama Amanah Healthcare - Klinik Persalinan dan Umum Yogyakarta',
     description:
-      'Pelayanan kesehatan profesional, ramah, dan terpercaya untuk Anda dan keluarga di Yogyakarta.',
+      'Layanan dokter umum, kebidanan & persalinan 24 jam, imunisasi, dan khitan anak ramah trauma di Condongcatur, Sleman, Yogyakarta.',
     images: [
       {
-        url: '/apple-touch-icon.png',
-        width: 180,
-        height: 180,
-        alt: 'Klinik Pratama Amanah Healthcare',
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        type: 'image/png',
+        alt: 'Klinik Pratama Amanah Healthcare - Klinik Persalinan dan Umum Yogyakarta',
+      },
+      {
+        url: '/assets/images/amanah-pratama-healthcare.png',
+        width: 1804,
+        height: 872,
+        type: 'image/png',
+        alt: 'Klinik Pratama Amanah Healthcare Yogyakarta',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Klinik Pratama Amanah Healthcare',
+    title: 'Klinik Pratama Amanah Healthcare - Klinik Persalinan dan Umum Yogyakarta',
     description:
-      'Pelayanan kesehatan profesional, ramah, dan terpercaya untuk Anda dan keluarga di Yogyakarta.',
-    images: ['/apple-touch-icon.png'],
+      'Layanan dokter umum, kebidanan & persalinan 24 jam, imunisasi, dan khitan anak ramah trauma di Condongcatur, Sleman, Yogyakarta.',
+    images: ['/twitter-image.png'],
   },
   robots: {
     index: true,
@@ -100,16 +115,17 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'id-ID': '/',
+      'en-US': '/en',
+    },
+  },
   icons: [
     {
-      rel: 'apple-touch-icon',
-      url: '/apple-touch-icon.png',
-    },
-    {
       rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      url: '/favicon-32x32.png',
+      url: '/favicon.ico',
     },
     {
       rel: 'icon',
@@ -119,7 +135,14 @@ export const metadata: Metadata = {
     },
     {
       rel: 'icon',
-      url: '/favicon.ico',
+      type: 'image/png',
+      sizes: '32x32',
+      url: '/favicon-32x32.png',
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      url: '/apple-touch-icon.png',
     },
   ],
 };

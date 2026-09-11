@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { AmanahServicesPage } from '@/features/healthcare-services';
 import { getI18nPath } from '@/utils/Helpers';
+import { defaultOgImages, defaultTwitterCard } from '@/utils/seo';
 
 type ServicesPageProps = {
   params: Promise<{ locale: string }>;
@@ -22,6 +23,13 @@ export async function generateMetadata(props: ServicesPageProps): Promise<Metada
       description:
         'Pelayanan dokter umum, kebidanan & persalinan 24 jam, khitan modern, dan imunisasi profesional untuk keluarga Anda.',
       url: getI18nPath('/layanan', locale),
+      images: defaultOgImages,
+    },
+    twitter: {
+      ...defaultTwitterCard,
+      title: 'Layanan Medis & Kesehatan - Klinik Amanah Healthcare',
+      description:
+        'Pelayanan dokter umum, kebidanan & persalinan 24 jam, khitan modern, dan imunisasi profesional untuk keluarga Anda.',
     },
   };
 }
