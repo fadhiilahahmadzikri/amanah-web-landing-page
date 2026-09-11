@@ -11,7 +11,7 @@ describe('healthcare-services data', () => {
     expect(servicesHeroData.eyebrow).toBe('Fasilitas & Layanan');
     expect(servicesHeroData.title).toBe('Mendukung Kesehatan Anda Sepenuhnya');
     expect(servicesHeroData.highlights).toHaveLength(3);
-    expect(servicesHeroData.image.src).toBe('/assets/images/asset_hero_sec_service.jpg');
+    expect(servicesHeroData.image.src).toBe('/assets/images/asset_hero_sec_service.webp');
   });
 
   it('facilities section data contains correct metadata and 4 facility items', () => {

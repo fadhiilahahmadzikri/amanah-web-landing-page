@@ -12,7 +12,7 @@ import { BadgeCheckIcon } from 'lucide-react';
 export const brand = {
   name: 'Amanah',
   logo: {
-    src: '/assets/images/logo_healthcare_1_7a4161db.png',
+    src: '/assets/images/logo_healthcare_1_7a4161db.webp',
     alt: 'Logo Amanah Healthcare',
   } satisfies AssetImage,
 };
@@ -31,7 +31,7 @@ export const hero = {
   title: 'Sehat Lebih Baik, Bersama Klinik',
   scriptTitle: 'Amanah Healthcare',
   image: {
-    src: '/assets/images/amanah-building-front.jpg',
+    src: '/assets/images/amanah-building-front.webp',
     alt: 'Dokter mendampingi pasien di ruang perawatan Klinik Amanah',
   } satisfies AssetImage,
 };
@@ -59,7 +59,7 @@ export const trustHighlights = {
       alt: '',
     } satisfies AssetImage,
     image: {
-      src: '/assets/images/ChatGPT_Image_Aug_14__2026__08_21_37_PM_1_eb18f970.png',
+      src: '/assets/images/ChatGPT_Image_Aug_14__2026__08_21_37_PM_1_eb18f970.webp',
       alt: 'Ilustrasi perlengkapan medis Amanah Healthcare',
     } satisfies AssetImage,
   },
@@ -102,7 +102,7 @@ export const facilities = [
       alt: 'Ikon Spesialis Persalinan Klinik Amanah',
     },
     image: {
-      src: '/assets/images/asset-index-6.jpg',
+      src: '/assets/images/asset-index-6.webp',
       alt: 'Layanan Spesialis Persalinan Klinik Amanah',
     },
   },
@@ -115,7 +115,7 @@ export const facilities = [
       alt: 'Ikon Layanan Khitan Laser Anak',
     },
     image: {
-      src: '/assets/images/asset-index-7.jpg',
+      src: '/assets/images/asset-index-7.webp',
       alt: 'Layanan Khitan Laser Anak Klinik Amanah',
     },
   },
@@ -129,7 +129,7 @@ export const facilities = [
       alt: 'Ikon Layanan Persalinan 24 Jam Siaga Penuh',
     },
     image: {
-      src: '/assets/images/asset-index-8.jpg',
+      src: '/assets/images/asset-index-8.webp',
       alt: 'Layanan Persalinan 24 Jam Siaga Penuh',
     },
   },
@@ -143,7 +143,7 @@ export const facilities = [
       alt: 'Ikon Pelayanan Pasien BPJS dan Umum',
     },
     image: {
-      src: '/assets/images/asset-index-9.jpg',
+      src: '/assets/images/asset-index-9.webp',
       alt: 'Pelayanan Pasien BPJS dan Umum Klinik Amanah',
     },
   },
@@ -199,7 +199,7 @@ export const appointment = {
   title: 'Jadwalkan Kunjungan Anda',
   description: 'Pilih layanan dan jadwal yang sesuai dengan kebutuhan Anda. Buat janji dengan mudah dan dapatkan pelayanan kesehatan terbaik di Klinik Amanah.',
   image: {
-    src: '/assets/images/asset-jadwalkan-kunjungan.jpg',
+    src: '/assets/images/asset-jadwalkan-kunjungan.webp',
     alt: 'Tim dokter Amanah Healthcare siap melayani pasien',
   } satisfies AssetImage,
 };
@@ -238,79 +238,79 @@ export const testimonials = {
 
 export const documentationMoments = [
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-1.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-1.webp',
     alt: 'Momen kebersamaan keluarga pasien dan tenaga medis Klinik Amanah',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-2.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-2.webp',
     alt: 'Pemeriksaan kesehatan penuh senyum di Klinik Amanah',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-3.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-3.webp',
     alt: 'Pelayanan konsultasi hangat dokter dan pasien',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-4.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-4.webp',
     alt: 'Pelayanan kesehatan ibu dan anak penuh perhatian',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-5.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-5.webp',
     alt: 'Pendampingan tumbuh kembang balita dengan penuh kasih',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-6.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-6.webp',
     alt: 'Pemeriksaan tensi dan deteksi dini oleh tim medis',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-7.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-7.webp',
     alt: 'Konsultasi ramah dengan tenaga kesehatan Amanah',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-8.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-8.webp',
     alt: 'Pemeriksaan kesehatan keluarga dengan nyaman dan tenang',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-9.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-9.webp',
     alt: 'Edukasi dan penyuluhan kesehatan untuk pasien',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-10.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-10.webp',
     alt: 'Pelayanan kebidanan dan perawatan ibu ramah',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-11.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-11.webp',
     alt: 'Momen bahagia pasien bersama dokter klinik',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-12.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-12.webp',
     alt: 'Suasana ruang tunggu dan periksa yang nyaman',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-13.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-13.webp',
     alt: 'Pelayanan ramah untuk seluruh anggota keluarga',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-14.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-14.webp',
     alt: 'Pemeriksaan menyeluruh dengan peralatan higienis',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-15.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-15.webp',
     alt: 'Dokumentasi senyum kepuasan pasien setelah berobat',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-16.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-16.webp',
     alt: 'Perawatan medis profesional dengan sentuhan kekeluargaan',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-17.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-17.webp',
     alt: 'Pemberian obat dan edukasi pola hidup sehat',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-18.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-18.webp',
     alt: 'Pemeriksaan berkala ibu hamil dan janin',
   },
   {
-    imgUrl: '/assets/images/dokumentasi/dokumentasi-19.png',
+    imgUrl: '/assets/images/dokumentasi/dokumentasi-19.webp',
     alt: 'Dedikasi tim medis Klinik Amanah untuk kesehatan bersama',
   },
 ] satisfies DocumentationMoment[];
@@ -334,7 +334,7 @@ export const contactItems = [
 ] satisfies ContactItem[];
 
 export const contactImage = {
-  src: '/assets/images/kontak.png',
+  src: '/assets/images/kontak.webp',
   alt: 'Dokter Amanah Healthcare menerima panggilan konsultasi',
 } satisfies AssetImage;
 
@@ -342,7 +342,7 @@ export const footer = {
   address: 'Jl. Anyelir 1 No.243, Perumnas Condong Catur, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281',
   location: 'Klinik Amanah HealthCare (Persalinan 24 Jam)',
   map: {
-    src: '/assets/images/lokasi.png',
+    src: '/assets/images/lokasi.webp',
     alt: 'Peta lokasi Klinik Amanah Healthcare',
   } satisfies AssetImage,
   socialLinks: [

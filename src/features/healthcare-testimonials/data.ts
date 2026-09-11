@@ -28,7 +28,7 @@ export const testimonialShowcaseItems: TestimonialShowcaseItem[] = [
     video: {
       youtubeUrl: 'https://youtube.com/shorts/XJ2av2DOyEU',
       youtubeId: 'XJ2av2DOyEU',
-      poster: '/assets/images/dokumentasi/dokumentasi-1.png',
+      poster: '/assets/images/dokumentasi/dokumentasi-1.webp',
       title: 'Dokumentasi Khitan Anak Gibran di Klinik Amanah',
       isPlaceholder: false,
     },
@@ -57,7 +57,7 @@ export const testimonialShowcaseItems: TestimonialShowcaseItem[] = [
     video: {
       youtubeUrl: 'https://youtube.com/shorts/q3RpdZNW3A8',
       youtubeId: 'q3RpdZNW3A8',
-      poster: '/assets/images/dokumentasi/dokumentasi-2.png',
+      poster: '/assets/images/dokumentasi/dokumentasi-2.webp',
       title: 'Dokumentasi Cukur Rambut Bayi di Klinik Amanah',
       isPlaceholder: false,
     },
@@ -86,7 +86,7 @@ export const testimonialShowcaseItems: TestimonialShowcaseItem[] = [
     video: {
       youtubeUrl: 'https://youtube.com/shorts/oqh6yCl3v8M',
       youtubeId: 'oqh6yCl3v8M',
-      poster: '/assets/images/dokumentasi/dokumentasi-3.png',
+      poster: '/assets/images/dokumentasi/dokumentasi-3.webp',
       title: 'Dokumentasi Happy Baby Spa bersama Bidan Hida',
       isPlaceholder: false,
     },
@@ -115,7 +115,7 @@ export const testimonialShowcaseItems: TestimonialShowcaseItem[] = [
     video: {
       youtubeUrl: 'https://youtube.com/shorts/ZuZv9i5ZWCY',
       youtubeId: 'ZuZv9i5ZWCY',
-      poster: '/assets/images/dokumentasi/dokumentasi-4.png',
+      poster: '/assets/images/dokumentasi/dokumentasi-4.webp',
       title: 'Dokumentasi Treatment Pijat Oksitosin Pejuang ASI',
       isPlaceholder: false,
     },
@@ -144,7 +144,7 @@ export const testimonialShowcaseItems: TestimonialShowcaseItem[] = [
     video: {
       youtubeUrl: 'https://youtube.com/shorts/Iaq_KBnwuDw?feature=share',
       youtubeId: 'Iaq_KBnwuDw',
-      poster: '/assets/images/asset-index-5.png',
+      poster: '/assets/images/asset-index-5.webp',
       title: 'Dokumentasi USG dr. Spesialis Kandungan Kolaborasi RS Hermina',
       isPlaceholder: false,
     },
@@ -173,7 +173,7 @@ export const testimonialShowcaseItems: TestimonialShowcaseItem[] = [
     video: {
       youtubeUrl: 'https://youtube.com/shorts/6NQa1Uk1kZk',
       youtubeId: '6NQa1Uk1kZk',
-      poster: '/assets/images/asset_kb.jpg',
+      poster: '/assets/images/asset_kb.webp',
       title: 'Dokumentasi Pemasangan KB IUD di Klinik Amanah',
       isPlaceholder: false,
     },
@@ -202,7 +202,7 @@ export const testimonialShowcaseItems: TestimonialShowcaseItem[] = [
     video: {
       youtubeUrl: 'https://youtube.com/shorts/wU3CDcbn3b0',
       youtubeId: 'wU3CDcbn3b0',
-      poster: '/assets/images/asset_konsul_kb.jpg',
+      poster: '/assets/images/asset_konsul_kb.webp',
       title: 'Dokumentasi Rangkaian Toilet Vagina, IVA Test, dan Kontrol IUD',
       isPlaceholder: false,
     },

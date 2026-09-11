@@ -24,7 +24,7 @@ export const servicesHeroData: ServiceHeroData = {
     },
   ],
   image: {
-    src: '/assets/images/asset_hero_sec_service.jpg',
+    src: '/assets/images/asset_hero_sec_service.webp',
     alt: 'Layanan dan Fasilitas Kesehatan Klinik Amanah',
   },
 };
@@ -45,7 +45,7 @@ export const generalPractitionerSection: ServiceCategorySection = {
       description:
         'Konsultasi dan pemeriksaan awal untuk mengetahui kondisi kesehatan Anda.',
       image: {
-        src: '/assets/images/layanan-umum-pemeriksaan.jpg',
+        src: '/assets/images/layanan-umum-pemeriksaan.webp',
         alt: 'Pemeriksaan Dokter Umum',
       },
       colSpanClass: 'col-span-12 md:col-span-5',
@@ -57,7 +57,7 @@ export const generalPractitionerSection: ServiceCategorySection = {
       description:
         'Penanganan demam, batuk, flu, sakit kepala, nyeri, dan keluhan harian lainnya.',
       image: {
-        src: '/assets/images/layanan-umum-keluhan.jpg',
+        src: '/assets/images/layanan-umum-keluhan.webp',
         alt: 'Pengobatan Keluhan Ringan',
       },
       colSpanClass: 'col-span-12 md:col-span-7',
@@ -69,7 +69,7 @@ export const generalPractitionerSection: ServiceCategorySection = {
       description:
         'Pemeriksaan tekanan darah untuk memantau risiko hipertensi.',
       image: {
-        src: '/assets/images/layanan-umum-tekanan-darah.jpg',
+        src: '/assets/images/layanan-umum-tekanan-darah.webp',
         alt: 'Cek Tekanan Darah',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
@@ -81,7 +81,7 @@ export const generalPractitionerSection: ServiceCategorySection = {
       description:
         'Pemeriksaan elektrokardiografi untuk membantu mengevaluasi aktivitas dan kondisi jantung sesuai indikasi medis.',
       image: {
-        src: '/assets/images/layanan-umum-pemantauan.jpg',
+        src: '/assets/images/layanan-umum-pemantauan.webp',
         alt: 'Pemeriksaan EKG',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
@@ -93,7 +93,7 @@ export const generalPractitionerSection: ServiceCategorySection = {
       description:
         'Pemeriksaan penunjang untuk membantu dokter menentukan diagnosis.',
       image: {
-        src: '/assets/images/layanan-umum-laboratorium.jpg',
+        src: '/assets/images/layanan-umum-laboratorium.webp',
         alt: 'Pemeriksaan Laboratorium',
       },
       colSpanClass: 'col-span-12 sm:col-span-12 md:col-span-4',
@@ -105,7 +105,7 @@ export const generalPractitionerSection: ServiceCategorySection = {
       description:
         'Fasilitas terapi nebulisasi untuk membantu penanganan pasien dengan keluhan saluran pernapasan sesuai anjuran tenaga medis.',
       image: {
-        src: '/assets/images/dokumentasi/nebulizer.png',
+        src: '/assets/images/dokumentasi/nebulizer.webp',
         alt: 'Fasilitas Terapi Nebulizer',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-7',
@@ -117,7 +117,7 @@ export const generalPractitionerSection: ServiceCategorySection = {
       description:
         'Pemeriksaan kondisi ibu hamil dan perkembangan kehamilan secara berkala.',
       image: {
-        src: '/assets/images/layanan-umum-kehamilan.jpg',
+        src: '/assets/images/layanan-umum-kehamilan.webp',
         alt: 'Pemeriksaan Kehamilan',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-5',
@@ -129,7 +129,7 @@ export const generalPractitionerSection: ServiceCategorySection = {
       description:
         'Diskusi keluhan dan saran perawatan sesuai kondisi pasien.',
       image: {
-        src: '/assets/images/layanan-umum-konsultasi.jpg',
+        src: '/assets/images/layanan-umum-konsultasi.webp',
         alt: 'Konsultasi Kesehatan',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-6',
@@ -141,7 +141,7 @@ export const generalPractitionerSection: ServiceCategorySection = {
       description:
         'Pemeriksaan dasar untuk kebutuhan administrasi sekolah, kerja, atau perjalanan.',
       image: {
-        src: '/assets/images/layanan-umum-keterangan.jpg',
+        src: '/assets/images/layanan-umum-keterangan.webp',
         alt: 'Surat Keterangan Sehat',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-6',
@@ -165,7 +165,7 @@ export const midwiferySection: ServiceCategorySection = {
       title: 'Pemeriksaan Kehamilan',
       description: 'Memantau kesehatan ibu dan janin secara rutin.',
       image: {
-        src: '/assets/images/asset_pemeriksaankehamilan.jpg',
+        src: '/assets/images/asset_pemeriksaankehamilan.webp',
         alt: 'Pemeriksaan Kehamilan Bidan',
       },
       colSpanClass: 'col-span-12 md:col-span-7',
@@ -177,7 +177,7 @@ export const midwiferySection: ServiceCategorySection = {
       description:
         'Pemeriksaan ultrasonografi sebagai fasilitas penunjang untuk membantu dokter melakukan evaluasi kondisi medis sesuai kebutuhan pasien.',
       image: {
-        src: '/assets/images/asset-index-6.jpg',
+        src: '/assets/images/asset-index-6.webp',
         alt: 'Pemeriksaan USG',
       },
       colSpanClass: 'col-span-12 md:col-span-5',
@@ -189,7 +189,7 @@ export const midwiferySection: ServiceCategorySection = {
       description:
         'Didampingi tenaga bidan berpengalaman dan fasilitas aman.',
       image: {
-        src: '/assets/images/asset_persalinan.jpg',
+        src: '/assets/images/asset_persalinan.webp',
         alt: 'Persalinan',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
@@ -200,7 +200,7 @@ export const midwiferySection: ServiceCategorySection = {
       title: 'Perawatan Nifas',
       description: 'Membantu pemulihan ibu setelah melahirkan.',
       image: {
-        src: '/assets/images/asset-perawatannifas.jpg',
+        src: '/assets/images/asset-perawatannifas.webp',
         alt: 'Perawatan Nifas',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
@@ -211,7 +211,7 @@ export const midwiferySection: ServiceCategorySection = {
       title: 'Imunisasi',
       description: 'Melindungi buah hati dari berbagai penyakit.',
       image: {
-        src: '/assets/images/asset_imunisasi.jpg',
+        src: '/assets/images/asset_imunisasi.webp',
         alt: 'Imunisasi Anak',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
@@ -222,7 +222,7 @@ export const midwiferySection: ServiceCategorySection = {
       title: 'Keluarga Berencana',
       description: 'Membantu merencanakan keluarga yang sehat dan sejahtera.',
       image: {
-        src: '/assets/images/asset_kb.jpg',
+        src: '/assets/images/asset_kb.webp',
         alt: 'Keluarga Berencana',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
@@ -233,7 +233,7 @@ export const midwiferySection: ServiceCategorySection = {
       title: 'Pemeriksaan Tumbuh Kembang',
       description: 'Memastikan anak tumbuh sehat dan optimal.',
       image: {
-        src: '/assets/images/asset_tumbuhkembanganak.jpg',
+        src: '/assets/images/asset_tumbuhkembanganak.webp',
         alt: 'Pemeriksaan Tumbuh Kembang',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
@@ -244,7 +244,7 @@ export const midwiferySection: ServiceCategorySection = {
       title: 'Konsultasi Kesehatan Reproduksi',
       description: 'Informasi dan solusi untuk kesehatan reproduksi Anda.',
       image: {
-        src: '/assets/images/asset_konsul_kb.jpg',
+        src: '/assets/images/asset_konsul_kb.webp',
         alt: 'Konsultasi Kesehatan Reproduksi',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-4',
@@ -265,7 +265,7 @@ export const facilitiesSectionData: FacilitySectionData = {
       summary:
         'Menyediakan kebutuhan obat-obatan dan resep medis Anda dengan cepat tanpa perlu pindah tempat.',
       url: '/kontak',
-      image: '/assets/images/fasilitas-apotek.png',
+      image: '/assets/images/fasilitas-apotek.webp',
     },
     {
       id: 'facility-ruang-bersalin',
@@ -273,7 +273,7 @@ export const facilitiesSectionData: FacilitySectionData = {
       summary:
         'Siaga setiap saat untuk mendampingi proses melahirkan dengan aman, nyaman, dan ditangani tenaga medis profesional.',
       url: '/kontak',
-      image: '/assets/images/asset-index-8.jpg',
+      image: '/assets/images/asset-index-8.webp',
     },
     {
       id: 'facility-ruang-tunggu',
@@ -281,7 +281,7 @@ export const facilitiesSectionData: FacilitySectionData = {
       summary:
         'Area tunggu yang bersih, sejuk, dan ramah keluarga agar Anda dan kerabat tetap merasa rileks saat berobat.',
       url: '/kontak',
-      image: '/assets/images/fasilitas-ruangtunggu.png',
+      image: '/assets/images/fasilitas-ruangtunggu.webp',
     },
     {
       id: 'facility-baby-care',
@@ -289,7 +289,7 @@ export const facilitiesSectionData: FacilitySectionData = {
       summary:
         'Area khusus perawatan dan stimulasi bayi yang aman, bersih, dan nyaman bagi si kecil.',
       url: '/kontak',
-      image: '/assets/images/asset-index-1.jpg',
+      image: '/assets/images/asset-index-1.webp',
     },
   ],
 };

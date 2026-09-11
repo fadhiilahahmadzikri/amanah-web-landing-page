@@ -3,7 +3,7 @@ import path from 'node:path';
 import process from 'node:process';
 import sharp from 'sharp';
 
-interface PipelineOptions {
+type PipelineOptions = {
   files: string[];
   dir?: string;
   recursive: boolean;
@@ -15,9 +15,9 @@ interface PipelineOptions {
   lossless: boolean;
   effort: number;
   srcDir: string;
-}
+};
 
-interface ConversionResult {
+type ConversionResult = {
   sourcePath: string;
   targetPath: string;
   originalSize: number;
@@ -28,7 +28,7 @@ interface ConversionResult {
   hasAlpha?: boolean;
   action: 'converted' | 'skipped' | 'preview';
   reason?: string;
-}
+};
 
 const EXCLUDED_FILENAMES = new Set([
   'favicon.ico',
@@ -54,13 +54,22 @@ function parseArgs(): PipelineOptions {
 
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
-    if (arg === '--file' && args[i + 1]) {
-      options.files.push(path.resolve(process.cwd(), args[++i]));
-    } else if (arg === '--files' && args[i + 1]) {
-      const paths = args[++i].split(',').map(p => path.resolve(process.cwd(), p.trim()));
-      options.files.push(...paths);
-    } else if (arg === '--dir' && args[i + 1]) {
-      options.dir = path.resolve(process.cwd(), args[++i]);
+    if (arg === '--file' && i + 1 < args.length) {
+      const nextArg = args[++i];
+      if (nextArg) {
+        options.files.push(path.resolve(process.cwd(), nextArg));
+      }
+    } else if (arg === '--files' && i + 1 < args.length) {
+      const nextArg = args[++i];
+      if (nextArg) {
+        const paths = nextArg.split(',').map(p => path.resolve(process.cwd(), p.trim()));
+        options.files.push(...paths);
+      }
+    } else if (arg === '--dir' && i + 1 < args.length) {
+      const nextArg = args[++i];
+      if (nextArg) {
+        options.dir = path.resolve(process.cwd(), nextArg);
+      }
     } else if (arg === '--no-recursive') {
       options.recursive = false;
     } else if (arg === '--watch') {
@@ -71,14 +80,23 @@ function parseArgs(): PipelineOptions {
       options.dryRun = true;
     } else if (arg === '--clean-source') {
       options.cleanSource = true;
-    } else if (arg === '--quality' && args[i + 1]) {
-      options.quality = Number.parseInt(args[++i], 10);
+    } else if (arg === '--quality' && i + 1 < args.length) {
+      const nextArg = args[++i];
+      if (nextArg) {
+        options.quality = Number.parseInt(nextArg, 10);
+      }
     } else if (arg === '--lossless') {
       options.lossless = true;
-    } else if (arg === '--effort' && args[i + 1]) {
-      options.effort = Number.parseInt(args[++i], 10);
-    } else if (arg === '--src-dir' && args[i + 1]) {
-      options.srcDir = path.resolve(process.cwd(), args[++i]);
+    } else if (arg === '--effort' && i + 1 < args.length) {
+      const nextArg = args[++i];
+      if (nextArg) {
+        options.effort = Number.parseInt(nextArg, 10);
+      }
+    } else if (arg === '--src-dir' && i + 1 < args.length) {
+      const nextArg = args[++i];
+      if (nextArg) {
+        options.srcDir = path.resolve(process.cwd(), nextArg);
+      }
     }
   }
 
@@ -122,7 +140,7 @@ async function convertImage(
   options: PipelineOptions,
 ): Promise<ConversionResult> {
   const ext = path.extname(sourcePath);
-  const targetPath = sourcePath.slice(0, -ext.length) + '.webp';
+  const targetPath = `${sourcePath.slice(0, -ext.length)}.webp`;
   const originalSize = fs.statSync(sourcePath).size;
 
   const image = sharp(sourcePath);
@@ -195,7 +213,9 @@ function rewireReferences(
   let totalReplacements = 0;
 
   function scan(dir: string) {
-    if (!fs.existsSync(dir)) return;
+    if (!fs.existsSync(dir)) {
+      return;
+    }
     const entries = fs.readdirSync(dir, { withFileTypes: true });
 
     for (const entry of entries) {
@@ -258,8 +278,12 @@ function cleanSourceRasters(conversionResults: ConversionResult[], dryRun: boole
 }
 
 function formatBytes(bytes: number): string {
-  if (bytes < 1024) return `${bytes} B`;
-  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+  if (bytes < 1024) {
+    return `${bytes} B`;
+  }
+  if (bytes < 1024 * 1024) {
+    return `${(bytes / 1024).toFixed(1)} KB`;
+  }
   return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
 }
 
@@ -338,8 +362,10 @@ async function run() {
 
   if (options.watch && options.dir) {
     console.log(`\n[ImagePipeline] Watching ${options.dir} for image additions/changes... (Press Ctrl+C to stop)`);
-    fs.watch(options.dir, { recursive: options.recursive }, async (eventType, filename) => {
-      if (!filename) return;
+    fs.watch(options.dir, { recursive: options.recursive }, async (_eventType, filename) => {
+      if (!filename) {
+        return;
+      }
       const fullPath = path.join(options.dir!, filename);
       if (isRasterCandidate(fullPath) && fs.existsSync(fullPath)) {
         console.log(`[Watch] Detected change in: ${filename}`);

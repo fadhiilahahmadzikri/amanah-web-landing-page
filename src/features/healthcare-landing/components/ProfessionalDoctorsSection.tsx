@@ -20,7 +20,7 @@ const professionalDoctors = [
     name: 'dr. Ika Fentiningrum',
     role: 'Dokter umum',
     image: {
-      src: '/assets/images/dokter-fenti.png',
+      src: '/assets/images/dokter-fenti.webp',
       alt: 'dr. Ika Fentiningrum dokter umum Klinik Amanah Healthcare',
     },
   },
@@ -29,7 +29,7 @@ const professionalDoctors = [
     name: 'Nur Hidayatun',
     role: 'Bidan',
     image: {
-      src: '/assets/images/dokter-hida.png',
+      src: '/assets/images/dokter-hida.webp',
       alt: 'Bidan Nur Hidayatun, S.ST Klinik Amanah Healthcare',
     },
   },

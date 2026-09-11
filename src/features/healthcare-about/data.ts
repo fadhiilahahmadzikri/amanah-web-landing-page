@@ -39,7 +39,7 @@ export const aboutHeroData: AboutHeroData = {
 
 export const aboutVisualBandData: AboutVisualBandData = {
   image: {
-    src: '/assets/images/about-hero-doctor.jpg',
+    src: '/assets/images/about-hero-doctor.webp',
     alt: 'Dokter profesional Klinik Amanah Pratama Healthcare tersenyum ramah siap melayani keluarga Anda',
   },
 };
@@ -50,7 +50,7 @@ export const aboutSlides = [
     title: 'Ramah, Nyaman, dan Mengayomi',
     description: 'Setiap pasien kami perlakukan seperti keluarga sendiri, mulai dari pendaftaran hingga konsultasi dengan dokter. Kebersihan klinik dijaga ketat agar Anda tetap nyaman selama berkunjung.',
     image: {
-      src: '/assets/images/asset-index-1.jpg',
+      src: '/assets/images/asset-index-1.webp',
       alt: 'Cara Kami Melayani - Ramah, Nyaman, dan Mengayomi',
     },
   },
@@ -59,7 +59,7 @@ export const aboutSlides = [
     title: 'Menjadi Pilihan Utama Warga Sleman',
     description: 'Kami ingin menjadi tempat berobat yang paling Anda percaya — mulai dari pemeriksaan kesehatan umum, konsultasi KB, hingga layanan ibu dan anak, semua ditangani dengan cepat dan tepat.',
     image: {
-      src: '/assets/images/asset-index-2.jpg',
+      src: '/assets/images/asset-index-2.webp',
       alt: 'Tujuan Kami - Menjadi Pilihan Utama Warga Sleman',
     },
   },
@@ -68,7 +68,7 @@ export const aboutSlides = [
     title: 'Melayani Pasien BPJS dan Umum',
     description: 'Soal biaya, Anda tidak perlu khawatir. Klinik Amanah resmi melayani pasien BPJS Kesehatan maupun umum, dengan proses administrasi yang cepat dan tidak berbelit.',
     image: {
-      src: '/assets/images/asset-index-3.jpg',
+      src: '/assets/images/asset-index-3.webp',
       alt: 'Cakupan Pelayanan - Melayani Pasien BPJS dan Umum',
     },
   },
@@ -77,7 +77,7 @@ export const aboutSlides = [
     title: 'Persalinan 24 Jam & Beragam Fasilitas',
     description: 'Layanan persalinan normal kami siagakan 24 jam penuh. Klinik ini juga dilengkapi USG kandungan, pemeriksaan laboratorium, khitan laser, serta jadwal vaksinasi rutin untuk bayi dan anak.',
     image: {
-      src: '/assets/images/asset-index-4.jpg',
+      src: '/assets/images/asset-index-4.webp',
       alt: 'Fasilitas & Layanan - Persalinan 24 Jam & Beragam Fasilitas',
     },
   },
@@ -86,7 +86,7 @@ export const aboutSlides = [
     title: 'Klinik Kesehatan Keluarga di Condongcatur',
     description: 'Klinik Pratama Amanah berlokasi di Jalan Anyelir, Perumnas Condongcatur, Sleman, melayani pemeriksaan dokter umum, konsultasi kandungan, dan kebidanan untuk kebutuhan kesehatan harian keluarga Anda.',
     image: {
-      src: '/assets/images/asset-index-5.png',
+      src: '/assets/images/asset-index-5.webp',
       alt: 'Profil Klinik - Klinik Kesehatan Keluarga di Condongcatur',
     },
   },
@@ -124,7 +124,7 @@ export const aboutEditorialStories: EditorialStoryData[] = [
     description:
       'Klinik Amanah Pratama Healthcare hadir sebagai mitra kesehatan keluarga yang memberikan pelayanan dengan pendekatan yang ramah, profesional, dan mudah dipahami. Kami ingin menciptakan suasana pelayanan yang nyaman sehingga setiap pasien dapat merasa didengar, dipahami, dan mendapatkan perhatian yang sesuai dengan kebutuhannya.',
     image: {
-      src: '/assets/images/asset-index-1.jpg',
+      src: '/assets/images/asset-index-1.webp',
       alt: 'Konsultasi medis dan pelayanan penuh perhatian tenaga kesehatan Klinik Amanah Pratama Healthcare',
     },
     imagePosition: 'left',
@@ -135,7 +135,7 @@ export const aboutEditorialStories: EditorialStoryData[] = [
     description:
       'Kami memahami bahwa setiap keluarga memiliki kebutuhan, kondisi, dan perjalanan kesehatan yang berbeda. Karena itu, pelayanan kami dirancang untuk memberikan perhatian secara personal, dengan proses yang mudah dipahami dan suasana yang nyaman. Kami ingin menjadi bagian dari perjalanan kesehatan keluarga melalui pelayanan yang ramah, profesional, dan penuh kepedulian.',
     image: {
-      src: '/assets/images/asset-index-2.jpg',
+      src: '/assets/images/asset-index-2.webp',
       alt: 'Pelayanan kesehatan yang berorientasi pada kenyamanan pasien dan keluarga di Klinik Amanah Pratama Healthcare',
     },
     imagePosition: 'right',

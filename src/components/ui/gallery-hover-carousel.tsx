@@ -44,7 +44,7 @@ export default function GalleryHoverCarousel({
       summary:
         'Menyediakan kebutuhan obat-obatan dan resep medis Anda dengan cepat tanpa perlu pindah tempat.',
       url: demoUrl,
-      image: '/assets/images/fasilitas-apotek.png',
+      image: '/assets/images/fasilitas-apotek.webp',
     },
     {
       id: 'item-ruang-bersalin',
@@ -52,7 +52,7 @@ export default function GalleryHoverCarousel({
       summary:
         'Siaga setiap saat untuk mendampingi proses melahirkan dengan aman, nyaman, dan ditangani tenaga medis profesional.',
       url: demoUrl,
-      image: '/assets/images/asset-index-8.jpg',
+      image: '/assets/images/asset-index-8.webp',
     },
     {
       id: 'item-ruang-tunggu',
@@ -60,7 +60,7 @@ export default function GalleryHoverCarousel({
       summary:
         'Area tunggu yang bersih, sejuk, dan ramah keluarga agar Anda dan kerabat tetap merasa rileks saat berobat.',
       url: demoUrl,
-      image: '/assets/images/fasilitas-ruangtunggu.png',
+      image: '/assets/images/fasilitas-ruangtunggu.webp',
     },
     {
       id: 'item-baby-care',
@@ -68,7 +68,7 @@ export default function GalleryHoverCarousel({
       summary:
         'Area khusus perawatan dan stimulasi bayi yang aman, bersih, dan nyaman bagi si kecil.',
       url: demoUrl,
-      image: '/assets/images/asset-index-1.jpg',
+      image: '/assets/images/asset-index-1.webp',
     },
   ],
   className,
