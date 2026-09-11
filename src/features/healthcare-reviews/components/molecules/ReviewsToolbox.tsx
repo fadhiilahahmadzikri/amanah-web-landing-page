@@ -60,7 +60,7 @@ export function ReviewsToolbox({
     <div
       className={cn(
         `
-          w-full rounded-none border border-line bg-card/80 p-3.5
+          w-full rounded-none border border-line bg-card/80 p-3
           shadow-xs backdrop-blur-xs
           sm:p-4
           md:p-5
@@ -68,10 +68,10 @@ export function ReviewsToolbox({
         className,
       )}
     >
-      {/* Top Bar: Search on Left, Shadcn Select Controls on Right */}
-      <div className="flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-        {/* SISI KIRI: Search Bar Minimalis dengan Shadcn Input */}
-        <div className="relative flex flex-1 items-center max-w-md">
+      {/* Search Bar (Fluid on mobile, fixed on desktop) & Filters (Icon-based on mobile, Hug text on desktop) */}
+      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
+        {/* SISI KIRI / BARIS 1 (Mobile): Search Bar Fluid */}
+        <div className="relative w-full md:w-80 md:shrink-0">
           <Search
             aria-hidden="true"
             className="pointer-events-none absolute left-3 size-4 text-muted-foreground"
@@ -80,8 +80,8 @@ export function ReviewsToolbox({
             type="text"
             value={searchQuery}
             onChange={e => onSearchChange(e.target.value)}
-            placeholder="Cari pasien, pengalaman, atau kata kunci..."
-            className="pl-9.5 pr-8"
+            placeholder="Cari ulasan, nama pasien, kata kunci..."
+            className="h-10 w-full pl-9.5 pr-8 text-xs sm:text-sm"
           />
           {searchQuery && (
             <button
@@ -98,18 +98,40 @@ export function ReviewsToolbox({
           )}
         </div>
 
-        {/* SISI KANAN: Shadcn UI Native Selects & Action Controls */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
-          {/* Rating Sorter */}
+        {/* SISI KANAN / BARIS 2 (Mobile): Tombol Filter Murni Berbasis Ikon di Mobile, Hug di Web */}
+        <div className="flex items-center gap-2 md:flex-wrap md:gap-2.5">
+          {/* 1. Rating Sorter */}
           <Select
             value={ratingSort}
             onValueChange={val => onRatingSortChange(val as RatingSortOption)}
           >
-            <SelectTrigger aria-label="Urutkan rating" className="w-[185px]">
-              <div className="flex items-center gap-2 truncate">
-                <ArrowDownUp className="size-3.5 text-muted-foreground" />
-                <SelectValue placeholder="Urutkan Rating" />
+            <SelectTrigger
+              aria-label="Urutkan rating"
+              title="Urutkan Rating"
+              className={cn(
+                `
+                  relative size-10 shrink-0 p-0 justify-center
+                  [&>[data-slot=select-icon]]:hidden
+                  md:h-10 md:w-auto md:min-w-fit md:px-3 md:py-2 md:justify-between
+                  md:[&>[data-slot=select-icon]]:inline-flex md:[&>[data-slot=select-icon]]:ml-2
+                  cursor-pointer whitespace-nowrap
+                `,
+                ratingSort !== 'default'
+                  && 'border-primary bg-primary/10 text-primary font-semibold',
+              )}
+            >
+              <div className="flex items-center gap-2">
+                <ArrowDownUp className="size-4 shrink-0" />
+                <span className="hidden md:inline">
+                  <SelectValue placeholder="Urutkan Rating" />
+                </span>
               </div>
+              {ratingSort !== 'default' && (
+                <span
+                  aria-hidden="true"
+                  className="absolute top-1.5 right-1.5 size-1.5 rounded-full bg-primary md:hidden"
+                />
+              )}
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="default">Urutan Default</SelectItem>
@@ -118,16 +140,38 @@ export function ReviewsToolbox({
             </SelectContent>
           </Select>
 
-          {/* Tanggapan Klinik Filter */}
+          {/* 2. Tanggapan Klinik Filter */}
           <Select
             value={responseFilter}
             onValueChange={val => onResponseFilterChange(val as ResponseFilterOption)}
           >
-            <SelectTrigger aria-label="Filter respon klinik" className="w-[175px]">
-              <div className="flex items-center gap-2 truncate">
-                <MessageCircle className="size-3.5 text-muted-foreground" />
-                <SelectValue placeholder="Tanggapan Klinik" />
+            <SelectTrigger
+              aria-label="Filter respon klinik"
+              title="Tanggapan Klinik"
+              className={cn(
+                `
+                  relative size-10 shrink-0 p-0 justify-center
+                  [&>[data-slot=select-icon]]:hidden
+                  md:h-10 md:w-auto md:min-w-fit md:px-3 md:py-2 md:justify-between
+                  md:[&>[data-slot=select-icon]]:inline-flex md:[&>[data-slot=select-icon]]:ml-2
+                  cursor-pointer whitespace-nowrap
+                `,
+                responseFilter !== 'all'
+                  && 'border-primary bg-primary/10 text-primary font-semibold',
+              )}
+            >
+              <div className="flex items-center gap-2">
+                <MessageCircle className="size-4 shrink-0" />
+                <span className="hidden md:inline">
+                  <SelectValue placeholder="Tanggapan Klinik" />
+                </span>
               </div>
+              {responseFilter !== 'all' && (
+                <span
+                  aria-hidden="true"
+                  className="absolute top-1.5 right-1.5 size-1.5 rounded-full bg-primary md:hidden"
+                />
+              )}
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">Semua Tanggapan</SelectItem>
@@ -136,16 +180,38 @@ export function ReviewsToolbox({
             </SelectContent>
           </Select>
 
-          {/* Lampiran Foto Bukti Filter */}
+          {/* 3. Lampiran Foto Bukti Filter */}
           <Select
             value={photosFilter}
             onValueChange={val => onPhotosFilterChange(val as PhotosFilterOption)}
           >
-            <SelectTrigger aria-label="Filter foto ulasan" className="w-[160px]">
-              <div className="flex items-center gap-2 truncate">
-                <Camera className="size-3.5 text-muted-foreground" />
-                <SelectValue placeholder="Foto Bukti" />
+            <SelectTrigger
+              aria-label="Filter foto bukti ulasan"
+              title="Foto Bukti Ulasan"
+              className={cn(
+                `
+                  relative size-10 shrink-0 p-0 justify-center
+                  [&>[data-slot=select-icon]]:hidden
+                  md:h-10 md:w-auto md:min-w-fit md:px-3 md:py-2 md:justify-between
+                  md:[&>[data-slot=select-icon]]:inline-flex md:[&>[data-slot=select-icon]]:ml-2
+                  cursor-pointer whitespace-nowrap
+                `,
+                photosFilter !== 'all'
+                  && 'border-primary bg-primary/10 text-primary font-semibold',
+              )}
+            >
+              <div className="flex items-center gap-2">
+                <Camera className="size-4 shrink-0" />
+                <span className="hidden md:inline">
+                  <SelectValue placeholder="Foto Bukti" />
+                </span>
               </div>
+              {photosFilter !== 'all' && (
+                <span
+                  aria-hidden="true"
+                  className="absolute top-1.5 right-1.5 size-1.5 rounded-full bg-primary md:hidden"
+                />
+              )}
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">Semua Ulasan</SelectItem>
@@ -154,17 +220,21 @@ export function ReviewsToolbox({
             </SelectContent>
           </Select>
 
-          {/* Tombol Reset Filter via Shadcn Button */}
+          {/* 4. Tombol Reset Filter */}
           {isFiltered && (
             <Button
               type="button"
               variant="outline"
-              size="default"
+              aria-label="Reset semua filter"
+              title="Reset Semua Filter"
               onClick={onResetFilters}
-              className="h-10 rounded-none border-line text-xs font-medium cursor-pointer"
+              className="
+                size-10 shrink-0 p-0 rounded-none border-line text-xs font-medium cursor-pointer
+                hover:bg-muted md:h-10 md:w-auto md:px-3 md:py-2 md:gap-1.5
+              "
             >
               <RotateCcw className="size-3.5" />
-              <span>Reset</span>
+              <span className="hidden md:inline">Reset</span>
             </Button>
           )}
         </div>
