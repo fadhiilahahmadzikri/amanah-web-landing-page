@@ -212,8 +212,7 @@ export function TrustHighlights() {
               data-trust-panel
               className="
                 hidden sm:flex sm:min-h-[203px] sm:items-center sm:justify-center
-                sm:overflow-hidden bg-linear-to-r from-amanah-sky/25 to-background px-6 py-7
-                dark:from-amanah-blue/20 dark:to-card
+                sm:overflow-hidden bg-background px-6 py-7
               "
             >
               <Image

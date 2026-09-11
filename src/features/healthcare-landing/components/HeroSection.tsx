@@ -18,7 +18,7 @@ import { SectionContainer } from './SectionContainer';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const heroMetrics = ['Klinik keluarga', 'Yogyakarta', '5,000+ pasien'] as const;
+const heroMetrics = ['Klinik Persalinan dan umum', 'Yogyakarta', '5,000+ pasien'] as const;
 
 type HeroMetricsRailPlacement = 'desktop' | 'mobile';
 

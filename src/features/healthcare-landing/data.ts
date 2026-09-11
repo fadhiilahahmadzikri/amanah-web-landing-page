@@ -66,22 +66,22 @@ export const trustHighlights = {
     description: 'Dipercaya oleh ribuan pasien',
     avatars: [
       {
-        src: '/assets/images/Image__clint-1__5409f0a5.png',
-        alt: 'Pasien Amanah Healthcare',
+        src: 'https://i.pravatar.cc/112?img=32',
+        alt: 'Avatar pasien Amanah Healthcare',
       },
       {
-        src: '/assets/images/Image__clint-2__4fb72324.png',
-        alt: 'Pasien Amanah Healthcare',
+        src: 'https://i.pravatar.cc/112?img=47',
+        alt: 'Avatar pasien Amanah Healthcare',
       },
       {
-        src: '/assets/images/Image__clint-3__92ee8626.png',
-        alt: 'Pasien Amanah Healthcare',
+        src: 'https://i.pravatar.cc/112?img=56',
+        alt: 'Avatar pasien Amanah Healthcare',
       },
     ] satisfies AssetImage[],
   },
   quote: {
-    text: '“Best dentist experience ever! Friendly staff and pain-free visits.”',
-    author: '— dr. Ika Fenti',
+    text: '“pelayanan ramah, sangat informatif. merasa aman dan nyaman periksa disini”',
+    author: '— Elza Amelia',
     icon: {
       src: '/assets/svg/Vector_2049_4946.svg',
       alt: '',
@@ -332,7 +332,7 @@ export const contactItems = [
 ] satisfies ContactItem[];
 
 export const contactImage = {
-  src: '/assets/images/Image__Healthcare_and_Medical_Specialists_Consulting__12d9eb1f.png',
+  src: '/assets/images/kontak.png',
   alt: 'Dokter Amanah Healthcare menerima panggilan konsultasi',
 } satisfies AssetImage;
 

@@ -17,6 +17,7 @@ export const healthcareNavigationItems: HealthcareNavigationItem[] = [
   { label: 'Beranda', path: '/' },
   { label: 'Tentang Kami', path: '/tentang-kami' },
   { label: 'Fasilitas & Layanan', path: '/fasilitas' },
+  { label: 'Ulasan', path: '/ulasan' },
   { label: 'Kontak', path: '/kontak' },
 ];
 

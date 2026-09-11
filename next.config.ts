@@ -9,6 +9,18 @@ const baseConfig: NextConfig = {
   devIndicators: {
     position: 'bottom-right',
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'i.pravatar.cc',
+        protocol: 'https',
+      },
+      {
+        hostname: 'lh3.googleusercontent.com',
+        protocol: 'https',
+      },
+    ],
+  },
   poweredByHeader: false,
   reactStrictMode: true,
   reactCompiler: process.env.NODE_ENV === 'production', // Keep the development environment fast

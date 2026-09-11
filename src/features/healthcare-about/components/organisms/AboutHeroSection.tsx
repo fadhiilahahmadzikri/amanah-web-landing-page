@@ -404,34 +404,6 @@ export function AboutHeroSection({
 
       // Mobile / Tablet (< 1024px): Hero Entrance Choreography matching desktop + ScrollTrigger for commitment section
       mm.add('(max-width: 1023px)', () => {
-        const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        if (isReducedMotion) {
-          const allMobileWords = [
-            ...mobileLine1WordsRef.current.filter(Boolean),
-            ...mobileLine2WordsRef.current.filter(Boolean),
-          ];
-          if (allMobileWords.length > 0) {
-            gsap.set(allMobileWords, { opacity: 1, yPercent: 0 });
-          }
-          if (mobileLeadTextRef.current) {
-            gsap.set(mobileLeadTextRef.current, { opacity: 1, y: 0 });
-          }
-          if (mobileImageWrapperRef.current) {
-            gsap.set(mobileImageWrapperRef.current, { opacity: 1, scale: 1 });
-          }
-          if (mobileIconsRef.current.length > 0) {
-            gsap.set(mobileIconsRef.current.filter(Boolean), { opacity: 1, scale: 1, y: 0 });
-          }
-          if (mobileCommitmentTextRef.current) {
-            gsap.set(mobileCommitmentTextRef.current, { opacity: 1, y: 0 });
-          }
-          if (mobileArrowRef.current) {
-            gsap.set(mobileArrowRef.current, { opacity: 1, y: 0 });
-          }
-          return;
-        }
-
         // --- 1. Mobile Hero Entrance Timeline ---
         const line1El = mobileLine1WrapperRef.current;
         const line2El = mobileLine2WrapperRef.current;
@@ -450,7 +422,13 @@ export function AboutHeroSection({
         });
 
         // (a) Line 1 words tick up randomly like digital clock counter digits on Line 2
-        const line1Elements = mobileLine1WordsRef.current.filter(Boolean);
+        const queriedLine1 = line1El
+          ? Array.from(line1El.querySelectorAll<HTMLSpanElement>('[data-hero-headline-word]'))
+          : [];
+        const line1Elements = queriedLine1.length > 0
+          ? queriedLine1
+          : mobileLine1WordsRef.current.filter(Boolean);
+
         if (line1Elements.length > 0) {
           mobileEntranceTl.fromTo(
             line1Elements,
@@ -504,7 +482,13 @@ export function AboutHeroSection({
         }
 
         // (d) Line 2 words tick up randomly from below onto Line 2
-        const line2Elements = mobileLine2WordsRef.current.filter(Boolean);
+        const queriedLine2 = line2El
+          ? Array.from(line2El.querySelectorAll<HTMLSpanElement>('[data-hero-headline-word]'))
+          : [];
+        const line2Elements = queriedLine2.length > 0
+          ? queriedLine2
+          : mobileLine2WordsRef.current.filter(Boolean);
+
         if (line2Elements.length > 0) {
           mobileEntranceTl.fromTo(
             line2Elements,
@@ -619,6 +603,10 @@ export function AboutHeroSection({
           });
         }
       });
+
+      return () => {
+        mm.revert();
+      };
     },
     { scope: containerRef },
   );
@@ -893,6 +881,7 @@ export function AboutHeroSection({
                     className="-mb-1 inline-block overflow-hidden pt-0.5 pb-1 align-top"
                   >
                     <span
+                      data-hero-headline-word="true"
                       ref={(el) => {
                         if (el) {
                           mobileLine1WordsRef.current[index] = el;
@@ -918,6 +907,7 @@ export function AboutHeroSection({
                     className="-mb-1 inline-block overflow-hidden pt-0.5 pb-1 align-top"
                   >
                     <span
+                      data-hero-headline-word="true"
                       ref={(el) => {
                         if (el) {
                           mobileLine2WordsRef.current[index] = el;

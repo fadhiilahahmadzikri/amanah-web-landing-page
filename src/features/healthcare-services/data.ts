@@ -105,7 +105,7 @@ export const generalPractitionerSection: ServiceCategorySection = {
       description:
         'Fasilitas terapi nebulisasi untuk membantu penanganan pasien dengan keluhan saluran pernapasan sesuai anjuran tenaga medis.',
       image: {
-        src: '/assets/images/dokumentasi/dokumentasi-14.png',
+        src: '/assets/images/dokumentasi/nebulizer.png',
         alt: 'Fasilitas Terapi Nebulizer',
       },
       colSpanClass: 'col-span-12 sm:col-span-6 md:col-span-7',

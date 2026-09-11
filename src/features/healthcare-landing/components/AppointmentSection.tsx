@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { useRef } from 'react';
 import { SectionHeader } from '@/components/healthcare';
+import { PixelMeshBackground } from '@/features/healthcare-about/components/atoms/PixelMeshBackground';
 import { appointment, watermark } from '../data';
 import { ArrowCtaButton } from './ArrowCtaButton';
 import { SectionContainer } from './SectionContainer';
@@ -16,16 +17,23 @@ export function AppointmentSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
+  const mobileTextureRef = useRef<HTMLDivElement>(null);
   const watermarkRef = useRef<HTMLImageElement>(null);
 
   useGSAP(
     () => {
+      const sectionElement = sectionRef.current;
+
+      if (!sectionElement) {
+        return;
+      }
+
       if (watermarkRef.current) {
         gsap.to(watermarkRef.current, {
           yPercent: 20,
           ease: 'none',
           scrollTrigger: {
-            trigger: sectionRef.current,
+            trigger: sectionElement,
             start: 'top bottom',
             end: 'bottom top',
             scrub: 1,
@@ -33,8 +41,27 @@ export function AppointmentSection() {
         });
       }
 
+      if (mobileTextureRef.current) {
+        gsap.fromTo(
+          mobileTextureRef.current,
+          { autoAlpha: 0, scale: 0.92, y: -10 },
+          {
+            autoAlpha: 1,
+            duration: 0.9,
+            ease: 'power3.out',
+            scale: 1,
+            scrollTrigger: {
+              trigger: sectionElement,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+            y: 0,
+          },
+        );
+      }
+
       if (textRef.current) {
-        const maskLines = textRef.current.querySelectorAll('[data-mask-text]');
+        const maskLines = textRef.current.querySelectorAll<HTMLElement>('[data-mask-text]');
         gsap.fromTo(
           maskLines,
           { yPercent: 120, opacity: 0 },
@@ -45,7 +72,7 @@ export function AppointmentSection() {
             stagger: 0.12,
             ease: 'expo.out',
             scrollTrigger: {
-              trigger: sectionRef.current,
+              trigger: sectionElement,
               start: 'top 85%',
               toggleActions: 'play none none reverse',
             },
@@ -63,7 +90,7 @@ export function AppointmentSection() {
             duration: 1.4,
             ease: 'power2.out',
             scrollTrigger: {
-              trigger: sectionRef.current,
+              trigger: sectionElement,
               start: 'top 80%',
               toggleActions: 'play none none reverse',
             },
@@ -91,11 +118,34 @@ export function AppointmentSection() {
         "
         >
           <div className="
-            relative flex min-h-[520px] flex-col items-start justify-center
-            gap-8 overflow-hidden bg-background px-6 py-12 text-foreground
+            relative isolate flex min-h-[520px] flex-col items-start
+            justify-center gap-8 overflow-hidden bg-background px-6 py-12
+            text-foreground
             md:px-10 md:py-16
           "
           >
+            <div
+              ref={mobileTextureRef}
+              aria-hidden="true"
+              className="
+                pointer-events-none absolute -top-5 -right-7 z-0 size-48
+                overflow-hidden opacity-0 will-change-[transform,opacity]
+                select-none
+                sm:size-56
+                md:hidden
+              "
+            >
+              <PixelMeshBackground
+                initialProgress={1}
+                progress={1}
+                maskGradient="radial-gradient(ellipse at top right, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.72) 42%, rgba(0, 0, 0, 0.26) 68%, transparent 86%)"
+                className="
+                  size-full opacity-55
+                  dark:opacity-70
+                "
+              />
+            </div>
+
             <Image
               ref={watermarkRef}
               src={watermark.src}
@@ -122,7 +172,11 @@ export function AppointmentSection() {
               description={appointment.description}
               descriptionSize="lead"
               actionSlot={(
-                <div className="mt-8 sm:mt-10">
+                <div className="
+                  mt-8
+                  sm:mt-10
+                "
+                >
                   <ArrowCtaButton href="/kontak">
                     Buat Janji Temu
                   </ArrowCtaButton>
