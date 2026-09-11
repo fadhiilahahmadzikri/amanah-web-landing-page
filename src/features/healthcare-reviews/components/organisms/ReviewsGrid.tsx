@@ -5,12 +5,15 @@ import type { PixelMeshBackgroundHandle } from '@/features/healthcare-about/comp
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { RotateCcw, Search } from 'lucide-react';
 import { useRef } from 'react';
 import {
   SectionContainer,
   SectionHeader,
 } from '@/components/healthcare';
 import { PixelMeshBackground } from '@/features/healthcare-about/components/atoms/PixelMeshBackground';
+import { useReviewsTable } from '../../hooks/useReviewsTable';
+import { ReviewsToolbox } from '../molecules/ReviewsToolbox';
 import { ReviewCard } from './ReviewCard';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -29,6 +32,22 @@ export function ReviewsGrid({
   const gridRef = useRef<HTMLDivElement>(null);
   const pixelMeshRef = useRef<PixelMeshBackgroundHandle>(null);
   const pixelContainerRef = useRef<HTMLDivElement>(null);
+
+  const {
+    filteredCount,
+    isFiltered,
+    photosFilter,
+    ratingSort,
+    resetFilters,
+    responseFilter,
+    reviews: filteredReviews,
+    searchQuery,
+    setPhotosFilter,
+    setRatingSort,
+    setResponseFilter,
+    setSearchQuery,
+    totalCount,
+  } = useReviewsTable(reviews);
 
   useGSAP(
     () => {
@@ -152,10 +171,11 @@ export function ReviewsGrid({
         sm:px-6
       "
       >
+        {/* Header dengan margin bawah yang proporsional agar tidak mepet dengan toolbox */}
         <SectionHeader
           ref={headerRef}
           data-reviews-reveal
-          className="mb-8"
+          className="mb-10 sm:mb-12 md:mb-14"
           eyebrow="Ulasan Pasien"
           headingAs="h1"
           headingSize="display"
@@ -164,23 +184,63 @@ export function ReviewsGrid({
           descriptionSize="lead"
         />
 
-        <div
-          ref={gridRef}
-          data-reviews-grid
-          className="
-            grid grid-cols-1 gap-5
-            md:grid-cols-2 md:gap-6
-            xl:grid-cols-3
-            2xl:grid-cols-4
-          "
-        >
-          {reviews.map(review => (
-            <ReviewCard
-              key={review.id}
-              review={review}
-              onImageOpen={onImageOpen}
-            />
-          ))}
+        {/* Pembungkus terpadu Toolbox dan Grid dengan jarak proporsional */}
+        <div className="flex flex-col gap-6 sm:gap-8">
+          <ReviewsToolbox
+            filteredCount={filteredCount}
+            isFiltered={isFiltered}
+            onPhotosFilterChange={setPhotosFilter}
+            onRatingSortChange={setRatingSort}
+            onResetFilters={resetFilters}
+            onResponseFilterChange={setResponseFilter}
+            onSearchChange={setSearchQuery}
+            photosFilter={photosFilter}
+            ratingSort={ratingSort}
+            responseFilter={responseFilter}
+            searchQuery={searchQuery}
+            totalCount={totalCount}
+          />
+
+          {filteredReviews.length > 0 ? (
+            <div
+              ref={gridRef}
+              data-reviews-grid
+              className="
+                grid grid-cols-1 gap-5
+                md:grid-cols-2 md:gap-6
+                xl:grid-cols-3
+                2xl:grid-cols-4
+              "
+            >
+              {filteredReviews.map(review => (
+                <ReviewCard
+                  key={review.id}
+                  review={review}
+                  onImageOpen={onImageOpen}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center border border-dashed border-line bg-card/40 px-6 py-16 text-center sm:py-20">
+              <div className="mb-4 flex size-12 items-center justify-center rounded-none bg-muted text-muted-foreground">
+                <Search className="size-6" />
+              </div>
+              <h3 className="text-base font-semibold text-foreground sm:text-lg">
+                Tidak ada ulasan yang sesuai
+              </h3>
+              <p className="mt-2 max-w-md text-xs text-muted-foreground sm:text-sm">
+                Coba sesuaikan kata kunci pencarian Anda atau reset filter untuk melihat ulasan lainnya.
+              </p>
+              <button
+                type="button"
+                onClick={resetFilters}
+                className="mt-6 inline-flex cursor-pointer items-center gap-2 border border-line bg-background px-4 py-2 text-xs font-semibold text-foreground transition-colors hover:bg-muted"
+              >
+                <RotateCcw className="size-3.5" />
+                <span>Reset Semua Filter</span>
+              </button>
+            </div>
+          )}
         </div>
       </SectionContainer>
     </section>
