@@ -29,7 +29,7 @@ const professionalDoctors = [
     name: 'Nur Hidayatun',
     role: 'Bidan',
     image: {
-      src: '/assets/images/dokter-hida.webp',
+      src: '/assets/images/bidan-hida.webp',
       alt: 'Bidan Nur Hidayatun, S.ST Klinik Amanah Healthcare',
     },
   },
