@@ -55,7 +55,7 @@ describe('HeroSection', () => {
     expect(metricsRail).toHaveClass(/grid-cols-3/);
 
     await expect.element(page.getByRole('heading', { level: 1 })).toHaveTextContent(
-      /Amanah Healthcare/,
+      /Klinik Persalinan dan Umum/i,
     );
   });
 });

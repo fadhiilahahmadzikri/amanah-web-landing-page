@@ -28,8 +28,8 @@ export const navigationItems = [
 
 export const hero = {
   eyebrow: 'Bersama kami',
-  title: 'Sehat Lebih Baik, Bersama Klinik',
-  scriptTitle: 'Amanah Healthcare',
+  title: 'Klinik Persalinan dan Umum',
+  scriptTitle: 'Yogyakarta',
   image: {
     src: '/assets/images/amanah-building-front.webp',
     alt: 'Dokter mendampingi pasien di ruang perawatan Klinik Amanah',

@@ -164,7 +164,7 @@ export function TrustHighlights() {
               </HealthcareText>
             </div>
 
-            <TextCtaLink href="#layanan">
+            <TextCtaLink href="/fasilitas">
               {trustHighlights.service.cta}
             </TextCtaLink>
           </div>

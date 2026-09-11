@@ -175,10 +175,9 @@ export function FacilitiesSection() {
   return (
     <section
       ref={sectionRef}
-      id="layanan"
-      className="scroll-mt-14 bg-background"
+      id="fasilitas"
+      className="bg-background"
     >
-      <div id="fasilitas" className="scroll-mt-14" />
       <SectionContainer className="
         relative px-0
         sm:px-0

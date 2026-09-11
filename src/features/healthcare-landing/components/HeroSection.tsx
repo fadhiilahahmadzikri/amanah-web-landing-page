@@ -19,7 +19,7 @@ import { SectionContainer } from './SectionContainer';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const heroMetrics = ['Klinik Persalinan', 'Yogyakarta', 'Klinik Umum'] as const;
+const heroMetrics = ['Layanan 24 Jam', 'Dokter & Bidan', 'Condongcatur, Sleman'] as const;
 
 type HeroMetricsRailPlacement = 'desktop' | 'mobile';
 
@@ -50,9 +50,9 @@ function HeroMetricsRail({ className, placement }: HeroMetricsRailProps) {
             'min-w-0 border-line py-3',
             isMobilePlacement
               ? `
-                border-r px-2 text-center
+                border-r px-1 text-center text-[10px] min-[360px]:text-xs
                 last:border-r-0
-                min-[380px]:px-3
+                min-[380px]:px-2
                 sm:px-4
               `
               : `
