@@ -4,7 +4,6 @@ import { useGSAP } from '@gsap/react';
 import confetti from 'canvas-confetti';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Link from 'next/link';
 import { useCallback, useEffect, useRef } from 'react';
 import { SectionHeader } from '@/components/healthcare';
 import { CardFanCarousel } from '@/components/ui/card-fan-carousel';
@@ -258,35 +257,6 @@ export function TestimonialsSection() {
             title="Bersama Keluarga, Setiap Langkah"
             description="Dokumentasi momen keluarga yang kami dampingi dalam berbagai perjalanan kesehatan."
             descriptionSize="lead"
-            actionSlot={(
-              <div className="mt-5 flex justify-center sm:mt-6">
-                <Link
-                  href="/testimoni"
-                  className="
-                    inline-flex items-center gap-1.5 border-b border-line pb-0.5
-                    text-xs font-semibold text-foreground transition-colors
-                    hover:border-foreground hover:text-amanah-blue
-                    sm:gap-2.5 sm:amanah-type-small
-                  "
-                >
-                  <span>Lihat Testimoni Lainnya</span>
-                  <svg
-                    width="13"
-                    height="13"
-                    viewBox="0 0 13 13"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-3 shrink-0"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M10.4114 3.41421L1.80483 12.0208L0.390625 10.6066L8.99722 2H1.41144V0H12.4114V11H10.4114V3.41421Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </Link>
-              </div>
-            )}
           />
 
           <span

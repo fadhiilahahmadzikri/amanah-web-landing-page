@@ -8,6 +8,7 @@ import {
   Volume2,
   VolumeX,
 } from 'lucide-react';
+import Link from 'next/link';
 import { useRef, useState } from 'react';
 import {
   AmanahScriptText,
@@ -283,6 +284,35 @@ export function KhitanShowcaseSection() {
                 >
                   Buat Ayah &amp; Bunda yang masih ragu pilih tempat khitan untuk si kecil, yuk ke Klinik Amanah aja! Prosesnya cepat, minim sakit, dan ditangani oleh tim profesional.
                 </HealthcareText>
+              </div>
+
+              {/* Tautan Lihat Testimoni Lainnya */}
+              <div data-content-item className="mt-5 sm:mt-6">
+                <Link
+                  href="/testimoni"
+                  className="
+                    inline-flex items-center gap-1.5 border-b border-line pb-0.5
+                    text-xs font-semibold text-primary transition-colors
+                    hover:border-primary hover:text-amanah-blue
+                    sm:gap-[10px] sm:amanah-type-small
+                  "
+                >
+                  <span>Lihat Testimoni Lainnya</span>
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 13 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="size-3 shrink-0"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M10.4114 3.41421L1.80483 12.0208L0.390625 10.6066L8.99722 2H1.41144V0H12.4114V11H10.4114V3.41421Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </Link>
               </div>
             </div>
 
