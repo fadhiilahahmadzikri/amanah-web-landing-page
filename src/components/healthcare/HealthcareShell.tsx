@@ -3,6 +3,7 @@ import { HealthcareFAQ } from './faq';
 import { HealthcareChatFab } from './HealthcareChatFab';
 import { HealthcareFooter } from './HealthcareFooter';
 import { HealthcareHeader } from './HealthcareHeader';
+import { MedicalClinicJsonLd } from './MedicalClinicJsonLd';
 import { SmoothScroll } from './SmoothScroll';
 import { TechnicalDivider } from './TechnicalDivider';
 
@@ -19,6 +20,7 @@ export function HealthcareShell({
 }: HealthcareShellProps) {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <MedicalClinicJsonLd />
       <SmoothScroll />
       <HealthcareHeader activePath={activePath} locale={locale} />
       <main className="mx-auto max-w-[1300px] border-x-2 border-line">

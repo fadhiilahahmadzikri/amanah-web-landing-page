@@ -174,6 +174,7 @@ export function ContactSection() {
               src={contactImage.src}
               alt={contactImage.alt}
               fill
+              priority
               sizes="(min-width: 1320px) 1256px, calc(100vw - 40px)"
               className="object-cover"
             />

@@ -2,18 +2,25 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { AmanahReviewsPage } from '@/features/healthcare-reviews';
 import { reviewsPageContent } from '@/features/healthcare-reviews/data';
+import { getI18nPath } from '@/utils/Helpers';
 
 type ReviewsPageProps = {
   params: Promise<{ locale: string }>;
 };
 
-export function generateMetadata(): Metadata {
+export async function generateMetadata(props: ReviewsPageProps): Promise<Metadata> {
+  const { locale } = await props.params;
+
   return {
-    title: 'Ulasan Pasien - Klinik Amanah HealthCare',
+    title: 'Ulasan Pasien',
     description: `Baca ${reviewsPageContent.summary.totalReviewsClaimed} Google Maps untuk ${reviewsPageContent.summary.placeTitle}.`,
+    alternates: {
+      canonical: getI18nPath('/ulasan', locale),
+    },
     openGraph: {
+      title: 'Ulasan Pasien - Klinik Amanah Healthcare',
       description: `Rating ${reviewsPageContent.summary.overallRatingLabel}/5 dari Google Maps untuk ${reviewsPageContent.summary.placeTitle}.`,
-      title: 'Ulasan Pasien - Klinik Amanah HealthCare',
+      url: getI18nPath('/ulasan', locale),
       type: 'website',
     },
   };

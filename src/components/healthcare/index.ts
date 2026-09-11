@@ -8,6 +8,7 @@ export { HealthcareFAQ } from './faq';
 export { HealthcareHeader } from './HealthcareHeader';
 export { HealthcareShell } from './HealthcareShell';
 export { HealthcareEyebrow, HealthcareHeading, HealthcareText } from './HealthcareTypography';
+export { MedicalClinicJsonLd } from './MedicalClinicJsonLd';
 export { SectionContainer } from './SectionContainer';
 export { SectionHeader } from './SectionHeader';
 export type { SectionHeaderAlign, SectionHeaderProps } from './SectionHeader';
