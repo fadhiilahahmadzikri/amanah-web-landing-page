@@ -10,6 +10,7 @@ const baseConfig: NextConfig = {
     position: 'bottom-right',
   },
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         hostname: 'i.pravatar.cc',
