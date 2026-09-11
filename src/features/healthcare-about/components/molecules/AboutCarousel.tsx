@@ -34,7 +34,7 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
   return (
     <div
       className="
-        relative mt-12 overflow-visible pb-5
+        relative mt-8 overflow-visible pb-5
         md:mt-20 md:pb-8
       "
     >
@@ -46,10 +46,11 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
       >
         <div
           className="
-            relative mx-auto w-full max-w-[1022px] py-4
+            relative mx-auto w-full max-w-[1022px] py-2
             sm:py-8
           "
         >
+          {/* 3D Perspective Card Deck Stage */}
           <div
             ref={stageRef}
             className="
@@ -80,6 +81,7 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
             ))}
           </div>
 
+          {/* Controls / Toolbar (Responsive: on mobile placed below cards with indicators on left, navigation on right) */}
           <CarouselToolbar
             currentIndex={carousel.currentIndex}
             totalSlides={slides.length}
@@ -92,3 +94,4 @@ export function AboutCarousel({ slides }: AboutCarouselProps) {
     </div>
   );
 }
+

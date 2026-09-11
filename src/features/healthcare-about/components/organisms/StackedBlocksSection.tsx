@@ -6,7 +6,12 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
-import { HealthcareHeading, HealthcareText } from '@/components/healthcare';
+import {
+  HealthcareHeading,
+  HealthcareText,
+  PixelIcon,
+  type PixelIconName,
+} from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -189,6 +194,12 @@ const WALL_CELLS = BRICK_ROWS.flatMap(row =>
 
 const WALL_POSITION_KEYS = new Set(WALL_CELLS.map(cell => getPositionKey(cell.row, cell.box.left)));
 
+const principleHeaderPixelIcons = [
+  { name: 'stetoskop', title: 'Stetoskop Medis' },
+  { name: 'jantung', title: 'Jantung Kasih' },
+  { name: 'p3k', title: 'Kotak P3K Medis' },
+] as const satisfies readonly { name: PixelIconName; title: string }[];
+
 type StackedBlocksSectionProps = {
   className?: string;
 };
@@ -205,26 +216,121 @@ export function StackedBlocksSection({ className }: StackedBlocksSectionProps) {
       }
 
       const section = sectionRef.current;
-      const headingLines = section.querySelectorAll('[data-mask-text]');
-      if (headingLines.length > 0) {
-        gsap.fromTo(
-          headingLines,
-          { opacity: 0, yPercent: 120 },
-          {
-            duration: 1.2,
-            ease: 'expo.out',
-            opacity: 1,
-            scrollTrigger: {
-              start: 'top 88%',
-              toggleActions: 'play none none reverse',
-              trigger: section,
+      const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 1. Header pixel icons animation
+      const iconItems = section.querySelectorAll('[data-header-icon]');
+      if (iconItems.length > 0) {
+        if (isReducedMotion) {
+          gsap.fromTo(
+            iconItems,
+            { opacity: 0 },
+            {
+              duration: 0.35,
+              opacity: 1,
+              scrollTrigger: {
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+                trigger: section,
+              },
             },
-            stagger: 0.1,
-            yPercent: 0,
-          },
-        );
+          );
+        } else {
+          gsap.fromTo(
+            iconItems,
+            { opacity: 0, scale: 0.35, y: 18 },
+            {
+              duration: 0.7,
+              ease: 'back.out(2)',
+              opacity: 1,
+              scale: 1,
+              scrollTrigger: {
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                trigger: section,
+              },
+              stagger: 0.12,
+              y: 0,
+            },
+          );
+        }
       }
 
+      // 2. Heading mask lines
+      const headingLines = section.querySelectorAll('[data-mask-text]');
+      if (headingLines.length > 0) {
+        if (isReducedMotion) {
+          gsap.fromTo(
+            headingLines,
+            { opacity: 0 },
+            {
+              duration: 0.35,
+              opacity: 1,
+              scrollTrigger: {
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+                trigger: section,
+              },
+            },
+          );
+        } else {
+          gsap.fromTo(
+            headingLines,
+            { opacity: 0, yPercent: 120 },
+            {
+              duration: 1.2,
+              ease: 'expo.out',
+              opacity: 1,
+              scrollTrigger: {
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+                trigger: section,
+              },
+              stagger: 0.1,
+              yPercent: 0,
+            },
+          );
+        }
+      }
+
+      // 3. Mobile alternating cards animation
+      const mobileCards = section.querySelectorAll('[data-mobile-principle]');
+      if (mobileCards.length > 0) {
+        if (isReducedMotion) {
+          gsap.fromTo(
+            mobileCards,
+            { opacity: 0 },
+            {
+              duration: 0.35,
+              opacity: 1,
+              scrollTrigger: {
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                trigger: mobileCards[0] ?? section,
+              },
+            },
+          );
+        } else {
+          gsap.fromTo(
+            mobileCards,
+            { opacity: 0, y: 24 },
+            {
+              duration: 0.75,
+              ease: 'expo.out',
+              opacity: 1,
+              scrollTrigger: {
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                trigger: mobileCards[0] ?? section,
+              },
+              stagger: 0.1,
+              y: 0,
+            },
+          );
+        }
+      }
+
+      // 4. Desktop Brick pieces animation
       const brickPieces = getOrderedBrickPieces(section);
       if (brickPieces.length === 0) {
         return;
@@ -236,7 +342,7 @@ export function StackedBlocksSection({ className }: StackedBlocksSectionProps) {
         trigger: section,
       };
 
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      if (isReducedMotion) {
         gsap.fromTo(
           brickPieces,
           { autoAlpha: 0 },
@@ -276,9 +382,10 @@ export function StackedBlocksSection({ className }: StackedBlocksSectionProps) {
       aria-label="Prinsip klinik amanah healthcare"
       className={cn(
         `
-          relative w-full overflow-hidden bg-background py-20 text-foreground
+          relative w-full overflow-hidden bg-background py-14 text-foreground
           select-none
-          sm:py-28
+          sm:py-20
+          md:py-28
         `,
         className,
       )}
@@ -303,10 +410,37 @@ export function StackedBlocksSection({ className }: StackedBlocksSectionProps) {
       </div>
 
       <div className="
-        relative mx-auto mb-12 max-w-4xl px-4 text-center
-        sm:mb-16
+        relative mx-auto mb-10 max-w-4xl px-4 text-center
+        sm:mb-14
+        md:mb-16
       "
       >
+        {/* Header Pixel Icons */}
+        <div
+          data-header-icons
+          className="
+            mb-3.5 flex items-center justify-center gap-3
+            sm:gap-4
+            select-none
+          "
+          aria-hidden
+        >
+          {principleHeaderPixelIcons.map((icon) => (
+            <div
+              key={icon.name}
+              data-header-icon
+              className="inline-flex shrink-0 items-center justify-center will-change-transform"
+            >
+              <PixelIcon
+                name={icon.name}
+                size="responsive"
+                svgClassName="size-10 md:size-8 transition-transform duration-300 hover:scale-110"
+                title={icon.title}
+              />
+            </div>
+          ))}
+        </div>
+
         <div className="-mb-2 overflow-hidden pb-2">
           <HealthcareHeading
             as="h2"
@@ -321,12 +455,23 @@ export function StackedBlocksSection({ className }: StackedBlocksSectionProps) {
         </div>
       </div>
 
+      {/* Mobile View: Vertical order with alternating horizontal cards, always open without hover */}
+      <div className="mx-auto flex w-full max-w-lg flex-col gap-3.5 px-4 md:hidden">
+        {PRINCIPLES.map((principle, index) => (
+          <MobilePrincipleCard
+            key={principle.id}
+            principle={principle}
+            isImageLeft={index % 2 === 0}
+          />
+        ))}
+      </div>
+
+      {/* Desktop View: Interactive 3D Brick Wall with hover reveal */}
       <div
         className="
-          relative mx-auto flex h-[360px] w-full max-w-[1360px] items-center
+          relative mx-auto hidden h-[360px] w-full max-w-[1360px] items-center
           justify-center px-4
-          sm:h-[520px]
-          md:h-[620px]
+          md:flex md:h-[620px]
           lg:h-[720px]
           xl:h-[780px]
           2xl:h-[820px]
@@ -334,10 +479,8 @@ export function StackedBlocksSection({ className }: StackedBlocksSectionProps) {
       >
         <div
           className="
-            relative h-[720px] w-[1040px] shrink-0 origin-center scale-[0.42]
+            relative h-[720px] w-[1040px] shrink-0 origin-center scale-[0.78]
             transition-transform duration-300
-            sm:scale-[0.64]
-            md:scale-[0.78]
             lg:scale-[0.98]
             xl:scale-[1.10]
             2xl:scale-[1.18]
@@ -366,6 +509,83 @@ export function StackedBlocksSection({ className }: StackedBlocksSectionProps) {
         </div>
       </div>
     </section>
+  );
+}
+
+function MobilePrincipleCard({
+  isImageLeft,
+  principle,
+}: {
+  isImageLeft: boolean;
+  principle: PrincipleBrick;
+}) {
+  return (
+    <article
+      data-mobile-principle
+      className={cn(
+        'group relative flex w-full items-stretch overflow-hidden border border-line bg-card shadow-2xs transition-colors hover:border-primary/40',
+        isImageLeft ? 'flex-row' : 'flex-row-reverse',
+      )}
+    >
+      {/* Image half with seamless mask fade into the adjacent text container */}
+      <div
+        className="relative min-h-[140px] w-[42%] shrink-0 overflow-hidden select-none"
+        style={{
+          maskImage: isImageLeft
+            ? 'linear-gradient(to right, black 0%, black 40%, rgba(0, 0, 0, 0.6) 70%, transparent 100%)'
+            : 'linear-gradient(to left, black 0%, black 40%, rgba(0, 0, 0, 0.6) 70%, transparent 100%)',
+          WebkitMaskImage: isImageLeft
+            ? 'linear-gradient(to right, black 0%, black 40%, rgba(0, 0, 0, 0.6) 70%, transparent 100%)'
+            : 'linear-gradient(to left, black 0%, black 40%, rgba(0, 0, 0, 0.6) 70%, transparent 100%)',
+        }}
+      >
+        <Image
+          src={principle.imageSrc}
+          alt={principle.title}
+          fill
+          sizes="(max-width: 768px) 45vw, 220px"
+          className="object-cover object-center brightness-95 contrast-105 transition-transform duration-500 group-hover:scale-105"
+        />
+        {/* Soft edge blend gradient */}
+        <div
+          aria-hidden="true"
+          className={cn(
+            'pointer-events-none absolute inset-0',
+            isImageLeft
+              ? 'bg-linear-to-r from-transparent via-transparent to-card/90'
+              : 'bg-linear-to-l from-transparent via-transparent to-card/90',
+          )}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-linear-to-t from-card/60 via-transparent to-transparent"
+        />
+      </div>
+
+      {/* Content half */}
+      <div className="flex flex-1 flex-col justify-between p-3.5 sm:p-4">
+        <div>
+          <div className="mb-2 flex items-center gap-2">
+            <PixelBadge bgClass={principle.badgeClass}>
+              {principle.icon}
+            </PixelBadge>
+            <HealthcareHeading
+              as="h3"
+              size="card"
+              className="font-medium text-card-foreground"
+            >
+              {principle.title}
+            </HealthcareHeading>
+          </div>
+          <HealthcareText
+            size="caption"
+            className="text-xs leading-relaxed text-muted-foreground sm:text-sm"
+          >
+            {principle.description}
+          </HealthcareText>
+        </div>
+      </div>
+    </article>
   );
 }
 

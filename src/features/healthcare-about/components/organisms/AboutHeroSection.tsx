@@ -73,6 +73,20 @@ export function AboutHeroSection({
   const confettiRef = useRef<HeroConfettiRef>(null);
   const pixelMeshRef = useRef<PixelMeshBackgroundHandle>(null);
   const expandedTextContentRef = useRef<HTMLDivElement>(null);
+  const mobileCommitmentRef = useRef<HTMLDivElement>(null);
+  const mobileConfettiRef = useRef<HeroConfettiRef>(null);
+  const mobilePixelMeshRef = useRef<PixelMeshBackgroundHandle>(null);
+  const mobileHeadlineRef = useRef<HTMLHeadingElement>(null);
+  const mobileLine1WrapperRef = useRef<HTMLSpanElement>(null);
+  const mobileLine1WordsRef = useRef<HTMLSpanElement[]>([]);
+  const mobileLine2WrapperRef = useRef<HTMLSpanElement>(null);
+  const mobileLine2WordsRef = useRef<HTMLSpanElement[]>([]);
+  const mobileLeadTextRef = useRef<HTMLParagraphElement>(null);
+  const mobileImageWrapperRef = useRef<HTMLDivElement>(null);
+  const mobileIconsContainerRef = useRef<HTMLDivElement>(null);
+  const mobileIconsRef = useRef<HTMLDivElement[]>([]);
+  const mobileCommitmentTextRef = useRef<HTMLParagraphElement>(null);
+  const mobileArrowRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -80,145 +94,145 @@ export function AboutHeroSection({
         return;
       }
 
-      // --- 0. HERO ENTRANCE CHOREOGRAPHY ---
-      // Measure vertical distance from Line 1 to Line 2 so Line 1 initially sits at Line 2
-      const line1El = line1WrapperRef.current;
-      const line2El = line2WrapperRef.current;
-      const rect1 = line1El?.getBoundingClientRect();
-      const rect2 = line2El?.getBoundingClientRect();
-      const deltaY = rect1 && rect2 && rect2.top > rect1.top
-        ? rect2.top - rect1.top
-        : (line1El?.offsetHeight ?? 54);
-
-      if (line1El) {
-        gsap.set(line1El, { y: deltaY });
-      }
-
-      const entranceTl = gsap.timeline({
-        delay: 0.15,
-      });
-
-      // (a) Line 1 words tick up randomly like digital clock counter digits on Line 2
-      const line1Elements = line1WordsRef.current.filter(Boolean);
-      if (line1Elements.length > 0) {
-        entranceTl.fromTo(
-          line1Elements,
-          {
-            opacity: 0,
-            yPercent: 120,
-          },
-          {
-            duration: 0.55,
-            ease: 'back.out(1.4)',
-            opacity: 1,
-            stagger: {
-              each: 0.08,
-              from: 'random',
-            },
-            yPercent: 0,
-          },
-          0,
-        );
-      }
-
-      // (b) Doctor fluid image in left column enters smoothly
-      if (imageWrapperRef.current) {
-        entranceTl.fromTo(
-          imageWrapperRef.current,
-          {
-            opacity: 0,
-            scale: 1.06,
-          },
-          {
-            duration: 1.2,
-            ease: 'power2.out',
-            opacity: 1,
-            scale: 1,
-          },
-          0.15,
-        );
-      }
-
-      // (c) After settling on Line 2, Line 1 shifts up to its natural Line 1 spot
-      if (line1El) {
-        entranceTl.to(
-          line1El,
-          {
-            duration: 0.75,
-            ease: 'power3.inOut',
-            y: 0,
-          },
-          0.85,
-        );
-      }
-
-      // (d) Line 2 words tick up randomly from below onto Line 2
-      const line2Elements = line2WordsRef.current.filter(Boolean);
-      if (line2Elements.length > 0) {
-        entranceTl.fromTo(
-          line2Elements,
-          {
-            opacity: 0,
-            yPercent: 120,
-          },
-          {
-            duration: 0.55,
-            ease: 'back.out(1.4)',
-            opacity: 1,
-            stagger: {
-              each: 0.08,
-              from: 'random',
-            },
-            yPercent: 0,
-          },
-          1.1,
-        );
-      }
-
-      // (e) Initial description text on right shell glides in
-      if (initialTextContentRef.current) {
-        entranceTl.fromTo(
-          initialTextContentRef.current,
-          {
-            opacity: 0,
-            y: 20,
-          },
-          {
-            duration: 0.85,
-            ease: 'power3.out',
-            opacity: 1,
-            y: 0,
-          },
-          1.0,
-        );
-      }
-
-      // (f) Directional arrow indicator enters smoothly
-      if (arrowInnerRef.current) {
-        entranceTl.fromTo(
-          arrowInnerRef.current,
-          {
-            opacity: 0,
-            y: 16,
-          },
-          {
-            duration: 0.8,
-            ease: 'power3.out',
-            opacity: 1,
-            y: 0,
-          },
-          1.25,
-        );
-      }
-
-      entranceTl.call(() => {
-        ScrollTrigger.refresh();
-      });
-
       const mm = gsap.matchMedia();
 
       // Desktop: Pinned scroll transformation where the right shell expands to fill viewport
       mm.add('(min-width: 1024px)', () => {
+        // --- 0. HERO ENTRANCE CHOREOGRAPHY (Desktop) ---
+        // Measure vertical distance from Line 1 to Line 2 so Line 1 initially sits at Line 2
+        const line1El = line1WrapperRef.current;
+        const line2El = line2WrapperRef.current;
+        const rect1 = line1El?.getBoundingClientRect();
+        const rect2 = line2El?.getBoundingClientRect();
+        const deltaY = rect1 && rect2 && rect2.top > rect1.top
+          ? rect2.top - rect1.top
+          : (line1El?.offsetHeight ?? 54);
+
+        if (line1El) {
+          gsap.set(line1El, { y: deltaY });
+        }
+
+        const entranceTl = gsap.timeline({
+          delay: 0.15,
+        });
+
+        // (a) Line 1 words tick up randomly like digital clock counter digits on Line 2
+        const line1Elements = line1WordsRef.current.filter(Boolean);
+        if (line1Elements.length > 0) {
+          entranceTl.fromTo(
+            line1Elements,
+            {
+              opacity: 0,
+              yPercent: 120,
+            },
+            {
+              duration: 0.55,
+              ease: 'back.out(1.4)',
+              opacity: 1,
+              stagger: {
+                each: 0.08,
+                from: 'random',
+              },
+              yPercent: 0,
+            },
+            0,
+          );
+        }
+
+        // (b) Doctor fluid image in left column enters smoothly
+        if (imageWrapperRef.current) {
+          entranceTl.fromTo(
+            imageWrapperRef.current,
+            {
+              opacity: 0,
+              scale: 1.06,
+            },
+            {
+              duration: 1.2,
+              ease: 'power2.out',
+              opacity: 1,
+              scale: 1,
+            },
+            0.15,
+          );
+        }
+
+        // (c) After settling on Line 2, Line 1 shifts up to its natural Line 1 spot
+        if (line1El) {
+          entranceTl.to(
+            line1El,
+            {
+              duration: 0.75,
+              ease: 'power3.inOut',
+              y: 0,
+            },
+            0.85,
+          );
+        }
+
+        // (d) Line 2 words tick up randomly from below onto Line 2
+        const line2Elements = line2WordsRef.current.filter(Boolean);
+        if (line2Elements.length > 0) {
+          entranceTl.fromTo(
+            line2Elements,
+            {
+              opacity: 0,
+              yPercent: 120,
+            },
+            {
+              duration: 0.55,
+              ease: 'back.out(1.4)',
+              opacity: 1,
+              stagger: {
+                each: 0.08,
+                from: 'random',
+              },
+              yPercent: 0,
+            },
+            1.1,
+          );
+        }
+
+        // (e) Initial description text on right shell glides in
+        if (initialTextContentRef.current) {
+          entranceTl.fromTo(
+            initialTextContentRef.current,
+            {
+              opacity: 0,
+              y: 20,
+            },
+            {
+              duration: 0.85,
+              ease: 'power3.out',
+              opacity: 1,
+              y: 0,
+            },
+            1.0,
+          );
+        }
+
+        // (f) Directional arrow indicator enters smoothly
+        if (arrowInnerRef.current) {
+          entranceTl.fromTo(
+            arrowInnerRef.current,
+            {
+              opacity: 0,
+              y: 16,
+            },
+            {
+              duration: 0.8,
+              ease: 'power3.out',
+              opacity: 1,
+              y: 0,
+            },
+            1.25,
+          );
+        }
+
+        entranceTl.call(() => {
+          ScrollTrigger.refresh();
+        });
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
@@ -271,7 +285,7 @@ export function AboutHeroSection({
           );
         }
 
-        // 3. Initial text (rata kiri, di bawah sejajar headline) fades out completely first
+        // 3. Initial text fades out completely first
         if (initialTextRef.current) {
           tl.to(
             initialTextRef.current,
@@ -286,8 +300,6 @@ export function AboutHeroSection({
         }
 
         // 4. PHASE 1: SCREEN EXPANSION (0.0 -> 1.0)
-        // Left column shrinks from 68% to 0%, Right shell EXPANDS from 32% to 100%
-        // During this entire phase, the background remains 100% BLANK ("kertas putih kosong")
         if (leftColRef.current && rightShellRef.current) {
           tl.to(
             leftColRef.current,
@@ -311,12 +323,11 @@ export function AboutHeroSection({
         }
 
         // 5. PHASE 2: SCREEN HAS REACHED 100% EXPANDED!
-        // Right at 1.0, the screen is 100% expanded. NOW THE SUMMON ANIMATION BEGINS!
         if (expandedTextRef.current) {
           tl.set(expandedTextRef.current, { autoAlpha: 1 }, 1.0);
         }
 
-        // 5b. PIXEL SUMMON: Parasite emerges from bottom to top, rendered per pixel ("bercak pixel 1 1 muncul")
+        // 5b. PIXEL SUMMON: Parasite emerges from bottom to top
         const crawlState = { progress: 0 };
         tl.to(
           crawlState,
@@ -379,8 +390,7 @@ export function AboutHeroSection({
           2.05,
         );
 
-        // 8. PHASE 4: HOLD / REST BUFFER (~2-3 extra scrolls linger on 100% completed state)
-        // Keeps the screen pinned so the user can comfortably view and absorb the finished state before unpinning
+        // 8. PHASE 4: HOLD / REST BUFFER
         const holdState = { buffer: 0 };
         tl.to(
           holdState,
@@ -392,128 +402,222 @@ export function AboutHeroSection({
         );
       });
 
-      // Mobile / Tablet: Unpinned scrubbed scroll transition
+      // Mobile / Tablet (< 1024px): Hero Entrance Choreography matching desktop + ScrollTrigger for commitment section
       mm.add('(max-width: 1023px)', () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 85%',
-            end: 'bottom 20%',
-            scrub: 0.8,
-          },
+        const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (isReducedMotion) {
+          const allMobileWords = [
+            ...mobileLine1WordsRef.current.filter(Boolean),
+            ...mobileLine2WordsRef.current.filter(Boolean),
+          ];
+          if (allMobileWords.length > 0) {
+            gsap.set(allMobileWords, { opacity: 1, yPercent: 0 });
+          }
+          if (mobileLeadTextRef.current) {
+            gsap.set(mobileLeadTextRef.current, { opacity: 1, y: 0 });
+          }
+          if (mobileImageWrapperRef.current) {
+            gsap.set(mobileImageWrapperRef.current, { opacity: 1, scale: 1 });
+          }
+          if (mobileIconsRef.current.length > 0) {
+            gsap.set(mobileIconsRef.current.filter(Boolean), { opacity: 1, scale: 1, y: 0 });
+          }
+          if (mobileCommitmentTextRef.current) {
+            gsap.set(mobileCommitmentTextRef.current, { opacity: 1, y: 0 });
+          }
+          if (mobileArrowRef.current) {
+            gsap.set(mobileArrowRef.current, { opacity: 1, y: 0 });
+          }
+          return;
+        }
+
+        // --- 1. Mobile Hero Entrance Timeline ---
+        const line1El = mobileLine1WrapperRef.current;
+        const line2El = mobileLine2WrapperRef.current;
+        const rect1 = line1El?.getBoundingClientRect();
+        const rect2 = line2El?.getBoundingClientRect();
+        const deltaY = rect1 && rect2 && rect2.top > rect1.top
+          ? rect2.top - rect1.top
+          : (line1El?.offsetHeight ?? 38);
+
+        if (line1El) {
+          gsap.set(line1El, { y: deltaY });
+        }
+
+        const mobileEntranceTl = gsap.timeline({
+          delay: 0.15,
         });
 
-        if (arrowContainerRef.current) {
-          tl.to(
-            arrowContainerRef.current,
+        // (a) Line 1 words tick up randomly like digital clock counter digits on Line 2
+        const line1Elements = mobileLine1WordsRef.current.filter(Boolean);
+        if (line1Elements.length > 0) {
+          mobileEntranceTl.fromTo(
+            line1Elements,
             {
-              autoAlpha: 0,
-              duration: 0.25,
+              opacity: 0,
+              yPercent: 120,
+            },
+            {
+              duration: 0.55,
+              ease: 'back.out(1.4)',
+              opacity: 1,
+              stagger: {
+                each: 0.08,
+                from: 'random',
+              },
+              yPercent: 0,
             },
             0,
           );
         }
 
-        if (headlineRef.current) {
-          tl.to(
-            headlineRef.current,
+        // (b) Doctor team image below headline enters smoothly
+        if (mobileImageWrapperRef.current) {
+          mobileEntranceTl.fromTo(
+            mobileImageWrapperRef.current,
             {
-              autoAlpha: 0.2,
-              duration: 0.45,
-              y: -30,
-            },
-            0,
-          );
-        }
-
-        if (initialTextRef.current) {
-          tl.to(
-            initialTextRef.current,
-            {
-              autoAlpha: 0,
-              duration: 0.25,
-              ease: 'power2.in',
-              y: -10,
-            },
-            0,
-          );
-        }
-
-        // Screen is focused / settled at 0.5. NOW pixel summon begins!
-        if (expandedTextRef.current) {
-          tl.set(expandedTextRef.current, { autoAlpha: 1 }, 0.5);
-        }
-
-        const mobileCrawlState = { progress: 0 };
-        tl.to(
-          mobileCrawlState,
-          {
-            duration: 0.6,
-            ease: 'none',
-            progress: 1,
-            onUpdate: () => {
-              pixelMeshRef.current?.setProgress(mobileCrawlState.progress);
-            },
-          },
-          0.5,
-        );
-
-        if (expandedTextContentRef.current) {
-          tl.fromTo(
-            expandedTextContentRef.current,
-            {
-              autoAlpha: 0,
-              y: 16,
+              opacity: 0,
+              scale: 1.05,
             },
             {
-              autoAlpha: 1,
-              duration: 0.4,
+              duration: 1.1,
               ease: 'power2.out',
-              y: 0,
+              opacity: 1,
+              scale: 1,
             },
-            0.75,
+            0.2,
           );
         }
 
-        if (iconsRef.current.length > 0) {
-          tl.fromTo(
-            iconsRef.current,
+        // (c) Line 1 shifts up to its natural spot
+        if (line1El) {
+          mobileEntranceTl.to(
+            line1El,
             {
-              autoAlpha: 0,
-              scale: 0.8,
-              y: 16,
+              duration: 0.75,
+              ease: 'power3.inOut',
+              y: 0,
+            },
+            0.85,
+          );
+        }
+
+        // (d) Line 2 words tick up randomly from below onto Line 2
+        const line2Elements = mobileLine2WordsRef.current.filter(Boolean);
+        if (line2Elements.length > 0) {
+          mobileEntranceTl.fromTo(
+            line2Elements,
+            {
+              opacity: 0,
+              yPercent: 120,
             },
             {
-              autoAlpha: 1,
-              duration: 0.28,
-              ease: 'back.out(1.5)',
-              scale: 1,
-              stagger: 0.09,
-              y: 0,
+              duration: 0.55,
+              ease: 'back.out(1.4)',
+              opacity: 1,
+              stagger: {
+                each: 0.08,
+                from: 'random',
+              },
+              yPercent: 0,
             },
             1.1,
           );
         }
 
-        // Confetti celebration burst exactly when icon at index 2 emerges
-        tl.call(
-          () => {
-            confettiRef.current?.fire();
-          },
-          [],
-          1.28,
-        );
+        // (e) Lead description text glides in
+        if (mobileLeadTextRef.current) {
+          mobileEntranceTl.fromTo(
+            mobileLeadTextRef.current,
+            {
+              opacity: 0,
+              y: 18,
+            },
+            {
+              duration: 0.85,
+              ease: 'power3.out',
+              opacity: 1,
+              y: 0,
+            },
+            1.0,
+          );
+        }
 
-        // Mobile Hold Buffer
-        const mobileHoldState = { buffer: 0 };
-        tl.to(
-          mobileHoldState,
-          {
-            buffer: 1,
-            duration: 0.8,
-          },
-          1.38,
-        );
+        // --- 2. Mobile Commitment Section on Scroll ---
+        if (mobileCommitmentRef.current) {
+          const commitmentTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: mobileCommitmentRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+
+          const mobileIconEls = mobileIconsRef.current.filter(Boolean);
+          if (mobileIconEls.length > 0) {
+            commitmentTl.fromTo(
+              mobileIconEls,
+              {
+                opacity: 0,
+                scale: 0.8,
+                y: 18,
+              },
+              {
+                duration: 0.35,
+                ease: 'back.out(1.5)',
+                opacity: 1,
+                scale: 1,
+                stagger: 0.1,
+                y: 0,
+              },
+              0,
+            );
+          }
+
+          if (mobileCommitmentTextRef.current) {
+            commitmentTl.fromTo(
+              mobileCommitmentTextRef.current,
+              {
+                opacity: 0,
+                y: 20,
+              },
+              {
+                duration: 0.7,
+                ease: 'power2.out',
+                opacity: 1,
+                y: 0,
+              },
+              0.15,
+            );
+          }
+
+          if (mobileArrowRef.current) {
+            commitmentTl.fromTo(
+              mobileArrowRef.current,
+              {
+                opacity: 0,
+                y: 14,
+              },
+              {
+                duration: 0.6,
+                ease: 'power2.out',
+                opacity: 1,
+                y: 0,
+              },
+              0.3,
+            );
+          }
+
+          ScrollTrigger.create({
+            trigger: mobileCommitmentRef.current,
+            start: 'top 80%',
+            once: true,
+            onEnter: () => {
+              mobileConfettiRef.current?.fire();
+            },
+          });
+        }
       });
     },
     { scope: containerRef },
@@ -527,9 +631,10 @@ export function AboutHeroSection({
         lg:h-[calc(100vh-48px)] lg:min-h-[600px]
       `, className)}
     >
+      {/* Desktop Split Columns (>= 1024px) */}
       <div className="
-        relative z-0 flex size-full flex-col overflow-hidden
-        lg:flex-row
+        relative z-0 hidden size-full overflow-hidden
+        lg:flex lg:flex-row
       "
       >
         {/* Left Column: Unified Headline + Fluid Edge-to-Edge Illustration */}
@@ -701,14 +806,14 @@ export function AboutHeroSection({
         </div>
       </div>
 
-      {/* Expanded Camouflaged Content: fills the entire hero surface, not only the right shell. */}
+      {/* Desktop Expanded Camouflaged Content (>= 1024px) */}
       <div
         ref={expandedTextRef}
         className="
-          pointer-events-none absolute inset-0 z-10 flex items-center
+          pointer-events-none absolute inset-0 z-10 hidden items-center
           justify-center overflow-hidden px-6 opacity-0 will-change-transform
           sm:px-10
-          lg:px-16
+          lg:flex lg:px-16
         "
       >
         <PixelMeshBackground
@@ -760,6 +865,150 @@ export function AboutHeroSection({
           >
             {resolvedHero.description}
           </p>
+        </div>
+      </div>
+
+      {/* Mobile Layout (< 1024px): Natural, Impeccable Flow with Synchronized GSAP Animations */}
+      <div className="flex w-full flex-col lg:hidden">
+        {/* Upper: Headline & Lead Description */}
+        <div className="px-5 pt-8 pb-6 sm:px-8 sm:pt-12 sm:pb-8">
+          <h2
+            ref={mobileHeadlineRef}
+            className="
+              relative w-full text-2xl font-medium tracking-tight
+              text-foreground will-change-transform leading-snug
+              sm:text-3xl md:text-4xl
+            "
+          >
+            <span className="sr-only">{resolvedHero.headline}</span>
+            <span aria-hidden="true" className="block">
+              {/* Line 1 */}
+              <span
+                ref={mobileLine1WrapperRef}
+                className="block will-change-transform"
+              >
+                {line1Words.map((word, index) => (
+                  <span
+                    key={`mobile-l1-${word}-${index}`}
+                    className="-mb-1 inline-block overflow-hidden pt-0.5 pb-1 align-top"
+                  >
+                    <span
+                      ref={(el) => {
+                        if (el) {
+                          mobileLine1WordsRef.current[index] = el;
+                        }
+                      }}
+                      className="inline-block opacity-0 will-change-transform"
+                    >
+                      {word}
+                      {index < line1Words.length - 1 ? '\u00A0' : ''}
+                    </span>
+                  </span>
+                ))}
+              </span>
+
+              {/* Line 2 */}
+              <span
+                ref={mobileLine2WrapperRef}
+                className="block will-change-transform"
+              >
+                {line2Words.map((word, index) => (
+                  <span
+                    key={`mobile-l2-${word}-${index}`}
+                    className="-mb-1 inline-block overflow-hidden pt-0.5 pb-1 align-top"
+                  >
+                    <span
+                      ref={(el) => {
+                        if (el) {
+                          mobileLine2WordsRef.current[index] = el;
+                        }
+                      }}
+                      className="inline-block opacity-0 will-change-transform"
+                    >
+                      {word}
+                      {index < line2Words.length - 1 ? '\u00A0' : ''}
+                    </span>
+                  </span>
+                ))}
+              </span>
+            </span>
+          </h2>
+
+          <p
+            ref={mobileLeadTextRef}
+            className="mt-3 text-sm leading-relaxed text-muted-foreground opacity-0 will-change-transform sm:mt-4 sm:text-base"
+          >
+            {resolvedHero.initialDescription}
+          </p>
+        </div>
+
+        {/* Middle: Doctor Team Image with clean framing */}
+        <figure className="relative aspect-16/10 w-full overflow-hidden border-y border-line bg-muted/20 sm:aspect-21/9">
+          <div
+            ref={mobileImageWrapperRef}
+            className="relative size-full opacity-0 will-change-transform"
+          >
+            <Image
+              src={resolvedVisual.image.src}
+              alt={resolvedVisual.image.alt}
+              fill
+              priority
+              sizes="(max-width: 1023px) 100vw, 880px"
+              className="object-cover object-center"
+            />
+          </div>
+        </figure>
+
+        {/* Lower: Dedicated Commitment Card with Pixel Mesh & Pixel Icons */}
+        <div
+          ref={mobileCommitmentRef}
+          className="relative w-full overflow-hidden bg-card/40 px-5 py-8 sm:px-8 sm:py-10 text-center"
+        >
+          <PixelMeshBackground
+            ref={mobilePixelMeshRef}
+            initialProgress={1}
+            progress={1}
+            className="pointer-events-none absolute inset-0 z-0 size-full opacity-55 dark:opacity-75"
+          />
+
+          <HeroConfetti ref={mobileConfettiRef} className="z-20" />
+
+          <div className="relative z-10 mx-auto flex max-w-xl flex-col items-center">
+            {icons.length > 0 && (
+              <div
+                ref={mobileIconsContainerRef}
+                className="mb-4 flex items-center justify-center gap-3.5 sm:mb-5 sm:gap-4"
+              >
+                {icons.map((icon, index) => (
+                  <div
+                    key={icon.id}
+                    ref={(el) => {
+                      if (el) {
+                        mobileIconsRef.current[index] = el;
+                      }
+                    }}
+                    className="opacity-0 will-change-transform transition-transform hover:scale-105"
+                  >
+                    <PixelIconBadge icon={icon} size={42} />
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <p
+              ref={mobileCommitmentTextRef}
+              className="text-base font-medium leading-relaxed text-foreground opacity-0 will-change-transform sm:text-lg"
+            >
+              {resolvedHero.description}
+            </p>
+
+            <div
+              ref={mobileArrowRef}
+              className="mt-5 pt-1 opacity-0 will-change-transform"
+            >
+              <DirectionalArrowIndicator />
+            </div>
+          </div>
         </div>
       </div>
     </div>
