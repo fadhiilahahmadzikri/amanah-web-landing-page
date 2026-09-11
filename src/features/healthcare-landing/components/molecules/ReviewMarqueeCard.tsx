@@ -1,5 +1,8 @@
+'use client';
+
 import type { MarqueeReviewItem } from '../../data/reviewsMarqueeData';
 import Image from 'next/image';
+import { useState } from 'react';
 import {
   Avatar,
   AvatarFallback,
@@ -16,6 +19,8 @@ export function ReviewMarqueeCard({
   className,
   review,
 }: ReviewMarqueeCardProps) {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <article
       className={cn(
@@ -51,13 +56,14 @@ export function ReviewMarqueeCard({
           <AvatarFallback className="rounded-none text-xs font-semibold text-foreground">
             {review.initials}
           </AvatarFallback>
-          {review.avatar && (
+          {review.avatar && !imageError && (
             <Image
               src={review.avatar}
               alt={`Foto profil ${review.name}`}
               fill
               sizes="40px"
               className="object-cover"
+              onError={() => setImageError(true)}
             />
           )}
         </Avatar>

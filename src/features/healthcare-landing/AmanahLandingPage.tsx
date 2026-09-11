@@ -22,13 +22,13 @@ export function AmanahLandingPage({ locale }: AmanahLandingPageProps) {
       <TechnicalDivider className="lg:hidden" />
       <TrustHighlights />
       <TechnicalDivider />
+      <ReviewsMarqueeSection />
+      <TechnicalDivider />
       <FacilitiesSection />
       <TechnicalDivider />
       <ProfessionalDoctorsSection />
       <TechnicalDivider />
       <KhitanShowcaseSection />
-      <TechnicalDivider />
-      <ReviewsMarqueeSection />
       <TechnicalDivider />
       <AppointmentSection />
       <TechnicalDivider />
