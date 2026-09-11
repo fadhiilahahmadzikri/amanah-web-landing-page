@@ -19,7 +19,6 @@ export type HealthcareContactItem = {
 
 export type HealthcareFooterData = {
   address: string;
-  cardText: string;
   location: string;
   map: AssetImage;
   socialLinks: string[];

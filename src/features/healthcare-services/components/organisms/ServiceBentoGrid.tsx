@@ -7,6 +7,14 @@ type ServiceBentoGridProps = {
   className?: string;
 };
 
+function getServiceCardGridClassName(index: number, totalItems: number) {
+  const isSingleLastCard = totalItems % 2 === 1 && index === totalItems - 1;
+
+  return isSingleLastCard
+    ? 'col-span-12 sm:col-span-12 md:col-span-12'
+    : 'col-span-12 sm:col-span-6 md:col-span-6';
+}
+
 export function ServiceBentoGrid({ items, className }: ServiceBentoGridProps) {
   return (
     <div
@@ -18,8 +26,12 @@ export function ServiceBentoGrid({ items, className }: ServiceBentoGridProps) {
         className,
       )}
     >
-      {items.map(item => (
-        <ServiceBentoCard key={item.id} item={item} />
+      {items.map((item, index) => (
+        <ServiceBentoCard
+          key={item.id}
+          item={item}
+          className={getServiceCardGridClassName(index, items.length)}
+        />
       ))}
     </div>
   );

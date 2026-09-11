@@ -4,8 +4,6 @@ export { ServiceCardAffordance } from './components/atoms/ServiceCardAffordance'
 export { ServiceContextItem } from './components/atoms/ServiceContextItem';
 export { ServiceFeatureHighlight } from './components/atoms/ServiceFeatureHighlight';
 export { ServiceBentoCard } from './components/molecules/ServiceBentoCard';
-export { ServiceInfoPanel } from './components/molecules/ServiceInfoPanel';
-export { ServiceStickyIndicator } from './components/molecules/ServiceStickyIndicator';
 export { FacilitiesCarouselSection } from './components/organisms/FacilitiesCarouselSection';
 export { ServiceBentoGrid } from './components/organisms/ServiceBentoGrid';
 export { ServiceCategoryBlock } from './components/organisms/ServiceCategoryBlock';

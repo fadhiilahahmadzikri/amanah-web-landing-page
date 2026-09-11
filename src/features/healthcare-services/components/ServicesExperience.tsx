@@ -47,6 +47,7 @@ export function ServicesExperience({ className }: ServicesExperienceProps) {
         end: 'bottom 40%',
         onEnter: () => setActiveContext('midwifery'),
         onEnterBack: () => setActiveContext('midwifery'),
+        onLeaveBack: () => setActiveContext('general-practitioner'),
       });
     },
     { scope: containerRef },
@@ -62,7 +63,7 @@ export function ServicesExperience({ className }: ServicesExperienceProps) {
     if (targetEl) {
       if (typeof window !== 'undefined' && window.__lenis) {
         window.__lenis.scrollTo(targetEl, {
-          offset: -80,
+          offset: -105,
           duration: 1.2,
           easing: t => Math.min(1, 1.001 - 2 ** (-10 * t)),
         });
@@ -90,12 +91,19 @@ export function ServicesExperience({ className }: ServicesExperienceProps) {
           {/* Left Column: Dedicated panel extending directly through shell and rail boundaries */}
           <aside
             className="
-              shrink-0 border-b border-line bg-background p-0
-              lg:w-[220px] lg:border-r lg:border-b-0 lg:pt-[72px]
-              xl:w-[240px] xl:pt-20
+              sticky top-12 z-30 shrink-0 border-b border-line bg-background/95
+              p-0 backdrop-blur-md
+              lg:static lg:top-auto lg:z-auto lg:mb-[72px] lg:w-[220px]
+              lg:border-r lg:border-b-0 lg:bg-background lg:pt-[72px]
+              lg:backdrop-blur-none
+              xl:mb-20 xl:w-[240px] xl:pt-20
             "
           >
-            <div className="sticky top-20 z-20 w-full">
+            <div className="
+              w-full
+              lg:sticky lg:top-20 lg:z-20
+            "
+            >
               <ServiceStickyIndicator
                 activeContext={activeContext}
                 onSelectContext={handleSelectContext}

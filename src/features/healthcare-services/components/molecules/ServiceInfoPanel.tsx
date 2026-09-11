@@ -1,9 +1,12 @@
+'use client';
+
 import type { ReactNode } from 'react';
 import {
   AmanahScriptText,
   HealthcareHeading,
   HealthcareText,
 } from '@/components/healthcare';
+import { PixelMeshBackground } from '@/features/healthcare-about/components/atoms/PixelMeshBackground';
 import { cn } from '@/utils/Helpers';
 
 type ServiceInfoPanelProps = {
@@ -26,11 +29,33 @@ export function ServiceInfoPanel({
   return (
     <div
       className={cn(
-        'relative flex h-full flex-col justify-center py-2',
+        `
+          relative flex h-full flex-col justify-start overflow-hidden py-2
+          lg:min-h-[calc(100vh-7rem)]
+        `,
         className,
       )}
     >
-      <div className="flex flex-col items-start">
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute inset-x-0 bottom-0 z-0 hidden h-[72%]
+          overflow-hidden select-none
+          lg:block
+        "
+      >
+        <PixelMeshBackground
+          initialProgress={1}
+          progress={1}
+          maskGradient="linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.82) 46%, rgba(0, 0, 0, 0.44) 68%, rgba(0, 0, 0, 0.14) 84%, transparent 100%)"
+          className="
+            size-full opacity-40
+            dark:opacity-60
+          "
+        />
+      </div>
+
+      <div className="relative z-10 flex flex-col items-start">
         <div className="-mb-2 overflow-hidden pb-2">
           <AmanahScriptText
             className="inline-block text-foreground"
@@ -74,7 +99,9 @@ export function ServiceInfoPanel({
         )}
       </div>
 
-      {footerSlot && <div className="mt-6 border-t border-line/60 pt-6">{footerSlot}</div>}
+      {footerSlot && (
+        <div className="relative z-10 mt-6 border-t border-line/60 pt-6">{footerSlot}</div>
+      )}
     </div>
   );
 }

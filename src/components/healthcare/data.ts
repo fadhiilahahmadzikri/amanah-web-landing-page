@@ -41,7 +41,6 @@ export const healthcareContactItems = [
 export const healthcareFooter = {
   address: 'Jl. Anyelir 1 No.243, Perumnas Condong Catur Condongcatur, Kec. Depok, Kab. Sleman Daerah Istimewa Yogyakarta 55281',
   location: 'Jl. Manggis No.6, Condongcatur',
-  cardText: 'Pelayanan kesehatan terpercaya, mudah dijangkau untuk anda dan keluarga',
   map: {
     src: '/assets/images/image_1_bfb9b6d3.png',
     alt: 'Peta lokasi Klinik Amanah Healthcare',

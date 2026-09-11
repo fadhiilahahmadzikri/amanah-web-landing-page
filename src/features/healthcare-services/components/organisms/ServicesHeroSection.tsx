@@ -10,6 +10,7 @@ import {
   HealthcareText,
   SectionContainer,
 } from '@/components/healthcare';
+import { PixelMeshBackground } from '@/features/healthcare-about/components/atoms/PixelMeshBackground';
 import { cn } from '@/utils/Helpers';
 import { servicesHeroData } from '../../data';
 import { HeroCurvedVisual } from '../atoms/HeroCurvedVisual';
@@ -181,12 +182,43 @@ export function ServicesHeroSection({ className }: ServicesHeroSectionProps) {
               overflow-hidden
               sm:h-[420px]
               md:absolute md:inset-y-0 md:right-0 md:h-full md:w-[40%]
+              md:overflow-visible
               lg:w-[40%]
             "
           >
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none absolute inset-y-0 right-auto left-0 z-0
+                w-[52%] overflow-hidden select-none
+                md:right-0 md:left-[-44%] md:w-auto
+              "
+            >
+              <PixelMeshBackground
+                initialProgress={1}
+                progress={1}
+                maskGradient="linear-gradient(#000, #000)"
+                className="
+                  size-full opacity-35
+                  md:hidden
+                  dark:opacity-55
+                "
+              />
+              <PixelMeshBackground
+                initialProgress={1}
+                progress={1}
+                maskGradient="linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.06) 10%, rgba(0, 0, 0, 0.24) 24%, rgba(0, 0, 0, 0.58) 40%, rgba(0, 0, 0, 0.78) 56%, rgba(0, 0, 0, 0.48) 72%, rgba(0, 0, 0, 0.16) 88%, transparent 100%)"
+                className="
+                  hidden size-full opacity-35
+                  md:block
+                  dark:opacity-55
+                "
+              />
+            </div>
             <HeroCurvedVisual
               src={servicesHeroData.image.src}
               alt={servicesHeroData.image.alt}
+              className="relative z-10"
             />
           </div>
         </div>

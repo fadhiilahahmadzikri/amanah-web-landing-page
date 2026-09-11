@@ -3,7 +3,6 @@ import { cn } from '@/utils/Helpers';
 
 type ServiceContextItemProps = {
   label: string;
-  stepNumber?: string;
   sublabel?: string;
   isActive: boolean;
   onClick: () => void;
@@ -12,7 +11,6 @@ type ServiceContextItemProps = {
 
 export function ServiceContextItem({
   label,
-  stepNumber,
   sublabel,
   isActive,
   onClick,
@@ -46,7 +44,6 @@ export function ServiceContextItem({
         className,
       )}
     >
-      {/* Active Accent Rail (Left line on desktop, bottom line on mobile) */}
       <span
         aria-hidden
         className={cn(
@@ -65,29 +62,9 @@ export function ServiceContextItem({
       />
 
       <div className="flex min-w-0 flex-col gap-0.5">
-        <div className="flex items-center gap-2">
-          {stepNumber && (
-            <span
-              className={cn(
-                `
-                  font-mono amanah-type-caption font-normal transition-colors
-                  duration-300
-                `,
-                isActive
-                  ? `
-                    text-primary-foreground/70
-                    dark:text-white/70
-                  `
-                  : 'text-muted-foreground/60',
-              )}
-            >
-              {stepNumber}
-            </span>
-          )}
-          <span className="truncate amanah-type-caption font-semibold">
-            {label}
-          </span>
-        </div>
+        <span className="truncate amanah-type-caption font-semibold">
+          {label}
+        </span>
 
         {sublabel && (
           <span

@@ -141,12 +141,6 @@ export function HealthcareFooter({
             label="Kontak"
             className={cn(mobilePanelDividerClassName, 'md:border-r')}
           >
-            <HealthcareText
-              size="lead"
-              className="mb-6 font-medium text-foreground"
-            >
-              {healthcareFooter.cardText}
-            </HealthcareText>
             <div className="flex flex-col gap-3 amanah-type-small font-semibold">
               {phone && (
                 <a

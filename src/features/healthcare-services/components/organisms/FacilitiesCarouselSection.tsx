@@ -22,6 +22,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
+import { PixelMeshBackground } from '@/features/healthcare-about/components/atoms/PixelMeshBackground';
 import { cn } from '@/utils/Helpers';
 import { facilitiesSectionData } from '../../data';
 
@@ -134,13 +135,35 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
           <div
             ref={leftColRef}
             className="
-              flex flex-col items-start self-start
-              lg:col-span-4
+              relative flex flex-col items-start self-start overflow-hidden pb-8
+              pl-2
+              sm:pl-1
+              md:pb-0 md:pl-5
+              lg:col-span-4 lg:pl-7
             "
           >
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none absolute right-0 bottom-0 z-0 h-[62%]
+                w-[78%] overflow-hidden select-none
+                md:hidden
+              "
+            >
+              <PixelMeshBackground
+                initialProgress={1}
+                progress={1}
+                maskGradient="radial-gradient(ellipse at bottom right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.56) 42%, rgba(0, 0, 0, 0.18) 70%, transparent 92%)"
+                className="
+                  size-full opacity-38
+                  dark:opacity-58
+                "
+              />
+            </div>
+
             <div className="-mb-2 overflow-hidden pb-2">
               <AmanahScriptText
-                className="inline-block text-foreground"
+                className="relative z-10 inline-block text-foreground"
               >
                 {facilitiesSectionData.eyebrow}
               </AmanahScriptText>
@@ -154,7 +177,7 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
               <HealthcareHeading
                 as="h2"
                 size="subsection"
-                className="text-foreground"
+                className="relative z-10 text-foreground"
               >
                 {facilitiesSectionData.title}
               </HealthcareHeading>
@@ -163,7 +186,7 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
             <HealthcareText
               size="body"
               className="
-                mt-4 text-muted-foreground
+                relative z-10 mt-4 text-muted-foreground
                 sm:mt-5
               "
             >
@@ -172,7 +195,7 @@ export function FacilitiesCarouselSection({ className }: FacilitiesCarouselSecti
 
             {/* Navigation Buttons */}
             <div className="
-              mt-6 flex items-center gap-2.5
+              relative z-10 mt-6 flex items-center gap-2.5
               sm:mt-8
             "
             >
