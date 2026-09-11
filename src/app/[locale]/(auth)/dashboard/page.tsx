@@ -1,7 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageMessage } from '@/features/dashboard/PageMessage';
 import { TitleBar } from '@/features/dashboard/TitleBar';
-import { SponsorLogos } from '@/features/sponsors/SponsorLogos';
 
 export default async function DashboardIndexPage(props: {
   params: Promise<{ locale: string }>;
@@ -42,46 +41,40 @@ export default async function DashboardIndexPage(props: {
           ),
         })}
         button={(
-          <>
-            <div className="
-              mt-2 text-sm font-light whitespace-pre-wrap text-muted-foreground
-            "
-            >
-              {t.rich('message_state_alternative', {
+          <div className="
+            mt-2 text-sm font-light whitespace-pre-wrap text-muted-foreground
+          "
+          >
+            {t.rich('message_state_alternative', {
+              url: () => (
+                <a
+                  className="
+                    text-blue-500
+                    hover:text-blue-600
+                  "
+                  href="https://nextjs-boilerplate.com/pro-saas-starter-kit"
+                >
+                  Next.js Boilerplate SaaS
+                </a>
+              ),
+            })}
+
+            <p>
+              {t.rich('max_message', {
                 url: () => (
                   <a
                     className="
                       text-blue-500
                       hover:text-blue-600
                     "
-                    href="https://nextjs-boilerplate.com/pro-saas-starter-kit"
+                    href="https://nextjs-boilerplate.com/nextjs-saas-starter-kit"
                   >
-                    Next.js Boilerplate SaaS
+                    Next.js Boilerplate Plus
                   </a>
                 ),
               })}
-
-              <p>
-                {t.rich('max_message', {
-                  url: () => (
-                    <a
-                      className="
-                        text-blue-500
-                        hover:text-blue-600
-                      "
-                      href="https://nextjs-boilerplate.com/nextjs-saas-starter-kit"
-                    >
-                      Next.js Boilerplate Plus
-                    </a>
-                  ),
-                })}
-              </p>
-            </div>
-
-            <div className="mt-7">
-              <SponsorLogos />
-            </div>
-          </>
+            </p>
+          </div>
         )}
       />
     </>

@@ -1,7 +1,7 @@
 {
   "Index": {
-    "meta_title": "SaaS Template - Le template SaaS parfait pour construire et mettre à l'échelle votre entreprise en toute simplicité.",
-    "meta_description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec React, TypeScript, Shadcn UI et Tailwind CSS."
+    "meta_title": "Klinik Pratama Amanah Healthcare",
+    "meta_description": "Des soins de santé professionnels, confortables et fiables pour vous et votre famille à Yogyakarta."
   },
   "Navbar": {
     "sign_in": "Se connecter",
@@ -59,15 +59,6 @@
     "feature_storage": "{number} Go de stockage",
     "feature_transfer": "{number} To de transfert",
     "feature_email_support": "Support par email"
-  },
-  "SponsorLogos": {
-    "sponsored_by": "Sponsorisé par",
-    "clerk_logo": "Logo Clerk",
-    "sentry_logo": "Logo Sentry",
-    "crowdin_logo": "Logo Crowdin",
-    "arcjet_logo": "Logo Arcjet",
-    "coderabbit_logo": "Logo CodeRabbit",
-    "nextjs_boilerplate_logo": "Logo Next.js SaaS Boilerplate"
   },
   "FAQ": {
     "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
