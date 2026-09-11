@@ -345,9 +345,12 @@ export function HealthcareHeader({
       <Dialog open={isUnderConstructionOpen} onOpenChange={setIsUnderConstructionOpen}>
         <DialogContent className="max-w-xs rounded-none border border-line bg-card p-6 text-center sm:max-w-sm sm:p-8">
           <div className="flex flex-col items-center justify-center gap-4">
-            <div className="flex size-20 items-center justify-center border border-line bg-muted/40 p-3 shadow-inner">
-              <PixelIcon name="palu" size="responsive" svgClassName="size-12" title="Under Construction" />
-            </div>
+            <PixelIcon
+              name="palu"
+              size={80}
+              className="animate-hammer-hit select-none drop-shadow-sm my-1"
+              title="Under Construction"
+            />
             <div className="flex flex-col gap-1.5">
               <DialogTitle className="text-base font-bold text-foreground sm:text-lg">
                 Fitur Sedang Disiapkan

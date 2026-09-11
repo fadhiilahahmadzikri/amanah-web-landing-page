@@ -112,12 +112,12 @@ export function ProfessionalDoctorsSection() {
           <SectionHeader
             ref={headerRef}
             eyebrow="Kenali Dokter Kami"
-            titleWrapperClassName="overflow-visible"
             title={(
               <>
-                <span className="block text-2xl font-bold leading-tight sm:text-3xl md:hidden">
-                  <span className="block">Hangat Mendampingi</span>
-                  <span className="block">Sepenuh Hati</span>
+                <span className="inline md:hidden">
+                  Hangat Mendampingi,
+                  <br />
+                  Sepenuh Hati.
                 </span>
                 <span className="hidden md:inline">
                   Hangat Mendampingi, Sepenuh Hati.
