@@ -2,10 +2,14 @@
 
 import type { HealthcareReview, ReviewImage } from '../../types';
 import {
+  ArrowUpRightIcon,
+  ImageIcon,
   MessageSquareReplyIcon,
   ThumbsUpIcon,
 } from 'lucide-react';
+import Image from 'next/image';
 import { useState } from 'react';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -15,6 +19,7 @@ import {
 } from '@/components/ui/card';
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -24,54 +29,6 @@ import {
 import { cn } from '@/utils/Helpers';
 import { ReviewStars } from '../atoms/ReviewStars';
 import { ReviewAuthor } from '../molecules/ReviewAuthor';
-import { ReviewPhotoGrid } from '../molecules/ReviewPhotoGrid';
-
-type ReviewClampTextProps = {
-  buttonClassName?: string;
-  className?: string;
-  maxLength?: number;
-  onOpenModal: () => void;
-  text: string;
-};
-
-function ReviewClampText({
-  buttonClassName,
-  className,
-  maxLength = 150,
-  onOpenModal,
-  text,
-}: ReviewClampTextProps) {
-  if (text.length <= maxLength) {
-    return (
-      <p className={className}>
-        {text}
-      </p>
-    );
-  }
-
-  const truncated = text.slice(0, maxLength);
-  const lastSpace = truncated.lastIndexOf(' ');
-  const safeSnippet = (lastSpace > maxLength * 0.6 ? truncated.slice(0, lastSpace) : truncated)
-    .replace(/[.…\s]+$/, '')
-    .trim();
-
-  return (
-    <p className={className}>
-      {safeSnippet}
-      <button
-        type="button"
-        onClick={onOpenModal}
-        className={cn(
-          'ml-1 inline cursor-pointer font-semibold text-primary underline-offset-2 transition-colors hover:text-amanah-blue hover:underline',
-          buttonClassName,
-        )}
-        aria-label="Baca ulasan selengkapnya"
-      >
-        ...selengkapnya
-      </button>
-    </p>
-  );
-}
 
 type ReviewCardProps = {
   className?: string;
@@ -99,7 +56,7 @@ export function ReviewCard({
           className,
         )}
       >
-        <CardHeader className="gap-4 p-4 pb-3">
+        <CardHeader className="gap-3 p-4 pb-3">
           <ReviewAuthor
             author={review.author}
             onImageOpen={onImageOpen}
@@ -113,78 +70,71 @@ export function ReviewCard({
           </div>
         </CardHeader>
 
-        <CardContent className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="min-h-24">
-            <CardTitle className="sr-only">
-              Ulasan dari
-              {' '}
-              {review.author.name}
-            </CardTitle>
+        <CardContent className="flex flex-1 flex-col gap-3 p-4 pt-0">
+          <CardTitle className="sr-only">
+            Ulasan dari
+            {' '}
+            {review.author.name}
+          </CardTitle>
 
-            {review.text
-              ? (
-                  <ReviewClampText
-                    text={review.text}
-                    maxLength={150}
-                    onOpenModal={() => setIsDetailOpen(true)}
-                    className="amanah-type-small whitespace-pre-line text-foreground"
-                  />
-                )
-              : (
-                  <p className="amanah-type-small text-muted-foreground">
-                    Pasien memberi rating tanpa menuliskan cerita tambahan.
-                  </p>
-                )}
-          </div>
-
-          {review.ownerResponse && (
-            <div className="border border-line bg-accent p-3">
-              <div className="mb-2 flex items-center gap-2 text-foreground">
-                <MessageSquareReplyIcon aria-hidden className="size-4" />
-                <p className="amanah-type-caption font-semibold">
-                  Respons Klinik Amanah
-                  {' '}
-                  ·
-                  {' '}
-                  {review.ownerResponse.date}
-                </p>
-              </div>
-              <ReviewClampText
-                text={review.ownerResponse.text}
-                maxLength={150}
-                onOpenModal={() => setIsDetailOpen(true)}
-                className="amanah-type-caption whitespace-pre-line text-muted-foreground"
-                buttonClassName="text-xs"
-              />
-            </div>
-          )}
-
-          <ReviewPhotoGrid
-            className="-mx-4 -mb-4 mt-auto"
-            photos={review.photos}
-            photosCount={review.photosCount}
-            onImageOpen={onImageOpen}
-          />
+          <p className="line-clamp-4 amanah-type-small whitespace-pre-line text-foreground">
+            {review.text || 'Pasien memberi rating tanpa menuliskan cerita tambahan.'}
+          </p>
         </CardContent>
 
         <CardFooter className="
-          mt-auto flex items-center justify-between gap-3 border-t border-line p-4
+          mt-auto flex items-center justify-between gap-3 border-t border-line p-3 sm:px-4
         "
         >
-          <div className="flex items-center gap-1.5 text-muted-foreground">
-            <ThumbsUpIcon aria-hidden className="size-4" />
-            <span className="amanah-type-caption">
-              {review.likes}
-              {' '}
-              suka
-            </span>
+          <div className="flex flex-wrap items-center gap-3 text-muted-foreground">
+            <div className="flex items-center gap-1.5 amanah-type-caption">
+              <ThumbsUpIcon aria-hidden className="size-3.5" />
+              <span>
+                {review.likes}
+                <span className="sr-only"> suka</span>
+              </span>
+            </div>
+
+            {review.photosCount > 0 && (
+              <div className="flex items-center gap-1.5 amanah-type-caption font-medium text-foreground">
+                <ImageIcon aria-hidden className="size-3.5 text-muted-foreground" />
+                <span>
+                  {review.photosCount}
+                  {' '}
+                  foto
+                </span>
+              </div>
+            )}
+
+            {review.ownerResponse && (
+              <div className="flex items-center gap-1.5 amanah-type-caption font-medium text-foreground">
+                <MessageSquareReplyIcon aria-hidden className="size-3.5 text-muted-foreground" />
+                <span>1 respons</span>
+              </div>
+            )}
           </div>
 
-          <span className="amanah-type-caption text-muted-foreground">
-            No.
-            {' '}
-            {review.index}
-          </span>
+          <button
+            type="button"
+            onClick={() => setIsDetailOpen(true)}
+            className="
+              group inline-flex shrink-0 cursor-pointer items-center gap-1
+              amanah-type-caption font-semibold text-foreground transition-colors
+              hover:text-amanah-blue focus-visible:ring-2
+              focus-visible:ring-ring outline-none
+            "
+            aria-label={`Buka detail ulasan dari ${review.author.name}`}
+          >
+            <span>Detail</span>
+            <ArrowUpRightIcon
+              aria-hidden
+              className="
+                size-3.5 text-muted-foreground transition-all duration-200
+                group-hover:-translate-y-0.5 group-hover:translate-x-0.5
+                group-hover:text-amanah-blue
+              "
+            />
+          </button>
         </CardFooter>
       </Card>
 
@@ -254,12 +204,46 @@ export function ReviewCard({
                 </div>
               )}
 
-              <ReviewPhotoGrid
-                className="-mx-4 -mb-4 mt-auto"
-                photos={review.photos}
-                photosCount={review.photosCount}
-                onImageOpen={onImageOpen}
-              />
+              {review.photos.length > 0 && (
+                <div className="space-y-2.5 border-t border-line pt-3">
+                  <p className="flex items-center gap-1.5 amanah-type-caption font-semibold text-foreground">
+                    <ImageIcon aria-hidden className="size-3.5 text-muted-foreground" />
+                    Foto Ulasan
+                    {' '}
+                    (
+                    {review.photosCount}
+                    )
+                  </p>
+                  <div
+                    className={cn(
+                      'grid gap-2.5',
+                      review.photos.length === 1
+                        ? 'grid-cols-1'
+                        : review.photos.length === 2
+                          ? 'grid-cols-2'
+                          : 'grid-cols-2 sm:grid-cols-3',
+                    )}
+                  >
+                    {review.photos.map(photo => (
+                      <button
+                        key={photo.id}
+                        type="button"
+                        onClick={() => onImageOpen(photo)}
+                        className="group relative aspect-4/3 w-full cursor-pointer overflow-hidden border border-line bg-muted outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        aria-label={`Perbesar ${photo.alt}`}
+                      >
+                        <Image
+                          src={photo.src}
+                          alt={photo.alt}
+                          fill
+                          sizes="(min-width: 640px) 240px, 50vw"
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             <DialogFooter className="
@@ -277,11 +261,16 @@ export function ReviewCard({
                 </span>
               </div>
 
-              <span className="amanah-type-caption text-muted-foreground">
-                No.
-                {' '}
-                {review.index}
-              </span>
+              <DialogClose asChild>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  className="rounded-none border-line"
+                >
+                  Tutup
+                </Button>
+              </DialogClose>
             </DialogFooter>
           </DialogContent>
         </Dialog>

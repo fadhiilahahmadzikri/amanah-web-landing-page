@@ -35,8 +35,8 @@ export function ReviewStars({
             className={cn(
               'size-4',
               isFilled
-                ? 'fill-chart-4 text-chart-4'
-                : 'fill-muted text-muted-foreground/35',
+                ? 'fill-amber-400 text-amber-400'
+                : 'fill-muted text-muted-foreground/30',
               iconClassName,
             )}
           />
