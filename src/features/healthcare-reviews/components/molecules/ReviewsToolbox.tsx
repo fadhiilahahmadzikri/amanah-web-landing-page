@@ -57,31 +57,21 @@ export function ReviewsToolbox({
   totalCount,
 }: ReviewsToolboxProps) {
   return (
-    <div
-      className={cn(
-        `
-          w-full rounded-none border border-line bg-card/80 p-3
-          shadow-xs backdrop-blur-xs
-          sm:p-4
-          md:p-5
-        `,
-        className,
-      )}
-    >
-      {/* Search Bar (Fluid on mobile, fixed on desktop) & Filters (Icon-based on mobile, Hug text on desktop) */}
-      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
-        {/* SISI KIRI / BARIS 1 (Mobile): Search Bar Fluid */}
-        <div className="relative w-full md:w-80 md:shrink-0">
+    <div className={cn('w-full flex flex-col gap-2.5', className)}>
+      {/* Satu Baris Horizontal Penuh: Search di Kiri (flex-1), Tombol Filter di Kanan (shrink-0) */}
+      <div className="flex w-full items-center gap-2">
+        {/* Sisi Kiri: Search Bar Fluid mengisi sisa ruang */}
+        <div className="relative flex-1 min-w-0">
           <Search
             aria-hidden="true"
-            className="pointer-events-none absolute left-3 size-4 text-muted-foreground"
+            className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
           />
           <Input
             type="text"
             value={searchQuery}
             onChange={e => onSearchChange(e.target.value)}
-            placeholder="Cari ulasan, nama pasien, kata kunci..."
-            className="h-10 w-full pl-9.5 pr-8 text-xs sm:text-sm"
+            placeholder="Cari ulasan, nama pasien..."
+            className="h-10 w-full pl-9 pr-8 text-xs sm:text-sm"
           />
           {searchQuery && (
             <button
@@ -89,7 +79,7 @@ export function ReviewsToolbox({
               onClick={() => onSearchChange('')}
               aria-label="Hapus pencarian"
               className="
-                absolute right-2.5 inline-flex size-5 items-center justify-center
+                absolute right-2.5 top-1/2 -translate-y-1/2 inline-flex size-5 items-center justify-center
                 cursor-pointer text-muted-foreground hover:text-foreground
               "
             >
@@ -98,8 +88,8 @@ export function ReviewsToolbox({
           )}
         </div>
 
-        {/* SISI KANAN / BARIS 2 (Mobile): Tombol Filter Murni Berbasis Ikon di Mobile, Hug di Web */}
-        <div className="flex items-center gap-2 md:flex-wrap md:gap-2.5">
+        {/* Sisi Kanan: Kontrol Filter (Ikon kompak di mobile, label teks di web) */}
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           {/* 1. Rating Sorter */}
           <Select
             value={ratingSort}
@@ -240,8 +230,8 @@ export function ReviewsToolbox({
         </div>
       </div>
 
-      {/* Info Status Bar: Menampilkan Count & Filter Aktif */}
-      <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-line/60 pt-2.5 text-[11px] text-muted-foreground sm:text-xs">
+      {/* Info Status Bar Rata Kiri: Menampilkan Count & Filter Aktif */}
+      <div className="flex flex-wrap items-center justify-between gap-2 px-0.5 text-[11px] text-muted-foreground sm:text-xs">
         <div className="flex items-center gap-2">
           <span>
             Menampilkan
@@ -255,7 +245,7 @@ export function ReviewsToolbox({
             ulasan
           </span>
           {isFiltered && (
-            <span className="inline-flex items-center rounded-none bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">
+            <span className="inline-flex items-center rounded-none bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
               Filter Aktif
             </span>
           )}
@@ -264,19 +254,19 @@ export function ReviewsToolbox({
         {/* Quick pill tag indicators */}
         <div className="flex flex-wrap items-center gap-1.5">
           {ratingSort !== 'default' && (
-            <span className="inline-flex items-center gap-1 rounded-none border border-line bg-background px-2 py-0.5 text-[10px] text-foreground">
+            <span className="inline-flex items-center gap-1 rounded-none border border-line bg-card px-2 py-0.5 text-[10px] text-foreground">
               <Star className="size-2.5 text-amber-500 fill-amber-500" />
               {ratingSort === 'rating-desc' ? 'Rating 5→1' : 'Rating 1→5'}
             </span>
           )}
           {responseFilter !== 'all' && (
-            <span className="inline-flex items-center gap-1 rounded-none border border-line bg-background px-2 py-0.5 text-[10px] text-foreground">
+            <span className="inline-flex items-center gap-1 rounded-none border border-line bg-card px-2 py-0.5 text-[10px] text-foreground">
               <MessageCircle className="size-2.5 text-amanah-blue" />
               {responseFilter === 'responded' ? 'Dijawab' : 'Belum Dijawab'}
             </span>
           )}
           {photosFilter !== 'all' && (
-            <span className="inline-flex items-center gap-1 rounded-none border border-line bg-background px-2 py-0.5 text-[10px] text-foreground">
+            <span className="inline-flex items-center gap-1 rounded-none border border-line bg-card px-2 py-0.5 text-[10px] text-foreground">
               <Camera className="size-2.5 text-amanah-mint" />
               {photosFilter === 'with-photos' ? 'Ada Foto' : 'Tanpa Foto'}
             </span>
