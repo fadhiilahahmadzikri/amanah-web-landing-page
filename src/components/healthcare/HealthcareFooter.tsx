@@ -6,14 +6,16 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowUpRightIcon,
-  AtSignIcon,
   LinkIcon,
   MapPinIcon,
-  Share2Icon,
-  XIcon,
 } from 'lucide-react';
 import Image from 'next/image';
 import { useRef } from 'react';
+import {
+  SiFacebook,
+  SiInstagram,
+  SiTiktok,
+} from 'react-icons/si';
 import { AppConfig } from '@/utils/AppConfig';
 import { cn, getI18nPath } from '@/utils/Helpers';
 import { AmanahLogo } from './AmanahLogo';
@@ -29,7 +31,24 @@ import { ViewportLine } from './ViewportLine';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const socialIcons = [AtSignIcon, XIcon, LinkIcon, Share2Icon];
+function SocialIcon({ url }: { url: string }) {
+  const lowerUrl = url.toLowerCase();
+  if (lowerUrl.includes('instagram.com')) {
+    return <SiInstagram aria-hidden className="size-4" />;
+  }
+  if (lowerUrl.includes('tiktok.com')) {
+    return <SiTiktok aria-hidden className="size-4" />;
+  }
+  if (lowerUrl.includes('facebook.com')) {
+    return (
+      <SiFacebook
+        aria-hidden
+        className="size-[19px]"
+      />
+    );
+  }
+  return <LinkIcon aria-hidden className="size-4" />;
+}
 
 type HealthcareFooterProps = {
   locale?: string;
@@ -170,26 +189,23 @@ export function HealthcareFooter({
 
           <FooterPanel label="Sosial">
             <div className="flex flex-wrap gap-2">
-              {healthcareFooter.socialLinks.map((link, index) => {
-                const Icon = socialIcons[index] || AtSignIcon;
-
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      inline-flex size-10 items-center justify-center rounded-xl
-                      border border-line text-muted-foreground transition-colors
-                      hover:bg-accent hover:text-foreground
-                    "
-                    aria-label={link.label}
-                  >
-                    <Icon aria-hidden />
-                  </a>
-                );
-              })}
+              {healthcareFooter.socialLinks.map(link => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex size-10 items-center justify-center rounded-xl
+                    border border-line text-muted-foreground transition-all
+                    hover:border-foreground/40 hover:bg-accent
+                    hover:text-foreground
+                  "
+                  aria-label={link.label}
+                >
+                  <SocialIcon url={link.href} />
+                </a>
+              ))}
             </div>
           </FooterPanel>
         </FooterRow>
@@ -241,7 +257,7 @@ export function HealthcareFooter({
                   src={healthcareFooter.map.src}
                   alt={healthcareFooter.map.alt}
                   width={360}
-                  height={202}
+                  height={240}
                   className="h-auto w-full object-cover"
                 />
               </a>

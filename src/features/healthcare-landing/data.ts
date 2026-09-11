@@ -21,6 +21,8 @@ export const navigationItems = [
   { label: 'Beranda', href: '/' },
   { label: 'Tentang Kami', href: '/tentang-kami' },
   { label: 'Fasilitas & Layanan', href: '/fasilitas' },
+  { label: 'Testimoni', href: '/testimoni' },
+  { label: 'Ulasan', href: '/ulasan' },
   { label: 'Kontak', href: '/kontak' },
 ] satisfies NavigationItem[];
 
@@ -327,7 +329,7 @@ export const contactItems = [
   {
     label: 'Lets connect',
     value: '@amanahhealthcare',
-    href: 'https://instagram.com/amanahhealthcare?utm_medium=copy_link',
+    href: 'https://www.instagram.com/amanahhealthcare?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==',
   },
 ] satisfies ContactItem[];
 
@@ -340,9 +342,13 @@ export const footer = {
   address: 'Jl. Anyelir 1 No.243, Perumnas Condong Catur, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281',
   location: 'Klinik Amanah HealthCare (Persalinan 24 Jam)',
   map: {
-    src: '/assets/images/image_1_bfb9b6d3.png',
+    src: '/assets/images/lokasi.png',
     alt: 'Peta lokasi Klinik Amanah Healthcare',
   } satisfies AssetImage,
-  socialLinks: ['Instagram Amanah Healthcare'],
+  socialLinks: [
+    'Instagram Amanah Healthcare',
+    'TikTok Amanah Healthcare',
+    'Facebook Amanah Healthcare',
+  ],
   certificationIcon: BadgeCheckIcon,
 };
