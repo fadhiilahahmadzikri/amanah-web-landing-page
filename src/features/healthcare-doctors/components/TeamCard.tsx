@@ -15,6 +15,7 @@ type TeamCardProps = {
   className?: string;
   member: HealthcareTeamMember;
   priority?: boolean;
+  showLeftRail?: boolean;
   showRightRail?: boolean;
 };
 
@@ -72,6 +73,7 @@ export function TeamCard({
   className,
   member,
   priority = false,
+  showLeftRail = false,
   showRightRail = false,
 }: TeamCardProps) {
   const showSocials = member.showSocials ?? true;
@@ -83,8 +85,12 @@ export function TeamCard({
     <article
       className={cn(
         `
-          relative flex h-full flex-col overflow-hidden bg-background pl-2.5
+          relative flex h-full flex-col overflow-hidden bg-background
           text-foreground
+        `,
+        showLeftRail
+        && `
+          pl-2.5
           sm:pl-6
           md:pl-8
         `,
@@ -97,15 +103,17 @@ export function TeamCard({
         className,
       )}
     >
-      <span
-        aria-hidden
-        className="
-          absolute inset-y-0 left-0 z-10 w-2.5 border-r border-line opacity-70
-          sm:w-6
-          md:w-8
-        "
-        style={hatchedRailStyle}
-      />
+      {showLeftRail && (
+        <span
+          aria-hidden
+          className="
+            absolute inset-y-0 left-0 z-10 w-2.5 border-r border-line opacity-70
+            sm:w-6
+            md:w-8
+          "
+          style={hatchedRailStyle}
+        />
+      )}
       {showRightRail && (
         <span
           aria-hidden

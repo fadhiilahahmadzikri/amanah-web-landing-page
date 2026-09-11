@@ -131,6 +131,7 @@ export function ProfessionalDoctorsSection() {
               className={index === 0 ? 'border-l border-line' : undefined}
               member={doctor}
               priority={index === 0}
+              showLeftRail={index === 0}
               showRightRail={index === professionalDoctors.length - 1}
             />
           ))}
