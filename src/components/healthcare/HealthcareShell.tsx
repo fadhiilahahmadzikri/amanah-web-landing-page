@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { HealthcareFAQ } from './faq';
 import { HealthcareChatFab } from './HealthcareChatFab';
 import { HealthcareFooter } from './HealthcareFooter';
 import { HealthcareHeader } from './HealthcareHeader';
@@ -22,6 +23,8 @@ export function HealthcareShell({
       <HealthcareHeader activePath={activePath} locale={locale} />
       <main className="mx-auto max-w-[1300px] border-x-2 border-line">
         {children}
+        <TechnicalDivider />
+        <HealthcareFAQ activePath={activePath} locale={locale} />
       </main>
       <div className="mx-auto max-w-[1300px] border-x-2 border-line">
         <TechnicalDivider />

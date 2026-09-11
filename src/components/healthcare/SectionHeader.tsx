@@ -53,11 +53,11 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
 
       if (typeof eyebrow === 'string') {
         return (
-          <div className="-mb-2 overflow-hidden pb-2">
+          <div className="-my-3 flex w-fit max-w-full overflow-visible py-3">
             <AmanahScriptText
               mask={maskAnimation ? 'text' : undefined}
               className={cn(
-                'inline-block font-semibold text-foreground',
+                'font-semibold text-foreground',
                 eyebrowClassName,
               )}
             >
@@ -75,7 +75,9 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
         ref={ref}
         className={cn(
           'flex flex-col',
-          isCenter ? 'mx-auto max-w-5xl items-center text-center' : 'items-start text-left',
+          isCenter
+            ? 'mx-auto max-w-5xl items-center text-center'
+            : 'items-start text-left',
           className,
         )}
         {...props}
@@ -84,8 +86,16 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
 
         <div
           className={cn(
-            eyebrow ? 'mt-2.5 sm:mt-3' : undefined,
-            '-mb-3 overflow-hidden pb-3 md:-mb-4 md:pb-4',
+            eyebrow
+              ? `
+                mt-2.5
+                sm:mt-3
+              `
+              : undefined,
+            `
+              -mb-3 overflow-hidden pb-3
+              md:-mb-4 md:pb-4
+            `,
             titleWrapperClassName,
           )}
         >
@@ -104,22 +114,28 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
         </div>
 
         {description && (
-          <div className="mt-4 -mb-2 overflow-hidden pb-2 sm:mt-5">
-            {typeof description === 'string' ? (
-              <HealthcareText
-                data-mask-text={maskAnimation ? true : undefined}
-                size={descriptionSize}
-                className={cn(
-                  'inline-block max-w-2xl font-medium text-muted-foreground',
-                  maskAnimation && 'will-change-transform',
-                  descriptionClassName,
+          <div className="
+            mt-4 -mb-2 overflow-hidden pb-2
+            sm:mt-5
+          "
+          >
+            {typeof description === 'string'
+              ? (
+                  <HealthcareText
+                    data-mask-text={maskAnimation ? true : undefined}
+                    size={descriptionSize}
+                    className={cn(
+                      'inline-block max-w-2xl font-medium text-muted-foreground',
+                      maskAnimation && 'will-change-transform',
+                      descriptionClassName,
+                    )}
+                  >
+                    {description}
+                  </HealthcareText>
+                )
+              : (
+                  description
                 )}
-              >
-                {description}
-              </HealthcareText>
-            ) : (
-              description
-            )}
           </div>
         )}
 

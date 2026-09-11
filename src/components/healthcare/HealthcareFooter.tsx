@@ -29,7 +29,7 @@ import { ViewportLine } from './ViewportLine';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const socialIcons = [Share2Icon, XIcon, LinkIcon, AtSignIcon];
+const socialIcons = [AtSignIcon, XIcon, LinkIcon, Share2Icon];
 
 type HealthcareFooterProps = {
   locale?: string;
@@ -170,19 +170,21 @@ export function HealthcareFooter({
 
           <FooterPanel label="Sosial">
             <div className="flex flex-wrap gap-2">
-              {healthcareFooter.socialLinks.map((label, index) => {
+              {healthcareFooter.socialLinks.map((link, index) => {
                 const Icon = socialIcons[index] || AtSignIcon;
 
                 return (
                   <a
-                    key={label}
-                    href={getI18nPath('/', locale)}
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="
                       inline-flex size-10 items-center justify-center rounded-xl
                       border border-line text-muted-foreground transition-colors
                       hover:bg-accent hover:text-foreground
                     "
-                    aria-label={label}
+                    aria-label={link.label}
                   >
                     <Icon aria-hidden />
                   </a>
@@ -228,7 +230,13 @@ export function HealthcareFooter({
               sm:grid-cols-[180px_1fr] sm:items-start
             "
             >
-              <div className="overflow-hidden bg-muted">
+              <a
+                href={healthcareFooter.map.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block overflow-hidden bg-muted"
+                aria-label="Buka lokasi Klinik Amanah di Google Maps"
+              >
                 <Image
                   src={healthcareFooter.map.src}
                   alt={healthcareFooter.map.alt}
@@ -236,17 +244,30 @@ export function HealthcareFooter({
                   height={202}
                   className="h-auto w-full object-cover"
                 />
-              </div>
+              </a>
               <div className="flex flex-col items-start gap-5">
-                <HealthcareText
-                  size="small"
-                  className="flex items-center gap-2 text-muted-foreground"
-                >
-                  <MapPinIcon aria-hidden className="size-4 shrink-0" />
-                  {healthcareFooter.location}
-                </HealthcareText>
+                <div className="flex flex-col gap-2">
+                  <HealthcareText
+                    size="small"
+                    className="flex items-start gap-2 text-muted-foreground"
+                  >
+                    <MapPinIcon
+                      aria-hidden
+                      className="mt-0.5 size-4 shrink-0"
+                    />
+                    <span>{healthcareFooter.location}</span>
+                  </HealthcareText>
+                  <HealthcareText
+                    size="caption"
+                    className="text-muted-foreground"
+                  >
+                    {healthcareFooter.plusCode}
+                  </HealthcareText>
+                </div>
                 <a
-                  href="https://maps.google.com/?q=Jl.%20Manggis%20No.6%2C%20Condongcatur"
+                  href={healthcareFooter.map.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="
                     inline-flex h-10 items-center gap-2 rounded-xl border
                     border-line px-3 amanah-type-small font-semibold

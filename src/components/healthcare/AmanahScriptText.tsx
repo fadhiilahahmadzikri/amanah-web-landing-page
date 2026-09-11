@@ -32,37 +32,28 @@ function getMaskAttributes(mask: AmanahScriptTextMask | undefined) {
 }
 
 export function AmanahScriptText({
-  as = 'p',
+  as = 'span',
   children,
   className,
   mask,
   size = 'accent',
 }: AmanahScriptTextProps) {
+  const Component = as;
   const scriptClassName = cn(
     'font-amanah-script',
     scriptSizeClassNames[size],
     mask !== undefined && 'will-change-transform',
     className,
+    'inline-flex w-fit max-w-full overflow-visible leading-tight',
   );
   const maskAttributes = getMaskAttributes(mask);
 
-  if (as === 'span') {
-    return (
-      <span
-        {...maskAttributes}
-        className={scriptClassName}
-      >
-        {children}
-      </span>
-    );
-  }
-
   return (
-    <p
+    <Component
       {...maskAttributes}
       className={scriptClassName}
     >
       {children}
-    </p>
+    </Component>
   );
 }

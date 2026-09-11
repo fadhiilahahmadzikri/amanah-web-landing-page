@@ -215,9 +215,9 @@ export function TestimonialsSection() {
       ref={sectionRef}
       id="dokumentasi"
       className="
-        relative w-full overflow-hidden bg-background py-14
-        sm:py-20
-        md:py-28
+        relative w-full overflow-hidden bg-background py-10
+        sm:py-12
+        md:py-16
       "
     >
       {/* Scoped confetti canvas covering section to let particles fall onto carousel cards */}
@@ -248,8 +248,8 @@ export function TestimonialsSection() {
           <SectionHeader
             ref={headerRef}
             className="
-              mb-10 w-full px-2
-              md:mb-14
+              mb-6 w-full px-2
+              md:mb-8
             "
             eyebrow="Momen Bersama"
             headingSize="display"

@@ -4,6 +4,7 @@ export { ArrowCtaButton } from './ArrowCtaButton';
 export { BlueprintMark } from './BlueprintMark';
 export { HealthcareChatFab } from './HealthcareChatFab';
 export { HealthcareFooter } from './HealthcareFooter';
+export { HealthcareFAQ } from './faq';
 export { HealthcareHeader } from './HealthcareHeader';
 export { HealthcareShell } from './HealthcareShell';
 export { HealthcareEyebrow, HealthcareHeading, HealthcareText } from './HealthcareTypography';

@@ -17,11 +17,21 @@ export type HealthcareContactItem = {
   value: string;
 };
 
+export type HealthcareFooterMap = AssetImage & {
+  href: string;
+};
+
+export type HealthcareFooterSocialLink = {
+  href: string;
+  label: string;
+};
+
 export type HealthcareFooterData = {
   address: string;
   location: string;
-  map: AssetImage;
-  socialLinks: string[];
+  map: HealthcareFooterMap;
+  plusCode: string;
+  socialLinks: HealthcareFooterSocialLink[];
 };
 
 export type HealthcareSocialIcon = LucideIcon;

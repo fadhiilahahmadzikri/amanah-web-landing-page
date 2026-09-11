@@ -113,18 +113,29 @@ const ARROW_CLASSES
     dark:border-white/20 dark:bg-white/10
   `;
 
+function getCenteredScrollLeft(scroller: HTMLElement, activeDot: HTMLElement) {
+  const activeDotCenter = activeDot.offsetLeft + activeDot.offsetWidth / 2;
+  const targetScrollLeft = activeDotCenter - scroller.clientWidth / 2;
+  const maxScrollLeft = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+
+  return Math.max(0, Math.min(maxScrollLeft, targetScrollLeft));
+}
+
 export function CardFanCarousel({
   cards,
   autoPlay = true,
   autoPlayInterval = 2800,
   className,
 }: SocialCardsProps) {
+  const carouselRootRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const paginationScrollerRef = useRef<HTMLDivElement>(null);
   const isAnimatingRef = useRef(false);
   const hasEnteredRef = useRef(false);
   const directionRef = useRef<'left' | 'right' | null>(null);
   const prevVisibleRef = useRef<Set<number>>(new Set());
   const isPausedRef = useRef(false);
+  const isCarouselVisibleRef = useRef(false);
   const dragStartXRef = useRef<number | null>(null);
   const dragStartYRef = useRef<number | null>(null);
   const hasDraggedRef = useRef(false);
@@ -137,16 +148,49 @@ export function CardFanCarousel({
   const needsPagination = totalCards > MAX_VISIBLE;
   const [centerIndex, setCenterIndex] = useState(needsPagination ? HALF : totalCards >> 1);
 
-  // Auto-scroll active indicator dot into center view
   useEffect(() => {
-    if (activeDotRef.current) {
-      activeDotRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
-      });
+    const activeDot = activeDotRef.current;
+    const scroller = paginationScrollerRef.current;
+
+    if (!activeDot || !scroller) {
+      return;
     }
+
+    scroller.scrollTo({
+      left: getCenteredScrollLeft(scroller, activeDot),
+      behavior: 'smooth',
+    });
   }, [centerIndex]);
+
+  useEffect(() => {
+    const carouselRoot = carouselRootRef.current;
+
+    if (!carouselRoot) {
+      return;
+    }
+
+    if (typeof IntersectionObserver === 'undefined') {
+      isCarouselVisibleRef.current = true;
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isCarouselVisibleRef.current = Boolean(entry?.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: '120px 0px',
+        threshold: 0.08,
+      },
+    );
+
+    observer.observe(carouselRoot);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const getVisibleMap = useCallback((center: number) => {
     const map = new Map<number, number>();
@@ -199,6 +243,7 @@ export function CardFanCarousel({
     const intervalTimer = setInterval(() => {
       if (
         isPausedRef.current
+        || !isCarouselVisibleRef.current
         || isAnimatingRef.current
         || (typeof document !== 'undefined' && document.hidden)
       ) {
@@ -584,10 +629,12 @@ export function CardFanCarousel({
   }
 
   return (
-    <div className={cn(`
-      relative z-20 flex w-full flex-col items-center py-2 select-none
-      sm:py-4
-    `, className)}
+    <div
+      ref={carouselRootRef}
+      className={cn(`
+        relative z-20 flex w-full flex-col items-center py-0 select-none
+        sm:py-1
+      `, className)}
     >
       {/* Cards and navigation arrows wrapper */}
       <div className="relative w-full">
@@ -595,9 +642,9 @@ export function CardFanCarousel({
         <div
           className="
             relative flex w-full items-center justify-center overflow-hidden
-            pt-8 pb-4
-            sm:pt-10 sm:pb-6
-            md:pt-12
+            pt-5 pb-1
+            sm:pt-6 sm:pb-2
+            md:pt-7
           "
           style={{
             maskImage: 'linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)',
@@ -608,13 +655,13 @@ export function CardFanCarousel({
             ref={containerRef}
             data-fan-layout
             className="
-              relative flex h-[23.5rem] w-full cursor-grab touch-pan-y items-center
-              justify-center overflow-visible
+              relative flex h-[19.5rem] w-full cursor-grab touch-pan-y
+              items-center justify-center overflow-visible
               active:cursor-grabbing
-              sm:h-[27.5rem]
-              md:h-[29.5rem]
-              lg:h-[35rem]
-              xl:h-[38rem]
+              sm:h-[22.5rem]
+              md:h-[24.5rem]
+              lg:h-[27rem]
+              xl:h-[29rem]
             "
             onPointerCancel={handlePointerCancel}
             onPointerDown={handlePointerDown}
@@ -652,7 +699,7 @@ export function CardFanCarousel({
               );
 
               const cardClasses
-                = 'absolute w-[12.5rem] h-[17.5rem] sm:w-[15rem] sm:h-[21rem] md:w-[16.5rem] md:h-[23rem] lg:w-[18.5rem] lg:h-[25.5rem] rounded-2xl md:rounded-3xl cursor-pointer will-change-transform';
+                = 'absolute h-[15.5rem] w-[11rem] cursor-pointer rounded-2xl will-change-transform sm:h-[18.5rem] sm:w-[13.25rem] md:h-[20.5rem] md:w-[14.75rem] md:rounded-3xl lg:h-[22.5rem] lg:w-[16.25rem]';
 
               return card.linkUrl
                 ? (
@@ -738,8 +785,14 @@ export function CardFanCarousel({
 
       {/* Pagination indicators placed below the cards container */}
       {needsPagination && (
-        <div className="mt-4 flex w-full justify-center px-4 sm:mt-6 md:mt-8">
+        <div className="
+          mt-1 flex w-full justify-center px-4
+          sm:mt-2
+          md:mt-3
+        "
+        >
           <div
+            ref={paginationScrollerRef}
             className="
               flex max-w-[min(480px,calc(100vw-2rem))] items-center gap-1.5
               overflow-x-auto rounded-full border border-line/70 bg-card/90
