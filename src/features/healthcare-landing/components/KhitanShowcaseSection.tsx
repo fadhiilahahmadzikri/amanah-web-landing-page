@@ -423,5 +423,3 @@ export function KhitanShowcaseSection() {
     </section>
   );
 }
-
-export default KhitanShowcaseSection;

@@ -19,11 +19,14 @@ export function HealthcareShell({
   locale,
 }: HealthcareShellProps) {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen overflow-x-clip bg-background text-foreground">
       <MedicalClinicJsonLd />
       <SmoothScroll />
       <HealthcareHeader activePath={activePath} locale={locale} />
-      <main className="mx-auto max-w-[1300px] border-x-2 border-line">
+      <main className="
+        mx-auto max-w-[1300px] overflow-x-clip border-x-2 border-line
+      "
+      >
         {children}
         <TechnicalDivider />
         <HealthcareFAQ activePath={activePath} locale={locale} />

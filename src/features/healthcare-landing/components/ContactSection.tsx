@@ -136,7 +136,8 @@ export function ContactSection() {
           <div
             ref={rightRef}
             className="
-              flex flex-col justify-center gap-8 bg-background px-6 py-12
+              flex flex-col justify-center gap-8 bg-background px-5 py-12
+              sm:px-6
               md:px-10 md:py-16
             "
           >
@@ -144,7 +145,7 @@ export function ContactSection() {
               <div
                 key={item.href}
                 data-contact-item
-                className="flex flex-col gap-3"
+                className="flex min-w-0 flex-col gap-3"
               >
                 <HealthcareText className="font-semibold text-muted-foreground">
                   {item.label}
@@ -152,9 +153,13 @@ export function ContactSection() {
                 <a
                   href={item.href}
                   className="
-                    w-fit border-b border-line pb-0.5 amanah-type-subsection
-                    font-bold wrap-break-word text-foreground transition-colors
+                    w-fit max-w-full border-b border-line pb-0.5
+                    text-[clamp(1rem,4.4vw,1.4rem)] font-bold tracking-tight
+                    whitespace-nowrap text-foreground transition-colors
                     hover:border-foreground/50
+                    sm:text-xl
+                    md:text-2xl
+                    lg:amanah-type-subsection
                   "
                 >
                   {item.value}

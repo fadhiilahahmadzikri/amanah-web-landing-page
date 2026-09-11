@@ -66,10 +66,16 @@ const globalFilterFn: FilterFn<HealthcareReview> = (
   return matchGlobalQuery(row.original, filterValue);
 };
 
-export function useReviewsTable(reviews: HealthcareReview[]) {
+const DEFAULT_PAGE_SIZE = 12;
+
+export function useReviewsTable(
+  reviews: HealthcareReview[],
+  initialPageSize: number = DEFAULT_PAGE_SIZE,
+) {
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [visibleLimit, setVisibleLimit] = useState(initialPageSize);
 
   // State abstractions for clean UI consumption
   const [ratingSort, setRatingSortState] = useState<RatingSortOption>('default');
@@ -125,8 +131,14 @@ export function useReviewsTable(reviews: HealthcareReview[]) {
     getSortedRowModel: getSortedRowModel(),
   });
 
+  const handleGlobalFilterChange = (val: string) => {
+    setGlobalFilter(val);
+    setVisibleLimit(initialPageSize);
+  };
+
   const setRatingSort = (option: RatingSortOption) => {
     setRatingSortState(option);
+    setVisibleLimit(initialPageSize);
     if (option === 'rating-desc') {
       setSorting([{ id: 'rating', desc: true }]);
     } else if (option === 'rating-asc') {
@@ -138,7 +150,8 @@ export function useReviewsTable(reviews: HealthcareReview[]) {
 
   const setResponseFilter = (option: ResponseFilterOption) => {
     setResponseFilterState(option);
-    setColumnFilters(prev => {
+    setVisibleLimit(initialPageSize);
+    setColumnFilters((prev) => {
       const remaining = prev.filter(f => f.id !== 'ownerResponse');
       if (option === 'all') {
         return remaining;
@@ -149,7 +162,8 @@ export function useReviewsTable(reviews: HealthcareReview[]) {
 
   const setPhotosFilter = (option: PhotosFilterOption) => {
     setPhotosFilterState(option);
-    setColumnFilters(prev => {
+    setVisibleLimit(initialPageSize);
+    setColumnFilters((prev) => {
       const remaining = prev.filter(f => f.id !== 'photos');
       if (option === 'all') {
         return remaining;
@@ -165,6 +179,11 @@ export function useReviewsTable(reviews: HealthcareReview[]) {
     setPhotosFilterState('all');
     setSorting([]);
     setColumnFilters([]);
+    setVisibleLimit(initialPageSize);
+  };
+
+  const loadMore = (step: number = initialPageSize) => {
+    setVisibleLimit(prev => prev + step);
   };
 
   const isFiltered = Boolean(
@@ -176,15 +195,24 @@ export function useReviewsTable(reviews: HealthcareReview[]) {
 
   const rows = table.getRowModel().rows;
   const filteredReviews = useMemo(() => rows.map(r => r.original), [rows]);
+  const visibleReviews = useMemo(
+    () => filteredReviews.slice(0, visibleLimit),
+    [filteredReviews, visibleLimit],
+  );
+  const hasMore = visibleReviews.length < filteredReviews.length;
 
   return {
     table,
-    reviews: filteredReviews,
+    reviews: visibleReviews,
+    allFilteredReviews: filteredReviews,
     totalCount: reviews.length,
     filteredCount: rows.length,
+    visibleCount: visibleReviews.length,
+    hasMore,
+    loadMore,
     isFiltered,
     searchQuery: globalFilter,
-    setSearchQuery: setGlobalFilter,
+    setSearchQuery: handleGlobalFilterChange,
     ratingSort,
     setRatingSort,
     responseFilter,

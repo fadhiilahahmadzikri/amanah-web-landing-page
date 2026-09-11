@@ -39,6 +39,7 @@ type ReviewsToolboxProps = {
   responseFilter: ResponseFilterOption;
   searchQuery: string;
   totalCount: number;
+  visibleCount?: number;
 };
 
 export function ReviewsToolbox({
@@ -55,23 +56,30 @@ export function ReviewsToolbox({
   responseFilter,
   searchQuery,
   totalCount,
+  visibleCount,
 }: ReviewsToolboxProps) {
   return (
-    <div className={cn('w-full flex flex-col gap-2.5', className)}>
+    <div className={cn('flex w-full flex-col gap-2.5', className)}>
       {/* Satu Baris Horizontal Penuh: Search di Kiri (flex-1), Tombol Filter di Kanan (shrink-0) */}
       <div className="flex w-full items-center gap-2">
         {/* Sisi Kiri: Search Bar Fluid mengisi sisa ruang */}
-        <div className="relative flex-1 min-w-0">
+        <div className="relative min-w-0 flex-1">
           <Search
             aria-hidden="true"
-            className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+            className="
+              pointer-events-none absolute top-1/2 left-3 size-4
+              -translate-y-1/2 text-muted-foreground
+            "
           />
           <Input
             type="text"
             value={searchQuery}
             onChange={e => onSearchChange(e.target.value)}
             placeholder="Cari ulasan, nama pasien..."
-            className="h-10 w-full pl-9 pr-8 text-xs sm:text-sm"
+            className="
+              h-10 w-full pr-8 pl-9 text-xs
+              sm:text-sm
+            "
           />
           {searchQuery && (
             <button
@@ -79,8 +87,9 @@ export function ReviewsToolbox({
               onClick={() => onSearchChange('')}
               aria-label="Hapus pencarian"
               className="
-                absolute right-2.5 top-1/2 -translate-y-1/2 inline-flex size-5 items-center justify-center
-                cursor-pointer text-muted-foreground hover:text-foreground
+                absolute top-1/2 right-2.5 inline-flex size-5 -translate-y-1/2
+                cursor-pointer items-center justify-center text-muted-foreground
+                hover:text-foreground
               "
             >
               <X className="size-3.5" />
@@ -89,7 +98,11 @@ export function ReviewsToolbox({
         </div>
 
         {/* Sisi Kanan: Kontrol Filter (Ikon kompak di mobile, label teks di web) */}
-        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+        <div className="
+          flex shrink-0 items-center gap-1.5
+          sm:gap-2
+        "
+        >
           {/* 1. Rating Sorter */}
           <Select
             value={ratingSort}
@@ -100,26 +113,35 @@ export function ReviewsToolbox({
               title="Urutkan Rating"
               className={cn(
                 `
-                  relative size-10 shrink-0 p-0 justify-center
-                  [&>[data-slot=select-icon]]:hidden
-                  md:h-10 md:w-auto md:min-w-fit md:px-3 md:py-2 md:justify-between
-                  md:[&>[data-slot=select-icon]]:inline-flex md:[&>[data-slot=select-icon]]:ml-2
-                  cursor-pointer whitespace-nowrap
+                  relative size-10 shrink-0 cursor-pointer justify-center p-0
+                  whitespace-nowrap
+                  *:data-[slot=select-icon]:hidden
+                  md:h-10 md:w-auto md:min-w-fit md:justify-between md:px-3
+                  md:py-2
+                  md:*:data-[slot=select-icon]:ml-2
+                  md:*:data-[slot=select-icon]:inline-flex
                 `,
                 ratingSort !== 'default'
-                  && 'border-primary bg-primary/10 text-primary font-semibold',
+                && 'border-primary bg-primary/10 font-semibold text-primary',
               )}
             >
               <div className="flex items-center gap-2">
                 <ArrowDownUp className="size-4 shrink-0" />
-                <span className="hidden md:inline">
+                <span className="
+                  hidden
+                  md:inline
+                "
+                >
                   <SelectValue placeholder="Urutkan Rating" />
                 </span>
               </div>
               {ratingSort !== 'default' && (
                 <span
                   aria-hidden="true"
-                  className="absolute top-1.5 right-1.5 size-1.5 rounded-full bg-primary md:hidden"
+                  className="
+                    absolute top-1.5 right-1.5 size-1.5 rounded-full bg-primary
+                    md:hidden
+                  "
                 />
               )}
             </SelectTrigger>
@@ -140,26 +162,35 @@ export function ReviewsToolbox({
               title="Tanggapan Klinik"
               className={cn(
                 `
-                  relative size-10 shrink-0 p-0 justify-center
-                  [&>[data-slot=select-icon]]:hidden
-                  md:h-10 md:w-auto md:min-w-fit md:px-3 md:py-2 md:justify-between
-                  md:[&>[data-slot=select-icon]]:inline-flex md:[&>[data-slot=select-icon]]:ml-2
-                  cursor-pointer whitespace-nowrap
+                  relative size-10 shrink-0 cursor-pointer justify-center p-0
+                  whitespace-nowrap
+                  *:data-[slot=select-icon]:hidden
+                  md:h-10 md:w-auto md:min-w-fit md:justify-between md:px-3
+                  md:py-2
+                  md:*:data-[slot=select-icon]:ml-2
+                  md:*:data-[slot=select-icon]:inline-flex
                 `,
                 responseFilter !== 'all'
-                  && 'border-primary bg-primary/10 text-primary font-semibold',
+                && 'border-primary bg-primary/10 font-semibold text-primary',
               )}
             >
               <div className="flex items-center gap-2">
                 <MessageCircle className="size-4 shrink-0" />
-                <span className="hidden md:inline">
+                <span className="
+                  hidden
+                  md:inline
+                "
+                >
                   <SelectValue placeholder="Tanggapan Klinik" />
                 </span>
               </div>
               {responseFilter !== 'all' && (
                 <span
                   aria-hidden="true"
-                  className="absolute top-1.5 right-1.5 size-1.5 rounded-full bg-primary md:hidden"
+                  className="
+                    absolute top-1.5 right-1.5 size-1.5 rounded-full bg-primary
+                    md:hidden
+                  "
                 />
               )}
             </SelectTrigger>
@@ -180,26 +211,35 @@ export function ReviewsToolbox({
               title="Foto Bukti Ulasan"
               className={cn(
                 `
-                  relative size-10 shrink-0 p-0 justify-center
-                  [&>[data-slot=select-icon]]:hidden
-                  md:h-10 md:w-auto md:min-w-fit md:px-3 md:py-2 md:justify-between
-                  md:[&>[data-slot=select-icon]]:inline-flex md:[&>[data-slot=select-icon]]:ml-2
-                  cursor-pointer whitespace-nowrap
+                  relative size-10 shrink-0 cursor-pointer justify-center p-0
+                  whitespace-nowrap
+                  *:data-[slot=select-icon]:hidden
+                  md:h-10 md:w-auto md:min-w-fit md:justify-between md:px-3
+                  md:py-2
+                  md:*:data-[slot=select-icon]:ml-2
+                  md:*:data-[slot=select-icon]:inline-flex
                 `,
                 photosFilter !== 'all'
-                  && 'border-primary bg-primary/10 text-primary font-semibold',
+                && 'border-primary bg-primary/10 font-semibold text-primary',
               )}
             >
               <div className="flex items-center gap-2">
                 <Camera className="size-4 shrink-0" />
-                <span className="hidden md:inline">
+                <span className="
+                  hidden
+                  md:inline
+                "
+                >
                   <SelectValue placeholder="Foto Bukti" />
                 </span>
               </div>
               {photosFilter !== 'all' && (
                 <span
                   aria-hidden="true"
-                  className="absolute top-1.5 right-1.5 size-1.5 rounded-full bg-primary md:hidden"
+                  className="
+                    absolute top-1.5 right-1.5 size-1.5 rounded-full bg-primary
+                    md:hidden
+                  "
                 />
               )}
             </SelectTrigger>
@@ -219,33 +259,55 @@ export function ReviewsToolbox({
               title="Reset Semua Filter"
               onClick={onResetFilters}
               className="
-                size-10 shrink-0 p-0 rounded-none border-line text-xs font-medium cursor-pointer
-                hover:bg-muted md:h-10 md:w-auto md:px-3 md:py-2 md:gap-1.5
+                size-10 shrink-0 cursor-pointer rounded-none border-line p-0
+                text-xs font-medium
+                hover:bg-muted
+                md:h-10 md:w-auto md:gap-1.5 md:px-3 md:py-2
               "
             >
               <RotateCcw className="size-3.5" />
-              <span className="hidden md:inline">Reset</span>
+              <span className="
+                hidden
+                md:inline
+              "
+              >
+                Reset
+              </span>
             </Button>
           )}
         </div>
       </div>
 
       {/* Info Status Bar Rata Kiri: Menampilkan Count & Filter Aktif */}
-      <div className="flex flex-wrap items-center justify-between gap-2 px-0.5 text-[11px] text-muted-foreground sm:text-xs">
+      <div className="
+        flex flex-wrap items-center justify-between gap-2 px-0.5 text-[11px]
+        text-muted-foreground
+        sm:text-xs
+      "
+      >
+        {/* Counter ulasan */}
         <div className="flex items-center gap-2">
           <span>
             Menampilkan
             {' '}
-            <strong className="font-semibold text-foreground">{filteredCount}</strong>
+            <strong className="font-semibold text-foreground">
+              {visibleCount !== undefined && visibleCount < filteredCount
+                ? `${visibleCount} dari ${filteredCount}`
+                : filteredCount}
+            </strong>
             {' '}
-            dari
+            {visibleCount !== undefined && visibleCount < filteredCount ? '' : 'dari'}
             {' '}
-            {totalCount}
+            {visibleCount !== undefined && visibleCount < filteredCount ? '' : totalCount}
             {' '}
             ulasan
           </span>
           {isFiltered && (
-            <span className="inline-flex items-center rounded-none bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
+            <span className="
+              inline-flex items-center rounded-none bg-primary/10 px-1.5 py-0.5
+              text-[10px] font-semibold text-primary
+            "
+            >
               Filter Aktif
             </span>
           )}
@@ -254,19 +316,31 @@ export function ReviewsToolbox({
         {/* Quick pill tag indicators */}
         <div className="flex flex-wrap items-center gap-1.5">
           {ratingSort !== 'default' && (
-            <span className="inline-flex items-center gap-1 rounded-none border border-line bg-card px-2 py-0.5 text-[10px] text-foreground">
-              <Star className="size-2.5 text-amber-500 fill-amber-500" />
+            <span className="
+              inline-flex items-center gap-1 rounded-none border border-line
+              bg-card px-2 py-0.5 text-[10px] text-foreground
+            "
+            >
+              <Star className="size-2.5 fill-amber-500 text-amber-500" />
               {ratingSort === 'rating-desc' ? 'Rating 5→1' : 'Rating 1→5'}
             </span>
           )}
           {responseFilter !== 'all' && (
-            <span className="inline-flex items-center gap-1 rounded-none border border-line bg-card px-2 py-0.5 text-[10px] text-foreground">
+            <span className="
+              inline-flex items-center gap-1 rounded-none border border-line
+              bg-card px-2 py-0.5 text-[10px] text-foreground
+            "
+            >
               <MessageCircle className="size-2.5 text-amanah-blue" />
               {responseFilter === 'responded' ? 'Dijawab' : 'Belum Dijawab'}
             </span>
           )}
           {photosFilter !== 'all' && (
-            <span className="inline-flex items-center gap-1 rounded-none border border-line bg-card px-2 py-0.5 text-[10px] text-foreground">
+            <span className="
+              inline-flex items-center gap-1 rounded-none border border-line
+              bg-card px-2 py-0.5 text-[10px] text-foreground
+            "
+            >
               <Camera className="size-2.5 text-amanah-mint" />
               {photosFilter === 'with-photos' ? 'Ada Foto' : 'Tanpa Foto'}
             </span>
