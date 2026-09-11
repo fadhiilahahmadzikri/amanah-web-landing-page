@@ -6,4 +6,10 @@ export type HealthcareTeamMember = {
   name: string;
   role: string;
   showSocials?: boolean;
+  socials?: {
+    instagram?: string;
+    linkedin?: string;
+  };
+  instagramUrl?: string;
+  linkedinUrl?: string;
 };

@@ -1,2 +1,2 @@
 export { TeamCard } from './components/TeamCard';
-export type { HealthcareTeamMember } from './types';
+export type { HealthcareSocials, HealthcareTeamMember } from './types';

@@ -75,6 +75,9 @@ export function TeamCard({
   showRightRail = false,
 }: TeamCardProps) {
   const showSocials = member.showSocials ?? true;
+  const instagramUrl = member.socials?.instagram ?? member.instagramUrl;
+  const linkedinUrl = member.socials?.linkedin ?? member.linkedinUrl;
+  const hasSocials = showSocials && Boolean(instagramUrl || linkedinUrl);
 
   return (
     <article
@@ -107,7 +110,8 @@ export function TeamCard({
         <span
           aria-hidden
           className="
-            absolute inset-y-0 right-0 z-10 w-2.5 border-l border-line opacity-70
+            absolute inset-y-0 right-0 z-10 w-2.5 border-l border-line
+            opacity-70
             sm:w-6
             md:w-8
           "
@@ -126,8 +130,7 @@ export function TeamCard({
           as="h3"
           size="card"
           className="
-            line-clamp-2 max-w-72 font-extrabold leading-snug
-            text-sm
+            line-clamp-2 max-w-72 text-sm/snug font-extrabold
             min-[380px]:text-base
             md:amanah-type-card-title
           "
@@ -158,13 +161,18 @@ export function TeamCard({
         {/* Pixelize animated texture with top masking blend towards header */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
+          className="
+            pointer-events-none absolute inset-0 z-0 overflow-hidden select-none
+          "
         >
           <PixelMeshBackground
             initialProgress={1}
             progress={1}
             maskGradient="linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.2) 72%, transparent 92%)"
-            className="size-full opacity-45 dark:opacity-65"
+            className="
+              size-full opacity-45
+              dark:opacity-65
+            "
           />
         </div>
 
@@ -177,39 +185,57 @@ export function TeamCard({
           className="z-1 object-contain object-bottom"
         />
 
-        {showSocials && (
+        {hasSocials && (
           <div className="
             absolute right-2.5 bottom-2.5 z-10 flex gap-2
             sm:right-4 sm:bottom-4 sm:gap-2.5
             md:right-5 md:bottom-5
           "
           >
-            <Link
-              href="/kontak"
-              aria-label={`LinkedIn ${member.name}`}
-              className="
-                inline-flex size-9 items-center justify-center rounded-lg
-                bg-primary text-primary-foreground shadow-2xs transition-all
-                hover:scale-110 hover:bg-amanah-blue hover:shadow-xs
-                sm:size-10 sm:rounded-xl
-                md:size-11
-              "
-            >
-              <LinkedinIcon className="size-4.5 sm:size-5 md:size-5.5" />
-            </Link>
-            <Link
-              href="/kontak"
-              aria-label={`Instagram ${member.name}`}
-              className="
-                inline-flex size-9 items-center justify-center rounded-lg
-                bg-primary text-primary-foreground shadow-2xs transition-all
-                hover:scale-110 hover:bg-amanah-blue hover:shadow-xs
-                sm:size-10 sm:rounded-xl
-                md:size-11
-              "
-            >
-              <InstagramIcon className="size-4.5 sm:size-5 md:size-5.5" />
-            </Link>
+            {linkedinUrl && (
+              <Link
+                href={linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`LinkedIn ${member.name}`}
+                className="
+                  inline-flex size-9 items-center justify-center rounded-lg
+                  bg-primary text-primary-foreground shadow-2xs transition-all
+                  hover:scale-110 hover:bg-amanah-blue hover:shadow-xs
+                  sm:size-10 sm:rounded-xl
+                  md:size-11
+                "
+              >
+                <LinkedinIcon className="
+                  size-4.5
+                  sm:size-5
+                  md:size-5.5
+                "
+                />
+              </Link>
+            )}
+            {instagramUrl && (
+              <Link
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Instagram ${member.name}`}
+                className="
+                  inline-flex size-9 items-center justify-center rounded-lg
+                  bg-primary text-primary-foreground shadow-2xs transition-all
+                  hover:scale-110 hover:bg-amanah-blue hover:shadow-xs
+                  sm:size-10 sm:rounded-xl
+                  md:size-11
+                "
+              >
+                <InstagramIcon className="
+                  size-4.5
+                  sm:size-5
+                  md:size-5.5
+                "
+                />
+              </Link>
+            )}
           </div>
         )}
       </div>

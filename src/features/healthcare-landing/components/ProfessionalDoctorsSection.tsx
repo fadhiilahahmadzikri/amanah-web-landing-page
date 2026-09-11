@@ -23,6 +23,10 @@ const professionalDoctors = [
       src: '/assets/images/dokter-fenti.webp',
       alt: 'dr. Ika Fentiningrum dokter umum Klinik Amanah Healthcare',
     },
+    socials: {
+      instagram:
+        'https://www.instagram.com/fen.penn?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==',
+    },
   },
   {
     id: 'nur-hidayatun',
@@ -31,6 +35,10 @@ const professionalDoctors = [
     image: {
       src: '/assets/images/bidan-hida.webp',
       alt: 'Bidan Nur Hidayatun, S.ST Klinik Amanah Healthcare',
+    },
+    socials: {
+      instagram:
+        'https://www.instagram.com/nurhidayatun13?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==',
     },
   },
 ] satisfies HealthcareTeamMember[];
@@ -113,8 +121,8 @@ export function ProfessionalDoctorsSection() {
         <div
           ref={gridRef}
           className="
-            relative mx-auto grid max-w-3xl auto-rows-fr gap-px bg-line
-            grid-cols-2
+            relative mx-auto grid max-w-3xl auto-rows-fr grid-cols-2 gap-px
+            bg-line
           "
         >
           {professionalDoctors.map((doctor, index) => (
