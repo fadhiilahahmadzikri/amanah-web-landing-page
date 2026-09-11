@@ -332,3 +332,22 @@
   letter-spacing: 0;
   text-transform: uppercase;
 }
+
+/* Infinite Reviews Marquee Animation (4-buffer single-track seamless loop) */
+@keyframes amanahMarqueeLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-25%, 0, 0);
+  }
+}
+
+@keyframes amanahMarqueeRight {
+  0% {
+    transform: translate3d(-25%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}

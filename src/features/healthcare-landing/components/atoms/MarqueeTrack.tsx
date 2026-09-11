@@ -10,15 +10,17 @@ type MarqueeTrackProps = {
   durationSeconds?: number;
   gapClassName?: string;
   pauseOnHover?: boolean;
+  repeat?: number;
 };
 
 export function MarqueeTrack({
   children,
   className,
   direction = 'left',
-  durationSeconds = 42,
+  durationSeconds = 50,
   gapClassName = 'gap-4 sm:gap-6',
   pauseOnHover = true,
+  repeat = 4,
 }: MarqueeTrackProps) {
   const isLeft = direction === 'left';
   const animationName = isLeft ? 'amanahMarqueeLeft' : 'amanahMarqueeRight';
@@ -30,32 +32,10 @@ export function MarqueeTrack({
         className,
       )}
     >
-      <style>
-        {`
-        @keyframes amanahMarqueeLeft {
-          0% {
-            transform: translate3d(0, 0, 0);
-          }
-          100% {
-            transform: translate3d(-100%, 0, 0);
-          }
-        }
-        @keyframes amanahMarqueeRight {
-          0% {
-            transform: translate3d(-100%, 0, 0);
-          }
-          100% {
-            transform: translate3d(0, 0, 0);
-          }
-        }
-      `}
-      </style>
-
-      {/* First track */}
+      {/* Single animated container holding all repeated tracks to prevent any compositor/timing drift */}
       <div
         className={cn(
-          'flex shrink-0 items-stretch py-1 pr-4 sm:pr-6 will-change-transform',
-          gapClassName,
+          'flex shrink-0 items-stretch will-change-transform',
           pauseOnHover
           && `
             group-hover:[animation-play-state:paused]
@@ -67,27 +47,18 @@ export function MarqueeTrack({
           animation: `${animationName} ${durationSeconds}s linear infinite`,
         }}
       >
-        {children}
-      </div>
-
-      {/* Second identical track to complete the seamless loop */}
-      <div
-        aria-hidden="true"
-        className={cn(
-          'flex shrink-0 items-stretch py-1 pr-4 sm:pr-6 will-change-transform',
-          gapClassName,
-          pauseOnHover
-          && `
-            group-hover:[animation-play-state:paused]
-            group-hover/marquee-section:[animation-play-state:paused]
-          `,
-          'motion-reduce:[animation-play-state:paused]',
-        )}
-        style={{
-          animation: `${animationName} ${durationSeconds}s linear infinite`,
-        }}
-      >
-        {children}
+        {Array.from({ length: repeat }).map((_, index) => (
+          <div
+            key={index}
+            aria-hidden={index > 0 ? true : undefined}
+            className={cn(
+              'flex shrink-0 items-stretch py-1 pr-4 sm:pr-6',
+              gapClassName,
+            )}
+          >
+            {children}
+          </div>
+        ))}
       </div>
     </div>
   );

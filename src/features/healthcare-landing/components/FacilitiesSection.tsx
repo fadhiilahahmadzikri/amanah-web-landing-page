@@ -231,7 +231,7 @@ export function FacilitiesSection() {
               />
               <div className="flex flex-col gap-2">
                 <HealthcareText className="italic">
-                  Certified by the American Dental Association
+                  Terverifikasi SATUSEHAT
                 </HealthcareText>
                 <Link
                   href="/kontak"
@@ -242,7 +242,7 @@ export function FacilitiesSection() {
                     hover:border-primary hover:text-amanah-blue
                   "
                 >
-                  Schedule Your Visit
+                  Jadwalkan Kunjungan Anda
                   <ArrowUpRightIcon aria-hidden />
                 </Link>
               </div>
