@@ -51,9 +51,9 @@ export function ReviewMarqueeCard({
       <div className="mt-5 flex items-center gap-3 border-t border-line/60 pt-4 sm:mt-6">
         <Avatar
           size="default"
-          className="size-9 rounded-none border border-line bg-muted sm:size-10"
+          className="size-9 shrink-0 overflow-hidden rounded-none border-0 bg-transparent sm:size-10"
         >
-          <AvatarFallback className="rounded-none text-xs font-semibold text-foreground">
+          <AvatarFallback className="rounded-none text-xs font-semibold text-foreground bg-accent/60">
             {review.initials}
           </AvatarFallback>
           {review.avatar && !imageError && (

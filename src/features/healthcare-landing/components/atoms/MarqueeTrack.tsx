@@ -54,9 +54,13 @@ export function MarqueeTrack({
       {/* First track */}
       <div
         className={cn(
-          'flex shrink-0 items-stretch py-1 will-change-transform',
+          'flex shrink-0 items-stretch py-1 pr-4 sm:pr-6 will-change-transform',
           gapClassName,
-          pauseOnHover && 'group-hover:[animation-play-state:paused]',
+          pauseOnHover
+          && `
+            group-hover:[animation-play-state:paused]
+            group-hover/marquee-section:[animation-play-state:paused]
+          `,
           'motion-reduce:[animation-play-state:paused]',
         )}
         style={{
@@ -70,9 +74,13 @@ export function MarqueeTrack({
       <div
         aria-hidden="true"
         className={cn(
-          'flex shrink-0 items-stretch py-1 will-change-transform',
+          'flex shrink-0 items-stretch py-1 pr-4 sm:pr-6 will-change-transform',
           gapClassName,
-          pauseOnHover && 'group-hover:[animation-play-state:paused]',
+          pauseOnHover
+          && `
+            group-hover:[animation-play-state:paused]
+            group-hover/marquee-section:[animation-play-state:paused]
+          `,
           'motion-reduce:[animation-play-state:paused]',
         )}
         style={{

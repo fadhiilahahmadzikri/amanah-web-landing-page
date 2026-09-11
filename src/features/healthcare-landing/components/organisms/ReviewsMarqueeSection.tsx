@@ -122,7 +122,7 @@ export function ReviewsMarqueeSection({ className }: ReviewsMarqueeSectionProps)
         {/* Top row marquee: moving left */}
         <MarqueeTrack
           direction="left"
-          durationSeconds={44}
+          durationSeconds={50}
           gapClassName="gap-4 sm:gap-6"
         >
           {marqueeTopReviews.map(review => (
@@ -133,7 +133,7 @@ export function ReviewsMarqueeSection({ className }: ReviewsMarqueeSectionProps)
         {/* Bottom row marquee: moving right */}
         <MarqueeTrack
           direction="right"
-          durationSeconds={46}
+          durationSeconds={50}
           gapClassName="gap-4 sm:gap-6"
         >
           {marqueeBottomReviews.map(review => (
