@@ -6,7 +6,7 @@ import { HealthcareHeading, HealthcareText } from './HealthcareTypography';
 
 export type SectionHeaderAlign = 'center' | 'left';
 
-export type SectionHeaderProps = ComponentPropsWithoutRef<'div'> & {
+export type SectionHeaderProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
   actionSlot?: ReactNode;
   align?: SectionHeaderAlign;
   description?: ReactNode;

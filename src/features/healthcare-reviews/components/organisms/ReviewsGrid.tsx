@@ -179,7 +179,14 @@ export function ReviewsGrid({
           eyebrow="Ulasan Pasien"
           headingAs="h1"
           headingSize="display"
-          title="Mereka yang Telah Mempercayai Klinik Pratama Amanah Healthcare"
+          title={(
+            <>
+              <span className="inline md:hidden">Telah Dipercaya Banyak Keluarga</span>
+              <span className="hidden md:inline">
+                Mereka yang Telah Mempercayai Klinik Pratama Amanah Healthcare
+              </span>
+            </>
+          )}
           description="Setiap kunjungan membawa cerita, dari pemeriksaan hingga momen penting bersama keluarga."
           descriptionSize="lead"
         />
