@@ -18,7 +18,7 @@ import { SectionContainer } from './SectionContainer';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const heroMetrics = ['Klinik Persalinan dan umum', 'Yogyakarta', '5,000+ pasien'] as const;
+const heroMetrics = ['Klinik Persalinan', 'Yogyakarta', 'Klinik Umum'] as const;
 
 type HeroMetricsRailPlacement = 'desktop' | 'mobile';
 
@@ -340,7 +340,13 @@ export function HeroSection() {
           "
         />
       </div>
-      <ViewportLine position="bottom" className="hidden lg:block" />
+      <ViewportLine
+        position="bottom"
+        className="
+          hidden
+          lg:block
+        "
+      />
     </section>
   );
 }
