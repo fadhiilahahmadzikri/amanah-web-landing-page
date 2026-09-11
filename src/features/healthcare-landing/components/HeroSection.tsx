@@ -12,6 +12,7 @@ import {
   ViewportLine,
 } from '@/components/healthcare';
 import { cn } from '@/utils/Helpers';
+import { PixelMeshBackground } from '@/features/healthcare-about/components/atoms/PixelMeshBackground';
 import { hero } from '../data';
 import { ArrowCtaButton } from './ArrowCtaButton';
 import { SectionContainer } from './SectionContainer';
@@ -211,6 +212,28 @@ export function HeroSection() {
       id="beranda"
       className="relative bg-background"
     >
+      {/* Texture pixel mesh di pojok atas kanan dengan masking diagonal ke bawah */}
+      <div
+        data-pixel-background
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute top-0 right-0 z-0 h-[450px] w-full max-w-[550px]
+          overflow-hidden select-none
+          sm:h-[520px] sm:max-w-[650px]
+          md:h-[620px] md:max-w-[750px]
+          lg:h-[720px] lg:max-w-[850px]
+        "
+      >
+        <PixelMeshBackground
+          initialProgress={1}
+          maskGradient="linear-gradient(225deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.75) 20%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0.12) 65%, transparent 80%)"
+          className="
+            size-full opacity-35
+            dark:opacity-55
+          "
+        />
+      </div>
+
       <div
         data-hero-mobile-stack
         className="

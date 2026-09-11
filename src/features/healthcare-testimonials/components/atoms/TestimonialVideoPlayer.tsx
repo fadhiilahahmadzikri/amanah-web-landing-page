@@ -4,6 +4,7 @@ import type { TestimonialVideoData } from '../../types';
 import { Play, Volume2, VolumeX } from 'lucide-react';
 import Image from 'next/image';
 import { useRef, useState, useSyncExternalStore } from 'react';
+import { cn } from '@/utils/Helpers';
 
 type TestimonialVideoPlayerProps = {
   video: TestimonialVideoData;
@@ -17,9 +18,11 @@ export function TestimonialVideoPlayer({ video }: TestimonialVideoPlayerProps) {
 
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
+  const [isIframeLoaded, setIsIframeLoaded] = useState(false);
   const isMounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
-  const isYouTube = Boolean(video.youtubeId);
+  const hasLocalSource = Boolean(video.src);
+  const isYouTube = !hasLocalSource && Boolean(video.youtubeId);
 
   const togglePlay = () => {
     if (isYouTube) {
@@ -88,27 +91,57 @@ export function TestimonialVideoPlayer({ video }: TestimonialVideoPlayerProps) {
       "
     >
       {/* 1. Mode YouTube Shorts Embed (Controls=0, Autoplay, Muted, Loop, Crop Masking) */}
-      {isYouTube && isMounted && (
+      {isYouTube && (
         <div className="
           relative flex size-full items-center justify-center overflow-hidden
         "
         >
-          <iframe
-            ref={iframeRef}
-            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${video.youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1&fs=0`}
-            title={video.title}
-            className="
-              size-full scale-[1.2] border-0 object-cover transition-transform
-              duration-300 select-none
-            "
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+          {/* Instant poster preview until iframe is completely loaded and ready */}
+          {video.poster && (
+            <div
+              className={cn(
+                'absolute inset-0 z-10 transition-opacity duration-700 ease-out',
+                isIframeLoaded ? 'pointer-events-none opacity-0' : 'opacity-100',
+              )}
+            >
+              <Image
+                src={video.poster}
+                alt={video.title}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+              {!isIframeLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/25 backdrop-blur-[1px]">
+                  <span className="flex size-14 items-center justify-center rounded-full border border-white/30 bg-black/60 text-white shadow-lg backdrop-blur-md animate-pulse">
+                    <Play className="ml-1 size-7 text-white/90" />
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
+
+          {isMounted && (
+            <iframe
+              ref={iframeRef}
+              src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${video.youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1&fs=0`}
+              title={video.title}
+              loading="eager"
+              onLoad={() => setIsIframeLoaded(true)}
+              className="
+                size-full scale-[1.2] border-0 object-cover transition-transform
+                duration-300 select-none
+              "
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          )}
         </div>
       )}
 
-      {/* 2. Mode Video Lokal (.mp4) jika tanpa YouTube ID */}
-      {!isYouTube && video.src && (
+      {/* 2. Mode Video Lokal (.mp4) jika ada sumber lokal */}
+      {hasLocalSource && (
         <video
           ref={videoRef}
           src={video.src}

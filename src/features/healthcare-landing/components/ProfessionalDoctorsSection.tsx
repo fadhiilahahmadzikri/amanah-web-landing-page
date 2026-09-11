@@ -112,7 +112,18 @@ export function ProfessionalDoctorsSection() {
           <SectionHeader
             ref={headerRef}
             eyebrow="Kenali Dokter Kami"
-            title="Hangat Mendampingi, Sepenuh Hati."
+            title={(
+              <>
+                <span className="inline md:hidden">
+                  Hangat Mendampingi,
+                  <br />
+                  Sepenuh Hati.
+                </span>
+                <span className="hidden md:inline">
+                  Hangat Mendampingi, Sepenuh Hati.
+                </span>
+              </>
+            )}
             description="Dokter Klinik Amanah Healthcare berkomitmen memberikan pendampingan yang nyaman dan terpercaya bagi pasien dan keluarga."
             descriptionClassName="max-w-xl"
           />

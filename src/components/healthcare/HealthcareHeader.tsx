@@ -4,6 +4,12 @@ import { ArrowRightIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import {
   Sheet,
   SheetClose,
   SheetContent,
@@ -12,10 +18,11 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { AppConfig } from '@/utils/AppConfig';
-import { cn, getI18nPath } from '@/utils/Helpers';
+import { cn } from '@/utils/Helpers';
 import { AmanahLogo } from './AmanahLogo';
 import { healthcareNavigationItems } from './data';
 import { getHealthcareHref } from './healthcareNavigation';
+import { PixelIcon } from './pixel-icons';
 import { SectionContainer } from './SectionContainer';
 import { ThemeToggle } from './ThemeToggle';
 import { ViewportLine } from './ViewportLine';
@@ -37,6 +44,7 @@ type HealthcareNavLinkProps = {
 type HealthcareMobileMenuProps = {
   activeValue: string;
   locale: string;
+  onOpenUnderConstruction: () => void;
   onSelect: (value: string) => void;
 };
 
@@ -135,6 +143,7 @@ function HealthcareNavLink({
 function HealthcareMobileMenu({
   activeValue,
   locale,
+  onOpenUnderConstruction,
   onSelect,
 }: HealthcareMobileMenuProps) {
   return (
@@ -216,18 +225,19 @@ function HealthcareMobileMenu({
 
         <div className="border-t border-line p-4">
           <SheetClose asChild>
-            <a
-              href={getI18nPath('/sign-in', locale)}
+            <button
+              type="button"
+              onClick={onOpenUnderConstruction}
               className="
-                flex min-h-12 items-center justify-between rounded-xl border
+                flex w-full min-h-12 items-center justify-between rounded-xl border
                 border-line bg-background px-4 amanah-type-small font-semibold
-                text-foreground transition-colors
+                text-foreground transition-colors cursor-pointer
                 hover:bg-accent
               "
             >
               Masuk
               <ArrowRightIcon aria-hidden className="size-4" />
-            </a>
+            </button>
           </SheetClose>
         </div>
       </SheetContent>
@@ -240,6 +250,7 @@ export function HealthcareHeader({
   locale = AppConfig.i18n.defaultLocale,
 }: HealthcareHeaderProps) {
   const [activeValue, setActiveValue] = useState(activePath);
+  const [isUnderConstructionOpen, setIsUnderConstructionOpen] = useState(false);
 
   useEffect(() => {
     const syncActiveValue = () => {
@@ -309,25 +320,56 @@ export function HealthcareHeader({
           >
             <ThemeToggle />
           </div>
-          <a
-            href={getI18nPath('/sign-in', locale)}
+          <button
+            type="button"
+            onClick={() => setIsUnderConstructionOpen(true)}
             className="
               hidden h-full items-center border-l border-line px-4
               amanah-type-small font-medium text-muted-foreground
-              transition-colors
+              transition-colors cursor-pointer
               hover:text-foreground
               sm:inline-flex
             "
           >
             Masuk
-          </a>
+          </button>
           <HealthcareMobileMenu
             activeValue={activeValue}
             locale={locale}
+            onOpenUnderConstruction={() => setIsUnderConstructionOpen(true)}
             onSelect={setActiveValue}
           />
         </div>
       </SectionContainer>
+
+      <Dialog open={isUnderConstructionOpen} onOpenChange={setIsUnderConstructionOpen}>
+        <DialogContent className="max-w-xs rounded-none border border-line bg-card p-6 text-center sm:max-w-sm sm:p-8">
+          <div className="flex flex-col items-center justify-center gap-4">
+            <div className="flex size-20 items-center justify-center border border-line bg-muted/40 p-3 shadow-inner">
+              <PixelIcon name="palu" size="responsive" svgClassName="size-12" title="Under Construction" />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <DialogTitle className="text-base font-bold text-foreground sm:text-lg">
+                Fitur Sedang Disiapkan
+              </DialogTitle>
+              <p className="text-xs font-semibold tracking-wider text-amanah-blue uppercase">
+                Under Construction
+              </p>
+              <DialogDescription className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                Please be patient, coming soon. Portal pasien dan integrasi akun sedang dalam tahap pengembangan.
+              </DialogDescription>
+            </div>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setIsUnderConstructionOpen(false)}
+              className="mt-2 w-full rounded-none border-line text-xs font-semibold cursor-pointer"
+            >
+              Tutup
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </header>
   );
 }

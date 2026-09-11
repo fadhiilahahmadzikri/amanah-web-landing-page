@@ -26,6 +26,7 @@ export const testimonialShowcaseItems: TestimonialShowcaseItem[] = [
     ctaHref:
       'https://wa.me/6281392456664?text=Halo%20Klinik%20Amanah,%20saya%20ingin%20jadwalkan%20layanan%20khitan%20anak',
     video: {
+      src: '/assets/videos/khitan-anak-gibran.mp4',
       youtubeUrl: 'https://youtube.com/shorts/XJ2av2DOyEU',
       youtubeId: 'XJ2av2DOyEU',
       poster: '/assets/images/dokumentasi/dokumentasi-1.webp',
